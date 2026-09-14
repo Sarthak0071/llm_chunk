@@ -1,0 +1,187 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "first_degree-804486400-facts_p1",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p1"
+      ],
+      "text": "DAVA: Davacı vekili dava dilekçesinde özetle; Borçlu----- müvekkilinden aldığı malların bedeli olan --------- ödememesi üzerine davalı hakkında ------açılan ------ sayılı takibe itiraz edildiğini ve takibin durmuş bulunduğunu, borçlu şirketin haksız ve dayanaksız itirazı neticesinde müvekkilinin zarara uğradığını, mağduriyetinin giderilmesi amacıyla takip bedelinin %20’sinden aşağı olamamak üzere icra tazminatına hükmedilmesini talep ettiklerini, alacağın tahsili amacıyla takibe devam edilmesi için bu davayı açmak zaruretinin hasıl olduğunu belirterek itirazının iptaline ve ----takibin devamına, alacağa fatura tarihinden itibaren işleyecek en yüksek ticari faize karar verilmesine, borçlunun hakkında haksız itirazı nedeniyle %20 inkar tazminatına mahkum edilmesine, masraflar ve ücreti vekaletin de karşı tarafa yükletilmesine karar verilmesini talep etmiştir.",
+      "char_length": 869,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "first_degree-804486400-facts_p2",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p2"
+      ],
+      "text": "CEVAP: Davalı vekilinin ---- tarihli cevap dilekçesinde özetle;\nMüvekkili şirketin ------ adresinde ikamet ettiğini, HMK madde 6 gereği yetkili mahkemenin davalı gerçek veya tüzel kişinin davanın açıldığı tarihteki yerleşim yeri mahkemesi olan -------- Asliye Ticaret Mahkemelerinin yetkili olduğunu, yetki\nitirazında bulunduklarını; müvekkili şirket ile davalı borçlu şirket arasında alım-satımdan kaynaklanan ticari ilişkinin mevcut bulunduğunu, müvekkili şirketçe davacı tarafa ---- ürün satıldığını, davacı tarafça bir takım ödemelerin yapıldığını ödenmemiş ----bakiye alacaklarının bulunduğunu; davacının yaptığı icra takibi ve devamında açtığı işbu itirazın iptali davasının tamamen haksız, mesnetsiz ve kötü niyetli olduğunu, haksız ve dayanaksız davanın reddine, alacaklı/davacının icra takibinin iptali ve alacaklı/davacının davasında tamamen haksız, mesnetsiz ve kötü niyetli olduğundan davacı tarafın %20‘den aşağı olmamak üzere kötü niyet tazminatına hükmedilmesini, yargılama giderleri ve vekâlet ücretinin karşı tarafa yüklemesine karar verilmesini talep etmiştir.",
+      "char_length": 1078,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "first_degree-804486400-facts_p3",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p3"
+      ],
+      "text": "DELİLLER:---- sayılı takip dosyasının, ---- tarihli yazı cevabı ile ---- tarihli ara karar ile talimat yazılarak davacı şirketin---- ticari defterlerinin mali müşavir bilirkişi marifetiyle incelenerek rapor aldırılması istenilmiş ve ------- tarihli bilirkişi raporunun ve mahkememizce bilirkişi raporunun alındığı alınmıştır.",
+      "char_length": 325,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "first_degree-804486400-rule_application_p1",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "rule_application_p1"
+      ],
+      "text": "DELİLLERİN DEĞERLENDİRİLMESİ VE GEREKÇE:\nDavanın taraflar arasında görülmekte olan ---- dosyasına davalı tarafından yapılan itirazın iptali davasıdır. ------karar sayılı yetkisizlik ilamıyla mahkememize tevzi edilerek mahkememizin---- kaydedildiği,------- tarihli tensip tutanağında davacı tarafa son tutanak aslını veya arabulucu tarafından onaylanmış örneğini dosyaya sunmak üzere 1 hafta kesin süre verilmesine, kesin sürede sunulmazsa davanın dava şartı yokluğundan usulden reddine karar verileceğinin ihtarının yapıldığı, davacı vekili tarafından arabuluculuk faaliyeti sonunda anlaşmaya varılamadığına ilişkin son tutanağın aslını veya arabulucu tarafından onaylanmış bir örneğinin sunulmadığı anlaşılmıştır.\nTüm dosya kapsamı birlikte değerlendirildiğinde ; 6102 Sayılı TTK. 'nın 5/A maddesi gereğince ticari davalarda konusu bir miktar paranın ödenmesi olan alacak ve tazminat talepleri hakkında dava açılmasından önce arabulucuya başvurulmuş olmasının dava şartı olarak düzenlenmiş olması ve 7155 Sayılı Kanunun ( 23. ) maddesi ile 6325 Sayılı Hukuk Uyuşmazlıklarında Arabuluculuk Kanununa eklenen 18/A ( 2 ) maddesi ile \"Arabulucuya başvurulmadan dava açıldığının anlaşılması hlinde herhangi bir işlem yapılmakszın davanın dava şartı yokluğu sebebiyle usulden reddine karar verilir'' hükmü getirilmiştir.\n6100 Sayılı Hukuk Muhakemeleri Kanununun 115. maddesi gereğince; Mahkeme, dava şartlarının mevcut olup olmadığını, davanın her aşamasında kendiliğinden araştırır. Taraflar da dava şartı noksanlığını her zaman ileri sürebilirler. Mahkeme dava şartı noksanlığını tespit ederse davanın usulden reddine karar verir",
+      "char_length": 1625,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6102-art-5-a",
+          "legislation_type": "statute",
+          "law_no": "6102",
+          "law_name": "TTK",
+          "article_no": "5/A",
+          "paragraph_no": null,
+          "verbatim_mention": "6102 Sayılı TTK.'nın 5/A maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-7155-art-23",
+          "legislation_type": "statute",
+          "law_no": "7155",
+          "law_name": null,
+          "article_no": "23",
+          "paragraph_no": null,
+          "verbatim_mention": "7155 Sayılı Kanunun ( 23. ) maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6325-art-18-a-p2",
+          "legislation_type": "statute",
+          "law_no": "6325",
+          "law_name": "Hukuk Uyuşmazlıklarında Arabuluculuk",
+          "article_no": "18/A",
+          "paragraph_no": "2",
+          "verbatim_mention": "6325 Sayılı Hukuk Uyuşmazlıklarında Arabuluculuk Kanununa eklenen 18/A ( 2 ) maddesi",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "first_degree-804486400-rule_application_p2",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "rule_application_p2"
+      ],
+      "text": ".\nTüm dosya kapsamı değerlendirildiğinde; 6100 Sayılı Hukuk Muhakemeleri Kanununun 114 (2) ve 115. maddeleri gereğince, alacağa yönelik ticari dava niteliğindeki dava yönünden dava tarihine göre dava açılmadan önce zorunlu arabulucuya başvurulmadan işbu davanın açılmış olduğu ve zorunlu arabuluculuğa başvuruya ilişkin dava şartının tamamlanabilir dava şartı olmadığı anlaşıldığından, davanın dava şartı yokluğu sebebiyle usulden reddine karar verilmesi gerektiği kanaat ve sonucuna varılarak aşağıdaki hüküm kurulmuştur.",
+      "char_length": 522,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6100-art-114-p2",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": "Hukuk Muhakemeleri",
+          "article_no": "114",
+          "paragraph_no": "2",
+          "verbatim_mention": "6100 Sayılı Hukuk Muhakemeleri Kanununun 114 (2) ... maddeleri",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6100-art-115",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": "Hukuk Muhakemeleri",
+          "article_no": "115",
+          "paragraph_no": null,
+          "verbatim_mention": "6100 Sayılı Hukuk Muhakemeleri Kanununun ... 115. maddeleri",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "first_degree-804486400-conclusion",
+      "source_type": "first_degree",
+      "case_no": "2021/205",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "conclusion"
+      ],
+      "text": "Hüküm; Ayrıntısı ve yasal gerekçesi yukarıda açıklandığı üzere;\n1-Davanın dava şart yokluğu nedeniyle USULDEN REDDİNE,\n2- Alınması gerekli 80,70 TL harçtan peşin yatırılan 54,40 TL harcın düşümü ile geri kalan 26,30 TL harcın davacı taraftan tahsili ile hazineye İRAD KAYDINA ,\n3-Yargılama giderlerinin davacı üzerinde BIRAKILMASINA ,\n4-Davacı tarafça peşin yatırılmış olan gider avansından artan kısmın, karar kesinleştiğinde ve talep halinde davacıya İADESİNE,\n5-Davalı kendisini bir vekil ile temsil ettirdiğinden karar tarihinde yürürlükte bulunan A.A.Ü.T uyarınca 9.200,00 TL avukatlık ücretinin davacıdan alınarak davalıya verilmesine,\n6-Arabuluculuk ücreti olan 1320,00 TL'nin davacıdan tahsili ile hazineye İRAT KAYDINA,\nDair; Gerekçeli mahkeme kararının taraflara tebliğinden itibaren 2 hafta içerisinde istinaf yolu açık olduğuna dair davacı vekilinin yüzüne karşı davalı tarafın yokluğunda verilen karar açıkça okunup usulen anlatıldı. 13/09/2022",
+      "char_length": 957,
+      "content_type": "ruling",
+      "firac_role": null,
+      "reasoning_stage": "outcome",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "conclusion",
+      "cited_legislations": []
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2021/205",
+      "source_type": "first_degree",
+      "subject_type": "civil_or_administrative_case",
+      "subject_id": "unspecified",
+      "opinion_type": "majority",
+      "outcome": "denied_procedural",
+      "conclusion_sentence": "Outcome: dismissed on procedural grounds (USULDEN REDDİNE) -- the plaintiff filed suit without first attempting the legally mandatory mediation for this type of commercial claim, an uncurable missing filing requirement under TTK art. 5/A and HMK arts. 114-115.",
+      "reasoning_summary": "Davacı, ticari bir alacağın tahsili için dava açtı ancak dava açmadan önce zorunlu arabuluculuğa başvurduğunu hiçbir zaman kanıtlayamadı; ön inceleme duruşmasında arabuluculuk son tutanağını sunması için bir haftalık kesin süre verilmesine rağmen bunu yerine getirmedi. Bu, sonradan giderilebilir bir eksiklik değil, dava şartı niteliğinde bir eksiklik olduğundan, mahkeme alacağın esasına hiç girmeden davayı usulden reddetmiştir (TTK 5/A, 7155 sayılı Kanun ve 6100 sayılı HMK 114-115. maddeleri uyarınca).",
+      "reasoning_summary_method": "llm_generated",
+      "supporting_chunk_ids": [
+        "first_degree-804486400-rule_application_p1",
+        "first_degree-804486400-rule_application_p2",
+        "first_degree-804486400-conclusion"
+      ]
+    }
+  ]
+}

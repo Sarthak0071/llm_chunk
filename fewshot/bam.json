@@ -1,0 +1,275 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "bam-914748400-facts_p1",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p1"
+      ],
+      "text": "GEREĞİ DÜŞÜNÜLDÜ: Davacı vekili dava dilekçesinde özetle; Davalı ile müvekkili şirketi arasında 6361 Sayılı Finansal Kiralama Factoring ve Finansman Şirketleri Kanunu çerçevesinde Finansal Kurumlar Birliği nezdinde 13/05/2016 tarih ve ... tescil no ile tescilli Finansal kiralama sözleşmesi akdedildiğini, bu kiralama sözleşmesi gereğince finansmanını sağladığı makinelerin borçluya teslim edildiğini, davalının kira bedellerini süresinde ödemediğini, ihtarlara rağmen edimini yerine getirmediğini, yine sözleşmenin ilgili maddesi gereğince Beyoğlu ... Noterliğinin 20/07/2018 tarihli ... yevmiye nolu ihtarlarıyla feshedildiğini, sözleşme konusu makinenin iade edilmediğini belirterek, makinenin müvekkil şirkete teslimi konusunda teminat alınmaksızın ihtiyati tedbir kararı oluşturulmasına makinelerin müvekkile teslimine karar verilmesini talep etmiştir.",
+      "char_length": 857,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6361-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "6361",
+          "law_name": "Finansal Kiralama Factoring ve Finansman Şirketleri",
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "6361 Sayılı Finansal Kiralama Factoring ve Finansman Şirketleri Kanunu",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "chunk_id": "bam-914748400-facts_p2",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p2"
+      ],
+      "text": "Davalı vekili cevap dilekçesinde özetle; Davacı tarafça zilyetliği de devralınan davaya konu ekskavatörler üzerinde davacının, her türlü tasarruf hakkını kullanır durumda olduğunu, dilekçe ekinde yer alan internet çıktısı veya internette yapılacak basit bir araştırmadan da kolaylıkla anlaşılacağı üzere davacı tarafın, sözleşmeye konu ekskavatörleri internette satışa dahi çıkarttığını, her türlü tasarruf yetkisini kullanabilen, sözleşme uyarınca daha sözleşme tamamlanıncaya kadar mülkiyet hakkı kendisinde bulunan davacı tarafın aynı zamanda zilyedi de olduğu bu makinelerle ilgili talep edebileceği başkaca bir \" iade\" türünün hukuk sistemimizde yer almadığını, tarafın talep ettiği dava konusu ekskavatörlerin \"aynen iadesi\" isteminin konusuz olup huzurdaki davayı ikame etmekte de davacı tarafın herhangi bir hukuki yararı bulunmadığından huzurdaki davanın usulden reddine karar verilmesi gerektiğini, Sakarya ...İcra Müdürlüğü'nün ... Tal.sayılı dosyasında teslimin dava tarihinden de önce olduğu dikkate alındığında, davaya sebebiyet veren tarafın da müvekkili olmadığının ortada olduğunu, bu nedenle davanın usulden reddine karar verilmesini talep etmiştir.",
+      "char_length": 1167,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "bam-914748400-facts_p3",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p3"
+      ],
+      "text": "İlk Derece Mahkemesince; \" her ne kadar davalı vekili malların icra kanalıyla bile olsa davacı tarafça teslim alınmış olması nedeniyle, davanın konusuz kaldığını iddia etmiş ise de, İstanbul 15.Asliye Ticaret Mahkemesi tarafından verilen ihtiyati tedbir kararı sonrası menkul malların rızaen değil cebri icra yoluyla teslim alınabildiği, dosya kanıtlarına göre davaya konu edilen malların 3226 Sayılı Finansal Kiralama Sözleşmesi Yasası kapsamında davalıya teslim edildiği, kiralama konusu mallar ile ilgili olarak ödenmesi gereken kira borcunun noterlik ihtarnamesinde verilen yasal süre içinde ödenmemesi nedeni ile davalının temerrüde düştüğü, mülkiyeti davacıya ait kiralama konusu mallar ile ilgili davalının sadece kiralama dönemi içinde zilyet bulunduğu, sözleşmenin davacı tarafından haklı nedenle feshedildiği, bu şekli ile kiralama konusu malların iade koşullarının oluştuğu gerekçesiyle davanın kabulüne,\" karar verilmiştir.",
+      "char_length": 935,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-3226-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "3226",
+          "law_name": "Finansal Kiralama Sözleşmesi",
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "3226 Sayılı Finansal Kiralama Sözleşmesi Yasası",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "chunk_id": "bam-914748400-issue",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "issue"
+      ],
+      "text": "Davalı vekili istinaf dilekçesinde özetle; Huzurdaki davanın konusunun hem gerekçeli kararda hem de tensip tutanağında \"ticari satıma konu malın iadesi\" olarak belirtildiğini ve aynı şekilde davacı tarafından sunulan dava dilekçesinde de bu hususun açıkça dile getirildiğini, Bu davanın konusu olan malın iadesinde 6361 sayılı kanunun 33. Maddesi hükmü uygulanacağını, Bu hüküm uyarınca (1. Fıkra) \"Sözleşmenin kiralayan tarafından feshi ile 30 uncu maddenin ikinci fıkrası uyarınca kiracı tarafından feshi hâllerinde, kiracının malı iade ile yükümlü olduğunu, Finansal kiralama sözleşmesinin \"kiracı\" konumunda olan müvekkiline, davacı tarafça gönderilmiş olan ihtarnamede -ihtarnamenin icra edilebilmesi için müvekkiline tanınmış 1 günlük süre bir yana - malın iadesinin istendiğini, müvekkilinin söz konusu malı 1 günlük süre içerisinde iade edemediğini, ekonomik durumun iyi olmaması nedeniyle de talep edilen borcu da ödeyemediğini, İadesi istenen malın (ekskavatör) yine davacı tarafça İstanbul ... İcra Md. .. E. Sayılı dos.yasından yazılan 03.10.2018 tarihli talimat yazısı ile Sakarya ... İcra Md. ...Tal. Sayılı dosyası ile aynı gün infaz edildiğini ve dava konusu malın davacı tarafa teslim edildiğini, Huzurdaki davanın açıldığı tarihi 05.10.2018 olduğunu, Dava tarihi itibariyle davacı tarafça ifası talep edilen edanın (malın tesliminin) fiilen uygulanamayacağını, zira davacıya malın tesliminin zaten davadan önce fiilen ve resmen tamamlandığını ve artık geriye ifası mümkün bir edanın kalmadığını, dolayısıyla davanın konusuz kaldığını, davacının, dava açmakta hukuki yararının bulunmadığını beyan ederek, davacının dava açmakta hukuki yararının kalmadığı gerekçesi ile davanın dava şartı yokluğundan reddine karar verilmesini talep etmiştir.",
+      "char_length": 1758,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "issue",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6361-art-33-p1",
+          "legislation_type": "statute",
+          "law_no": "6361",
+          "law_name": null,
+          "article_no": "33",
+          "paragraph_no": "1",
+          "verbatim_mention": "6361 sayılı kanunun 33. Maddesi hükmü ... (1. Fıkra)",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6361-art-30-p2",
+          "legislation_type": "statute",
+          "law_no": "6361",
+          "law_name": null,
+          "article_no": "30",
+          "paragraph_no": "2",
+          "verbatim_mention": "30 uncu maddenin ikinci fıkrası",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "bam-914748400-rule_application_p1",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "rule_application_p1"
+      ],
+      "text": "İnceleme, 6100 sayılı Hukuk Muhakemeleri Kanunu'nun(HMK) 355. maddesi hükmü uyarınca istinaf dilekçelerinde belirtilen sebeplerle sınırlı olarak ve kamu düzenine aykırı hususların olup olmadığı gözetilerek yapılmıştır. Dava, finansal kiralama sözleşmesine konu malın iadesi taleplidir. Taraflar arasında 13.05.2016 tarih ve ... tescil no ile tescilli Finansal kiralama sözleşmesi akdedildiği, sözleşme kapsamında, \"bir adet 2016 model, hidromek marka, ... şasi nolu, 4jj1x203011 motor nolu ve ... tescil plaka nolu paletli ekskavatör, 1 adet, 2016 model, ... marka, hmk 220lc-3 tipi ... şasi nolu, 4hk1x739403 motor nolu ve ... tescil plaka nolu paletli ekskavatör\" ün davalıya teslim edildiği, ancak davalı yanca sözleşme konusu kira bedelinin ödenmediği, bunun üzerine davacı yanca Beyoğlu ... Noterliğinin 20/07/2018 tarihli ... yevmiye nolu ihtarının davalıya gönderildiği, böylelikle davalının temerrüde düştüğü ve nihayetinde sözleşmenin feshedildiği, İstanbul 15. Asliye Ticaret Mahkemesi'nin 2018/1120 Değişik İş sayılı ilamı ile söz konusu ekskavatörlerin tedbiren davacı tarafa aynen teslimine dair ihtiyati tedbir kararı verildiği ve bu kararın İstanbul ... İcra Müdürlüğü'nün ... Esas Sayılı dosyasından yazılan 03.10.2018 tarihli talimat ile Sakarya 4. İcra Müdürlüğü'nün... talimat sayılı dosyası üzerinden infaz edildiği hususlarında bir çekişme bulunmamaktadır. Her ne kadar davalı yanca, İstanbul 15. Asliye Ticaret Mahkemesi'nin 2018/1120 Değişik İş sayılı kararı ile verilen ihtiyati tedbir kararının uygulanması sebebiyle davanın konusuz kaldığı savunulmuş ise de; 6100 Sayılı HMK'nın 397/2. maddesine göre ihtiyati tedbirin etkisi aksi belirtilmediği takdirde nihai kararın kesinleşmesine kadar devam eder. Nihai kararın kesinleşmesiyle ihtiyati tedbir kararı ortadan kalkar",
+      "char_length": 1795,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6100-art-355",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": "Hukuk Muhakemeleri",
+          "article_no": "355",
+          "paragraph_no": null,
+          "verbatim_mention": "6100 sayılı Hukuk Muhakemeleri Kanunu'nun(HMK) 355. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6100-art-397-p2",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": null,
+          "article_no": "397",
+          "paragraph_no": "2",
+          "verbatim_mention": "6100 Sayılı HMK'nın 397/2. maddesine",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "bam-914748400-rule_application_p2",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "rule_application_p2"
+      ],
+      "text": ". Mahkemece verilen kararın bu haliyle kesinleşmesi halinde ihtiyati tedbirin kalkması ile dava konusu malın davalı tarafa dönmesi (iadesi) söz konusu olacaktır ki bu halde açılmış davanın hukuken bir etkisi olmayacağından, yapılan bir yargılamanın taraflar açısından hukuki bir yararı da kalmamış olacaktır. Açıklanan nedenlerle davalı tarafından ileri sürülen istinaf sebepleri yerinde görülmemiştir (Yargıtay 19. Hukuk Dairesi'nin 2013/4893 esas, 2013/7317 karar ve 2015/2650 esas, 2015/14274 karar sayılı ilamları, Dairemizin 15.03.2022 tarih, 2022/368 esas, 2022/389 karar sayılı ilamı). Dosyadaki belgelere, duruşma sürecini yansıtan tutanaklar ve gerekçe içeriğine göre, ilk derece mahkemesi kararında davanın esasıyla ilgili tarafların gösterdiği hükme etki edecek tüm delillerin toplandığı, kanunun olaya uygulanmasında ve gerekçede hata edilmediği, ihtilafın doğru olarak tanımlandığı, kararın usul ve yasaya uygun olduğu anlaşıldığından davalı vekilinin yerinde bulunmayan istinaf başvurusunun 6100 sayılı HMK'nın 353/1-b/1. maddesi gereğince esastan reddine karar verilmesi gerektiği kanaat ve sonucuna varılarak aşağıdaki hüküm kurulmuştur.",
+      "char_length": 1153,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6100-art-353-p1",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": null,
+          "article_no": "353",
+          "paragraph_no": "1",
+          "verbatim_mention": "6100 sayılı HMK'nın 353/1-b/1. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "bam-914748400-conclusion",
+      "source_type": "bam",
+      "case_no": "2020/1738",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "conclusion"
+      ],
+      "text": "HÜKÜM: Gerekçesi yukarıda açıklandığı üzere; 1- Usûl ve yasaya uygun İstanbul 7. Asliye Ticaret Mahkemesi'nin 24/10/2019 tarih ve 2018/907 E., 2019/679 K. sayılı kararına karşı davalı vekili tarafından yapılan istinaf talebinin 6100 Sayılı HMK'nın 353/1-b/1. maddesi gereğince ESASTAN REDDİNE, 2- 492 Sayılı Harçlar Kanunu gereğince alınması gereken 42.789,38-TLTL nispi istinaf karar ve ilam harcından peşin yatırılan 10.697,35 TL harcın mahsubu ile bakiye 32.092,03 TL harcın davalıdan tahsiliyle Hazineye gelir kaydedilmesine, 3- Davalı tarafça istinaf aşamasında yapılan yargılama giderlerinin üzerinde bırakılmasına,4- İncelemenin duruşmasız olarak yapılması sebebiyle taraflar yararına vekalet ücreti tayinine yer olmadığına,5- Taraflarca yatırılan gider avansından harcanmayan kısmın karar kesinleştiğinde iadesine, Dosya üzerinde yapılan inceleme sonucunda, 20/07/2017 tarih ve 7035 Sayılı Kanunun 31. maddesiyle değişik 6100 Sayılı HMK'nın 361/1. maddesi gereğince, kararın tebliğinden itibaren 2 hafta içerisinde Yargıtay'a temyiz başvurusunda bulunma yolu açık olmak üzere, oy birliğiyle karar verildi. 06/07/2023",
+      "char_length": 1124,
+      "content_type": "ruling",
+      "firac_role": null,
+      "reasoning_stage": "outcome",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "conclusion",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6100-art-353-p1",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": null,
+          "article_no": "353",
+          "paragraph_no": "1",
+          "verbatim_mention": "6100 Sayılı HMK'nın 353/1-b/1. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-492-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "492",
+          "law_name": "Harçlar",
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "492 Sayılı Harçlar Kanunu",
+          "law_date": null,
+          "confidence": "low"
+        },
+        {
+          "canonical_id": "law-7035-art-31",
+          "legislation_type": "statute",
+          "law_no": "7035",
+          "law_name": null,
+          "article_no": "31",
+          "paragraph_no": null,
+          "verbatim_mention": "20/07/2017 tarih ve 7035 Sayılı Kanunun 31. maddesiyle",
+          "law_date": "2017-07-20",
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6100-art-361-p1",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_name": null,
+          "article_no": "361",
+          "paragraph_no": "1",
+          "verbatim_mention": "6100 Sayılı HMK'nın 361/1. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2020/1738",
+      "source_type": "bam",
+      "subject_type": "civil_or_administrative_case",
+      "subject_id": "unspecified",
+      "opinion_type": "majority",
+      "outcome": "denied_on_merits",
+      "conclusion_sentence": "Outcome: appeal denied on the merits (ESASTAN REDDİNE) -- the appellate chamber upheld the first-instance ruling ordering the leased equipment returned, rejecting the defendant's argument that the claim was moot.",
+      "reasoning_summary": "Davalı, iki adet ekskavatörü finansal kiralama sözleşmesiyle kiraladı, ödemelerde temerrüde düştü ve sözleşme feshedildi; kiralayan ihtiyati tedbir yoluyla ekipmanı geri aldıktan sonra, esas dava henüz karara bağlanmadan önce icra yoluyla teslim aldı. Davalı istinafta, ekipman zaten tedbirle geri alındığından davanın konusuz kaldığını ileri sürdü. Bölge Adliye Mahkemesi bu itirazı reddetti: HMK 397/2. maddesi uyarınca ihtiyati tedbir kararı yalnızca nihai karar kesinleşene kadar geçerlidir; kesinleştiğinde tedbir kendiliğinden ortadan kalkar ve asıl hükümde ayrıca iadeye karar verilmedikçe mal davalıya dönebilir. Bu nedenle ilk derece kararı esastan onanmıştır.",
+      "reasoning_summary_method": "llm_generated",
+      "supporting_chunk_ids": [
+        "bam-914748400-rule_application_p1",
+        "bam-914748400-rule_application_p2",
+        "bam-914748400-conclusion"
+      ]
+    }
+  ]
+}

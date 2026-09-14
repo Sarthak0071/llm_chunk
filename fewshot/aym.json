@@ -1,0 +1,366 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p1_to_p5",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p1",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p2",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p3",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p4",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p5"
+      ],
+      "text": "1. Başvuru; bir kısım sosyal medya paylaşımından dolayı iş sözleşmesinin feshedilmesi nedeniyle özel hayata saygı hakkının ihlal edildiği iddiasına ilişkindir.\n2. Başvurucu, kitap ve kırtasiye alanında faaliyet gösteren özel bir şirkette işçi olarak çalışmaktadır. İşveren 1/6/2016 tarihinde başvurucunun davalı işyeri hakkında sosyal medya üzerinden olumsuz paylaşımlar yaptığı gerekçesiyle güven ilişkisinin zedelendiğini belirterek başvurucunun iş sözleşmesini sona erdirmiştir.\n3. Başvurucu, feshin geçersizliğinin tespiti ve işe iade edilmesi talebiyle 14/6/2016 tarihinde Karşıyaka 3. İş Mahkemesinde (Mahkeme) dava açmıştır. Mahkeme 4/7/2018 tarihinde davanın reddine karar vermiştir. Gerekçeli kararda; başvurucunun Fetullahçı Terör Örgütü/Paralel Devlet Yapılanmasına (FETÖ/PDY) bağlı PAK EĞİTİM-İŞ Sendikasına üye olduğu, sendika üyelik işleminin 3/7/2015 tarihinde yapıldığı, başvurucunun çalıştığı işyerine FETÖ/PDY ile irtibatlı olduğu gerekçesiyle el konulup kayyım atandığı belirtilmiştir. Kararda, başvurucunun kayyım heyetini eleştiren yazılar yazmasının yanı sıra terör örgütüyle irtibatlı sendikaya üyeliğinin de şüphe feshini gerektirdiği sonucuna ulaşılmıştır.\n4. İzmir Bölge Adliye Mahkemesi 9. Hukuk Dairesi 22/3/2019 tarihinde ilk derece mahkemesi kararının usul ve esas yönünden hukuka uygun olduğunu belirterek istinaf başvurusunun esastan reddine kesin olarak karar vermiştir. \n5. Nihai karar, başvurucuya 2/4/2019 tarihinde tebliğ edilmiştir. Başvurucu 29/4/2019 tarihinde bireysel başvuruda bulunmuştur.\nII.\n \nDEĞERLENDİRME\nA.\n \nİlgili Mevzuat",
+      "char_length": 1572,
+      "content_type": "reasoning",
+      "firac_role": "facts",
+      "reasoning_stage": "background",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p6",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p6"
+      ],
+      "text": "6. 22/5/2003 tarihli ve 4857 sayılı İş Kanunu'nun \"\nFeshin geçerli sebebe dayandırılması\" \nkenar başlıklı 18. maddesinin ilgili kısmı şöyledir:\n''Otuz veya daha fazla işçi çalıştıran işyerlerinde en az altı aylık kıdemi olan işçinin belirsiz süreli iş sözleşmesini fesheden işveren, işçinin yeterliliğinden veya davranışlarından ya da işletmenin, işyerinin veya işin gereklerinden kaynaklanan geçerli bir sebebe dayanmak zorundadır.'\nAltı aylık kıdem hesabında bu Kanunun 66 ncı maddesindeki süreler dikkate alınır.\nÖzellikle aşağıdaki hususlar fesih için geçerli bir sebep oluşturmaz:\na) Sendika üyeliği veya çalışma saatleri dışında veya işverenin rızası ile çalışma saatleri içinde sendikal faaliyetlere katılmak.\nb) İşyeri sendika temsilciliği yapmak.\nc) Mevzuattan veya sözleşmeden doğan haklarını takip veya yükümlülüklerini yerine getirmek için işveren aleyhine idari veya adli makamlara başvurmak veya bu hususta başlatılmış sürece katılmak.\nd) Irk, renk, cinsiyet, medeni hal, aile yükümlülükleri, hamilelik, doğum, din, siyasi görüş ve benzeri nedenler.\ne) 74 üncü maddede öngörülen ve kadın işçilerin çalıştırılmasının yasak olduğu sürelerde işe gelmemek.\nf) Hastalık veya kaza nedeniyle 25 inci maddenin (I) numaralı bendinin (b) alt bendinde öngörülen bekleme süresinde işe geçici devamsızlık.\nİşçinin altı aylık kıdemi, aynı işverenin bir veya değişik işyerlerinde geçen süreler birleştirilerek hesap edilir. İşverenin aynı işkolunda birden fazla işyerinin bulunması halinde, işyerinde çalışan işçi sayısı, bu işyerlerinde çalışan toplam işçi sayısına göre belirlenir...\"",
+      "char_length": 1585,
+      "content_type": "reasoning",
+      "firac_role": "rule",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-4857-art-18",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": "İş",
+          "article_no": "18",
+          "paragraph_no": null,
+          "verbatim_mention": "22/5/2003 tarihli ve 4857 sayılı İş Kanunu'nun \"Feshin geçerli sebebe dayandırılması\" kenar başlıklı 18. maddesi",
+          "law_date": "2003-05-22",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p7_to_p8",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p7",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p8"
+      ],
+      "text": "7. 4857 sayılı Kanun'un \"\nSözleşmenin feshinde usul\"\n kenar başlıklı 19. maddesi şöyledir:\n\"İşveren fesih bildirimini yazılı olarak yapmak ve fesih sebebini açık ve kesin bir şekilde belirtmek zorundadır.\nHakkındaki iddialara karşı savunmasını almadan bir işçinin belirsiz süreli iş sözleşmesi, o işçinin davranışı veya verimi ile ilgili nedenlerle feshedilemez. Ancak, işverenin 25 inci maddenin (II) numaralı bendi şartlarına uygun fesih hakkı saklıdır.\"\n8. 4857 sayılı Kanun'un \n''İşverenin haklı nedenle derhal fesih hakkı'' \nkenar başlıklı 25. maddesinin ilgili kısmı şöyledir: \nII- Ahlak ve iyi niyet kurallarına uymayan haller ve benzerleri:\n...\nb) İşçinin, işveren yahut bunların aile üyelerinden birinin şeref ve namusuna dokunacak sözler sarfetmesi veya davranışlarda bulunması, yahut işveren hakkında şeref ve haysiyet kırıcı asılsız ihbar ve isnadlarda bulunması.\"\nB.\n \nSomut Olayın Değerlendirilmesi",
+      "char_length": 912,
+      "content_type": "reasoning",
+      "firac_role": "rule",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-4857-art-19",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": null,
+          "article_no": "19",
+          "paragraph_no": null,
+          "verbatim_mention": "4857 sayılı Kanun'un \"Sözleşmenin feshinde usul\" kenar başlıklı 19. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-4857-art-25",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": null,
+          "article_no": "25",
+          "paragraph_no": null,
+          "verbatim_mention": "4857 sayılı Kanun'un \"İşverenin haklı nedenle derhal fesih hakkı\" kenar başlıklı 25. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p9_to_p11",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p9",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p10",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p11"
+      ],
+      "text": "9. Somut olayda başvurucu; tek geçim kaynağı olan işinin sosyal medya paylaşımları gerekçe gösterilerek elinden alındığını, etkileri itibarıyla ekonomik ve sosyal haklardan mahrum kaldığını ve bu durumun özel hayata saygı hakkını ihlal ettiğini iddia etmiştir.\n10. Başvurucunun iddialarının iş sözleşmesinin feshedilmesine ve açtığı işe iade davasının reddedilmesine ilişkin işlemler bütününe yönelik olduğu görülmüştür. Kişilerin mesleki hayatlarının onların özel hayatlarıyla sıkı bir irtibatının olduğu ve meslek hayatlarına yönelik tedbirlerin ya da müdahalelerin söz konusu olduğu dava süreçlerinde özel hayata saygı hakkının gündeme geldiği yadsınamaz. Bununla birlikte öncelikle mesleki hayata yönelik tedbirlerin ya da müdahalelerin hangi durumlarda \nözel hayat\n kapsamında görülmeye uygun olduğu veya başvuru konusu edilen uyuşmazlıkların hangilerinin bu bağlamda uygulanabilir kabul edileceği hususlarında belirlenen ölçütlerin dikkate alınması gerekir (\nC. A. (3) \n[GK], B. No: 2018/10286, 2/7/2020, § 88).\n11. Anayasa Mahkemesi\n C.A. (3) \nkararında, özel hayata ilişkin hususların kişinin mesleği ile ilgili tasarruflara esas alındığı durumlarda \nözel hayata saygı hakkının \nuygulanabilir olduğuna ve özel hayata ilişkin herhangi bir nedene dayanılmaksızın mesleki hayata yönelen müdahalelerin özel hayata saygı hakkı kapsamında incelenebilmesi için gerekli olan koşulların neler olduğuna ilişkin detaylı değerlendirmelerde bulunmuştur (\nC.A. (3), \n§§ 91-96).",
+      "char_length": 1471,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p12_to_p13",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p12",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p13"
+      ],
+      "text": "12. Belirtilen kararda açıklanan kriterler kapsamında somut olay değerlendirildiğinde başvurucunun mesleki hayatına yönelik olarak alınan tedbirin özel hayata ilişkin herhangi bir nedene dayanmadığı görülmüştür. Bununla birlikte başvurucunun mesleki hayatına yönelik müdahalenin onun \nözel hayatını\n ciddi şekilde etkilediği ve bu etkinin belirli bir ağırlık düzeyine ulaştığı anlaşılmıştır. Zira alınan tedbirin başvurucunun başkaları ile ilişki kurabilme ve geliştirebilme imkânını önemli ölçüde zayıflatmasına, sosyal ve mesleki itibarını koruyabilmesi açısından ciddi sonuçlar doğurmasına yol açacağı değerlendirilmiştir. Bu durumda sonuca dayalı nedenlerle başvurunun \nözel hayata saygı hakkı\n kapsamında incelenebilir nitelikte olduğu kanaatine varılmıştır.\n13. Eldeki başvuruda yapılması gereken, başvurucu ile işveren arasındaki iş sözleşmesini işverenin feshetmesi tarafından üzerine kamu makamlarınca etkili bir yargısal sistem kurulup işletilerek başvurucunun özel hayata saygı hakkı ile işverenin menfaatleri arasında adil bir denge kurulmak suretiyle devletin pozitif yükümlülüklerinin yerine getirilmesinde başarılı olunup olunmadığını belirlemektir (benzer yöndeki değerlendirmeler için bkz. \nVolkan Çakır\n, B. No: 2017/35488, 7/4/2021, § 28).",
+      "char_length": 1258,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p14_to_p16",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p14",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p15",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p16"
+      ],
+      "text": "14. Fesih gerekçesinde başvurucunun sosyal medya paylaşımlarının -bu paylaşımların ne olduğu konusunda dosyada herhangi bir bilgi bulunmamaktadır - haklı fesih nedeni olduğu bildirilmiştir. İlk derece mahkemesi de başvurucunun paylaşımlarının 4857 sayılı Kanun'un 25. maddesinde \"\nAhlak ve iyi niyet kurallarına uymayan hâller\n\" kenar başlığı altında yer alan \n\"işçinin, işveren yahut bunların aile üyelerinden birinin şeref ve namusuna dokunacak sözler sarfetmesi ve davranışlarda bulunması\n\" biçimindeki (b) bendi kapsamında kaldığını belirtmiştir. Mahkeme ayrıca fesih gerekçesinde yer almamasına karşın başvurucunun sendika üyeliğinin de iş sözleşmesinin sonlandırılmasına neden olduğunu değerlendirmiştir. Ancak fesih gerekçesinde yer almaması nedeniyle bu husus incelenmeyecektir.\n15. İş Mahkemesi kararının istinaf edilmesi üzerine Bölge Adliye Mahkemesi ilk derece mahkemesi kararının usul ve kanuna uygun olduğu sonucuna ulaşmıştır. O hâlde nihai olarak başvurucunun iş sözleşmesi, yaptığı düşünce açıklamasının işveren ile aralarındaki güven ilişkisini bozduğu gerekçesine dayanılarak feshedilmiştir. \n16. 4857 sayılı Kanun'un 18. maddesinde belirsiz süreli iş sözleşmelerinin işveren tarafından sona erdirilmesinde geçerli bir sebep bildirme zorunluluğu getirilmiştir. Söz konusu hükümde geçerli sebeplerin neler olabileceği madde metninde sayılmıştır. Buna göre işveren tarafından iş sözleşmesinin feshi için ya işçinin yetersizliğinden, davranışlarından ya da işletmenin, işyerinin veya işin gereklerinden kaynaklanan geçerli bir sebebin işveren tarafından gösterilmesi gerekir. Hükme göre bir davranış ancak işyerinde olumsuzluklara yol açması hâlinde geçerli sebep sayılabilir. İşçinin davranışlarının işyerindeki üretim ve iş ilişkisi sürecine olumsuz bir etkisi yoksa bu davranışların iş sözleşmesinin feshinde geçerli bir sebep olarak gösterilmesi mümkün değildir.",
+      "char_length": 1882,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-4857-art-25",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": null,
+          "article_no": "25",
+          "paragraph_no": null,
+          "verbatim_mention": "4857 sayılı Kanun'un 25. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-4857-art-18",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": null,
+          "article_no": "18",
+          "paragraph_no": null,
+          "verbatim_mention": "4857 sayılı Kanun'un 18. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p17",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p17"
+      ],
+      "text": "17. Öncelikle işlerin etkin bir şekilde yürütülmesi, iş sağlığı ve güvenliği, işverenin cezai ve hukuki konularda korunması gibi haklı ve meşru görülebilecek nedenlerle işverenin kural olarak çalışanın özel hayatı kapsamında kalan bazı davranış ve eylemlerine ilişkin sınırlamalar getirebileceği söylenebilir. Öte yandan işverenin yetki ve haklarının sınırsız olmadığı, çalışana tanınan temel hak ve özgürlüklerin -somut olayda özel hayata saygı hakkının- işyeri sınırları dâhilinde de korunduğu, aynı zamanda kısıtlayıcı ve uyulması zorunlu işyeri kurallarının çalışanların temel haklarının özünü zedeleyecek nitelikte olmaması gerektiği vurgulanmalıdır. Bu bağlamda işçinin kişisel sosyal medya hesabından paylaşımlarda bulunması hâlinde işverenin sadece bu nedene dayanarak iş sözleşmesini feshedebileceğini kabul etmek, işçinin demokratik bir toplumda temel haklarına ve özgürlüklerine çalışırken de saygı gösterilmesi gerektiği yönündeki haklı beklentisiyle uyuşmayacaktır. Bu çerçevede başvurucunun paylaşımlarının işin yürütülmesini, iş sağlığını ve güvenliğini etkileyip etkilemediği önem taşımaktadır (benzer yöndeki değerlendirmeler için bkz. \nH.Ç.\n, B. No: 2017/14907, 30/9/2020, § 42; \nAyhan Deniz ve diğerleri\n [GK], B. No: 2019/10975, 14/6/2023, § 43).",
+      "char_length": 1266,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p18_to_p19",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p18",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p19"
+      ],
+      "text": "18. Ayrıca somut olayda olduğu gibi işyerinde veya iş araçlarıyla gerçekleşmeyen, işin işleyişine etkisi olmayan ve kişisel alanda gerçekleşen durumların fesih nedeni olacağını doğrudan kabul etmek, işverenin menfaatleri ile işçinin menfaatleri arasında pozitif yükümlülükler kapsamında devlet tarafından korunması gereken dengenin işçi aleyhine bozulması sonucunu doğuracaktır. Bu açıklamalar yukarıda belirtilen ilkelerle birlikte değerlendirildiğinde söz konusu paylaşımların fesih nedeni olarak kabul edilebilmesi için bu paylaşımların işin yürütülmesine olumsuz etkileri ile birlikte iş sözleşmesinin sürdürülmesinin işveren açısından beklenemeyeceğinin işveren tarafından tam olarak ortaya konulması gerektiği sonucuna ulaşılmıştır. Ayrıca derece mahkemeleri tarafından da anılan paylaşımların işyerine ve işin işleyişine olan yansıması, işçinin ifa ettiği görevi, sicili, paylaşımların alenileştirildiği gibi hususlar gözetilerek değerlendirilip yeterli ve ilgili gerekçe ile açıklanmalı; iş sözleşmesinin feshinin işverenin meşru amacına uygun ve orantılı olup olmadığı gözetilerek işveren ile çalışan arasındaki çatışan çıkarlar adil biçimde dengelenmelidir (\nH.Ç.\n,\n \n§ 43; \nAyhan Deniz ve diğerleri\n,§ 44 ).\n19. Eldeki başvuruda başvurucunun paylaşımlarının işveren ile aralarındaki güven ilişkisini zedelediği kabul edilmiştir. Başvurucunun paylaşımları ne fesih gerekçesinde ne mahkeme gerekçesinde yer almıştır. Mahkemeler bu hususta bir değerlendirme yapmaksızın davanın reddine karar vermiştir.",
+      "char_length": 1510,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p20_to_p21",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p20",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p21"
+      ],
+      "text": "20. Dolayısıyla başvurucunun paylaşımlarının ne şekilde işyerinde işin görülmesini önemli ölçüde olumsuz olarak etkilediğine ilişkin bir değerlendirmeye yer verilmemiş, işçiye somut olarak hangi sözleşme yükümlülüğünün yüklendiği ve işçinin hangi davranışı ile hangi somut sözleşme yükümlülüğünü ihlal ettiği eksiksiz olarak tespit edilmemiş, işverenin zarar gören menfaatlerinin neler olduğu açıklanmamıştır. Başvurucunun paylaşımları ile işveren Şirketin şahsına, mülkiyetine ve hukuken korunan diğer varlıklarına verdiği zararlar gösterilmediği gibi paylaşımların hangi suretle iş sözleşmesi ile güdülen amacı tehlikeye sokacak özellikleri olduğu ve karşılıklı duyulan güveni sarsacak şekilde nitelendirildiği ortaya konulamamıştır.\n21. Tüm bu hususlar birlikte değerlendirildiğinde Anayasa Mahkemesi başvuranın paylaşımlarının 4857 sayılı Kanun'un 18. maddesinde yer alan işçinin davranışlarından kaynaklı geçerli sebepler kapsamında değerlendirilmesine yönelik olarak söz konusu mahkemelerin ihtilafa konu içeriklerin niteliklerini ve kullanıldıkları bağlamı, aynı zamanda söz konusu paylaşımların muhtemel etkilerini yeterli derecede ve detaylı bir şekilde incelemediklerini tespit etmiştir. Başvurucunun paylaşımlarının işveren ile aralarındaki güven ilişkisinin kopmasına neden olduğu yönündeki kabulün işverenin tek taraflı beyanına dayandığı ancak paylaşımların ne olduğunun açıklanmadığı ve sonuçları itibarıyla iş sözleşmesinin sürdürülmesinin işverenden beklenemeyeceği hususunun işveren ve mahkemeler tarafından ortaya konulamadığı anlaşılmıştır.",
+      "char_length": 1560,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-4857-art-18",
+          "legislation_type": "statute",
+          "law_no": "4857",
+          "law_name": null,
+          "article_no": "18",
+          "paragraph_no": null,
+          "verbatim_mention": "4857 sayılı Kanun'un 18. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p22",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p22"
+      ],
+      "text": "22. Açıklanan gerekçelerle uyuşmazlığı karara bağlayan derece mahkemelerince özel hayata saygı hakkına ilişkin olarak Anayasa'da belirtilen güvencelerin gözetildiği özenli bir yargılama yapılmadığı, dolayısıyla anayasal güvencelerin korunması açısından devletin yükümlülüklerini yerine getirmediği anlaşıldığından Anayasa’nın 20. maddesinde güvence altına alınan özel hayata saygı hakkının ihlal edildiğine karar verilmesi gerekir.\nIII.\n \nGİDERİM",
+      "char_length": 446,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "constitution-art-20",
+          "legislation_type": "constitution",
+          "law_no": null,
+          "law_name": "Türkiye Cumhuriyeti Anayasası",
+          "article_no": "20",
+          "paragraph_no": null,
+          "verbatim_mention": "Anayasa'nın 20. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-p23_to_p25",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p23",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p24",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p25"
+      ],
+      "text": "23. Başvurucu, ihlalin tespiti ile yeniden yargılama yapılması ve 200.000 TL manevi, 150.000 TL maddi tazminat talebinde bulunmuştur.\n24. Başvuruda tespit edilen hak ihlalinin sonuçlarının ortadan kaldırılması için yeniden yargılama yapılmasında hukuki yarar bulunmaktadır. Bu kapsamda kararın gönderildiği yargı mercilerince yapılması gereken iş, yeniden yargılama işlemlerini başlatmak ve Anayasa Mahkemesini ihlal sonucuna ulaştıran nedenleri gideren, ihlal kararında belirtilen ilkelere uygun yeni bir karar vermektir (\nMehmet Doğan \nGK, B. No: 2014/8875, 7/6/2018, §§ 54-60; \nAligül Alkaya ve diğerleri (2)\n, B. No: 2016/12506, 7/11/2019, §§ 53-60, 66; \nKadri Enis Berberoğlu (3)\n GK, B. No: 2020/32949, 21/1/2021, §§ 93-100).\n25. Öte yandan ihlalin niteliği dikkate alınarak başvurucuya net 25.000 TL manevi tazminat ödenmesi gerektiği sonucuna ulaşılmıştır. Başvurucunun uğradığını iddia ettiği maddi zarar talebi yeniden yargılama kapsamında giderilebileceğinden maddi tazminat talebi reddedilmiştir.",
+      "char_length": 1008,
+      "content_type": "reasoning",
+      "firac_role": "application",
+      "reasoning_stage": "analysis",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "ff2ce127-1e8c-f826-8bca-5401a163904f-hukum",
+      "source_type": "aym",
+      "case_no": "2019/14799",
+      "citation_granularity": "court_paragraph",
+      "source_paragraph_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-hukum"
+      ],
+      "text": "IV.\n \nHÜKÜM \nAçıklanan gerekçelerle;\nA. Özel hayata saygı hakkının ihlal edildiğine ilişkin iddianın KABUL EDİLEBİLİR OLDUĞUNA,\nB. Anayasa’nın 20. maddesinde güvence altına alınan özel hayata saygı hakkının İHLAL EDİLDİĞİNE,\nC. Kararın bir örneğinin özel hayata saygı hakkının ihlalinin sonuçlarının ortadan kaldırılması için yeniden yargılama yapılmak üzere Karşıyaka 3. İş Mahkemesine (E.2016/244, K.2018/232) GÖNDERİLMESİNE,\nD. Başvurucuya net25.000 TL manevi tazminat ÖDENMESİNE, tazminata ilişkin diğer taleplerin REDDİNE,\nE. 364,60 TL başvuru harcından oluşan yargılama giderinin başvurucuya ÖDENMESİNE,\nF. Ödemenin kararın tebliğini takiben başvurucunun Hazine ve Maliye Bakanlığına başvuru tarihinden itibaren dört ay içinde yapılmasına, ödemede gecikme olması hâlinde bu sürenin sona erdiği tarihten ödeme tarihine kadar geçen süre için yasal FAİZ UYGULANMASINA,\nG. Kararın bir örneğinin Adalet Bakanlığına GÖNDERİLMESİNE 7/2/2024 tarihinde OYBİRLİĞİYLE karar verildi.",
+      "char_length": 977,
+      "content_type": "ruling",
+      "firac_role": "conclusion",
+      "reasoning_stage": "outcome",
+      "rights": [
+        "özel_hayata_ve_aile_hayatına_saygı_hakkı"
+      ],
+      "confidence": "high",
+      "cited_legislations": [
+        {
+          "canonical_id": "constitution-art-20",
+          "legislation_type": "constitution",
+          "law_no": null,
+          "law_name": "Türkiye Cumhuriyeti Anayasası",
+          "article_no": "20",
+          "paragraph_no": null,
+          "verbatim_mention": "Anayasa'nın 20. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2019/14799",
+      "source_type": "aym",
+      "subject_type": "right",
+      "subject_id": "özel_hayata_ve_aile_hayatına_saygı_hakkı",
+      "opinion_type": "majority",
+      "outcome": "i̇hlal",
+      "conclusion_sentence": "The Court's majority position on özel_hayata_ve_aile_hayatına_saygı_hakkı: İhlal (violation found) -- the employer's termination for social-media posts was upheld by the lower courts without adequately weighing the employee's right to respect for private life; case remanded for retrial, 25,000 TL non-pecuniary damages awarded.",
+      "reasoning_summary": "Başvurucunun iş sözleşmesi, içeriği hiçbir zaman belirlenmeyen sosyal medya paylaşımlarının işveren güvenini zedelediği gerekçesiyle feshedildi; derece mahkemeleri bu paylaşımların ne söylediğini veya işverene somut bir zarar verip vermediğini hiç araştırmadan feshi geçerli kabul etti. Anayasa Mahkemesi, bir çalışanın mesai dışı kişisel hesabındaki paylaşımları nedeniyle işten çıkarılabilmesi için mahkemelerin bu paylaşımların işyerine somut olumsuz etkisini 4857 sayılı İş Kanunu'nun 18. maddesi kapsamında ortaya koyması gerektiğine, ancak derece mahkemelerinin bunu hiç yapmadığına karar verdi. Bu gerekçe eksikliği, devletin Anayasa'nın 20. maddesi kapsamındaki özel hayata saygı hakkını koruma yükümlülüğünü yerine getirmediği anlamına geldiğinden ihlal kararı verilmiş ve dosya yeniden yargılama için gönderilmiştir.",
+      "reasoning_summary_method": "llm_generated",
+      "supporting_chunk_ids": [
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p6",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p7_to_p8",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p9_to_p11",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p12_to_p13",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p14_to_p16",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p17",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p18_to_p19",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p20_to_p21",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p22",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-p23_to_p25",
+        "ff2ce127-1e8c-f826-8bca-5401a163904f-hukum"
+      ]
+    }
+  ]
+}

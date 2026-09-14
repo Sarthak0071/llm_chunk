@@ -1,0 +1,109 @@
+==============================================================================
+ danistay   doc_id 971050200
+ case_no 2022/4438
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 36 paragraphs, 5313 characters
+==============================================================================
+
+[p1] ee3
+
+[p2] Karar İçeriği
+
+[p3] Danıştay 13. Daire Başkanlığı 2022/4438 E. , 2023/1037 K.
+
+[p4] "İçtihat Metni"
+
+[p5] T.C.
+
+[p6] D A N I Ş T A Y
+
+[p7] ONÜÇÜNCÜ DAİRE
+
+[p8] Esas No:2022/4438
+
+[p9] Karar No:2023/1037
+
+[p10] TEMYİZ EDEN (DAVALI): … Kaymakamlığı
+
+[p11] VEKİLİ: Av. …
+
+[p12] KARŞI TARAF (DAVACI): …
+
+[p13] VEKİLİ: Av. …
+
+[p14] İSTEMİN KONUSU: ... İdare Mahkemesi'nin … tarih ve E:…, K:… sayılı kararının temyizen incelenerek bozulması istenilmektedir.
+
+[p15] YARGILAMA SÜRECİ :
+
+[p16] Dava konusu istem: Manisa ili, Yunusemre ilçesi, … Mahallesi, … Caddesi, No:… adresinde bulunan, birahane olarak faaliyet gösteren iş yerinin sahibi olan davacının, içki satış bel 1000 gesinin süresi dolduğundan yeniden açık alkollü içki satış belgesi verilmesi istemiyle yaptığı başvurunun reddine ilişkin davalı idarenin … tarih ve … sayılı işleminin iptali istenilmiştir.
+
+[p17] İlk Derece Mahkemesi kararının özeti: ... İdare Mahkemesi'nce verilen kararda; davacının 1995 yılından bu yana aynı adreste birahane işlettiği, işyeri açma ve çalışma ruhsatının bulunduğu, 2008 yılında Tütün ve Alkol Piyasası Düzenleme Kurumu'ndan aldığı açık alkollü içki satış belgesinin bulunduğu, bu belgenin 2014 yılına kadar süre uzatımının düzenli olarak yapıldığı, ancak 2015 yılında süre uzatım işleminin yapılması gereken sürenin geçirildiği, bu sürenin geçirilmesi ile davacıya ait açık alkollü içki satış belgesinin geçerliliğini yitirdiği, işletmeye devam etmek istemesi hâlinde yeniden açık alkollü içki satış belgesi alması gerektiği açık olmakla birlikte, uzun yıllardan bu yana işyeri açma ve çalışma ruhsatı ve açık alkollü işki satış belgesi ile faaliyet göstemekte iken süre uzatım işlemini süresi içinde yaptıramamaları nedeniyle yeniden açık alkollü içki satış belgesi almak isteyenlerle, ilk defa işyeri açacak olup açık alkollü içki satış belgesi almak isteyenlerin aynı durumda olmadığı, açık olarak alkollü içki satışı yapmak üzere ilk defa satış belgesi talep eden kişiler ile anılan faaliyetleri yürütmekte iken iş yeri adresini değiştiren kişilerin iş yerlerinin örgün eğitim kurumları ve dershaneler ile öğrenci yurtları ve ibadethanelere en az yüz metre uzaklıkta bulunduğunu belgelemek için uygunluk belgesi almasının zorunlu olduğu, ilgili mevzuat uyarınca 11/06/2013 tarihinden önce işyeri açma ve çalışma ruhsatı ve satış belgesi almış işletmeler için bu şartın aranmayacağı, 11/06/2013 tarihinden önce aldığı işyeri açma ve çalışma ruhsatı ve satış belgesi ile faaliyete devam etmekte iken süre uzatım işlemini süresi içinde yaptıramamaları nedeniyle belgeleri geçersiz hâle gelen ve bu nedenle yeniden açık alkollü içki satış belgesi almak isteyenlerden de uygunluk belgesi istenemeyeceğinin anlaşıldığı;
+
+[p18] Bu durumda, ilgili mevzuat hükümleri ve yapılan açıklamalar ışığında, 1995 yılından bu yana Manisa ili, Yunusemre ilçesi, … Mahallesi, … Caddesi, No:… adresinde işyere açma ve çalışma ruhsatı ile birahane işleten ve açık alkollü içki satış belgesinin süre uzatım işleminini süresi içinde yaptıramaması nedeniyle satış belgesinin geçerliliği sona eren davacının, ilk kez işyeri açacak kişiler gibi değerlendirilerek açık alkollü içki satış belgesi verilmesi istemiyle yaptığı başvurunun mesafe uygunluk belgesi bulunmadığından bahisle reddine ilişkin dava konusu işlemde hukuka uygunluk bulunmadığı sonucuna varılmıştır.
+
+[p19] Belirtilen gerekçelerle hukuka aykırı bulunan dava konusu işlemin iptaline karar verilmiştir.
+
+[p20] TEMYİZ EDENİN İDDİALARI: Davalı idare tarafından, süre aşımı itirazının değerlendirilmediği, aynı konuda iki ayrı başvurunun süreyi yeniden ihya etmeyeceği, mesafe belgesi belediyece verileceğinden hasım yönünden davanın hatalı olduğu, davacının süre uzatımı yapmadığı için içki satış belgesinin geçerliliğini yitirdiği, tekrar belge alırken başvuru tarihindeki geçerli olan mesafe şartının aranacağı, aksi takdirde satış belgesi iptal olanların taleplerinin doğrudan kabul edilmesiyle süre uzatımına ilişkin düzenlemenin bir anlamının kalmayacağı ileri sürülmektedir.
+
+[p21] KARŞI TARAFIN SAVUNMASI: Davacı tarafından savunma verilmemiştir.
+
+[p22] DANIŞTAY TETKİK HÂKİMİ …'NUN DÜŞÜNCESİ: Temyiz isteminin reddi ile usul ve yasaya uygun olan İdare Mahkemesi kararının onanması gerektiği düşünülmektedir.
+
+[p23] TÜRK MİLLETİ ADINA
+
+[p24] Karar veren Danı� ff8 �tay Onüçüncü Dairesi'nce, Tetkik Hâkiminin açıklamaları dinlendikten ve dosyadaki belgeler incelendikten sonra gereği görüşüldü:
+
+[p25] HUKUKİ DEĞERLENDİRME:
+
+[p26] İdare ve vergi mahkemelerinin nihai kararlarının temyizen bozulması, 2577 sayılı İdari Yargılama Usulü Kanunu'nun 49. maddesinde yer alan sebeplerden birinin varlığı hâlinde mümkündür.
+
+[p27] Temyizen incelenen karar usul ve hukuka uygun olup, dilekçede ileri sürülen temyiz nedenleri kararın bozulmasını gerektirecek nitelikte görülmemiştir.
+
+[p28] KARAR SONUCU :
+
+[p29] Açıklanan nedenlerle;
+
+[p30] 1. Davalının temyiz isteminin reddine,
+
+[p31] 2. Dava konusu işlemin yukarıda özetlenen gerekçeyle iptali yolundaki … İdare Mahkemesi'nin … tarih ve E:…, K:… sayılı temyize konu kararında, 2577 sayılı İdari Yargılama Usulü Kanunu'nun 49. maddesinde sayılan bozma nedenlerinden hiçbirisi bulunmadığından anılan Mahkeme kararının ONANMASINA,
+
+[p32] 3. Temyiz giderlerinin istemde bulunan üzerinde bırakılmasına,
+
+[p33] 4. Dosyanın anılan Mahkeme'ye gönderilmesine,
+
+[p34] 5. 2577 sayılı Kanun'un Geçici 8. maddesi uyarınca, bu kararın tebliğ tarihini izleyen 15 (on beş) gün içerisinde kararın düzeltilmesi yolu açık olmak üzere, 08/03/2023 tarihinde oybirliğiyle karar verildi.
+
+[p35] 2022/1999999
+
+[p36] 0

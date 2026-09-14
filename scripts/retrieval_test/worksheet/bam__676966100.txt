@@ -1,0 +1,109 @@
+==============================================================================
+ bam   doc_id 676966100
+ case_no 2018/1737
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 36 paragraphs, 19327 characters
+==============================================================================
+
+[p1] T.C.
+
+[p2] İZMİR
+
+[p3] BÖLGE ADLİYE MAHKEMESİ
+
+[p4] 11. HUKUK DAİRESİ
+
+[p5] DOSYA NO: 2018/1737
+
+[p6] KARAR NO : 2021/990
+
+[p7] T Ü R K M İ L L E T İ A D I N A
+
+[p8] B Ö L G E A D L İ Y E M A H K E M E S İ K A R A R I
+
+[p9] İNCELENEN KARARIN
+
+[p10] MAHKEMESİ : İZMİR 5. ASLİYE TİCARET MAHKEMESİ
+
+[p11] TARİHİ : 10/04/2018
+
+[p12] NUMARASI : 2016/37 Esas 2018/416 Karar
+
+[p13] DAVANIN KONUSU : Tazminat
+
+[p14] KARAR TARİHİ : 15.09.2021
+
+[p15] KARAR YAZIM TARİHİ : 15.09.2021
+
+[p16] İzmir 5.Asliye Ticaret Mahkemesinin 10.04.2018 tarih 2016/37 Esas 2018/416 Karar sayılı kararın Dairemizce incelenmesi davacılar vekili tarafından istenmiş ve istinaf dilekçesinin süresi içinde verildiği anlaşılmış olmakla, üye ... tarafından düzenlenen rapor dinlenip ve yine dosya içerisindeki dilekçe, layihalar, duruşma tutanakları ve tüm belgeler okunup, incelendi.
+
+[p17] GEREĞİ DÜŞÜNÜLDÜ :
+
+[p18] DAVA : Davacılar vekili, İzmir 24. İcra Müdürlüğü'nün 2015/17226 esas sayılı dosyası ile davacı firma aleyhine, ... bank'a ait 25.11.2015 tanzim tarihli, 3504655 seri nolu, 750.000,00 TL bedelli çeke istinaden icra takibi başlatıldığını, müvekkillerinin davalıya borcu bulunmadığı gibi, çek üzerinde müvekkil şirkete ait olduğu iddia edilen imzanın şirket yetkililerine ait olmadığını, müvekkil şirket yetkilisi olan diğer müvekkil ... ' in eşi olan ...'in vefat ettiği 29.09.2014 tarihine kadar şirket müdürülüğü yaptığını, müvekkil şirket yetkilisinin davaya konu çeki keşide etmediğini, çek üzerindeki meblağda kötü niyetli şekilde oynama yapan ve icra takibi başlatan dava dışı ... hakkında İzmir Cumhuriyet Başsavcılığının 2015/105224 sayılı dosyası kapsamında suç duyurusunda bulunulduğunu, davalı banka tarafından şirket yetkilisi aranarak davaya konu çek sorulduğunda, çekin müvekkil şirket tarafından keşide edilmediğinin bildirildiğini, çıplak gözle dahi imzanın sahte olduğu anlaşıldığı halde, davalı bankanın 750.000,00 TL bedelli çeke karşılıksız kaşesi koyduğunu, davalının basiretli tacir olarak gerekli özen ve yükümlüğü göstererek imzaların keşideciye ait olup olmadığını incelemesesi gerektiğini, çek önceki şirket müdürü ... tarafından 50.000,00 TL olarak doldurulduğu halde, rakamda oynama yapılarak 750.000,00 TL yapıldığını, İzmir 1.Asliye Ticaret mahkemesinin 2015 / 946 sayılı dosyasında açılan menfi tespit davasını derdest olduğunu, basiretli tacir gibi davranmayarak çeke karşılıksız kaşesi vuran davalı bankanın, müvekkillerin zararlarından sorumlu olduğunu, alınan ihtiyati haciz karaları ve başlatılan icra takipleri neticesinde şirketin mal varlıklarına hacizler konulmasıyla, şirketin ticari itibarının zedelendiğini, zarar etmeye başladığını, şirket yetkilisi ...'in de pisikolojik olarak etkilendiğini, manevi zararlarının oluştuğunu ileri sürerek, fazlaya ilişkin hakları saklı kalmak kaydı ile şimdilik 100.000,00 TL maddi, 150.000,00 TL manevi tazminatının 01.12.2015 tarihinden itibaren işleyecek yasal faiziyle birlikte tahsiline karar verilmesini talep ve dava etmiştir.
+
+[p19] CEVAP : Davalı vekili, davaya konu çekin kambiyo senedindeki tüm unsurları taşıdığını, yapılacak bilirkişi incelemesi neticesinde geçerli çek olduğunu anlaşılacağını , sahte ve tahrif edilmiş çekin muhatab banka tarafından her hangi bir inceleme yapılmaksızın karşılıksız işlemi yapıldığı iddialarının doğru olmadığını, banka çalışanlarının gerekli incelemeleri yaparak işlem yaptığını, ihmali bir durum bulunmadığını, grafolik incelemenin banka tarafından yapılamayacağını, vefat eden şirket yetkilisinin çeki kaybetmesinde kusurlu olduğunu, dava dilekçesinde de belirtildiği üzere çekin önceki şirket yetkilisi tarafından keşide edidliğini, sonrasında çekin tahrifata uğradığı iddiasında bulunarak çelişkili iddialar ileri sürüldüğünü, maddi tazminat isteminde bulunulması için ortada bir zararın, kusurlu bir hareketin, zarar ile kusur arasında illiyet bağının olması gerektiğini, T.B.K. madde 56'da menevi tazminat istenebilmesi koşullarının açıklandığını, yasal koşulların söz konusu dava yönünden oluşmadığını, davacılardan ... hakkında düzenlenen rapora bağlı olarak açılan davanın hukuken dinlenemeyeceğini, 50.000,00 TL olarak keşide edilen ve sonrasında tahrifata uğradığı iddia edilen çek ile ilgili yasal süreç içinde başvurulması gereken yollar tüketilmeksizin doğrudan davalı banka aleyhine bu davanın açılmasının hakkın kötüye kullanılması niteliğinde olduğunu savunarak, davanın reddini istemiştir.
+
+[p20] İLK DERECE MAHKEMESİ KARARININ ÖZETİ : Mahkemece iddia, savunma, benimsenen bilirkişi raporu ve tüm dosya kapsamına göre; davacılar tarafından maddi zararlarının varlığı iddia edildiğinden, bu zararlara ilişkin delillerin dosyaya sunulmasının istendiği, davalı bankaya sunulan çekte yapılan işlemin, ticari bir zararın oluştuğu hususu için salt neden olduğunu ispatlamaya dönük bir delilin dosyaya sunulmadığı, İzmir Cumhuriyet Başsavcılığı'nın 2015/105224 soruşturma sayılı dosyası ile başlatılan soruşturma dosyasında düzenlenen bilirkişi raporunda, çekin görünüm itibari ile orjinal belge özelliği gösterdiği, sahtecilik yapıldığını gösterir nitelikte bulgular içermediği, keşidecinin imzasının son derece basit tersimli imza incelemesi için imza aidiyetinde tanıya yarayacak zengin grafolojik unsurlar içermediği, imzanın iadiyeti konusunda bir kanaat bildirilmesinin mümkün olmadığı, çekin iğfal kabiliyetinin bulunduğu ve çek üzerindeki bedel ve yazı kısımlarında bir tahrifatın tespit edilmediğinin belirtildiği, İzmir 9. Ağır Ceza Mahkemesinin 2017/126 esas sayılı dosyasında açılan davanın derdest olduğu,davalı bankanın çalışanının gerekli özeni göstermediği ve çek üzerindeki yazı ve imzaların gerekli şekilde incelemeyerek, çek arkasına karşılıksız kaşesi vurulması sonucu, maddi zarara uğranıldığı iddia edilmekte ise de , soruşturma dosyasında alınan bilirkişi raporunda, çek üzerindeki bedel ve yazı kısımlarında bir tahrifatın tespit edilmediği ve çekin bu hali ile iğfal kabiliyetinin bulunduğunun tespit edildiği, davacı şirketin salt bu işlem nedeni ile maddi zarara uğradığı iddiası yönünden yapılan işlem ile oluşan zarar arasında doğrudan bir illiyet bağının dosyadaki mevcut kayıtlara göre tespit edilemediği, T.B.K. 49.maddesinde davalı yönünden bu nevi bir sorumluluğun oluşabilmesi için koşulların açıkça gösterildiği, davalı bankanın bu yönde bir kusuru veya hukuka aykırı bir fiilinin tespit edilemediği, T.B.K. 56. ve 58. maddelerinde manevi zararın oluşması koşullarının gösterildiği ve tazminat sorumluluğunun açıkça hükme bağlandığı, yine haksız fiilin kişinin bedeninde ve kişilik haklarında zarar ve zedelenme oluşturacak şekilde bir eylem veya ihmalin bulunması şeklinde olması gerektiği, ancak dosya kapsamından davalı bankanın yaptığı işlemin kişinin kişilik haklarını zedeleyecek nitelikte bir kasıt ile yerine getirildiğini gösterir her hangi bir delilin dosyada bulunmadığı, davacı şirketin ticari şirket olduğu ve davalı banka nezdinde bulunan hesabı nedeni ile teslim aldığı çeklerin kullanılması ve tedavül görmesinin ticari hayat içinde bir gereklilik ve yapılan ticari işin doğal sonucu olduğu, davacı tarafça bu şekilde oluştuğu iddia edilen zarar yönünden davalı bankanın sorumluluğunun doğrudan doğduğunu ispatlar şekilde her hangi bir delilin dosyada tespit edilmediği gerekçesiyle, davanın reddine karar verilmiştir.
+
+[p21] Karara karşı, davacılar vekili tarafından istinaf yoluna başvurulmuştur.
+
+[p22] İSTİNAF NEDENLERİ : Davacılar vekili, dava dilekzçesindeki iddialarını tekrarlamış ve İzmir 9. Ağır Ceza Mahkemesinin 2017/126 E. sayılı dosyası ile ... aleyhine Nitelikli Dolandırıcılık ve Resmi Belgede Sahtecilik suçlarından açılan kamu davasının derdest olduğunu, dosya sonucu bekletici mesele yapması gerekirken, karar verilmesinin hukuka, usule ve yasalara aykırı olduğunu, müvekkil şirket yetkilisi , ...bankası tarafından aranıp çekin sorulduğu bildirildiğinde, böyle bir çekin firmaları tarafından kesinlikle keşide edilmediğini ifade ettiğini, banka şubesinde veraset ilamı ve firma yetkilisinin imza sirküleri bulunmasına ve çıplak gözle dahi çek üzerindeki imza ile firma yetkilisinin imzalarının farklı olduğu açıkça görülmesine rağmen, çeke karşılıksız kaşesi vurulduğunu, yapılan bu işlemin mevzuat hükümlerine aykırı olduğunu, muhatap bankanın keşideciye karşı ödenmek üzere ibraz edilen çeki, imzanın gerçek ve muhtevanın tahrifattan ari olup olmadığı açısından kurallara uygun ve itinalı şekilde kontrol etmek borcunu da yüklendiğini, bu mecburiyetin, basiretli iş adamı gibi davranmanın gereği olduğunu, muhatap bankanın, çek bedelini öderken veya karşılıksız işlemi yaparken, kendisine ödeme için ibraz edilen çekin sahte veya tahrif edilmiş olup olmadığını da incelemesi gerektiğini, sahte veya tahrif edilmiş bir çekin, hamile muhatap bankaca ödenmesinden veya karşılıksız kaşesi vurulup icra takibine konulmasına ve icra işlemlerine neticesinde doğacak zararlardan dolayı nihai hukuki sorumluluk çeki sahte veya tahrif edilmiş olarak düzenleyen kişi olmakla beraber, muhatap bankanın da, bu durumu basiretli bir iş adamı gibi göz önünde bulundurması yükümlülüğü bulunduğunu, müvekkil firmanın Urla’daki adresinde 01.12.2015 tarihinde ihtiyati haciz işlemi gerçekleştirilerek, 180 parça eşya üzerine haciz işlemi uygulandığını, çok uzun yıllardır Urla’da ticaretle iştigal etmekte olan, haciz tarihine kadar her sene ciddi ticari başarılar kazanan, hem ticari ve hem de sosyal anlamda oldukça prestijli bir isim ve unvanı olan, bugüne kadar aleyhlerine açılmış tek bir icra takibi bile bulunmayan müvekkil firmanın, sahte ve tahrif edilmiş çeke istinaden alınan ihtiyati haciz kararıyla iş yerinde haciz işlemleri uygulanmasının, şirket yetkilisi davacının da itibarını yok ettiğini, davalı bankanın çeke karşılıksız kaşesi vurmasının, icra takibine sebebiyet verdiğini, haciz tarihinden sonra şirketin zarar ettiğini, şirket hakkında dilekçelerinde belirtilen icra takiplerinin başlatıldığını,dosyaya sunulan Gelir İdaresi Başkanlığı kayıtlarında (kurumlar vergisi beyannamelerinde) ve incelenecek ticari defter ve kayıtlarda görüleceği üzere, müvekkil firmanın işbu haciz işleminin tatbik edilmesinin akabinde ticari faaliyetlerinde negatif yönde ciddi düşüşler meydana geldiğinin allaşılacağını, mahkemece inceleme yapılmadığını, red kararının hukuka aykırı olduğunu,müvekkil ...’in herhangi bir fiziksel veya psikolojik rahatsızlığı bulunmamasına rağmen, haciz işlemi ve sonrasında yaşanan olaylar ile karşılaşılan durumların müvekkilde ciddi olumsuz etkiler yaratttığını, ... Devlet Hastanesi tarafından müvekkile 01.12.2015 tarihinde, 10 gün süreyle İş Göremezlik Belgesi verildiğini, bu belge ile reçetelerin dava dilekçesi ekinde dosyaya ibraz edildiğini, maddi ve manevi zararlar ile ilgili mağaza müdürünün tanık olarak dinlenilmesi taleplerinin kabul edilmediğini istinaf nedenleri olarak ileri sürerek, ilk derece mahkemesi kararının kaldırılmasını istemiştir.
+
+[p23] GEREKÇE : Dava, banka çalışanlarının dikkat ve özen yükümlülüğünü yerine getirmemesi nedeniyle, davacıların uğradığı maddi ve manevi tazminatın tahsili istemlidir.
+
+[p24] Dairemizce HMK'nın 355. maddesi uyarınca istinaf nedenleriyle ve resen kamu düzenine ilişkin sebeplerle sınırlı olarak istinaf incelemesi yapılmıştır.
+
+[p25] Somut olayda, 25.11.2015 keşide tarihli, 750.000 TL. bedelli ve keşidecisinin davacı şirket olduğu çekin, çeki elinde bulunduran çek hamili ... tarafından davalı bankanın ... şubesine ibraz edildiği, çekin karşılığının bulunmadığının çekin arkasına yazıldığı, davacı tarafça, çekteki keşideci imzasının şirketin en son temsilcisi ile önceki temsilcisine ait olmadığı, sahte olarak keşideci imzasının atıldığı, çekte yer alan 50.000, 00 TL' de tahrifat yapılarak , bedelin 750.000,00 TL ' ye dönüştürüldüğü, bu şekilde tanzim edilen sahte çekin davalı bankaya ibraz edildiği, davalı banka şubesinde veraset ilamı ve firma yetkilisinin imza sirküleri bulunmasına ve çıplak gözle dahi çek üzerindeki imza ile firma yetkilisinin imzalarının farklı olduğu açıkça görülmesine rağmen, muhatap bankanın keşideciye karşı ödenmek üzere kendisine ibraz edilen çekteki imzanın sahte olup olmadığını ve çekte tahrifat bulunup bulunmadığını incelemeden, çekte karşılıksız işlemi yapması sonucunda, çeki ibraz eden tarafından çeke dayalı olarak davacı şirket hakkında aldığı ihtiyati haciz kararına istinaden başlatılan icra takip dosyalarında, davacı şirketin mal varlıklarına haciz konulduğu, hacizler sebebiyle davacı şirketin ticari itibarının zedelendiği, nakit akışı durduğundan, şirketin borçlarını ödeyemediği, haciz anına kadar şirket aleyhine açılmış tek bir icra takibi bulunmadığı, sahte ve tahrif edilmiş çeke istinaden alınan ihtiyati haciz kararı ile işyerinde haciz işlemleri uygulanması sonucu şirket yetkilisinin de itibarının yok edildiği, psikolojisinin bozulduğu, haciz tarihinden sonra şirketin zarar ettiği, nakit akışı durduğundan, borçların ödenemediği, alacaklıların dava dilekçelerinde belirtilen icra takiplerini başlattığı, davalı bankanın basiretli bir tacir gibi davranma sorumluluğunu yerine getirmediğinden, davacıların maddi ve manevi zararının tazmininden sorumlu olduğunun iddia edildiği görülmektedir.
+
+[p26] Davacı tarafça, Cumhuriyet Başsavcılığına sunulan şikayet dilekçesinde, davaya konu çekin , 2014 tarihinde vefat eden ve en son şirket temsilcisi ...'in eşi de olan, şirket temsilcisi ... tarafından kaybedilen çek olduğu, keşideci imzasının sahte olduğu gibi, çekte yazlı olan 50.000,00 TL rakamına " 7 " eklenerek, bedelin 750.000,00 TL'ye dönüştürüldüğü iddiasıyla yapmış olduğu şikayet üzerine, başlatılan soruşturmada, görevlendirilen bilirkişinin, ... ait imza örnekleri ile çekteki imzayı karşılaştırarak inceleme yaptığı ve raporunda; keşideci el yazılarının ...' ya ait olmadığının, keşideci imzasının basit tersimli, tetkik için zengin grafolojik unsurlar içermeyen kolaylıkla taklit edilebilecek imza olması nedeniyle tetkik davaya konu çekin görünüm itibari ile orjinal belge özelliği gösterdiği, sahtecilik yapıldığını gösterir nitelikte bulgular içermediği, keşidecinin imzasının son derece basit tersimli imza incelemesi için imza aidiyetinde tanıya yarayacak zengin grafolojik unsurlar içermediği ,basit karalamadan ibaret olan imza olması nedeniyle tetkik konusu imzanın aidiyeti yönünde bir kanaat kanaat bildirilmesinin mümkün olmadığı, çekteki " 7 " ve " 5 " rakamlarının farklı yazı karakterleri taşıması nedeniyle sonradan " 7 " rakamının eklendiği düşünülmekte ise de, VSC cihazı ile yapılacak inceleme sonucunda durumun tespit edilebileceği, çekin iğfal kabiliyetinin bulunduğunun belirtildiği, İzmir 9.Ağır Ceza Mahkemisin 2017 / 126 sayılı dosyasında, " Resmi Blegede Sahtecilik " suçu işlendiği iddiasıyla açılan kamu davasının derdest olduğu, Urla İcra Hukuk Mahkemesinin 2016 /31 sayılı dosysında açılan davada alınan bilirkişi raporunda ise şirketin en son temsilcisi ...' e ait imza ile çekteki keşideci imzasının karşılaştırılarak yapılan incelme neticesinde, imzanın ...' e ait olmadığının tespit edildiği anlaşılmaktadır.
+
+[p27] İlk derece mahkemesince, imzanın sahte olup olmadığı ve tahrifat bulunup bulunmadığının tespitine yönelik bilirkişi raporu alınmamıştır. Davaya konu çekteki imza ve rakam ve yazıların incelenmesinde; çıplak gözle yapılan inceleme ile imzanın farklı veya sahte olup olmadığının tespitin mümkün olmadığı, " 7 " rakamı sonradan eklenmiş izlenimi vermiş ise de, çeke ayrıca yazıyla" yedi yüz elli bin " yazılmış olduğu tespit edilmiştir.
+
+[p28] Davaya konu çek bankaya ibraz edilmeden, ibraz süresi çerisinde mahkemelerden ihtiyati haciz kararı alınması mümkün olup, davaya konu çek bankaya ibraz edilerek, çeke karşılıksız kaşesi vurulmasından sonra, ihtiyati haciz kararı alınmıştır. Ayrıca, mahkemeden ihtiyati haciz talebinde bulunulduğunda, bankanın şüphe nedeni ile işlem yapılmadığına ilişkin çekte yazılsa dahi, sadece çekteki bu yazıya dayanarak talebi red edilemeyecek olup, talep dilekçesiyle birlikte sunulan belge ve delililer incelenerek karar verilmesi gerekmektedir. Davaya konu çekte karşılıksız işlemi yapılması, ihtiyati haciz kararının alınmasını salt nedeni olduğu iddiaları bu sebeplerle yerinde değildir. Davacı tarafça, çekte karşılıksız işlemi yapılmış olmasının ,davacı şirketin borçlarını ödeyemeyememesine neden olduğu, hangi zararların oluştuğu somutlaştırılarak mahkemeye açıklanmalı, illiyet bağı bulunduğuna ilişkin tüm deliller sunulmalıdır.
+
+[p29] İlk derece mahkemesince, 04.04.2017 tarihli duruşmada, davacılar vekiline maddi zararlarının neler olduğunun tüm dayanakları ile bildirilmesi ve delillendirilmesi için süre verildiği, davacılar vekilinin, davalı muhatap bankanın çekteki karşılıksız işlemi yapmasının, davacı şirketin mal varlığına haciz konulmasına sebebiyet verdiği, hacizler nedeniyle davacı şirket ile davacı şirket yetkilisi ticari itibarı ile prestijini kaybettiğinden, nakit akışının durduğu, bu sebeplerle davacı şirketin borçlarını ödeyemediği, alacaklıların şirket hakkında icra takipleri başlatması sonucu, davacı şirketin maddi zararının oluştuğu açıklanarak, şirketin borçlu olduğu alacaklılar tarafından başlatılan icra takip dosyaları , vergi kayıtları delil olarak bildirilmiş ve mağaza müdürünün tanık olarak dinlenilmesi istenmiştir. Davacı şirketin borçlarını ödeyememiş olması ve bu sebeple alacaklılar tarafından borçlusu şirket hakkına icra takipleri başlatılmış olması maddi zarara neden olduğu iddialarının kabulü için yeterli değildir. Çek, önceki müdür döneminde kaybedildiği halde, davacı tarafça, yasal müracaatlar yapılmadığı da gerek dava dilekçesi içeriğinden gerekse şikayet dilekçesi içeriğinden anlaşılmaktadır.
+
+[p30] Talep ve iddialarla bağlı kalınılarak yapılan değerlendirmede; çeke karşılıksız kaşesi vurulmasının tek başına ihtiyati haciz kararı alınmasına sebebiyet vermemesine, davalı bankanın basiretli tacir olarak sorumluluğunu yerine getirmediğinin ispatlamamasına, haciz işlemlerinden sonra , davacı şirketin borçlarını ödeyememiş olmasının ve bu sebeple alacaklılar tarafından, bildirilen icra takip dosyaları ile takipler başlatılmış olmasının, somutlaştırılmayan bir zararın belirlenmesi için yeterli ve davalı bankanın işlemlerinin hacizlerin salt nedeni olmaması nedeniyle icra takip dosyaları ile defter kayıtları ve vergi kayıtlarının incelenmesini ve tanık dinlenilmesini gerektirmemesine, derdest ceza dosyasında verilecek kararın da sonuca bir etkisinin bulunmamasına, bu sebeplerle manevi zararın tazmini şartlarının da oluşmamasına göre, ilk derece mahkemesince davaların reddine karar verilmesi doğru olup, davacılar vekilinin istinaf itirazları yerinde değildir.
+
+[p31] İstinaf kanun yoluna başvuranın dilekçesinde yer verdiği itirazların, açıklanan gerekçe ışığında yerinde olmamasına, kararda kamu düzenine ilişkin bir aykırılık bulunmamasına, kararının usul ve esas yönünden hukuka uygun olmasına göre, duruşma açılmasına gerek görülmeyerek Hukuk Muhakemeleri Kanunu'nun 353/1-b-1 maddesi gereğince istinaf başvurusunun esastan reddine karar verilmesi gerekmiştir.
+
+[p32] HÜKÜM : Yukarıda açıklanan nedenlerle;
+
+[p33] 1-Davacılar vekilinin istinaf başvurusunun Hukuk Muhakemeleri Kanunu'nun 353/1-b-1 maddesi uyarınca ESASTAN REDDİNE,
+
+[p34] 2-Davacılar yönünden istinaf karar harcı olan 59,30 TL'den peşin alınan 35,90 TL'nin mahsubu ile eksik kalan 23,40 TL'nin davacıdan tahsiline,
+
+[p35] 3-İstinaf başvurusu nedeni ile davacıların yaptıkları giderlerin kendi üzerlerinde bırakılmasına,
+
+[p36] Dosya üzerinden yapılan inceleme neticesinde, kararın tebliğinden itibaren iki hafta içinde Yargıtay ilgili Hukuk Dairesinde temyiz yolu açık olmak üzere oy birliğiyle karar verildi. 15.09.2021

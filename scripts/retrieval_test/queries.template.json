@@ -1,0 +1,202 @@
+{
+  "_README": [
+    "TEMPLATE. Copy to queries.json, then fill in every \"query\" field.",
+    "Only the 'query' and 'expect_paragraph' fields are yours to write -- source,",
+    "expect_doc_id and expect_case_no are pre-filled mechanical facts.",
+    "Delete any entry you do not want to write. Entries with an empty query are",
+    "rejected by the harness, so you cannot accidentally score a blank.",
+    "Write ONLY from worksheet/ files. Never open output/chunk/."
+  ],
+  "queries": [
+    {
+      "_worksheet": "danistay__879597400.txt  (62 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "danistay",
+      "expect_doc_id": "879597400",
+      "expect_case_no": "2021/895",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "danistay__879597400.txt  (paragraphs p1..p62)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "danistay",
+      "expect_doc_id": "879597400",
+      "expect_case_no": "2021/895",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "danistay__971050200.txt  (36 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "danistay",
+      "expect_doc_id": "971050200",
+      "expect_case_no": "2022/4438",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "danistay__971050200.txt  (paragraphs p1..p36)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "danistay",
+      "expect_doc_id": "971050200",
+      "expect_case_no": "2022/4438",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "bam__676966100.txt  (36 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "bam",
+      "expect_doc_id": "676966100",
+      "expect_case_no": "2018/1737",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "bam__676966100.txt  (paragraphs p1..p36)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "bam",
+      "expect_doc_id": "676966100",
+      "expect_case_no": "2018/1737",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "bam__726546200.txt  (69 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "bam",
+      "expect_doc_id": "726546200",
+      "expect_case_no": "2019/2035",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "bam__726546200.txt  (paragraphs p1..p69)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "bam",
+      "expect_doc_id": "726546200",
+      "expect_case_no": "2019/2035",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "first_degree__416911500.txt  (20 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "first_degree",
+      "expect_doc_id": "416911500",
+      "expect_case_no": "2017/360",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "first_degree__416911500.txt  (paragraphs p1..p20)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "first_degree",
+      "expect_doc_id": "416911500",
+      "expect_case_no": "2017/360",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "first_degree__442551100.txt  (25 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "first_degree",
+      "expect_doc_id": "442551100",
+      "expect_case_no": "2017/395",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "first_degree__442551100.txt  (paragraphs p1..p25)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "first_degree",
+      "expect_doc_id": "442551100",
+      "expect_case_no": "2017/395",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "aym__8d4909ed.txt  (90 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "aym",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2",
+      "expect_case_no": "2024/15819",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "aym__8d4909ed.txt  (paragraphs p1..p90)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "aym",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2",
+      "expect_case_no": "2024/15819",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "aym__a2cf33ab.txt  (120 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "aym",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344",
+      "expect_case_no": "2019/12951",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "aym__a2cf33ab.txt  (paragraphs p1..p120)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "aym",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344",
+      "expect_case_no": "2019/12951",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "kvkk__76402deb.txt  (6 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "kvkk",
+      "expect_doc_id": "76402deb-b96b-5c07-857a-779977bcff9f",
+      "expect_case_no": "2024/2196",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "kvkk__76402deb.txt  (paragraphs p1..p6)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "kvkk",
+      "expect_doc_id": "76402deb-b96b-5c07-857a-779977bcff9f",
+      "expect_case_no": "2024/2196",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "kvkk__d067a13a.txt  (4 paragraphs)",
+      "query": "",
+      "stage": "case",
+      "source": "kvkk",
+      "expect_doc_id": "d067a13a-6ee5-506c-96e4-ae8e1bef17c5",
+      "expect_case_no": "2024/1899",
+      "written_from": "raw_court_text"
+    },
+    {
+      "_worksheet": "kvkk__d067a13a.txt  (paragraphs p1..p4)",
+      "query": "",
+      "stage": "chunk",
+      "expect_paragraph": "",
+      "source": "kvkk",
+      "expect_doc_id": "d067a13a-6ee5-506c-96e4-ae8e1bef17c5",
+      "expect_case_no": "2024/1899",
+      "written_from": "raw_court_text"
+    }
+  ]
+}

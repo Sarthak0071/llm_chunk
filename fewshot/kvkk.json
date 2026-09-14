@@ -1,0 +1,222 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "kvkk-521f9583-background",
+      "source_type": "kvkk",
+      "case_no": "2024/2158",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "seg0"
+      ],
+      "text": "İlgili kişinin Kuruma intikal eden dilekçesinde özetle; kapalı ceza infaz kurumunda iş yurdu müdürlüğü tarafından düzenlenen fişlerde ad ve soyadının buzlandığı, ancak tahsilat makbuzu ve reddiyat makbuzunda bütün kişisel verilerinin açık olarak yer aldığı, makbuzlarda yer alan ad, soyadı, T.C. kimlik numarası, cezaevi kayıt no, hüküm durumu, cezaevi giriş tarihi; şahsı adına para yatıranın adı, soyadı, T.C. kimlik numarası vb. kişisel verilerin hiçbir önlem alınmadan açıkça yazılmasına karşın; söz konusu belgelerin kendilerine ulaştırılması için belirli bir memurun görevli olmamakla birlikte birçok memur ve idareci tarafından bu bilgilerin görüldüğü, konuya ilişkin veri sorumlusuna yaptığı başvuruya talebinin değerlendirileceği yönünde yanıt verilmesine rağmen uygulamada herhangi bir değişikliğin olmadığı ifade edilerek 6698 sayılı Kişisel Verilerin Korunması Kanunu (6698 sayılı Kanun) kapsamında gereğinin yapılması talep edilmiştir.",
+      "char_length": 948,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "regulatory_role": "background",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "kvkk-521f9583-analysis_p1",
+      "source_type": "kvkk",
+      "case_no": "2024/2158",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "seg1",
+        "seg2",
+        "seg3"
+      ],
+      "text": "Kurulca başlatılan resen inceleme çerçevesinde veri sorumlusundan bilgi ve belge talebinde bulunulmuş olup verilen cevapta özetle; - Ceza infaz kurumlarında bulunan tutuklu ve hükümlülerin ziyaretçilerinden para alımı esnasında, banka veya PTT yoluyla havale geldiğinde ve üst araması esnasında yapılan para kaydında kesilen tahsilat makbuzları ile kantin alışverişi ödemesi yapılırken kesilen reddiyat makbuzlarında 1 suretin hükümlü ve tutukluya verilip, 1 suretin emanet para arşivinde yasal saklama süresince saklandığı, tahsilat ve reddiyat makbuzlarını sadece ilgili birimde görev yapan personelin gördüğü ve bu bilgilerin herhangi bir kurum, kuruluş ya da kişilerle paylaşılmadığı, - İlgili kişinin tahsilat ve reddiyat makbuzunda çıkan hükümlü ve tutuklu bilgilerinin buzlanması talebine ilişkin olarak bu bilgilerin UYAP kayıtlarından otomatik olarak çekildiği, tahsilat ve reddiyat makbuzlarının görevli memurlar tarafından dağıtımının yapıldığı, görevli memurlar dışında bu bilgileri kimsenin görmediği, ayrıca ilgili tahsilat ve reddiyat makbuzlarının sadece ilgili kişiye verildiği,",
+      "char_length": 1095,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "regulatory_role": "analysis",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6698-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "6698",
+          "law_name": "Kişisel Verilerin Korunması",
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "6698 sayılı Kişisel Verilerin Korunması Kanunu (6698 sayılı Kanun)",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "chunk_id": "kvkk-521f9583-analysis_p2",
+      "source_type": "kvkk",
+      "case_no": "2024/2158",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "seg4",
+        "seg5"
+      ],
+      "text": "- Bilgilerin hangi hukuki sebebe dayanılarak işlendiği ile ilgili olarak; Ceza İnfaz Kurumlarının Yönetimi ile Ceza ve Güvenlik Tedbirlerinin İnfazı Hakkında Yönetmeliğin “Hükümlülere ait kıymetli eşyanın korunması” başlıklı 60'ıncı maddesi ve “Hükümlülerin emanete alınan kişisel paraları” başlıklı 61'inci maddesi; Hükümlü ve Tutukluların Emanete Alınan Kişisel Paralarının Kullanımına Dair Yönetmeliğin “Hükümlülere ve tutuklulara ait paranın kaydı” başlıklı 5’inci maddesi, “Makbuz ve defterler” başlıklı 6'ncı maddesi, “Harcamalar” başlıklı 8'inci maddesinde yer alan hükümler ile Ceza ve Tevkifevleri Genel Müdürlüğü tarafından hazırlanarak 07.07.2006 tarihinde Bakan Onayı ile yürürlüğe giren Ceza İnfaz Kurumlarında Kullanılacak Defter ve Belgeler ile Bunların Düzenlenmesine Dair Yönergenin 8'inci maddesi birinci fıkrası (b) bendinin 10 ve 11'inci alt bentlerinde örnek numaraları verilen ve aynı Yönergenin 62 ve 63'üncü maddelerinde açıklanan, emanet para girişlerinde kullanılan \"Tahsilat Makbuzu\" ile bu hesaptan ödenen paralar sonrası düzenlenen \"Reddiyat Makbuzu\" ile ilgili esaslara göre ilgili bilgilerin işlendiği ifade edilmiştir.",
+      "char_length": 1150,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "regulatory_role": "analysis",
+      "cited_legislations": [
+        {
+          "canonical_id": "regulation-ceza-infaz-kurumlarinin-yonetimi-ile-ceza-ve-guvenlik-tedbirlerinin-infazi-hakkinda-yonetmelik-art-60",
+          "legislation_type": "regulation",
+          "law_no": null,
+          "law_name": "Ceza İnfaz Kurumlarının Yönetimi ile Ceza ve Güvenlik Tedbirlerinin İnfazı Hakkında Yönetmelik",
+          "article_no": "60",
+          "paragraph_no": null,
+          "verbatim_mention": "Ceza İnfaz Kurumlarının Yönetimi ile Ceza ve Güvenlik Tedbirlerinin İnfazı Hakkında Yönetmeliğin “Hükümlülere ait kıymetli eşyanın korunması” başlıklı 60'ıncı maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "regulation-ceza-infaz-kurumlarinin-yonetimi-ile-ceza-ve-guvenlik-tedbirlerinin-infazi-hakkinda-yonetmelik-art-61",
+          "legislation_type": "regulation",
+          "law_no": null,
+          "law_name": "Ceza İnfaz Kurumlarının Yönetimi ile Ceza ve Güvenlik Tedbirlerinin İnfazı Hakkında Yönetmelik",
+          "article_no": "61",
+          "paragraph_no": null,
+          "verbatim_mention": "“Hükümlülerin emanete alınan kişisel paraları” başlıklı 61'inci maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "regulation-hukumlu-ve-tutuklularin-emanete-alinan-kisisel-paralarinin-kullanimina-dair-yonetmelik-art-5",
+          "legislation_type": "regulation",
+          "law_no": null,
+          "law_name": "Hükümlü ve Tutukluların Emanete Alınan Kişisel Paralarının Kullanımına Dair Yönetmelik",
+          "article_no": "5",
+          "paragraph_no": null,
+          "verbatim_mention": "Hükümlü ve Tutukluların Emanete Alınan Kişisel Paralarının Kullanımına Dair Yönetmeliğin “Hükümlülere ve tutuklulara ait paranın kaydı” başlıklı 5’inci maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "regulation-hukumlu-ve-tutuklularin-emanete-alinan-kisisel-paralarinin-kullanimina-dair-yonetmelik-art-6",
+          "legislation_type": "regulation",
+          "law_no": null,
+          "law_name": "Hükümlü ve Tutukluların Emanete Alınan Kişisel Paralarının Kullanımına Dair Yönetmelik",
+          "article_no": "6",
+          "paragraph_no": null,
+          "verbatim_mention": "“Makbuz ve defterler” başlıklı 6'ncı maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "regulation-hukumlu-ve-tutuklularin-emanete-alinan-kisisel-paralarinin-kullanimina-dair-yonetmelik-art-8",
+          "legislation_type": "regulation",
+          "law_no": null,
+          "law_name": "Hükümlü ve Tutukluların Emanete Alınan Kişisel Paralarının Kullanımına Dair Yönetmelik",
+          "article_no": "8",
+          "paragraph_no": null,
+          "verbatim_mention": "“Harcamalar” başlıklı 8'inci maddesi",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "directive-ceza-infaz-kurumlarinda-kullanilacak-defter-ve-belgeler-ile-bunlarin-duzenlenmesine-dair-yonerge-art-8-p1-b",
+          "legislation_type": "directive",
+          "law_no": null,
+          "law_name": "Ceza İnfaz Kurumlarında Kullanılacak Defter ve Belgeler ile Bunların Düzenlenmesine Dair Yönerge",
+          "article_no": "8",
+          "paragraph_no": "1",
+          "verbatim_mention": "Ceza İnfaz Kurumlarında Kullanılacak Defter ve Belgeler ile Bunların Düzenlenmesine Dair Yönergenin 8'inci maddesi birinci fıkrası (b) bendinin 10 ve 11'inci alt bentlerinde",
+          "law_date": "2006-07-07",
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "directive-ceza-infaz-kurumlarinda-kullanilacak-defter-ve-belgeler-ile-bunlarin-duzenlenmesine-dair-yonerge-art-62",
+          "legislation_type": "directive",
+          "law_no": null,
+          "law_name": "Ceza İnfaz Kurumlarında Kullanılacak Defter ve Belgeler ile Bunların Düzenlenmesine Dair Yönerge",
+          "article_no": "62",
+          "paragraph_no": null,
+          "verbatim_mention": "aynı Yönergenin 62 ... maddelerinde",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "directive-ceza-infaz-kurumlarinda-kullanilacak-defter-ve-belgeler-ile-bunlarin-duzenlenmesine-dair-yonerge-art-63",
+          "legislation_type": "directive",
+          "law_no": null,
+          "law_name": "Ceza İnfaz Kurumlarında Kullanılacak Defter ve Belgeler ile Bunların Düzenlenmesine Dair Yönerge",
+          "article_no": "63",
+          "paragraph_no": null,
+          "verbatim_mention": "63’üncü maddelerinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "kvkk-521f9583-outcome",
+      "source_type": "kvkk",
+      "case_no": "2024/2158",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "seg6",
+        "seg7"
+      ],
+      "text": "Konuya ilişkin yapılan inceleme çerçevesinde Kişisel Verileri Koruma Kurulunun 19/12/2024 tarih ve 2024/2158 sayılı Kararı ile; değerlendirmelerinden hareketle; ceza infaz kurumu tarafından düzenlenen ve ilgili kişiye ait ad, soyadı, T.C. kimlik numarası, cezaevi kayıt no, cezaevi giriş tarihi, cezaevindeki durumu, kaldığı blok/oda no; ilgili kişi adına para yatıran kişinin adı, soyadı, T.C. kimlik numarası, yakınlık durumuna ilişkin kişisel verileri içeren reddiyat ve tahsilat makbuzlarının ilgili kişiye ulaştırılması süreçlerinde gerçekleştirilen kişisel veri işleme faaliyetlerinin 6698 sayılı Kanun’un “İstisnalar” başlıklı 28’inci maddesinin birinci fıkrasının (d) bendinde yer alan “Kişisel verilerin soruşturma, kovuşturma, yargılama veya infaz işlemlerine ilişkin olarak yargı makamları veya infaz mercileri tarafından işlenmesi” hükmü kapsamında bulunduğu, bu çerçevede 6698 sayılı Kanun hükümlerinin uygulanamayacağı dikkate alındığında yapılacak işlem bulunmadığına karar verilmiştir.",
+      "char_length": 1001,
+      "content_type": "ruling",
+      "firac_role": null,
+      "reasoning_stage": "outcome",
+      "rights": null,
+      "confidence": "high",
+      "regulatory_role": "outcome",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-6698-art-28-p1-d",
+          "legislation_type": "statute",
+          "law_no": "6698",
+          "law_name": null,
+          "article_no": "28",
+          "paragraph_no": "1",
+          "verbatim_mention": "6698 sayılı Kanun’un “İstisnalar” başlıklı 28’inci maddesinin birinci fıkrasının (d) bendinde",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6698-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "6698",
+          "law_name": null,
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "6698 sayılı Kanun hükümlerinin",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2024/2158",
+      "source_type": "kvkk",
+      "subject_type": "data_controller_violation",
+      "subject_id": "kurul_karar_ozetleri",
+      "opinion_type": "board_decision",
+      "outcome": "no_action_needed",
+      "conclusion_sentence": "Outcome: no action taken -- the Board found the prison's handling of the complainant's personal data on payment receipts fell under KVKK art. 28(1)(d)'s exemption for data processing carried out by judicial or penal-enforcement authorities in relation to investigation, prosecution, trial, or enforcement proceedings, so the Data Protection Law's substantive provisions did not apply to this processing at all.",
+      "reasoning_summary": "Bir mahkûm, hapishane hesabına yatırılan ve hesaptan çekilen paralara ilişkin makbuzlarda tam adının, T.C. kimlik numarasının ve koğuş bilgisinin açıkça yazılı olduğunu, bu bilgilerin gerekenden fazla personel tarafından görülebildiğini ve talebine rağmen bu bilgilerin gizlenmediğini şikayet etti. Cezaevi idaresi, makbuzların ulusal adli bilişim sisteminden otomatik üretildiğini, yalnızca yetkili personel tarafından dağıtıldığını ve mahkûmların parasının kaydını tutmaya ilişkin çeşitli yönetmelik ve yönergelerin bu uygulamayı zorunlu kıldığını açıkladı. Kurul, cezaevi idaresinin bu veri işleme faaliyetinin orantılı veya yeterince güvenli olup olmadığını hiç değerlendirmedi; çünkü önce bu tür işlemenin 6698 sayılı Kanun'un 28. maddesinin birinci fıkrasının (d) bendi kapsamında muaf olduğuna karar verdi: bu hüküm, soruşturma, kovuşturma, yargılama veya cezanın infazıyla bağlantılı olarak yargı ya da infaz kurumları tarafından yürütülen kişisel veri işlemeyi Kanun kapsamı dışında bırakmaktadır. Makbuzlar bu istisna kapsamına girdiğinden Kurul herhangi bir işlem yapılmasına yer olmadığına karar vermiştir.",
+      "reasoning_summary_method": "llm_generated",
+      "supporting_chunk_ids": [
+        "kvkk-521f9583-analysis_p1",
+        "kvkk-521f9583-analysis_p2",
+        "kvkk-521f9583-outcome"
+      ]
+    }
+  ]
+}

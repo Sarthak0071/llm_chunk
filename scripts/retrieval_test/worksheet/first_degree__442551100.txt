@@ -1,0 +1,87 @@
+==============================================================================
+ first_degree   doc_id 442551100
+ case_no 2017/395
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 25 paragraphs, 4510 characters
+==============================================================================
+
+[p1] T.C. İstanbul Anadolu 4. ASLİYE TİCARET MAHKEMESİ
+
+[p2] ESAS NO : 2016/1359 Esas
+
+[p3] KARAR NO : 2018/919
+
+[p4] DAVA : Alacak (Bankacılık İşlemlerinden Kaynaklanan)
+
+[p5] DAVA TARİHİ : 30/11/2016
+
+[p6] KARAR TARİHİ : 09/10/2018
+
+[p7] Mahkememizde görülmekte olan Alacak (Bankacılık İşlemlerinden Kaynaklanan) davasının yapılan açık yargılaması sonunda,
+
+[p8] GEREĞİ DÜŞÜNÜLDÜ :
+
+[p9] Davacı vekili dava dilekçesinde özetle; müvekkil şirketin ..... kullanmış olduğu ticari ihtiyaç kredi sözleşmeleri kapsamında, "dosya ve sair masrafı" adı altında hukuka ve mevzuata aykırı olarak tahsil edilen, tam meblağı sayın mahkemece davalı şirketten talep edildikten sonra ortaya çıkacak olan ve fakat fazlaya ilişkin haklarımız saklı kalmak kaydıyla şimdilik 6.037,50.-TL'nin yasal en yüksek değişken faizin eklenerek toplamının müvekkil şirkete iadesini, her ad altında dava hakkımızın ve fazlaya ilişkin haklarımızın saklı tutulmasına karar verilmesini talep ve dava etmiş, bu talebini duruşmada tekrar etmiştir.
+
+[p10] Taraflara tebligat yapılarak taraf teşkili sağlanmıştır.
+
+[p11] Davalı vekili cevap dilekçesinde özetle; alacağın belirlenebilir olduğu hallerde fazlaya ilişkin hakların saklı tutularak belirsiz alacak davası açılamayacağını, bu itibarla, davacı tarafça talep edilen alacak belirlenebilir alacak olmasına rağmen fazlaya ilişkin hakların saklı tutulması suretiyle belirsiz alacak davası açılmış olması usul ve yasaya aykırı olduğunu, HMK 109/2 fıkrasına göre davanın reddine karar verilmesi gerektiğinden, mezkur davanın öncelikle bu yönden usulen reddine karar verilmesi, resen gözetilecek hususlar göz önüne alınarak, fazlaya dair dava ve talep haklarımız saklı kalmak kaydıyla, davanın zamanaşımından reddine, haksız ve mesnetsiz davanın reddine karar verilmesini talep etmiştir.
+
+[p12] Tarafların uhdesinde olan tüm delilleri ibraz ettikleri, getirtilmesi gereken delilleri ilgili yerlerden getirtilerek dosya içine alınmıştır.
+
+[p13] Dosya tüm delillerin ibrazından sonra konusunda uzman teknik bilirkişiye tevdi edilmiş, teknik bilirkişi ayrıntılı raporunu ibraz etmiştir.
+
+[p14] Mahkememizce yapılan yargılama ve dosya içeresinde toplanan delillerin bir bütün olarak irdelenmesi sonucu;
+
+[p15] Davacının davalı bankadan 13/05/2011 tarihinde 1.200.000,00 TL bedelli ve 15/09/2011 tarihinde tutarlı ticari krediler kullandığı davalı banka tarafından kullandırılan 1 200 0000,00 TL lik kredi için %0,2 oranından 2400,00 TL komisyon 120 TL BSMV olmak üzere 2520,00 TL tahsilat yapıldığı, 335.000,00 TL lik kredi için ise %1 oranından 3.350,00 TL komisyon ve 167,50 TL BSMV olmak üzere 3.517,50 TL lik tahsilatın toplamı olmak üzere 6.037,50 TL tahsilat yapıldığı yapılan bu tahsilatın diğer bankaların ticari kredilere uyguladığı komisyon oran ve tutarı dikkate alındığında davalı bankaca yapılan tahsilat bedelinin bankacılık teamüllerine uygun olduğu anlaşılmıştır.
+
+[p16] Bilir kişi tarafından ibraz edilen rapor da da komisyon oranlarında davacının ayrıntılı olarak bilgilendirildiği ve davacının bilgi ve onayının bulunduğu rapor edilmiş ve yine bilir kişi tarafından bankaların emsal kredilere uyguladığı komisyon oranları belirtilerek rapor tertip edilmiş ve tertip edilen raporda davalı bankanın davacıdan tahsil ettiği tutarların bankacılık teamüllerine uygun olduğu rapor edilmiştir.
+
+[p17] Bilir kişi tarafından ibraz edilen rapor denetime elverişli olup, hüküm kurmaya yeterli bulunduğundan davacının yeniden rapor alınması yönündeki talebinin esasa katkı sağlamayacağı anlaşılarak davacının yeniden rapor alınması yönündeki talebinin usul ekonomisi ve tarafların adil yargılanma hakkı gözetilerek reddine karar verilmiş ve neticeten davacının davasının reddine karar verilmiştir.
+
+[p18] H Ü K Ü M : Gerekçesi yukarıda açıklandığı üzere;
+
+[p19] Davanın REDDİNE,
+
+[p20] Davacı tarafından yapılan yargılama giderlerinin kendi üzerinde bırakılmasına,
+
+[p21] Karar tarihinde alınması gerekli 35,90 TL harcın davacı tarafça yatırılan 103,11 TL harçtan mahsubu ile kalan 67,21 TL harcın karar kesinleştiğinde talep halinde yatırana iadesine,
+
+[p22] Davalı tarafından yapılan yargılama gideri bulunmadığından bu hususta karar verilmesine yer olmadığına,
+
+[p23] Davalı taraf kendisini vekille temsil ettirdiğinden karar tarihinde geçerli ....... deki esaslara göre belirlenen 2.180,00 TL vekalet ücretinin davacıdan alınarak davalıya verilmesine,
+
+[p24] Taraflar tarafından dosyaya yatırılan ve sarf edilmeyen gider avansının karar kesinleştiğinde talep halinde yatırana iadesine,
+
+[p25] Dair, davacı ve davalı vekilinin yüzüne karşı kararın tebliğinden itibaren 2 haftalık süre içinde BAM nezdinde İstinaf yolu açık olmak üzere verilen karar açıkça okunup usulen anlatıldı.

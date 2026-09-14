@@ -1,0 +1,41 @@
+{
+  "_README": [
+    "THIS FILE IS AN EXAMPLE AND IS NEVER LOADED BY THE TEST.",
+    "It shows the format only. Copy it to queries.json and replace everything.",
+    "The two example queries below are deliberately weak placeholders -- they are",
+    "here to show field names, not to contribute a single scored query.",
+    "",
+    "RULES",
+    " 1. Write every query from the worksheet files (raw court text) only.",
+    "    Never open output/chunk/ while writing. That is what keeps the test",
+    "    from grading the system with its own output.",
+    " 2. Paraphrase. Do not lift distinctive phrases -- run",
+    "    'python test_retrieval.py --audit-only' to see how much you reused.",
+    " 3. stage: 'case' asks which document; 'chunk' asks which paragraph.",
+    " 4. For stage 'chunk' give expect_paragraph (e.g. 'p18'), NOT a chunk_id.",
+    "    Code resolves which chunk contains that paragraph, so the answer key",
+    "    survives re-segmentation and you never read generated chunk text.",
+    " 5. Once you have run a scored test, do not delete queries that failed.",
+    "    Add to the set instead -- the file is hashed into every report, so",
+    "    edits after seeing results are visible."
+  ],
+  "queries": [
+    {
+      "query": "EXAMPLE ONLY - REPLACE ME. A natural factual question about what happened in the case and how it was decided.",
+      "source": "bam",
+      "stage": "case",
+      "expect_doc_id": "676966100",
+      "expect_case_no": "2018/1737",
+      "written_from": "raw_content_text"
+    },
+    {
+      "query": "EXAMPLE ONLY - REPLACE ME. A narrow question answered by one specific paragraph.",
+      "source": "bam",
+      "stage": "chunk",
+      "expect_doc_id": "676966100",
+      "expect_case_no": "2018/1737",
+      "expect_paragraph": "p18",
+      "written_from": "raw_content_text"
+    }
+  ]
+}

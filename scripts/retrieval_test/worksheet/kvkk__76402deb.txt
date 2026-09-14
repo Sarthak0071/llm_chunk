@@ -1,0 +1,49 @@
+==============================================================================
+ kvkk   doc_id 76402deb-b96b-5c07-857a-779977bcff9f
+ case_no 2024/2196
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 6 paragraphs, 2838 characters
+==============================================================================
+
+[p1] Veri sorumlusu tarafından Kuruma gönderilen kişisel veri ihlali bildirimi ve diğer yazılarda özetle;
+
+[p2] beyanlarına yer verilmiştir.
+
+[p3] Veri sorumlusu bünyesinde gerçekleşen kişisel veri ihlalinin Kurumumuzun görev ve yetki alanı çerçevesinde incelenmesi neticesinde Kişisel Verileri Koruma Kurulunun 26/12/2024 tarihli ve 2024/2196 sayılı Kararı ile,
+
+[p4] hususlarının veri sorumlusu tarafından beyan edildiği ancak bilindiği üzere 6698 sayılı Kişisel Verilerin Korunması Kanununda (Kanun) yer alan kişisel verinin tanımı gereği tüzel kişiye ait bir verinin herhangi bir gerçek kişiyi belirlemesi ya da belirlenebilir kılması halinde bu verilerin de Kanun kapsamında koruma altında olduğu, bu kapsamda bahse konu dokümanların (müşteri bilgilerini içerir dokümanlar) gerçek kişiyi belirli veya belirlenebilir kılan herhangi bir veriyi içerip içermediğinin tespit edilmesinin gerekli olduğu; veri sorumlusunun, bahse konu dokümanların (ihlale konu dokümanlar) örneklerini kendisinden talep edilmesine rağmen Kurumumuza sunmadığı; çalışanlara ait kişisel veriler ile ilgili olarak ise veri sorumlusunun, veri ihlali bildiriminde bahsettiği çalışan verilerinin ihlalden etkilendiği hususundaki beyanlarının (aynı zamanda dava dilekçesinde de çalışan verilerinin ihlalden etkilendiği belirtilmiştir) aksini gösterecek tevsik edici belgeleri Kurumumuza sunamadığı, tüm bu durumlara ek olarak kendisinden talep edilmesine rağmen Kişisel Veri İşleme Envanteri’nin bir örneğini Kurumumuza göndermediği (veri ihlali bildirimde bahse konu envanterin ihlal öncesinde hazırlandığı belirtilmiştir),
+
+[p5] hususlarının veri sorumlusu tarafından belirtildiği, bahse konu beyanların çelişkiler içerdiğinin görüldüğü; veri sorumlusunun, sadece çalışanlara ilişkin etkilenen verileri gösterir tevsik edici belgeleri Kurumumuza sunduğu; bahse konu belgeler incelendiğinde de çalışanlara ait çok sayıda farklı kategoride kişisel verinin (özel nitelikli kişisel veri kategorisinde yer alan veriler dahil olmak üzere) bulunduğunun görüldüğü; müşterilere ilişkin herhangi bir kişisel verinin ihlale konu olmadığı beyanını tevsik edici belgelerin (ihlale konu doküman örnekleri, Kişisel Veri İşleme Envanteri örneği vb.) Kurumumuza sunulamadığı,
+
+[p6] hususları dikkate alındığında, Kanunun 12 nci maddesinin (1) numaralı fıkrasında yer alan “Veri sorumlusu; kişisel verilerin hukuka aykırı olarak işlenmesini önlemek, kişisel verilere hukuka aykırı olarak erişilmesini önlemek, kişisel verilerin muhafazasını sağlamak, amacıyla uygun güvenlik düzeyini temin etmeye yönelik gerekli her türlü teknik ve idari tedbirleri almak zorundadır.” hükmü çerçevesinde veri güvenliğini sağlamaya yönelik gerekli teknik ve idari tedbirleri almayan veri sorumlusu hakkında Kanunun 18 inci maddesinin (1) numaralı fıkrasının (b) bendi uyarınca 250.000 TL idari para cezası uygulanmasına karar verilmiştir.

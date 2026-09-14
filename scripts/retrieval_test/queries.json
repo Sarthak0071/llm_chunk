@@ -1,0 +1,236 @@
+{
+  "_README": [
+    "Authored 2026-09-14 by Claude from the worksheet/ files ONLY (raw court text).",
+    "output/chunk/ and fewshot/ were NOT opened while writing. The n-gram audit in",
+    "test_retrieval.py --audit-only is the enforcement of that claim, not this note.",
+    "",
+    "Every query is a paraphrase in the register a lawyer would use. Legal terms of",
+    "art (ihtiyati haciz, rucu, israr karari, konu bakimindan yetkisizlik) are the",
+    "concepts themselves, not distinctive phrasing, and are used where the question",
+    "cannot be asked without them. The audit reports whatever overlap results.",
+    "",
+    "Stage 2 truth is a PARAGRAPH number from the worksheet. Code resolves which",
+    "chunk contains it, so the key survives re-segmentation.",
+    "",
+    "Deliberately hard: the two kvkk decisions are near-identical data-breach fines",
+    "under the same article; only the amount differs. See the 'note' fields.",
+    "",
+    "Do not delete failing queries after a scored run. Add instead. The file is",
+    "hashed into every report so edits are visible."
+  ],
+  "queries": [
+
+    {
+      "query": "Nakliye esnasında bir tezgâh düşüp zarar gördü; sigortacı bedeli ödedikten sonra vinçleri temin eden iki firmaya karşı rücu davası açtı. Mahkeme, bu firmaların kusursuz olduğunun daha önce kesinleşmiş başka bir kararla belirlenmiş olması nedeniyle talebi reddetti mi?",
+      "source": "first_degree", "stage": "case",
+      "expect_doc_id": "416911500", "expect_case_no": "2017/360",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Rücu davası açılabilmesi için rücu edilen tarafın en azından bir miktar kusurlu olması bir ön koşul mudur; bu koşul gerçekleşmeden açılan dava vekalet ücreti bakımından nasıl sonuçlanır?",
+      "source": "first_degree", "stage": "chunk",
+      "expect_doc_id": "416911500", "expect_case_no": "2017/360",
+      "expect_paragraph": "p13",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Tarafları tamamen aynı olmayan bir dosyada verilmiş ve kesinleşmiş bir hüküm, sonraki davada mahkemenin kusuru yeniden araştırmasını engeller mi?",
+      "source": "first_degree", "stage": "chunk",
+      "expect_doc_id": "416911500", "expect_case_no": "2017/360",
+      "expect_paragraph": "p12",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Bir şirket, ticari kredi kullanırken bankanın kestiği dosya masrafı ve komisyonların iadesini istedi; mahkeme bu kesintilerin sektör uygulamasına uygun ve müşterinin bilgisi dahilinde yapıldığı gerekçesiyle davayı reddetti mi?",
+      "source": "first_degree", "stage": "case",
+      "expect_doc_id": "442551100", "expect_case_no": "2017/395",
+      "written_from": "raw_court_text_worksheet",
+      "note": "Metadata case_no is 2017/395 but the document header says 2016/1359 (known data conflict). expect_case_no follows what the pipeline stored."
+    },
+    {
+      "query": "Bankanın ticari krediden aldığı komisyonun hukuka uygun sayılmasında hangi kıyas ölçütü kullanıldı; başka bankaların benzer kredilerde uyguladığı oranlar mı?",
+      "source": "first_degree", "stage": "chunk",
+      "expect_doc_id": "442551100", "expect_case_no": "2017/395",
+      "expect_paragraph": "p15",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Mevcut uzman raporu hüküm kurmaya yeterli görüldüğünde, davacının ikinci bir rapor alınması talebi hangi gerekçelerle geri çevrilir?",
+      "source": "first_degree", "stage": "chunk",
+      "expect_doc_id": "442551100", "expect_case_no": "2017/395",
+      "expect_paragraph": "p17",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Sahte imzalı ve bedeli tahrif edilmiş bir çek bankaya ibraz edilip karşılıksız işlemi yapıldı; çekin borçlusu görünen şirket, ardından uğradığı hacizler için bankadan tazminat istedi. İstinaf mahkemesi bankanın özen yükümlülüğünü ihlal ettiğinin kanıtlanamadığına karar verip başvuruyu esastan reddetti mi?",
+      "source": "bam", "stage": "case",
+      "expect_doc_id": "676966100", "expect_case_no": "2018/1737",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Bir çeke karşılıksız kaşesi vurulması, tek başına, o çeke dayanarak ihtiyati haciz kararı alınmasının sebebi sayılabilir mi?",
+      "source": "bam", "stage": "chunk",
+      "expect_doc_id": "676966100", "expect_case_no": "2018/1737",
+      "expect_paragraph": "p28",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "İlk derece mahkemesi, çekteki imzanın sahte olup olmadığını ve rakamda değişiklik yapılıp yapılmadığını uzman incelemesiyle araştırmış mıydı; çıplak gözle bu tespit mümkün müydü?",
+      "source": "bam", "stage": "chunk",
+      "expect_doc_id": "676966100", "expect_case_no": "2018/1737",
+      "expect_paragraph": "p27",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Halktan izinsiz para toplayan bir şirkete yatırım yapan kişinin ortak olmadığının tespiti ve parasının iadesi davası, dosya istinaf aşamasındayken yürürlüğe giren geçici bir kanun hükmü nedeniyle karar verilmesine yer olmadığı şeklinde sonuçlandı mı?",
+      "source": "bam", "stage": "case",
+      "expect_doc_id": "726546200", "expect_case_no": "2019/2035",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Yargılama devam ederken yürürlüğe giren geçici madde karşısında istinaf dairesi, tarafların delillerini esastan incelemeden ilk derece kararını kaldırıp nasıl bir hüküm kurdu?",
+      "source": "bam", "stage": "chunk",
+      "expect_doc_id": "726546200", "expect_case_no": "2019/2035",
+      "expect_paragraph": "p43",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Davalı şirketin paylarının borsada işlem görmeye başladığı tarih, yeni yasal düzenlemenin bu davayı kapsamasında neden belirleyiciydi?",
+      "source": "bam", "stage": "chunk",
+      "expect_doc_id": "726546200", "expect_case_no": "2019/2035",
+      "expect_paragraph": "p41",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Uzun yıllardır ruhsatlı çalışan bir birahane sahibi, süresini kaçırdığı için geçersiz kalan içki satış belgesini yeniden almak istedi ve mesafe şartı gerekçesiyle reddedildi; Danıştay, bu reddi iptal eden ilk derece kararını onadı mı?",
+      "source": "danistay", "stage": "case",
+      "expect_doc_id": "971050200", "expect_case_no": "2022/4438",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Yıllardır aynı adreste faaliyet gösteren bir işletmenin belge yenileme süresini kaçırması, onun ilk kez işyeri açan biri gibi mesafe şartına tabi tutulmasını haklı kılar mı?",
+      "source": "danistay", "stage": "chunk",
+      "expect_doc_id": "971050200", "expect_case_no": "2022/4438",
+      "expect_paragraph": "p18",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "İdare mahkemesi kararlarının temyizen bozulabilmesi hangi kanunun hangi maddesinde sayılan sebeplere bağlıdır?",
+      "source": "danistay", "stage": "chunk",
+      "expect_doc_id": "971050200", "expect_case_no": "2022/4438",
+      "expect_paragraph": "p26",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Sahte fatura kullandığı iddiasıyla üç kat vergi ziyaı cezası kesilen bir şirket lehine vergi mahkemesi ısrar kararı verdi; Danıştay Vergi Dava Daireleri Kurulu bu ısrar kararını oyçokluğuyla onadı mı?",
+      "source": "danistay", "stage": "case",
+      "expect_doc_id": "879597400", "expect_case_no": "2021/895",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Bir mükellefe aradan uzun zaman geçtikten sonra ulaşılamaması ve bazı vergi ödevlerini yerine getirmemesi, düzenlediği faturaların gerçek bir mal veya hizmete dayanmadığı sonucuna varmak için yeterli midir?",
+      "source": "danistay", "stage": "chunk",
+      "expect_doc_id": "879597400", "expect_case_no": "2021/895",
+      "expect_paragraph": "p28",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Karşı oy kullanan üyeler, ısrar kararı hakkında çoğunluktan farklı olarak ne yapılmasını istediler?",
+      "source": "danistay", "stage": "chunk",
+      "expect_doc_id": "879597400", "expect_case_no": "2021/895",
+      "expect_paragraph": "p60",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Rekabet Kurulu bir GSM operatörünün yeniden satış fiyatı belirlediğine dair yeterli delil bulunmadığını söylerken Danıştay aksi yönde ihlal tespiti yaptı ve bunun sonucunda ağır bir idari para cezası uygulandı; Anayasa Mahkemesi bu sürecin mülkiyet hakkını ihlal etmediğine mi karar verdi?",
+      "source": "aym", "stage": "case",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344", "expect_case_no": "2019/12951",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Mülkiyet hakkına yapılan bir müdahale incelenirken ilk bakılan ölçüt nedir ve bu ölçüt sağlanmıyorsa diğer ölçütlere geçilir mi?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344", "expect_case_no": "2019/12951",
+      "expect_paragraph": "p98",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Ölçülülük ilkesi hangi üç alt ilkeden oluşur ve her biri neyi ifade eder?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344", "expect_case_no": "2019/12951",
+      "expect_paragraph": "p105",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Rekabet Kurulu ile Danıştay dairesi, fiyat belirlemeye ilişkin delillerin yeterliliği konusunda nasıl farklı sonuçlara vardı?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344", "expect_case_no": "2019/12951",
+      "expect_paragraph": "p110",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Terör olayları nedeniyle köyünü terk etmek zorunda kalan bir kişi, başka başvurucular hakkında verilmiş Anayasa Mahkemesi ihlal kararlarına dayanarak yargılamanın yenilenmesini istedi ve reddedildi; Anayasa Mahkemesi bu başvuruyu konu bakımından yetkisizlik nedeniyle kabul edilemez buldu mu?",
+      "source": "aym", "stage": "case",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2", "expect_case_no": "2024/15819",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Yargılamanın yenilenmesi talebinin reddine yönelik bir şikâyet neden adil yargılanma hakkı kapsamında incelenemez?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2", "expect_case_no": "2024/15819",
+      "expect_paragraph": "p66",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Karşı oyda, çoğunluğun emsal gösterilen önceki ihlal kararlarının bu başvuruya neden uygulanamayacağını açıklamamış olması hangi hak bakımından eleştiriliyor?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2", "expect_case_no": "2024/15819",
+      "expect_paragraph": "p87",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Yargılama giderlerini ödeme gücü bulunmayan başvurucunun adli yardım talebi hangi ilkelere dayanarak kabul edildi?",
+      "source": "aym", "stage": "chunk",
+      "expect_doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2", "expect_case_no": "2024/15819",
+      "expect_paragraph": "p58",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Bir veri sorumlusu, ihlalden etkilendiğini söylediği belgelerin örneklerini ve veri işleme envanterini Kuruma sunmadı, çalışan verileri hakkındaki açıklamaları da birbiriyle çelişti; Kurul bu nedenlerle idari para cezası uyguladı mı?",
+      "source": "kvkk", "stage": "case",
+      "expect_doc_id": "76402deb-b96b-5c07-857a-779977bcff9f", "expect_case_no": "2024/2196",
+      "written_from": "raw_court_text_worksheet"
+    },
+    {
+      "query": "Bir tüzel kişiye ait bilgi, hangi koşulda gerçek bir kişiyi belirlenebilir kıldığı için kişisel veri sayılır ve Kanun'un korumasına girer?",
+      "source": "kvkk", "stage": "chunk",
+      "expect_doc_id": "76402deb-b96b-5c07-857a-779977bcff9f", "expect_case_no": "2024/2196",
+      "expect_paragraph": "p4",
+      "written_from": "raw_court_text_worksheet"
+    },
+
+    {
+      "query": "Veri güvenliğine yönelik gerekli tedbirleri almayan bir veri sorumlusuna yedi yüz bin lira idari para cezası verildi mi?",
+      "source": "kvkk", "stage": "case",
+      "expect_doc_id": "d067a13a-6ee5-506c-96e4-ae8e1bef17c5", "expect_case_no": "2024/1899",
+      "written_from": "raw_court_text_worksheet",
+      "note": "DELIBERATELY HARD. Both kvkk documents are data-breach fines under the same article; this one has almost no facts beyond the amount. Only the number distinguishes it. Failure here is informative, not a bug."
+    },
+    {
+      "query": "Veri sorumlusunun kişisel verilerin korunması için almakla yükümlü olduğu teknik ve idari tedbirleri düzenleyen hüküm hangi maddede yer alır?",
+      "source": "kvkk", "stage": "chunk",
+      "expect_doc_id": "d067a13a-6ee5-506c-96e4-ae8e1bef17c5", "expect_case_no": "2024/1899",
+      "expect_paragraph": "p4",
+      "written_from": "raw_court_text_worksheet",
+      "note": "The other kvkk document quotes the same article verbatim. Filtered by case this should pass; unfiltered it is expected to be ambiguous."
+    }
+  ]
+}

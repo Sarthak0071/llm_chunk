@@ -1,0 +1,77 @@
+==============================================================================
+ first_degree   doc_id 416911500
+ case_no 2017/360
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 20 paragraphs, 5664 characters
+==============================================================================
+
+[p1] T.C. İstanbul Anadolu 7. ASLİYE TİCARET MAHKEMESİ
+
+[p2] GEREKÇELİ KARAR
+
+[p3] ESAS NO : 2017/360 Esas
+
+[p4] KARAR NO : 2018/844
+
+[p5] DAVA : Tazminat (Rücuen Tazminat)
+
+[p6] KARAR TARİHİ : 12/07/2018
+
+[p7] Mahkememizde görülmekte olan Tazminat (Rücuen Tazminat) davasının yapılan açık yargılaması sonunda,
+
+[p8] İDDİA :Davacı vekili, müvekkilinin .... sigortası olduğunu; ... dava dışı ... ait bir adet .... marka torna tezgahının nakliyesini üstlendiğini; torna tezgahının dava dışı..... tarafından nakliye sigortası ile sigortalanmış olduğunu; müvekkili sigorta şirketinin ..... taşıyacağı bu emtia yönünden...... nolu taşıyıcı sorumluluk sigorta poliçesi düzenlendiğini; taşıma işinde,....... 2 nolu davalıdan 2 adet vinç talep ettiğini; ancak bu davalının elinde o an bir vinç bulunduğundan diğer vinci diğer davalıdan aldığını; temin edilen bu 2 adet vinçle torna tezgahı taşındığı tırdan indirilirken davalı ......Ltd. ŞTİ 'ye ait vince takılı sapanın kopması ve ağırlığın diğer davalıya ait vince dengesiz binmesi sonunda emtianın 2-2,5 metreden düşük hasarlandığını; dava dışı ...... sigortanın hasar bedelinin sigortalısı olan ......ye ödediğini ve müvekkilinin sigortalısı .......AŞ 'ye ve dosyamızın davalıları ....ile ....... 'ye rücu ettiğini, .... sigortanın bu şirketler aleyhine başlattığı icra takibine şirketlerin itiraz etmesi üzerine, İstanbul Anadolu ...... Asliye Ticaret mahkemesinin ... Esas sayılı dosyasında itirazın iptaline karar verildiği, kararın Yargıtayca onaylandığı bunun üzerine ......in İstanbul Anadolu .... İcra müdürlüğünün ...... sayılı dosyasıyla 936.761,90 TL, Anadolu ... İcra müdürlüğünün.... Esas sayılı dosyasıyla ise 53.464,16 TL ödeme yapmak zorunda kaldığını belirterek; .....nin ödediği bedele karşılık müvekkili sigorta şirketinin ......A.Ş'ye 898,194,00 TL ödemek zorunda kaldığını; TTK 1472 madde gereğince onun haklarına halef olduğunu belirterek; ödenen bedelinin yarısı olan 449.097,00 TL 'den davalıların sorumlu olduğunu; taşıma işinin taraflar arasında müteselsilen yapıldığını belirterek 449.097,00 TL 'nin davalılardan ödeme tarihi olan 31/05/2016 tarihinden itibaren işleyecek avans faiziyle tahsiline karar verilmesini talep ve dava etmiştir.
+
+[p9] SAVUNMA : Davalı vekilleri; kazadan dolayı yargılama yapıldığını; İstanbul Anadolu ... ATM'nin ...... Esas-..... Karar sayılı dosyasıyla hem davacı tarafından sigortalanan ........AŞ hem de kendilerinin davalı olarak yer aldıklarını; mahkemece yapılan yargılama sonunda kazada ki kusurun sadece ....... şirketine ait olduğu, kendilerinde kusur olmadığı sebebiyle ret edildiğini; bu nedenle mal sahibinin sigortası olan. ....A.Ş'nin tüm hasar bedelini rücuan davacı...... şirketinden aldığını belirterek; kendilerinde kusur olmadığından dolayı iş bu davanın da reddine karar verilmesi gerektiğini savunmuşlardır.
+
+[p10] İNCELEME VE GEREKÇE : Dava, TTK 1472 maddeye dayalı rücuen tazminat davasıdır.
+
+[p11] Dosyamızdaki taraf şirketler,.......Ltd'nin bir iş makinesinin taşınması işine karışmış olup; taşıma esnasında makine zarar görmüş; makineyi sigortalayan dava dışı...... sigorta emtia sahibinin zararını ödedikten sonra taşıyıcılardan davacımızın sigortalısı ve davamızın davalıları aleyhine icra takibi yapmış, bu şirketlerin itirazıyla İstanbul Anadolu ....... Asliye Ticaret Mahkemesinin....... Esas sayılı dosyasında itirazın iptali davası açmış; o davada deliller toplanmış, bilirkişi raporu alınmış; hükme esas alınan bilirkişi raporunda dosyamızın davalıları olan ....... Ve.....Ltd şirketlerinin sadece vinç verdikleri; ancak onların verdiği vinçlerle taşıma işinin tamamı ......AŞ'nin denetimi ve sorumluluğunda gerçekleştiği; sadece vinç temin edip, vermekten ibaret olan davalımız şirketlerin bu nedenle hasardan sorumlu olmadıkları; rücuen tazminata konu hasarın, sadece......AŞ 'nin kusuruyla oluştuğu tespit edilip; sadece .....AŞ'nin takibe itirazı iptal edilmiş; dosyamız davalılarının itirazları iptal edilmemiştir.
+
+[p12] Her ne kadar tarafları aynı olmadığı için o mahkemece verilen karar dosyamız yönünden kesin hüküm değilse de; o dosyada davacımızın sigortalısı olan...... ve davalılarımızın kusurları tartışılmış; onanarak kesinleşen bir hükümle davalılarımızın kusurlu olmadığı belirlendiği için; artık mahkememizce yeniden kusur araştırması yapılamayacağı mevcut duruma göre tüm kusur kendi sigortalısında olan davacınında davalılarımıza rücu edemeyeceği değerlendirilerek davanın reddine karar verilmiştir.
+
+[p13] Ancak, mahkememizce verilen ret kararı bir yerde dava için özel bir dava şartı niteliğinde bulunan, ''rücuan tazminat için, rücu edilen tarafın bir miktar kusurlu olması'' şeklindeki şart gerçekleşmeden dava açılmış olduğundan; davalılar lehine maktu vekalet ücreti takdir edilmiş; her iki davalı müteselsilen sorumluluk ilkesine dayalı dava edilmiş olduklarından ve aynı sebebe dayalı olarak haklarındaki dava ret edildiğinden; A.A.Ü.T 3. Madde gereğince lehlerine sadece bir adet vekalet ücreti takdir edilmiştir.
+
+[p14] HÜKÜM : Gerekçesi yukarıda açıklanacağı üzere,
+
+[p15] MEYDANA GELEN HASARDA DAVALILARIN KUSURU BULUNMADIĞI KESİNLEŞMİŞ BİR MAHKEME KARARI İLE ANLAŞILDIĞINDAN;
+
+[p16] DAVANIN REDDİNE,
+
+[p17] Peşin olarak alınan harçtan maktu ret harcının mahsubu ile bakiye 7.633,56 TL harcın davacıya iadesine,
+
+[p18] Tamamı davacı tarafça karşılanan yargılama giderlerinin davacı üzerinde bırakılmasına; karar kesinleştiğinde bakiye gider avansının davacıya iadesine,
+
+[p19] Gerekçesi yukarıda açıklandığı gibi davalılar lehine 2.180,00 TL maktu vekalet ücreti takdirine, davacıdan alınıp davalılara verilmesine,
+
+[p20] Dair karar, taraf vekillerinin yüzlerine karşı, karar gerekçesinin tebliğinden itibaren 2 hafta içinde İstanbul Bölge Adliye Mahkemesinde İstinaf yolu açık olarak ve oy birliği ile verildi, açıkça okundu usulen tefhim olundu.

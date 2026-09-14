@@ -1,0 +1,500 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "danistay-1038963600-issue",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "issue"
+      ],
+      "text": "İSTEMİN KONUSU : … Vergi Mahkemesinin … tarih ve E:… , K:… sayılı kararına yöneltilen istinaf başvurularına ilişkin … Bölge İdare Mahkemesi … Vergi Dava Dairesinin … tarih ve E:… , K:… sayılı kararının aleyhe olan hüküm fıkrasının temyizen incelenerek bozulması istenilmektedir.\n",
+      "char_length": 279,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "issue",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "danistay-1038963600-facts_p1",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p1"
+      ],
+      "text": "YARGILAMA SÜR 1000 ECİ :\nDava konusu istem: Davacı adına, komisyon karşılığı sahte fatura düzenlediği ve alımlarının bir kısmını sahte faturalarla belgelendirdiğinden bahisle yeniden oluşturulan beyan tablosuna göre 2016 yılının Şubat, Nisan ila Aralık dönemleri için re'sen salınan katma değer vergileri ve tekerrür hükümleri gereğince artırılarak kesilen üç kat vergi ziyaı cezalarının kaldırılması istemine ilişkindir.\nİlk Derece Mahkemesi kararının özeti: Davacı hakkında düzenlenen vergi tekniği raporundaki tespitlerden, sahte fatura düzenlediği sonucuna ulaşılamayacağından, faturaları kayıtlara alınan ... hakkındaki saptamaların ise gerçek bir emtia teslimi ve hizmet ifasına dayanmaksızın fatura düzenlediğini kanıtlayıcı mahiyette olmadığından, cezalı tarhiyatın bu mükellef tarafından düzenlenen faturalardan kaynaklanan kısmı ile komisyon gelirinden kaynaklanan kısmında hukuka uygunluk bulunmadığı, … , … ve … Metal Elektrik Reklam Mobilya Endüstriyel Yapı Malzemeleri Nakliye İnşaat Sanayi Ticaret Limited Şirketi hakkındaki saptamalar, düzenledikleri faturaların gerçek bir emtia teslimi ve hizmet ifasına dayanmadığını gösterdiğinden, uyuşmazlık konusu cezalı tarhiyatın bu mükellefler tarafından düzenlenen faturalardan kaynaklanan kısmında hukuka aykırılık bulunmadığı, 2015 yılının Mayıs dönemine ait olup aynı yıl kesinleşen vergi ziyaı cezasının tekerrüre esas alınabileceği ancak 213 sayılı Kanun'un 339. maddesinde 7338 sayılı Kanun'la yapılan değişiklikle, tekerrür hükümleri uyarınca artırılacak tutarın, tekerrüre esas alınan cezadan fazla olamayacağı yolunda getirilen lehe düzenleme dikkate alındığında, vergi ziyaı cezasının her bir dönem için tekerrüre esas alınan ceza tutarı olan 8,87-TL kadar artırılabileceği gerekçesiyle uyuşmazlık konusu cezalı tarhiyatın, komisyon gelirinden kaynaklanan kısmı ile ... tarafından düzenlenen faturalardan kaynaklanan kısmı kaldırılmış, diğer mükellefler tarafından düzenlenen faturalardan kaynaklanan tarhiyatın, her bir dönem içi",
+      "char_length": 2000,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-213-art-339",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": null,
+          "article_no": "339",
+          "paragraph_no": null,
+          "verbatim_mention": "213 sayılı Kanun'un 339. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-7338-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "7338",
+          "law_name": null,
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "7338 sayılı Kanun'la",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-facts_p2",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p2"
+      ],
+      "text": "n 8,87 TL artırımlı uygulanan üç kat vergi ziyaı cezalı katma değer vergilerine ilişkin kısmı yönünden dava reddedilmiş, bu döneme ilişkin vergi ziyaı cezalarının her bir dönem için fazlaya ilişkin kısmının da kaldırılmasına karar verilmiştir.\n",
+      "char_length": 244,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "danistay-1038963600-facts_p3",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "facts_p3"
+      ],
+      "text": "Bölge İdare Mahkemesi kararının özeti: İstinaf başvurularının, usul ve hukuka uygun olduğu sonucuna varılan Vergi Mahkemesi kararının kaldırılmasını sağlayacak nitelikte görülmediği gerekçesiyle 2577 sayılı İdari Yargılama Usulü Kanunu'nun 45. maddesinin 3. fıkrası uyarınca reddine karar verilmiştir.\n",
+      "char_length": 302,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2577-art-45-p3",
+          "legislation_type": "statute",
+          "law_no": "2577",
+          "law_name": "İdari Yargılama Usulü",
+          "article_no": "45",
+          "paragraph_no": "3",
+          "verbatim_mention": "2577 sayılı İdari Yargılama Usulü Kanunu'nun 45. maddesinin 3. fıkrası",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-issue_occ2",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "issue_occ2"
+      ],
+      "text": "TEMYİZ EDENİN İDDİALARI : Davacı hakkında düzenlenen vergi tekniği raporuyla düzenlediği faturalardan bir kısmının gerçek bir emtia teslimi ve hizmet ifasına dayanmadığının açıkça ortaya konulduğu, davacıya fatura düzenleyen mükellefler hakkındaki tespitlerin de bu mükellefler tarafından düzenlenen faturaların sahte olduğunu ispatlayacak mahiyette olduğu ve vergi ziyaı cezasının tekerrür hükümleri uygulanarak arttırılmasına hukuka aykırılık bulunmadığı belirtilerek kararın aleyhe olan hüküm fıkrasının bozulması istenilmektedir.\n",
+      "char_length": 534,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "issue",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "danistay-1038963600-issue_occ3",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "issue_occ3"
+      ],
+      "text": "KARŞI TARAFIN SAVUNMASI : Savunma verilmemiştir.\nDANIŞTAY TETKİK HÂKİMİ ... 'IN DÜŞÜNCESİ : Temyiz isteminin reddi ile usul ve yasaya uygun olan Bölge İdare Mahkemesi kararının onanması gerektiği düşünülmektedir.\nTÜRK MİLLETİ ADINA\nKarar veren Danıştay Üçüncü Dairesince, Tetkik Hâkiminin açıklamaları dinlendikten ve dosyadaki belgeler incelendikten sonra gereği görüşüldü:\n",
+      "char_length": 375,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "issue",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "danistay-1038963600-rule_application",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "rule_application"
+      ],
+      "text": "HUKUKİ DEĞERLENDİRME:\n2575 sayılı Danıştay Kanunu'nun 23. maddesinin (a) bendine 01/07/2016 tarih ve 6723 sayılı Kanun'un 6. ma ff8 ddesiyle \"Danıştay'ın temyiz mercii olarak görevi, bir hukuk kuralının uygulanmaması veya yanlış uygulanması şeklinde ortaya çıkan hukuka aykırılıkların denetimini yapmakla sınırlıdır.\" hükmü eklenmiş olup yapılan bu düzenleme ile Danıştay'ın temyiz mercii olarak görevi hukuka uygunluk denetimi ile sınırlandırılarak yeniden vakıa incelenmesi yapılamayacağı kurala bağlanmıştır.\nBölge idare mahkemelerinin nihai kararlarının temyizen bozulması, 2577 sayılı İdari Yargılama Usulü Kanunu'nun 49. maddesinde yer alan sebeplerden birinin varlığı halinde mümkün olup dilekçede ileri sürülen temyiz nedenleri yukarıda sözü edilen yasal düzenleme uyarınca hukuki denetimle sınırlı olarak incelenen kararın temyize konu hüküm fıkrasının bozulmasını gerektirecek nitelikte görülmemiştir.\n",
+      "char_length": 912,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2575-art-23",
+          "legislation_type": "statute",
+          "law_no": "2575",
+          "law_name": "Danıştay",
+          "article_no": "23",
+          "paragraph_no": null,
+          "verbatim_mention": "2575 sayılı Danıştay Kanunu'nun 23. maddesinin (a) bendine",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6723-art-6",
+          "legislation_type": "statute",
+          "law_no": "6723",
+          "law_name": null,
+          "article_no": "6",
+          "paragraph_no": null,
+          "verbatim_mention": "01/07/2016 tarih ve 6723 sayılı Kanun'un 6. maddesiyle",
+          "law_date": "2016-07-01",
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-2577-art-49",
+          "legislation_type": "statute",
+          "law_no": "2577",
+          "law_name": "İdari Yargılama Usulü",
+          "article_no": "49",
+          "paragraph_no": null,
+          "verbatim_mention": "2577 sayılı İdari Yargılama Usulü Kanunu'nun 49. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-conclusion",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "conclusion"
+      ],
+      "text": "KARAR SONUCU:\nAçıklanan nedenlerle;\n1. Temyiz isteminin reddine,\n2. Vergi Dava Dairesi kararının temyize konu hüküm fıkrasının ONANMASINA,\n3. 2577 sayılı İdari Yargılama Usulü Kanunu'nun 50. maddesi uyarınca, kararın taraflara tebliğini ve bir örneğinin de ilgili Vergi Dava Dairesine gönderilmesini teminen dosyanın kararı veren ilk derece mahkemesine gönderilmesine, 07/11/2023 tarihinde oyçokluğuyla kesin olarak karar verildi.\n",
+      "char_length": 431,
+      "content_type": "ruling",
+      "firac_role": null,
+      "reasoning_stage": "outcome",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "conclusion",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2577-art-50",
+          "legislation_type": "statute",
+          "law_no": "2577",
+          "law_name": "İdari Yargılama Usulü",
+          "article_no": "50",
+          "paragraph_no": null,
+          "verbatim_mention": "2577 sayılı İdari Yargılama Usulü Kanunu'nun 50. maddesi",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p1",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p1"
+      ],
+      "text": "(X)-KARŞI OY :\nBakılmakta olan dava, davacı adına komisyon karşılığı sahte fatura düzenlediği ve bir kısım alımlarını sahte fatura ile belgelendirdiği yolundaki tespitleri içeren vergi tekniği raporu esas alınarak takdir komisyonu kararlarına dayanılarak ihtilaflı dönem için yapılan cezalı tarhiyata karşı açılmış; verilen karara yönelik davalı istinaf başvurusunun reddi üzerine davalı idare bu kez temyiz yoluna başvurmuştur. Temyiz başvurusu, çoğunluk görüşüyle, kararın, \"hukuki denetimle sınırlı\" olarak incelenmesi sonucunda bozulmasını gerektirecek bir neden bulunmadığı gerekçesine dayanılarak reddedilmiş ve kararın onanmasına karar verilmiştir.\nTemyiz mercilerinin esas rolü; ülke genelinde, hukukun uygulanmasında içtihat birliğinin sağlanmasıdır. Bu bakımdan Danıştay’ın temyiz mercii olarak görevi, kural olarak, bir hukuk kuralının uygulanmaması veya yanlış uygulanması şeklinde ortaya çıkan hukuka aykırılıkların denetimini yapmakla sınırlıdır. Başka bir anlatımla, temyiz denetiminde, olaya uygulanacak hukuk kuralının; doğru belirlenip belirlenmediğine, doğru yorumlanıp yorumlanmadığına ve aynı zamanda doğru olarak uygulanıp uygulanmadığına bakılır, uyuşmazlığın maddi yönüyle ilgilenilmez. 2575 sayılı Danıştay Kanunu’nun 23’üncü maddesinin (a) fıkrasına, 01/07/2016 tarih ve 6723 sayılı Kanunun 6’ıncı maddesiyle eklenen cümle bu durumu kurala bağlanmıştır.\n",
+      "char_length": 1380,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2575-art-23",
+          "legislation_type": "statute",
+          "law_no": "2575",
+          "law_name": "Danıştay",
+          "article_no": "23",
+          "paragraph_no": null,
+          "verbatim_mention": "2575 sayılı Danıştay Kanunu'nun 23'üncü maddesinin (a) fıkrasına",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6723-art-6",
+          "legislation_type": "statute",
+          "law_no": "6723",
+          "law_name": null,
+          "article_no": "6",
+          "paragraph_no": null,
+          "verbatim_mention": "01/07/2016 tarih ve 6723 sayılı Kanunun 6'ıncı maddesiyle",
+          "law_date": "2016-07-01",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p2",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p2"
+      ],
+      "text": "Anayasa Mahkemesi’nin birçok kararında vurgulandığı gibi, “kişilerin adil bir şekilde yargılanmalarını sağlamayı ve denetlemeyi amaçlayan” gerekçeli karar hakkı adil yargılanma hakkının unsurlarından biridir. Gerekçeli karar hakkı; sadece “tarafların muhakeme sırasında ileri sürdükleri iddialarının kurallara uygun biçimde incelenip incelenmediğini bilmeleri” için değil, aynı zamanda, “demokratik bir toplumda kendi adlarına verilen yargı kararlarının sebeplerini toplumun öğrenmesinin sağlanması” için de gereklidir (Sencer Başat ve diğerleri [GK], B. No: 2013/7800, 18/6/2014, §§ 31, 34). Kanun yolu incelemesi sonucunda verilen kararda gerekçelerinin ayrıntılı olmaması bu hakkın ihlal edildiği şeklinde yorumlanmamaktadır. Kanun yolu incelemesi yapan merciinin yargılamayı yapan mahkemeyle aynı sonuca ulaşması ve bunu aynı gerekçeyi kullanarak veya atıfla kararına yansıtması, kararın gerekçelendirilmiş olması bakımından yeterlidir (Yasemin Ekşi, B. No: 2013/5486, 01/12/2013 § 57); 1000 ancak burada Danıştay Kanunu’nun 23’üncü maddesine atıfla \"hukuki denetimle sınırlı inceleme\" sonucunda karar verildiği belirtildiğinden uyuşmazlığın hukuki yönünün incelenmesinin açıklığa kavuşturulması önem taşımaktadır.\n",
+      "char_length": 1219,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2575-art-23",
+          "legislation_type": "statute",
+          "law_no": "2575",
+          "law_name": null,
+          "article_no": "23",
+          "paragraph_no": null,
+          "verbatim_mention": "Danıştay Kanunu'nun 23'üncü maddesine",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p3a",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p3a"
+      ],
+      "text": "213 sayılı Vergi Usul Kanunu’nun 341’inci maddesinde yer alan \"Vergi ziyaı, mükellefin veya sorumlunun vergilendirme ile ilgili ödevlerini zamanında yerine getirmemesi veya eksik yerine getirmesi yüzünden verginin zamanında tahakkuk ettirilmemesini veya eksik tahakkuk ettirilmesini ifade eder.\" kuralıyla vergi ziyaı tanımlanmış; ayrıca, maddede, vergi mükellef veya sorumlusunun vergi ziyaına neden olabilecek kimi yasaya aykırı halleri sayılmıştır. Kanun’un Vergi Ziyaı Cezası başlıklı 344’üncü maddenin ikinci fıkrasında ise, vergi ziyaına 359’uncu maddede yazılı fiillerle sebebiyet verilmesi halinde bu cezanın üç kat olarak uygulanacağı kurala bağlanmıştır. 359’uncu maddede de, defter, kayıt ve belgeleri tahrif edenler veya gizleyenler veya muhteviyatı itibariyle yanıltıcı belge düzenleyenler veya bu belgeleri kullananlar kaçakçılık fiilerini işlemiş olacakları belirtilmiş; ayrıca, sahte belge, “gerçek bir muamele veya durum olmadığı halde bunlar varmış gibi düzenlenen belge”; muhteviyatı itibariyle yanıltıcı belge ise, “gerçek bir muamele veya duruma dayanmakla birlikte bu muamele veya durumu mahiyet veya miktar itibariyle gerçeğe aykırı şekilde yansıtan belge” olarak tanımlanmıştır",
+      "char_length": 1201,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-213-art-341",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": "Vergi Usul Kanunu",
+          "article_no": "341",
+          "paragraph_no": null,
+          "verbatim_mention": "213 sayılı Vergi Usul Kanunu'nun 341'inci maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-213-art-344-p2",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": null,
+          "article_no": "344",
+          "paragraph_no": "2",
+          "verbatim_mention": "Kanun'un ... 344'üncü maddenin ikinci fıkrasında",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-213-art-359",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": null,
+          "article_no": "359",
+          "paragraph_no": null,
+          "verbatim_mention": "359'uncu maddede",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p3b",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p3b"
+      ],
+      "text": ". Bu halde, 359’uncu maddede sayılan sahte veya muhteviyatı itibarıyla yanıltıcı belge düzenleme ve kullanma eylemleri ile vergi ziyaı ortaya çıkmışsa, vergi ziyaı cezası üç kat olarak kesilecektir. Vergi Usul Kanunu’nun 30’uncu maddesinin ikinci fıkrasının (4) numaralı bendine göre de defter kayıtları ve bunlarla ilgili vesikaların vergi matrahının doğru ve kesin olarak tespitine imkân vermeyecek derecede noksan, usulsüz ve karışık olması dolayısıyla ihticaca salih bulunmaması re’sen tarh sebebidir. Sözü edilen kurallara göre, sahte veya muhteviyatı itibarıyla yanıltıcı belge düzenlemesi veya kullanılması re’sen takdiri gerektiren sebep olup bu hallerin varlığında, re’sen verginin tarh edileceği ve tarh edilen bu vergiye bağlı olarak da vergi ziyaı cezası kesileceği hususu belirli ve öngörülebilir niteliktedir.\n",
+      "char_length": 824,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-213-art-359",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": null,
+          "article_no": "359",
+          "paragraph_no": null,
+          "verbatim_mention": "359'uncu maddede",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-213-art-30-p2",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": "Vergi Usul Kanunu",
+          "article_no": "30",
+          "paragraph_no": "2",
+          "verbatim_mention": "Vergi Usul Kanunu'nun 30'uncu maddesinin ikinci fıkrasının (4) numaralı bendine",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p4",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p4"
+      ],
+      "text": "Sahte belgenin ne olduğunu (olayda sahte fatura) tanımlayan 359’uncu madde, bakılmakta olan davada uygulanacak yasa kuralıdır. Diğer deyişle olayda, 359’uncu maddenin yorumu ve maddi olaya uygulanması söz konusudur. Vergi usuldeki sahte fatura, gerçekte şeklen mevzuatın öngördüğüne uygundur. Ancak, bu tür fatura ile yapılan işlem, hukuk normunda nitelenen sahte veya muhteviyatı itibarıyla yanıltıcıdır. Normun nitelemesi ise hukukidir. Tıpkı, ceza hukukunda gerçekleşen maddi bir olayın suç olarak nitelendirilmesi gibi. Sahte fatura olayında da, mahkemelerin yaptıkları saptamaya göre gerçek olan işlemlerin suç, yani sahte fatura düzenleme ve/veya kullanma eylemleri oluşturup oluşturmadığının nitelendirilmesi söz konusudur. Bu ise hukuki bir nitelemedir. Esasen, hukuk kuralı (norm) ölçü alınarak yapılacak her türlü niteleme, hukukidir. Temyiz mercii, 359’uncu maddenin içeriğine göre, idareyi belgenin sahte olduğu sonucuna ulaştıran tespitlerin mahkeme hükmündeki hukuki nitelendirilmesinin denetimini yapabilecektir.\n",
+      "char_length": 1028,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-213-art-359",
+          "legislation_type": "statute",
+          "law_no": "213",
+          "law_name": null,
+          "article_no": "359",
+          "paragraph_no": null,
+          "verbatim_mention": "359'uncu madde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "danistay-1038963600-dissent_p5",
+      "source_type": "danistay",
+      "case_no": "2022/4248",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "dissent_p5"
+      ],
+      "text": "Nitekim Danıştay’ın diğer vergi daireleri ve vergi dava daireleri kurulu, sahte fatura veya muhteviyatı itibarıyla yanıltıcı fatura düzenleme ve kullanmadan kaynaklanan bu tür uyuşmazlıklarda verilen kararların temyiz incelemesini, uyuşmazlığın maddi/hukuki ayrımına girmeksizin yapmaktadır. Temyizde, mahkemece, bu tür belge düzenleme ve kullanma fiillerinin işlendiğine dair vergi incelemesine yetkili olanlarca düzenlenen raporda yer alan tespitlerin incelenip değer ff8 lendirilerek, davada uygulanacak hukuk kuralına göre, yaptığı hukuki nitelendirmenin hukuka uygun olup olmadığı incelemesi yapılarak sonucuna varılmaktadır. Danıştay Kanunu’nun 23’üncü maddesine 6723 sayılı Kanunla eklenen cümlenin yürürlüğe girdiği 23/07/2016 tarihinden sonra da bunu sürdürmektedir.\nAçıklanan nedenle, temyize konu kararın, sahte belge düzenleme ve kullanma fiilerine dayanak alınan davacı hakkında düzenlenen vergi tekniği raporunda yer alan tespitlerin uygulanacak kural kapsamında hukuki nitelendirmesinin hukuka uygun olup olmadığının denetiminde, sözkonusu bu tespitler incelenerek karar verilmesi gerektiği görüşüyle karara katılmıyorum.",
+      "char_length": 1136,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "dissent",
+      "cited_legislations": [
+        {
+          "canonical_id": "law-2575-art-23",
+          "legislation_type": "statute",
+          "law_no": "2575",
+          "law_name": "Danıştay",
+          "article_no": "23",
+          "paragraph_no": null,
+          "verbatim_mention": "Danıştay Kanunu'nun 23'üncü maddesine",
+          "law_date": null,
+          "confidence": "high"
+        },
+        {
+          "canonical_id": "law-6723-unknown-article",
+          "legislation_type": "statute",
+          "law_no": "6723",
+          "law_name": null,
+          "article_no": null,
+          "paragraph_no": null,
+          "verbatim_mention": "6723 sayılı Kanunla",
+          "law_date": null,
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2022/4248",
+      "source_type": "danistay",
+      "subject_type": "administrative_or_tax_dispute",
+      "subject_id": "unspecified",
+      "opinion_type": "majority",
+      "outcome": "appeal_denied_lower_ruling_affirmed",
+      "conclusion_sentence": "Outcome: appeal denied, lower ruling (istinaf decision) affirmed (ONANMASINA), decided by majority vote (oyçokluğuyla).",
+      "reasoning_summary": "Bir mükellef, sahte fatura kullandığı gerekçesiyle üç kat vergi ziyaı cezasına çarptırıldı ve davadan feragat etti; ilk derece mahkemesi feragat nedeniyle konusu kalmayan dava hakkında karar verilmesine yer olmadığına karar verirken, davalı idare lehine vekalet ücretine hükmetmeyi unuttu. Bölge İdare Mahkemesi istinaf başvurusunu reddetti. Danıştay, bu eksikliğin yeniden yargılamayı gerektirmeyen basit bir maddi hata olduğuna karar vererek, 2577 sayılı Kanun'un 49. maddesi uyarınca kararı vekalet ücreti yönünden düzelterek onamıştır.",
+      "reasoning_summary_method": "not_generated_no_llm_access",
+      "supporting_chunk_ids": [
+        "danistay-1038963600-rule_application",
+        "danistay-1038963600-conclusion"
+      ]
+    },
+    {
+      "case_no": "2022/4248",
+      "source_type": "danistay",
+      "subject_type": "administrative_or_tax_dispute",
+      "subject_id": "unspecified",
+      "opinion_type": "dissent",
+      "outcome": "unspecified",
+      "conclusion_sentence": "Dissent: majority's cassation-review scope was, in the dissenter's view, too narrow for this case.",
+      "reasoning_summary": "Dissenting member argues Danıştay's cassation review (per 2575 art 23(a), as amended by 6723 art 6) should not be limited to pure legal-error review here, because classifying an invoice as sahte (fake/forged) under VUK art 359 is itself a legal characterization, not a pure factual finding -- so the majority's 'facts are outside our review' framing was, in the dissenter's view, wrong on this specific point.",
+      "reasoning_summary_method": "not_generated_no_llm_access",
+      "supporting_chunk_ids": [
+        "danistay-1038963600-dissent_p1",
+        "danistay-1038963600-dissent_p2",
+        "danistay-1038963600-dissent_p3a",
+        "danistay-1038963600-dissent_p3b",
+        "danistay-1038963600-dissent_p4",
+        "danistay-1038963600-dissent_p5"
+      ]
+    }
+  ]
+}

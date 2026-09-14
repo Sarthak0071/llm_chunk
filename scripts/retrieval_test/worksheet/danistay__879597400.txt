@@ -1,0 +1,161 @@
+==============================================================================
+ danistay   doc_id 879597400
+ case_no 2021/895
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 62 paragraphs, 10984 characters
+==============================================================================
+
+[p1] ee3
+
+[p2] Karar İçeriği
+
+[p3] DANIŞTAY VERGİ DAVA DAİRELERİ KURULU 2021/895 E. , 2022/1662 K.
+
+[p4] "İçtihat Metni"
+
+[p5] T.C.
+
+[p6] D A N I Ş T A Y
+
+[p7] VERGİ DAVA DAİRELERİ KURULU
+
+[p8] Esas No : 2021/895
+
+[p9] Karar No : 2022/1662
+
+[p10] TEMYİZ EDEN (DAVALI) : ... Vergi Dairesi Başkanlığı
+
+[p11] (... Vergi Dairesi Müdürlüğü)
+
+[p12] VEKİLİ : Av. ...
+
+[p13] KARŞI TARAF (DAVACI) : ... Tarım Ürünleri Otomotiv Gıda Hayvancılık Taşımacılık Sanayi ve Ticaret Limited Şirketi
+
+[p14] VEKİLİ : Av. ...
+
+[p15] İSTEMİN KONUSU : ... Vergi Mahkemesinin ... tarih ve E:..., K:... sayılı ısrar kararının temyizen incelenerek bozulması istenilmektedir.
+
+[p16] YARGILAMA SÜRECİ :
+
+[p17] Dava ko 1000 nusu istem: Davacı adına, gerçek emtia teslimi veya hizmet ifasına dayanmayan bir kısım faturayı kayıtlarına intikal ettirerek indirim konusu yaptığından bahisle düzenlenen vergi inceleme raporuna istinaden 2010 yılının Kasım dönemi için re'sen tarh edilen katma değer vergisi ile verginin üç katı tutarında kesilen ve tekerrür hükmü uygulanmak suretiyle artırılan vergi ziyaı cezasının kaldırılması istemiyle dava açılmıştır.
+
+[p18] ... Vergi Mahkemesinin ... tarih ve E:... , K:... sayılı kararı:
+
+[p19] Uyuşmazlık konusu dönemde davacıya fatura düzenleyen Kızılmurat Vergi Dairesi mükellefi ... Akaryakıt Nakliyat Madeni Yağlar Gıda Turizm İthalat İhracat Sanayi ve Ticaret Limited Şirketi adına gerçek emtia teslimi veya hizmet ifasına dayanmayan fatura düzenlemek suretiyle komisyon geliri elde ettiğinden bahisle 2010 yılı için re'sen tarh edilen vergi ziyaı cezalı kurumlar vergisinin kaldırılması istemiyle açılan davada ... Vergi Mahkemesinin ... tarih ve E:... , K:... sayılı kararıyla, gerçek emtia teslimi veya hizmet ifasına dayanmayan fatura düzenlendiği hususunun yeterli araştırma ve incelemeyle ortaya konulamadığı gerekçesiyle cezalı tarhiyat kaldırılmıştır.
+
+[p20] Bu durumda, anılan mükellef tarafından 2010 yılında düzenlenen faturaların, gerçek emtia teslimi veya hizmet ifasına dayandığı hususunun mahkeme kararıyla ortaya konulmuş olması nedeniyle dava konusu cezalı tarhiyatın bu mükellef tarafından düzenlenen faturalardan kaynaklanan kısmında hukuka uygunluk görülmemiştir.
+
+[p21] Uyuşmazlık konusu dönemde davacıya fatura düzenleyen diğer bir mükellef olan Pendik Vergi Dairesi mükellefi ... hakkında tanzim olunan ... tarih ve ... sayılı Vergi Tekniği Raporu'nda şu tespitlere yer verilmiştir:
+
+[p22] i. ... Mah. ... Sitesi ... Blok No:... Pendik/İSTANBUL adresinde 18/11/2002 tarihinde yapılan yoklamada, mükellefin ilgili adreste ikâmet ettiği, 15/10/2002 tarihinde ... plakalı ... marka kamyonu satın alarak şehir içi ve şehirler arası nakliyecilik faaliyetine başladığı hususları mükellefin beyanı ile tespit edilmiştir. Ayrıca söz konusu yoklamada, mükellefin ikâmet ettiği adresin 80 metrekare büyüklüğünde daire olduğu, henüz muhasebecisinin ve işçisinin bulunmadığı hususları da tespit edilmiştir.
+
+[p23] ii. 01/08/2011 tarihinde yapılan yoklamada, mükellefin yaklaşık 3 yıl önce taşındığı site görevlisi tarafından beyan edilmiştir.
+
+[p24] iii. ... Mah. ... Cad. No:... Daire No:... Üsküdar/İSTANBUL adresinde 17/11/2011 tarihinde yapılan yoklamada, adresin ikâmetgâh adresi olduğu, mükellefin adreste oturmadığı ve çevrede mükellefi tanıyan olmadığı, muhtarlık kayıtlarında da kaydının bulunmadığı hususları tespit edilmiştir.
+
+[p25] iv. Mükellefin kara yolu ile şehirlerarası yük taşımacılığı faaliyeti nedeniyle 05/07/2013 tarihli yazı ile Nakil Vasıtaları Vergi Dairesinden mükellef adına tescil edilen araçlara ilişkin bilgi istenilmiş, 3 adet araç bilgisine ulaşılmıştır.
+
+[p26] v. GİBYBS'den yapılan form Ba-Bs analizi sorgusu neticesinde 2009 takvim yılında 11 mükellefin, verdikleri form Ba bildirimleri ile adlarına ... tarafından 966.345,00 TL tutarında 330 adet belge düzenlendiğini bildirdiği tespit edilmiştir. Mükellefin 2009 takvim yılında üç aylık dönemler halinde verdiği katma değer vergisi beyannameleri ile beyan ettiği matrah toplamı 806.947,75 TL tutarında olup Ba-Bs bildirimleri ile katma değer vergisi beyanları arasında 159.397,25 TL tutarında uyumsuzluk bulunmaktadır.
+
+[p27] Gerek yukarıda ayrıntısına yer verilen vergi tekniği raporunda gerekse davacı hakkında düzenlenen vergi inceleme raporunda, davacının ... 'dan yaptığı alışların gerçek dışı olduğuna yönelik somut ve hukuken kabul edilebilir herhangi bir belirleme yapılmadığı gibi anılan mükellefin davacıya fatura düze ff8 nlediği dönemlerde faaliyette bulunmadığına yönelik bir tespitin de olmadığı anlaşılmaktadır.
+
+[p28] Diğer taraftan, mükellefin beyannamelerini verdiği dikkate alındığında salt aradan uzun süre geçtikten sonra mükellefe ulaşılamadığı, bazı alış yaptığı mükellefler hakkında olumsuz tespit ve raporlar bulunduğu ve mükellefiyetle ilgili bazı ödevlerini yerine getirmediği yönündeki tespitlerden hareketle gerçek emtia teslimi veya hizmet ifasına dayanmayan fatura düzenlendiği sonucuna ulaşılamayacaktır.
+
+[p29] Bu durumda, eksik incelemeye dayalı inceleme raporlarına istinaden anılan mükellef tarafından düzenlenen faturalardaki katma değer vergilerinin indiriminin kabul edilmemesi suretiyle yapılan cezalı tarhiyatta hukuka uygunluk bulunmamaktadır.
+
+[p30] Vergi Mahkemesi, bu gerekçeyle dava konusu vergi ve cezayı kaldırmıştır.
+
+[p31] Davalının temyiz istemini inceleyen Danıştay Üçüncü Dairesinin 04/11/2019 tarih ve E:2016/13793, K:2019/5942 sayılı kararı:
+
+[p32] Temyiz istemine konu kararın, cezalı tarhiyatın, Kızılmurat Vergi Dairesi mükellefi ... Akaryakıt Nakliyat Madeni Yağlar Gıda Turizm İthalat İhracat Sanayi ve Ticaret Limited Şirketi tarafından düzenlenen faturalardan kaynaklanan katma değer vergisinin indiriminin kabul edilmemesinden kaynaklanan kısmının kaldırılmasına ilişkin hüküm fıkrası yönünden yapılan inceleme:
+
+[p33] Vergi Mahkemesi kararının anılan hüküm fıkrası usul ve hukuka uygun olup temyiz dilekçesinde ileri sürülen iddialar kararın anılan hüküm fıkrasının bozulmasını gerektirecek nitelikte görülmemiştir.
+
+[p34] Temyiz istemine konu kararın, cezalı tarhiyatın, Pendik Vergi Dairesi mükellefi ... tarafından düzenlenen faturalardan kaynaklanan katma değer vergisinin indiriminin kabul edilmemesinden kaynaklanan kısmının kaldırılmasına ilişkin hüküm fıkrası yönünden yapılan inceleme:
+
+[p35] Uyuşmazlık konusu dönemde davacıya fatura düzenleyen Pendik Vergi Dairesi mükellefi ... hakkında tanzim olunan ... tarih ve ... Vergi Tekniği Raporu'nda mahkeme kararında belirtilenlere ek olarak şu tespitlere yer verilmiştir:
+
+[p36] i. 2008 ilâ 2010 yıllarına ilişkin defter ve belgelerin incelemeye ibrazının istenmesine ilişkin yazı ikâmetgâh adresinde mükellefin eşine tebliğ edilmiş, ancak defter ve belgeler ibraz edilmemiştir.
+
+[p37] ii. Mükellef tarafından, defter ve belgelerin incelemeye ibraz edilmeme nedeni olarak defter ve belgelerin kendisinde olmaması, ameliyat olduğu dönemde söz konusu defter ve belgelerin kaybolması gösterilmiştir.
+
+[p38] iii. Mükellef, inceleme nedeniyle alınan ifadesinde, Haydarpaşa, Ambarlı ve Dilovası limanlarında nakliye işi, ayrıca nakliye komisyonculuğu faaliyetinde bulunduğu, üzerine kayıtlı ... plakalı aracın şoförünün trafik kazası yaptığı, aracın parka çekildiği, o dönemde kalp rahatsızlığı nedeniyle ameliyat olduğu, bu nedenle araçla ilgilenemediği, otoparkın aracı sattığı, Ba-Bs formları ile katma değer vergisi beyannamelerindeki farklılığın nedenini bilmediği, bütün nakliye hizmetleri için belge düzenlediği, farklılığı ilk kez inceleme sırasında öğrendiği, 2008 ilâ 2010 yıllarında rahatsızlığı nedeniyle işleriyle ilgilenemediği, beyannameler ve formlar arasındaki uyumsuzlukların şoförlerin bilgisizliğinden ve işlerini sağlık nedeniyle takip edememesinden kaynaklandığı, 2009 yılında mal alışı olmadığı, beyanname düzenlenirken döneme ait giderlerin sehven işletme hesap özetinde dönem içinde satın alınan emtia olarak beyan edildiği, faaliyeti için mazot, araç bakımı ve yedek parça alımı giderlerinin bulunduğu, bu giderlerin beyanlara yansıtıldığı, giderler nedeniyle fatura düzenleyen mükellefleri hatırlamadığı şeklinde beyanda bulunmuştur.
+
+[p39] iv. 2008 ilâ 2010 yıllarına ilişkin gelir vergisi, geçici vergi ve katma değer vergisi beyanname 1000 leri verilmiştir. Gelir vergisi ile geçici vergi beyanları arasında uyumsuzluk bulunmaktadır.
+
+[p40] v. 2010 yılına ilişkin katma değer vergisi matrahı toplam 1.129.268,37 TL olup Ba-Bs analizi ile katma değer vergisi beyanları karşılaştırıldığında 94.105,63 TL tutarında uyumsuzluk tespit edilmiştir.
+
+[p41] Davacının faturalarını kayıtlarına intikal ettirdiği ... hakkında yukarıda yer verilen tespitlerden, düzenlediği faturaların gerçek emtia teslimine veya hizmet ifasına dayanmadığı sonucuna varıldığından Vergi Mahkemesi kararının, cezalı tarhiyatın bu mükellefe ait faturalardan kaynaklanan kısmının, aksi yöndeki gerekçeyle kaldırılmasına ilişkin hüküm fıkrasında hukuka uygunluk görülmemiştir.
+
+[p42] Öte yandan, bozma üzerine verilecek kararda, anılan mükelleften alınan faturalara ilişkin olarak kesilen vergi ziyaı cezasının tekerrür hükmü uygulanmak suretiyle artırılan kısmı hakkında değerlendirme yapılacağı tabiidir.
+
+[p43] Karar sonucu:
+
+[p44] Daire, bu gerekçeyle Vergi Mahkemesi kararının, cezalı tarhiyatın ... tarafından düzenlenen faturalardan kaynaklanan kısmının kaldırılmasına ilişkin hüküm fıkrasını bozmuş; diğer yönlerden temyiz istemini reddetmiş; tarafların karar düzeltme istemlerini de reddetmiştir.
+
+[p45] ... Vergi Mahkemesinin ... tarih ve E:..., K:... sayılı ısrar kararı:
+
+[p46] Vergi Mahkemesi, aynı hukuksal nedenler ve gerekçeyle bozulan hüküm fıkrası yönünden ısrar etmiştir.
+
+[p47] TEMYİZ EDENİN İDDİALARI: Uyuşmazlık konusu dönemde davacıya fatura düzenleyen ... hakkında tanzim olunan vergi tekniği raporu ile bu mükellefçe düzenlenen faturaların gerçek emtia teslimi veya hizmet ifasına dayanmadığı hususunun somut şekilde ortaya konulduğu belirtilerek aksi yöndeki gerekçeyle verilen ısrar kararının bozulması gerektiği ileri sürülmektedir.
+
+[p48] KARŞI TARAFIN SAVUNMASI: Cevap verilmemiştir.
+
+[p49] DANIŞTAY TETKİK HÂKİMİ ... 'NİN DÜŞÜNCESİ: Temyiz dilekçesinde ileri sürülen iddialar, dayandığı hukuksal nedenler ve gerekçe karşısında ısrar kararının bozulmasını sağlayacak nitelikte bulunmadığından, istemin reddi gerektiği düşünülmektedir.
+
+[p50] TÜRK MİLLETİ ADINA
+
+[p51] Karar veren Danıştay Vergi Dava Daireleri Kurulunca, Tetkik Hâkiminin açıklamaları dinlendikten ve dosyadaki belgeler incelendikten sonra gereği görüşüldü:
+
+[p52] HUKUKİ DEĞERLENDİRME :
+
+[p53] Dayandığı hukuksal nedenler ve gerekçesi yukarıda açıklanan ısrar kararı aynı hukuksal nedenler ve gerekçe ile Kurulumuzca da uygun bulunmuş olup temyiz dilekçesinde ileri sürülen iddialar, kararın bozulmasını gerektirecek durumda görülmemiştir.
+
+[p54] KARAR SONUCU :
+
+[p55] Açıklanan nedenlerle;
+
+[p56] 1- Davalının temyiz isteminin REDDİNE,
+
+[p57] 2- ... Vergi Mahkemesinin ... tarih ve E:... , K:... sayılı ısrar kararının ONANMASINA,
+
+[p58] 2577 sayılı Kanun'un (Geçici 8. maddesi uyarınca uygulanmasına devam edilen) 54. maddesinin (1) numaralı fıkrası uyarınca bu kararın tebliğ tarihini izleyen günden itibaren onbeş gün içinde karar düzeltme yolu açık olmak üzere, 28/12/2022 tarihinde oyçokluğuyla karar verildi.
+
+[p59] X - KARŞI OY:
+
+[p60] Temyiz isteminin kabulü ile ısrar kararının Danıştay Üçüncü Dairesinin kararında yer alan hukuksal nedenler ve gerekçe uyarınca bozulması gerektiği oyu ile karara katılmıyoruz.
+
+[p61] 2021/1999999
+
+[p62] 0

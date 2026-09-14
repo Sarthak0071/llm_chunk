@@ -1,0 +1,175 @@
+==============================================================================
+ bam   doc_id 726546200
+ case_no 2019/2035
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 69 paragraphs, 12904 characters
+==============================================================================
+
+[p1] T.C. KONYA BAM 6. HUKUK DAİRESİ
+
+[p2] T.C.
+
+[p3] KONYA
+
+[p4] BÖLGE ADLİYE MAHKEMESİ
+
+[p5] 6. HUKUK DAİRESİ
+
+[p6] DOSYA NO : ...
+
+[p7] KARAR NO : ...
+
+[p8] T Ü R K M İ L L E T İ A D I N A
+
+[p9] İ S T İ N A F K A R A R I
+
+[p10] BAŞKAN : ... (...)
+
+[p11] ÜYE : ... (...)
+
+[p12] ÜYE : ... (...)
+
+[p13] KATİP : ... (...)
+
+[p14] İNCELENEN KARARIN
+
+[p15] MAHKEMESİ : KONYA ASLİYE ... TİCARET MAHKEMESİ
+
+[p16] TARİHİ : ...
+
+[p17] NUMARASI : ... Esas - ... Karar
+
+[p18] DAVACI : ... - (T.C. Kimlik No: ...)
+
+[p19] VEKİLİ : Av. ... - ...
+
+[p20] İSTİNAF EDEN DAVALI : ...
+
+[p21] VEKİLİ : Av. ... - ...
+
+[p22] DAVA : Şirket Ortağı Olunmadığının Tespiti ve Alacak
+
+[p23] İSTİNAF KARARININ
+
+[p24] KARAR TARİHİ : 16/07/2020
+
+[p25] YAZIM TARİHİ : 14/08/2020
+
+[p26] Davacı tarafından davalı aleyhine Konya Asliye ... TİCARET Mahkemesi'nin ... esas sayılı dosyası ile açılan şirket ortağı olunmadığının tespiti ve alacak davasında ... tarihinde tesis edilen davanın kısmen kabulüne ilişkin karara karşı davalının istinaf kanun yoluna başvurması üzerine dava dosyasının dairemize geldiği anlaşılmakla üye hakimin görüşleri alındıktan sonra, dosya incelendiğinde;
+
+[p27] DAVA: Davacı vekili dava ve ıslah dilekçesinde özetle; davalı şirketin SPK ve yasal mevzuatlara aykırı biçimde paralar topladığını, bu konu ile şirket yetkilileri hakkında soruşturmalar açıldığını, müvekkilinin de bu şirkete bir miktar DM vermiş olduğunu, şirket tarafından kandırılıp borsaya girmeye zorlandığını, davalı şirketçe müvekkile Hisse Senedi Teslim tutanağı verildiğini, şirketin verilen paraları geri alma taahhüdündü bulunduğunu, müvekkilinden alınan parayı geri tahsil edemediğini, açıklanan nedenlerle geçerli şekilde ortaklık kurulmadığının tespitine, fazlaya ilişkin hakları saklı kalmak üzere şimdilik davalı tarafa verilen para nedeniyle 20.000,00 TL'nin dava tarihinden itibaren işleyecek ticari faiziyle birlikte davalıdan tahsiline karar verilmesini talep etmiştir. Davacı vekili 09/04/2019 tarihli ıslah dilekçesi ile talep miktarını 68.120,00 TL artırarak 88.120,00 TL'ye çıkarmıştır.
+
+[p28] CEVAP: Davalı şirket vekili cevap dilekçesinde özetle; davacının davaya dayanak yaptığı belge ve davacının beyanları birlikte değerlendirildiğinde davacının davalı şirkete karşı dava açma ehliyetinin bulunmadığını, dava dışı ... Holding SA ile davalı şirketin farklı tüzel kişiliklere haiz şirketler olduğunu, varsayıma dayalı olan davacının iddiasının hukuki mesnetten yoksun olduğunu, bu nedenlerle davanın öncelikle husumetten reddini talep ettiklerini, dava dilekçesine ekli olarak sunulan belgeleri kabul etmediklerini, davalı yönünden belgelerin bağlayıcı olmadığını, TTK'nın 329 ve 405. maddeleri gereğince şirket ortaklarının hisse bedellerini şirketten geri istemesinin ve şirketin kendi paylarını geri almasının mümkün olmadığını, davacı tarafın müvekkili şirkete veya şirketlere her an geri alabileceği garantisi ile para verdiğine ilişkin iddianın gerçek olmadığını, müvekkili şirket veya şirketlerin davacı taraftan para almadığını, müvekkili şirketin bankacılık mevzuatına dayanarak herhangi bir mevduat toplamadığı gibi bunun da mümkün olmadığını, aynı şekilde müvekkilinin SPK, TTK ve BK hükümlerini de ihlal etmediğini, husumet yöneltilemeyeceğini, hakdüşürücü süre ve zamanaşımı sürelerinin geçtiğini, davacının Türkiye’de mutad meskeni olmadığını, teminat yatırılması gerektiğini beyanla davanın reddine karar verilmesini talep etmiştir.
+
+[p29] İLK DERECE MAHKEMESİ KARARININ ÖZETİ: İlk derece mahkemesince yapılan yargılama sonucunda; "...Davacı tarafın, davalı şirketin ortağı olunmadığının tespiti ile ilgili talep kısmının kabulü ile davacı tarafın davalı şirketin ortağı olmadığının tespitine, davacı tarafın alacak davasının kısmen kabulü ile; 70.931,73 TL nın dava tarihi olan 20/09/2018 tarihinden itibaren değişen oranlarda hesaplanacak avans faizi ile birlikte davalı ...Ş.'den alınarak davacı tarafa verilmesine, davacı tarafın fazlaya ilişkin taleplerinin reddine..." karar verilmiştir.
+
+[p30] İSTİNAF SEBEPLERİ: Davalı vekili istinaf dilekçesinde özetle; yerel mahkemenin davacının ödeme ve hile iddiasını ispat ettiğine yönelik kabulünün yasaya aykırı olduğunu, zamanaşımı definin dürüstlük kuralına aykırı bulunduğu gerekçesiyle reddedilmesinin usul ve yasa aykırı olduğunu, davalı tarafından SPK'ya sunulan CD ve üst yazı içeriklerinin yanlış değerlendirildiğini, zamanaşımına uğrayan dava hakkında kabul kararı verilmesinin hukuki izahının bulunmadığını, taraflar arasında geçerli bir ortaklık ilişkisi bulunmadığına yönelik kabulün TTK 329 ve 405 maddelerine aykırı olduğunu, davacının taleplerini hak düşürücü süre ve zamanaşımı yönünden reddetmemesinin usul ve yasaya aykırı olduğunu, davacının elinde bulunan hisse senetlerinin iadesine karar verilmemesinin hukuk aykırı olduğunu beyan ederek yerel mahkeme kararının kaldırılarak davanın reddine karar verilmesini talep etmiştir.
+
+[p31] DELİLLERİN DEĞERLENDİRİLMESİ VE GEREKÇE:
+
+[p32] Dava; davalı şirkete ortak olmadığının tespiti, kar payı alınması maksadıyla verilen paranın iadesi istemine ilişkindir.
+
+[p33] İstinaf incelemesi; Kamu düzenini ilgilendiren konularda resen, diğer yönlerden HMK'nın 355. maddesi gereğince istinaf sebepleriyle sınırlı olarak yapılmıştır.
+
+[p34] Davaya konu ... İnşaat Tarım ve Sanayi İşletmeleri Ticaret A.Ş'nin ünvanının ... Sanayi Ticaret ve Yatırım Holding A.Ş. olarak değiştirildiği, bilahare ... Holding A.Ş.'ye devredilmesi suretiyle birleştirilmesine ve tasfiyesiz infisahına karar verildiği ve unvanının ... Holding A.Ş. olarak değiştiği dosya kapsamından anlaşıldığı,
+
+[p35] İlk derece mahkemesince delillerin esastan değerlendirilmesi ve davalının istinaf kanun yoluna başvurmasından sonra dairemizce henüz istinaf sebepleri esastan incelenmeden; 7194 sayılı yasanın 41. Maddesiyle; 3332 sayılı yasaya "31/12/2014 tarihine kadar, pay sahibi sayısı nedeniyle payları halka arz olunmuş sayılan ve payları borsada işlem gören anonim ortaklıklar tarafından doğrudan veya dolaylı olarak nominal ya da primli değer üzerinden pay veya pay adı altında satışı yapılmış olan her türlü araç, 6/12/2012 tarihli ve 6362 sayılı Sermaye Piyasası Kanununun kaydileştirmeye ilişkin şartlarına tabi olmaksızın 29/6/1956 tarihli ve 6762 sayılı mülga Türk Ticaret Kanunu ile 13/1/2011 tarihli ve 6102 sayılı Türk Ticaret Kanunu kapsamında pay addolunur, bu ortaklıklara yapılan ödemeler pay karşılığı yapılmış kabul edilir ve ortaklık ilişkisi kurulmuş sayılır. Bu payların kaydileştirilmemiş olması ortaklık haklarına halel getirmeyeceği gibi ortaklık ilişkisinin kurulmadığı da iddia edilemez.
+
+[p36] Birinci fıkra kapsamında kurulmuş olan ortaklık ilişkileri hakkında; geçerli bir ortaklık ilişkisi bulunmadığı veya primli pay satışı yapıldığı ileri sürülerek sebepsiz zenginleşme, haksız fiil, sözleşme öncesi görüşmelere aykırılık veya sözleşmeye aykırılık nedenlerine dayalı olarak açılan ve kanun yolu incelemesindekiler dahil görülmekte olan menfi tespit, tazminat veya alacak davalarında, karar verilmesine yer olmadığına dair karar verilir ve yargılama gideri ile maktu vekalet ücreti ortaklık üzerinde bırakılır." şeklinde Geçici 4. madde eklenmiştir.
+
+[p37] Yasal düzenlemenin Anayasaya aykırı olduğu ve bu nedenle Anayasa Mahkemesine gidilmesine yönelik davacı talebi yapılan müzakereler sonucunda uygun görülmemiştir.
+
+[p38] Sermaye Piyasası Kanunu
+
+[p39] Madde 16 "(1) (Değişik birinci cümle: 28/11/2017-7061/109 md.) Payları borsada işlem gören ortaklıklar ile kitle fonlaması suretiyle halktan para toplayan ortaklıklar hariç olmak üzere pay sahibi sayısı beş yüzü aşan anonim ortaklıkların payları halka arz olunmuş sayılır. Bu ortaklıklar halka açık ortaklık hükümlerine de tabi olurlar. (2) Payları borsada işlem görmeyen anonim ortaklıklar, halka açık ortaklık statüsünü kazandıktan sonra en geç iki yıl içinde paylarının işlem görmesi için borsaya başvurmak zorundadırlar. Aksi durumda, Kurul, bu payların borsada işlem görmesi veya ortaklığın halka açık ortaklık statüsünden çıkarılması için, ortaklığın talebini aramaksızın gerekli kararları alır. (3)(Ek: 28/11/2017-7061/109 md.) (Değişik Cümle: 27/12/2018-7159/8 md.)...."
+
+[p40] Öncelikle; yasal düzenlemenin taraflar arasındaki hukuki ilişkiyi kapsayıp kapsamadığı ve davalı şirketin yasal düzenlemede belirtilen şirketlerden olup olmadığı yönünden delillerin değerlendirilmesi gerekmektedir.
+
+[p41] Davalı şirketin yasal düzenlemede verilen 31/12/2014 tarihinden önce, BIST (İMKB) yönetim kurulunun 23/10/2012 tarihli toplantısında ortaklığın paylarının halka arz edilmeksizin 2.ulusal pazarda 23/11/2012 tarihinden itibaren işlem görmesine karar verildiği ve 23/11/2012 tarihinden itibaren işlem görmeye başladığı mevcut delillerden anlaşılmaktadır.
+
+[p42] Somut olayda; davacının yatırım maksadı ile davalı şirkete para verdiğini, verilen para karşılığında kendisine "ortaklık durum belgesi" ve hisse senetleri verildiğini istenmesine rağmen parasının iade edilmediğini verdiği paranın faizi ile tahsilini, davalı tarafın ise; davacı tarafından davalı şirkete para verilmişse; şirkete ortak olmak maksadıyla verildiğini, kendisine verdiği para karşılığında nominal bedelli hisse senedi verildiğini , davacının şirket pay sahibi olarak şirket kayıtlarına kaydedildiğini Anonim şirket olan davalının 6762 sayılı TK'nın 329 ve 405. maddelerindeki düzenleme gereğince kendi hisselerini temellük etmesinin ve bunun sonucu olarak yatırılan paranın iadesinin mümkün olmadığını aksinin kabulü durumunda ise; davanın süresinde açılmadığını, alacağın zamanaşımına uğradığını belirterek davanın reddini talep etmiştir.
+
+[p43] Yukarıda yapılan açıklama ve tespitler nazara alındığında; taraflar arasında görülmekte olan davanın 05/12/2019 tarihinde 3332 sayılı yasaya eklenen geçici 4. madde kapsamında olduğu kabul edilmiştir. Bu nedenle; tarafların iddia ve savunmaları ile ilgili bildirdiği deliller esastan değerlendirilmeden, 7194 sayılı yasanın 41. Maddesiyle 3332 sayılı yasaya eklenen geçici 4. maddesi gereğince ilk derece mahkemesi kararının kaldırılarak HMK'nın 353/1.b.2 maddesi gereğince açılan dava ile ilgili karar verilmesine yer olmadığına, yargılama giderlerinin davalı şirket üzerinde bırakılmasına, davacı lehine davalı şirket aleyhine karar tarihi itibariyle yürürlükte bulunan asgari ücret tarifesi gereğince maktu ücret-i vekalet taktirine ilişkin aşağıdaki şekilde hüküm kurulmuştur.
+
+[p44] HÜKÜM : Gerekçesi yukarıda açıklandığı üzere;
+
+[p45] A) Yasal düzenleme gereğince davalının istinaf talebinin KABULÜNE; Konya Asliye ... TİCARET Mahkemesi'nin ... tarih ... Esas - ... Karar sayılı KARARININ KALDIRILMASINA,
+
+[p46] 1- İstinaf talebinde bulunan davalı tarafından yatırılan 1.211,34 TL nispi istinaf karar harcının talep halinde davalıya iadesine,
+
+[p47] 2- İstinaf kanun yoluna başvuru sırasında davalı tarafından yapılan yargılama giderlerinin üzerinde bırakılmasına,
+
+[p48] 3- İstinaf incelemesi sırasında duruşma açılmadığından ücret-i vekalet ile ilgili hüküm kurulmasına yer olmadığına,
+
+[p49] B) Hukuk Muhakemeleri Kanunu'nun 353/1.b.2 maddesi gereğince davacı talebi ile ilgili YENİDEN HÜKÜM KURULMASINA,
+
+[p50] 1-Açılan dava ile ilgili karar verilmesine yer olmadığına,
+
+[p51] 2- Davacı tarafından dava açılırken yatırılan 341,55 TL peşin ve ıslah talebi sırasında yatırılan 1.163,31 TL olmak üzere toplam 1.504,86 TL harçtan alınması gereken 54,40 TL harcın mahsubu ile fazla yatırıldığı anlaşılan 1.450,46 TL'nin talep halinde davacıya iadesine,
+
+[p52] 3- Davacı tarafından fazladan yatırıldığı anlaşılan 44,40 TL başvurma harcının talep halinde davacıya iadesine,
+
+[p53] 4- Davacı tarafından yapılan 35,90 TL başvurma harcı, 54,40 maktu karar harcı, 253,80 TL keşif harcı, 3.000,00 TL bilirkişi ücreti gideri, 157,60 TL posta ve tebligat gideri olmak üzere toplam 3.501,70 TL yargılama giderinin davalı şirketten alınarak davacıya verilmesine,
+
+[p54] 5- Davacı davada kendisini vekil ile temsil ettirdiğinden karar tarihinde yürürlükte olan A.A.Ü.T gereğince 3.400,00 TL maktu ücreti vekaletin davalı şirketten alınarak davacıya verilmesine,
+
+[p55] 6- Hukuk Muhakemeleri Kanunu'nun 333 ve HMKGAT'nin 5/1. maddeleri gereğince yatırılan gider avansının kullanılmayan kısmının karar kesinleştiğinde ve talep halinde gider avansını yatıran tarafa iadesine,
+
+[p56] C) Konya ... İcra Dairesinin ... Esas sayılı icra dosyası üzerinden tehiri icra talebi ile ilgili İİK'nın 36/5 maddesi gereğince yatırılan teminatın yatırana iadesine,
+
+[p57] D) İlk derece mahkemesince davalıdan tahsiline karar verilen tamamlama harcı ile ilgili harç tahsil müzekkeresi düzenlenmiş ise; müzekkerenin bila infaz iadesinin istenmesine, iade işleminin İlk derece mahkemesince yapılmasına,
+
+[p58] E) Hukuk Muhakemeleri Kanunu’nun 359/3.maddesi gereğince; kararın tebliği işlemlerinin dairemiz tarafından yapılmasına,
+
+[p59] F) Kararın temyiz edilmeden kesinleşmesi halinde; dava dosyasının ilk derece mahkemesine gönderilmesine,
+
+[p60] Dair; dosya üzerinde yapılan inceleme sonucunda verilen kararın HMK'nın 361/1 maddesi gereğince; taraflara tebliğinden itibaren iki hafta içerisinde dairemize, temyiz edenin bulunduğu yer Bölge Adliye Mahkemesi Hukuk Dairesi'ne veya ilk derece mahkemesine verilecek dilekçe ile temyiz kanun yoluna başvurma talebinde bulunulabileceğine 16/07/2020 tarihinde oy birliği ile karar verildi.
+
+[p61] Başkan ...
+
+[p62] e-imzalıdır
+
+[p63] Üye ...
+
+[p64] e-imzalıdır
+
+[p65] Üye ...
+
+[p66] e-imzalıdır
+
+[p67] Katip ...
+
+[p68] e-imzalıdır
+
+[p69] A.G.

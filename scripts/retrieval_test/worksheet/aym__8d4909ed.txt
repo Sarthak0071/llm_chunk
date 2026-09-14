@@ -1,0 +1,217 @@
+==============================================================================
+ aym   doc_id 8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2
+ case_no 2024/15819
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is the COURT'S OWN paragraph number (aym). A real citation unit.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 90 paragraphs, 21043 characters
+==============================================================================
+
+[p1] TÜRKİYE CUMHURİYETİ
+
+[p2] ANAYASA MAHKEMESİ
+
+[p3] GENEL KURUL
+
+[p4] KARAR
+
+[p5] NACİYE ÇORUH BAŞVURUSU
+
+[p6] (Başvuru Numarası: 2024/15819)
+
+[p7] Karar Tarihi: 21/11/2024
+
+[p8] R.G. Tarih ve Sayı: 21/2/2025 - 32820
+
+[p9] GENEL KURUL
+
+[p10] KARAR
+
+[p11] Başkan
+
+[p12] :
+
+[p13] Kadir ÖZKAYA
+
+[p14] Başkanvekili
+
+[p15] :
+
+[p16] Hasan Tahsin GÖKCAN
+
+[p17] Başkanvekili
+
+[p18] :
+
+[p19] Basri BAĞCI
+
+[p20] Üyeler
+
+[p21] :
+
+[p22] Engin YILDIRIM
+
+[p23] Rıdvan GÜLEÇ
+
+[p24] Recai AKYEL
+
+[p25] Yusuf Şevki HAKYEMEZ
+
+[p26] Yıldız SEFERİNOĞLU
+
+[p27] Selahaddin MENTEŞ
+
+[p28] İrfan FİDAN
+
+[p29] Kenan YAŞAR
+
+[p30] Muhterem İNCE
+
+[p31] Yılmaz AKÇİL
+
+[p32] Ömer ÇINAR
+
+[p33] Metin KIRATLI
+
+[p34] Raportör
+
+[p35] :
+
+[p36] Şahap KAYMAK
+
+[p37] Başvurucu
+
+[p38] :
+
+[p39] Naciye ÇORUH
+
+[p40] Vekili
+
+[p41] :
+
+[p42] Av. Taha AYHAN
+
+[p43] I. BAŞVURUNUN ÖZETİ
+
+[p44] 1. Başvuru, Anayasa Mahkemesinin başka başvurucular hakkında verdiği ihlal kararlarına dayanılarak yapılan yargılamanın yenilenmesi talebinin reddedilmesi nedeniyle adil yargılanma hakkının ihlal edildiği iddiasına ilişkindir.
+
+[p45] 2. Başvurucu, Hakkâri'nin Yüksekova ilçesi Dağlıca köyü Erabuşate mezrasında ikamet etmekte iken yaşanan terör eylemleri ve terörle mücadele kapsamında yürütülen faaliyetler nedeniyle köyünü terk etmek zorunda kaldığından ve güvenlik nedeniyle köyüne dönüş sağlayamadığından dolayı mal varlığına ulaşamadığından bahisle 1/4/2019 tarihli dilekçe ile 2004-2019 döneminde oluştuğunu ileri sürdüğü 50.000 TL zararının tazminini Hakkâri Valiliği Zarar Tespit Komisyonu Başkanlığından (Komisyon) talep etmiştir. Bu talebin zımnen reddedilmesi üzerine ret işleminin iptali talebiyle Van 2. İdare Mahkemesinde (Mahkeme) dava açmıştır.
+
+[p46] 3. Mahkeme, tek hâkimli olarak yaptığı yargılama neticesinde dava konusu işlemin 2018 ve 2019 yıllarına ilişkin kısmı yönünden iptaline, 2004-2017 dönemine ilişkin kısmı yönünden ise davanın reddine karar vermiştir. Mahkeme, kararın gerekçesinde başvurucunun 2004-2019 dönemine ilişkin zararının tazmini talebi bakımından 17/7/2004 tarihli ve 5233 sayılı Terör ve Terörle Mücadeleden Doğan Zararların Karşılanması Hakkında Kanun'un 6. ve geçici 4. maddeleri uyarınca yıl bazında inceleme yapılması gerektiğini belirtmiştir. Kararın gerekçesinde;
+
+[p47] i. Başvurucunun 1/1/2004-30/5/2007 tarihleri arasında oluştuğunu iddia ettiği zararı açısından 5233 sayılı Kanun'un yürürlüğe girdiği 27/7/2004 tarihinden öncesine ait olmakla birlikte devam eden zararlar açısından ve 5233 sayılı Kanun'un yürürlüğe girdiği 27/7/2004 tarihinden Kanun'un geçici 4. maddesinde yapılan değişiklik sonucunda başvuru süresini uzatan 24/9/2007 tarihli ve 5666 sayılı Kanun'un yürürlük tarihi olan 30/5/2007'ye kadarki döneme ilişkin olarak uğranıldığı iddia edilen zararlar yönünden başvuru süresinin 30/5/2008 tarihine kadar uzatıldığı ifade edilmiştir. Buna göre en son 30/5/2008 tarihine kadar ilgili valiliğe başvurulması gerekirken 1/4/2019 tarihinde kayda giren dilekçe ile başvuruda bulunulduğu anlaşıldığından süresinde yapılmayan başvuru üzerine açılan davanın bu kısım yönünden reddi gerektiği değerlendirilmiştir.
+
+[p48] ii. Başvurucunun 30/5/2007-2017 dönemi arasında oluştuğunu iddia ettiği zararı açısından 5233 sayılı Kanun'un 6. maddesinde Kanun'un yürürlüğe girdiği 27/7/2004 tarihinden sonra meydana gelen zararların karşılanması talebiyle zarar konusu olayın öğrenilmesinden itibaren altmış gün ve her hâlde olayın meydana gelmesinden itibaren bir yıl içinde idareye başvurulabileceğinin, bu sürelerden sonra yapılacak başvuruların kabul edilmeyeceğinin düzenlendiği vurgulanmıştır. Bu durumda komisyona başvuru tarihinden en çok bir yıl geriye yönelik olarak tazmin talebinde bulunulabileceği ancak başvurucunun 5233 sayılı Kanun'un 6. maddesinde yer alan süreler içinde başvuruda bulunmadığı anlaşıldığından süresinde yapılmayan başvuru üzerine açılan davanın bu kısım yönünden de reddi gerektiği sonucuna varıldığı açıklanmıştır.
+
+[p49] iii. Başvurucunun 2018 ve 2019 yıllarında oluştuğunu iddia ettiği zararı açısından Hakkâri ili Yüksekova ilçesi Dağlıca köyü Erabuşate mezrasının terör olayları ve terörle mücadeleden kaynaklanan faaliyetler nedeniyle 1993 yılında boşaltıldığı, idareye zarar tazmin talebiyle başvurunun yapıldığı tarihe kadar tamamen boş kaldığı belirtilmiştir. Zarar tazmininin talep edildiği dönemde geçmişte yaşanan terör olaylarının yeniden yaşanması endişesiyle vatandaşların mezraya dönmediği bu yerin yerleşime uygun duruma getirilmesi amacıyla herhangi bir girişimde bulunulmadığı, mezranın Köye Dönüş ve Rehabilitasyon Projesi kapsamında yerleşmeye uygun hâle getirildiğine dair herhangi bir belgenin dosyaya sunulmadığı ifade edilmiştir. Mezrada okul ve sağlık ocağı olmadığına, faal cami olmaması nedeniyle imam hatip kadrosu bulunmadığına, başvurucunun boşalan yerlere dönme iradesinin olmadığına ilişkin somut bir tespitin de bulunmadığına işaret edilmiştir. Başvurucunun anılan mezraya dönüşü için sosyal devlet ilkesi bağlamında asgari şartların oluşturulması ve vatandaşların güvenlik kaygılarının minimize edilmesi sonrasında mezraya dönüşlerinin sağlanması gerektiğinin bilindiği zikredilmiştir. Terör olaylarından kaynaklanan güvenlik kaygısı nedeniyle mezraya dönüşlerin olmadığı anlaşıldığından gerekirse mahallinde usulüne uygun olarak keşif ve bilirkişi incelemesi yapılmak suretiyle başvurucunun mal varlığına ulaşamadığı için oluştuğunu öne sürdüğü zararlar var ise bunların tespit edilerek tazmin edilmesi gerektiği neticesine ulaşılmıştır. Bu itibarla başvurucunun mal varlığına ilişkin olarak inceleme ve araştırma yapılmadan tesis edilen dava konusu işlemin bu kısmında hukuka uygunluk bulunmamıştır.
+
+[p50] 4. Başvurucunun bu karara karşı istinaf kanun yoluna başvurması üzerine Erzurum Bölge İdare Mahkemesi 2. İdari Dava Dairesi (Bölge İdare Mahkemesi) başvurucunun otuz günlük süreyi geçirdikten sonra yaptığı istinaf başvurusunun süre aşımı nedeniyle reddine kesin olarak karar vermiştir.
+
+[p51] 5. Başvurucu, Mahkemeye sunduğu 8/5/2023 tarihli dilekçe ile Anayasa Mahkemesinin İbrahim Er ve diğerleri ([GK], B. No: 2019/33281, 26/1/2023) ve Osman Kızılcan ([GK], B. No: 2021/11655, 28/7/2022) kararlarından bahsederek 6/1/1982 tarihli ve 2577 sayılı İdari Yargılama Usulü Kanunu'nun 53. maddesinin (1) numaralı fıkrasının (h) bendi uyarınca yargılamanın yenilenmesi talebinde bulunmuştur.
+
+[p52] 6. Mahkemece tek hâkimli olarak yapılan inceleme sonucunda yargılamanın yenilenmesi talebinin reddine karar verilmiştir. Kararın gerekçesinde; 2577 sayılı Kanun'un 53. maddesinin (1) numaralı fıkrasının (h) bendinde tarafları, konusu ve sebebi aynı olan bir dava hakkında verilen önceki karara aykırı olarak yeni bir karar verilmesi durumunun yargılamanın yenilenmesi sebepleri arasında sayıldığı belirtilmiştir ancak başvurucunun Anayasa Mahkemesinin Osman Kızılcan kararı sonrasında tarafları ve konusu aynı olmayan başka dosyalarda yargılama mercilerince içtihat değişikliğine gidilerek önceki verilen kararlardan farklı kararlar verilmesinin yargılamanın yenilenmesini gerektirdiği iddiasının 2577 sayılı Kanun'da tahdidî olarak sayılan yargılamanın yenilenmesi sebepleri arasında yer almadığı ifade edilmiştir. Dolayısıyla bakılmakta olan davada 2577 sayılı Kanun'un 53. maddesinde belirtilen yargılamanın yenilenmesi sebeplerinin bulunmadığı vurgulanmıştır. Diğer yandan başvurucunun Anayasa Mahkemesinin İbrahim Er ve diğerleri kararı gereğince bir uyuşmazlık hakkında verilen ihlal kararının benzer mahiyetteki uyuşmazlıklarda da aynı hakların ihlal edildiği anlamına geldiği, bu nedenle yargılamanın yenilenmesi yoluyla bu ihlalin ortadan kaldırılması gerektiği iddiasına da itibar edilemeyeceği değerlendirmesinde bulunulmuştur. Söz konusu ihlal kararına esas başvurunun özünün Anayasa Mahkemesince başka bir uyuşmazlıkla ilgili olarak verilen ihlal kararının, aynı nedenle kendisi hakkında kurulan mahkûmiyet hükmü bakımından da yargılamanın yenilenmesi sebebi teşkil ettiğinden bahisle yapılan yargılamanın yenilenmesi başvurusunun reddedilmesi olduğu belirtildikten sonra, anılan başvurunun ceza mahkemelerinde görülen bir uyuşmazlıktan kaynaklandığına ve uyuşmazlığın çözümünde olduğu gibi yargılamanın yenilenmesi talebinin değerlendirilmesinde de 4/12/2004 tarihli ve 5271 sayılı Ceza Muhakemesi Kanunu'nun ilgili hükümlerinin uygulandığına değinilmiştir. Ayrıca 5271 sayılı Kanun'da da yargılamanın yenilenmesi sebeplerinin tahdidî şekilde sayıldığı, Anayasa Mahkemesince verilen ihlal kararının 5271 sayılı Kanun'un 311. maddesinin (1) numaralı fıkrasının (e) bendi kapsamında değerlendirilmesi gerektiği yorumunda bulunulmuştur. Somut uyuşmazlıkta ise Anayasa Mahkemesinin tarafları ve konusu farklı olan başka bir uyuşmazlığa ilişkin olarak verdiği ihlal kararının 2577 sayılı Kanun'un 53. maddesinin (1) numaralı fıkrasında sınırlı olarak sayılan yargılamanın yenilenmesi nedenlerinden herhangi biri kapsamında olmadığı sonucuna ulaşılmıştır.
+
+[p53] 7. Bölge İdare Mahkemesi, yargılamanın yenilenmesi talebinin reddine ilişkin karara yönelik olarak yapılan istinaf başvurusunu, başvurucu vekilinin talep sonucundan kısmi feragate ilişkin talebinin incelenmesine ve bu talep hakkında bir karar verilmesine olanak bulunmadığı yönündeki açıklamayı eklemek suretiyle kesin olarak reddetmiştir.
+
+[p54] 8. Başvurucu, nihai hükmü 29/1/2024 tarihinde öğrendikten sonra 26/2/2024 tarihinde bireysel başvuruda bulunmuştur.
+
+[p55] 9. Komisyon başvurunun kabul edilebilirlik incelemesinin Bölüm tarafından yapılmasına karar vermiştir.
+
+[p56] 10. İkinci Bölüm başvurunun Genel Kurul tarafından incelenmesine karar vermiştir.
+
+[p57] II. DEĞERLENDİRME
+
+[p58] 11. Anayasa Mahkemesinin Mehmet Şerif Ay (B. No: 2012/1181, 17/9/2013) kararında belirtilen ilkeler dikkate alınarak geçimini önemli ölçüde güçleştirmeksizin yargılama giderlerini ödeme gücünden yoksun olduğu anlaşılan başvurucunun açıkça dayanaktan yoksun olmayan adli yardım talebinin kabulüne karar verilmesi gerekir.
+
+[p59] 12. Başvurucu, Danıştayın 2577 sayılı Kanun'un 53. maddesinin (1) numaralı fıkrasının (h) bendindeki "tarafları" ibaresinin olayın süjesi olmaları yönünden aralarında fark bulunmayan, aynı eylemi birlikte gerçekleştiren bireyler olarak yorumlanmasının hakkaniyete uygun olduğuna ilişkin kararı olduğunu, dolayısıyla Anayasa Mahkemesinin Osman Kızılcan kararının yargılamanın yenilenmesi sebebi olarak kendisi hakkında da uygulanması gerektiğini ifade etmiştir. Anayasa Mahkemesi kararlarının objektif etkisinin dikkate alınmadığını belirterek adil yargılanma hakkının ihlal edildiğini ileri sürmüştür.
+
+[p60] 13. Adalet Bakanlığı (Bakanlık) görüşünde, öncelikle başvurunun kabul edilebilirlik şartları yönünden incelenmesi gerektiği, başvurucunun ihlal iddiasının medeni hak ve yükümlülüklerin değerlendirildiği bir yargısal sürece ilişkin olmadığı ve başvurunun adil yargılanma hakkı kapsamına girmediği ifade edilmiştir. Ayrıca başvurucunun adil yargılanma hakkının ihlal edilip edilmediği konusunda inceleme yapılırken Anayasa ve ilgili mevzuat hükümleri ile somut olayın kendine özgü şartlarının da dikkate alınması gerektiği dile getirilmiştir. Başvurucu, Bakanlığın görüşüne karşı beyanda bulunmamıştır.
+
+[p61] 14. Anayasa Mahkemesi, olayların başvurucu tarafından yapılan hukuki nitelendirmesi ile bağlı olmayıp olay ve olguların hukuki tavsifini kendisi takdir eder. Başvurucunun şikâyetlerinin niteliği gözetildiğinde ihlal iddialarının adil yargılanma hakkına ilişkin olduğu değerlendirilmiştir.
+
+[p62] 15. Anayasa Mahkemesi yargılamanın iadesi/yenilenmesi talebi çerçevesinde ileri sürülen ihlal iddiaları ile ilgili olarak Metin Gümüş (B. No: 2016/14563, 28/11/2019) başvurusunda değerlendirmeler yapmıştır. Anayasa Mahkemesi anılan kararda, yargılamanın yenilenmesi talebinin değerlendirildiği ilk evrede uyuşmazlığın esasını çözümleyecek nitelikte bir karar verilmediğini vurgulayarak bu aşamada medeni hak ve yükümlülüklere dair bir değerlendirme yapılmadığını, uyuşmazlık konusu hakka ilişkin doğrudan belirleyici bir hüküm verilmediğini ifade etmiştir ( Metin Gümüş , § 30).
+
+[p63] 16. Anayasa Mahkemesi, başvurucunun bu aşamaya yönelik ihlal iddiasının medeni hak ve yükümlülüklerin değerlendirildiği bir yargısal sürece ilişkin olmaması nedeniyle adil yargılanma hakkı kapsamında incelenemeyeceğini ancak Anayasa Mahkemesi ve Avrupa İnsan Hakları Mahkemesinin ihlal kararlarının ve sonuçlarının ortadan kaldırılmasına yönelik yeniden yargılama taleplerine ilişkin başvuruların bundan istisna tutulması gerektiğini ifade ederek başvurunun konu bakımından yetkisizlik nedeniyle kabul edilemez olduğuna karar vermiştir ( Metin Gümüş , §§ 31-34).
+
+[p64] 17. Suç isnadına ilişkin uyuşmazlıklarda da Anayasa Mahkemesi Nihat Akbulak ([GK], B. No: 2015/10131, 7/6/2018) kararıyla yargılamanın yenilenmesine karar verilmeden önceki aşamalarda başvurucunun suç isnadı altında olmadığı, dolayısıyla bu aşamalarda verilen kararların konu bakımından yetkisizlik nedeniyle adil yargılanma hakkı kapsamında incelenemeyeceği sonucuna varmıştır ( Nihat Akbulak , §§ 30-39).
+
+[p65] 18. Diğer yandan Anayasa Mahkemesi İbrahim Er ve diğerleri kararında, Yılmaz Çelik ([GK], B. No: 2014/13117, 19/7/2018) başvurusunda ve devamında verdiği aynı nitelikteki ihlal kararlarından sonra Türk yargı sistemi içinde Hizb-ut Tahririn neden bir terör örgütü olarak kabul edildiğine ilişkin bir değerlendirmenin yapılmadığını ve meselenin Anayasa Mahkemesince ortaya konan kriterler gözetilerek çözüme kavuşturulmadığını tespit etmiştir. Bu nedenle Anayasa Mahkemesi, ihlal kararının gereklerinin derece mahkemelerince yerine getirilmeyerek başvurucuların cezalarının infaz edilmeye devam edilmesinin daha önce tespit edilen ihlalin devam ettiği anlamına geldiğini vurgulamış ve aynı olguyla ilgili olarak verilen ihlal kararlarının gereklerinin yerine getirilmediğine ilişkin iddiaları incelemenin görev alanına girdiği sonucuna ulaşmıştır ( İbrahim Er ve diğerleri , § 53). Dolayısıyla Anayasa Mahkemesinin İbrahim Er ve diğerleri kararını somut olayın kendi özel şartlarını değerlendirerek verdiği belirtilmelidir.
+
+[p66] 19. Bu nedenle somut olayda Anayasa Mahkemesinin Metin Gümüş ve Nihat Akbulak kararlarından ayrılmayı gerektiren bir durum bulunmamaktadır. Dolayısıyla başvurucunun dile getirdiği ihlal iddiaları medeni hak ve yükümlülüklerin değerlendirildiği bir yargısal sürece ilişkin olmaması nedeniyle adil yargılanma hakkı kapsamı dışında kalmaktadır.
+
+[p67] 20. Açıklanan gerekçelerle başvurunun konu bakımından yetkisizlik nedeniyle kabul edilemez olduğuna karar verilmesi gerekir.
+
+[p68] Yusuf Şevki HAKYEMEZ bu sonuca katılmamıştır.
+
+[p69] III. HÜKÜM
+
+[p70] Açıklanan gerekçelerle;
+
+[p71] A. Adli yardım talebinin KABULÜNE,
+
+[p72] B. Başvurunun konu bakımından yetkisizlik nedeniyle KABUL EDİLEMEZ OLDUĞUNA Yusuf Şevki HAKYEMEZ'in karşıoyu ve OYÇOKLUĞUYLA,
+
+[p73] C. 12/1/2011 tarihli ve 6100 sayılı Hukuk Muhakemeleri Kanunu'nun 339. maddesinin (2) numaralı fıkrası uyarınca tahsil edilmesi mağduriyetine neden olacağından adli yardım talebi kabul edilen başvurucunun yargılama giderlerini ödemekten TAMAMEN MUAF TUTULMASINA,
+
+[p74] D. Kararın bir örneğinin Adalet Bakanlığına GÖNDERİLMESİNE 21/11/2024 tarihinde karar verildi.
+
+[p75] KARŞIOY GEREKÇESİ
+
+[p76] 1. Anayasa Mahkemesinin verdiği ihlal kararlarına dayanılarak yapılan yargılamanın yenilenmesi talebinin reddedilmesi nedeniyle adil yargılanma hakkının ihlal edildiği iddiasıyla yapılan bireysel başvuruda Mahkememiz çoğunluğunca başvurunun konu bakımından yetkisizlik nedeniyle kabul edilemez olduğuna karar verilmesi gerektiği şeklindeki kararına katılmamaktayım.
+
+[p77] 2. Başvurucunun Hakkari ili Yüksekova ilçesi Dağlıca köyü Erabuşate mezrasında ikamet etmekte iken yaşanan terör eylemleri ve terörle mücadele kapsamında yürütülen faaliyetler nedeniyle köyünü terk etmek zorunda kaldığı ve güvenlik nedeniyle köyüne dönüş sağlayamadığı için malvarlığına ulaşamadığından bahisle açtığı davada 1/1/2004-2017 döneminde oluştuğunu ileri sürdüğü zararının tazmini talebi idari yargı mercilerince reddedilerek bu karar kesinleşmiştir.
+
+[p78] 3. Anayasa Mahkemesi tarafları farklı ancak konusu benzer olan bir olaya ilişkin yapılan bireysel başvuruda daha önce bir ihlal kararı vermişti. (Bu karar için bkz.: Osman Kızılcan [GK], B. No: 2021/11655, 28/7/2022). Başvurucu, bu kararı ve Anayasa Mahkemesince verilen ihlal kararlarına dayanılarak yapılan yargılamanın yenilenmesi talebinin reddedilmesi nedeniyle başvurucunun Anayasa'nın 36. maddesinde güvence altına alınan adil yargılanma hakkı kapsamındaki gerekçeli karar hakkının ihlal edildiğine hükmettiği kararı (Bkz.: İbrahim Er ve diğerleri [GK], B. No: 2019/33281, 26/1/2023) gerekçe göstererek derece mahkemelerinde 2577 sayılı İdari Yargılama Usulü Kanunu'nun 53. maddesinin (1) numaralı fıkrasının (h) bendi uyarınca yargılamanın yenilenmesi talebinde bulunmuş ve bu talebi reddedilmiştir.
+
+[p79] 4. Başvurucu, Danıştayın 2577 sayılı Kanun'un 53. maddesinin (1) numaralı fıkrasının (h) bendindeki "tarafları" ibaresinin olayın süjesi olmaları yönünden aralarında fark bulunmayan aynı eylemi birlikte gerçekleştiren bireyler olarak yorumlamasının hakkaniyete uygun olduğuna ilişkin kararı bulunduğunu, dolayısıyla Anayasa Mahkemesinin Osman Kızılcan kararının yargılamanın yenilenmesi sebebi olarak kendisi hakkında da uygulanması gerektiğini ileri sürerek bireysel başvuruda bulunmuştur.
+
+[p80] 5. Mahkememiz çoğunluğu ise doğrudan kendisi hakkında verilmemiş Anayasa Mahkemesinin ihlal kararlarından sonra yargılamanın yenilenmesi yoluna başvurması ve başvurucunun bireysel başvuruda dile getirdiği ihlal iddialarının medeni hak ve yükümlülüklerin değerlendirildiği bir yargısal sürece ilişkin olmaması nedeniyle başvurunun adil yargılanma hakkı kapsamı dışında kalmakta olduğu gerekçesiyle bireysel başvuruyu konu bakımından yetkisizlik nedeniyle kabul edilemez bulmuştur (Bkz.: §§ 19-20).
+
+[p81] 6. Gerçekten de Anayasa Mahkemesi, yargılamanın yenilenmesi talebinin kabule değer olup olmadığının değerlendirildiği aşamayı temel alan bireysel başvuruları başvurucuların medeni hak ve yükümlülüğünün karara bağlanması veya suç isnadı altında olduğu aşamalarla ilgili olmadıklarından hareketle adil yargılanma hakkı kapsamı dışında kalmakta olduklarına işaret ederek bu tür başvurularda başvurunun diğer kabul edilebilirlik koşulları yönünden incelenmeksizin konu bakımından yetkisizlik nedeniyle kabul edilemez olduğuna karar vermektedir (Bkz.: Nihat Akbulak [GK], B. No: 2015/10131, 7/6/2018, Metin Gümüş, B. No: 2016/14563, 28/11/2019).
+
+[p82] 7. Bununla birlikte Mahkememiz İbrahim Er kararında Anayasa Mahkemesinin vermiş olduğu ihlal kararlarına dayanılarak yapılan yargılamanın yenilenmesi talebinin reddedilmesi ile ilgili olarak başvurucular tarafından ileri sürülen ve yargılamanın sonucunu değiştirme ihtimali bulunan iddiaların dikkate alınmaması ve gereği gibi değerlendirilmemesini Anayasa’nın 36. maddesinde güvence altına alınan adil yargılanma hakkı kapsamında gerekçeli karar hakkının ihlali olarak değerlendirmiştir. ( İbrahim Er ve diğerleri , § 55).
+
+[p83] 8. Bununla birlikte Anayasa Mahkemesi somut başvuruya konu kararda ise başvurucu tarafından emsal gösterilen Osman Kızılca n ve İbrahim Er kararlarının bu başvuruya hangi gerekçelerle uygulanabilir olmadığına ilişkin bir değerlendirmede bulunmadan konu bakımından yetkisizlik nedeniyle başvurunun kabul edilemez bulunmasına karar vermiştir.
+
+[p84] 9. Önündeki bireysel başvuruyu sonuçlandırırken bir yargı mercii olarak Anayasa Mahkemesinin de ulaştığı kanaate ilişkin hukuki dayanakları ikna edici gerekçelerle ortaya koyması gerekmektedir. Nitekim Anayasa Mahkemesi adil yargılanma hakkının ihlali iddiasıyla yapılan bireysel başvuru incelemelerinde derece mahkemesi kararlarının, adalet gereksinimini giderecek ölçü ve nitelikte yeterli gerekçe ile açıklanıp açıklanmadığı hususlarını gerçekleştirdiği denetim kapsamında aramaktadır ( Sencer Başat ve diğerleri [GK], B. No: 2013/7800, 18/6/2014, § 59).
+
+[p85] 10. Bu bağlamda davanın sonucunu değiştirebilecek nitelikte olan hususlara ilişkin hangi şekilde sonuca ulaşıldığının başvurucu ve üçüncü kişiler tarafından objektif olarak anlaşılmasına imkân verecek düzeyde ilgili, makul ve yeterli bir gerekçe ile açıklanması da yargılamanın hakkaniyetinin zedelenmemesi noktasında önem arz etmektedir (Bkz.: Nagihan Örküş , B. No: 2020/12766, 19/7/2023, § 27). Aynı gerekliliklerin Anayasa Mahkemesinin verdiği kararlarda da aranması adil yargılanma hakkının zorunlu bir sonucu olarak kabul edilmelidir.
+
+[p86] 11. Elbette ki Anayasa Mahkemesinin verdiği tüm ihlal kararlarının, İbrahim Er kararı dikkate alındığında, kategorik biçimde benzer konulara ilişkin kesinleşmiş tüm uyuşmazlıklar için yeniden yargılamayı gerektirdiği şeklinde bir tespitte bulunmak mümkün değildir. Bu tür bir yaklaşım hukuk düzeninde istikrar ve hukuki güvenlik ile de bağdaşmaz.
+
+[p87] 12. Bununla birlikte Anayasa Mahkemesinin İbrahim Er kararı ortada iken somut bireysel başvuruda ulaşılan “konu bakımından yetkisizlik” sonucunun ve Osman Kızılcan kararındaki ihlalin yeniden yargılamada dikkate alınmamasının niçin adil yargılanma hakkı kapsamındaki gerekçeli karar hakkı ihlali sonucu doğurmayacağının çoğunluk kararında ortaya konulması gerekmektedir. Oysa çoğunluk kararında İbrahim Er kararı kısaca özetlendikten sonra sadece “Dolayısıyla Anayasa Mahkemesinin İbrahim Er ve diğerleri kararını somut olayın kendi özel şartlarını değerlendirerek verdiği belirtilmelidir.” değerlendirmesine yer verilmiştir. (§ 18).
+
+[p88] 13. Sonuç olarak yukarıda sıralanan gerekçelerle Mahkememiz çoğunluğunun ulaştığı başvurunun konu bakımından yetkisizlik nedeniyle kabul edilemez olduğuna ilişkin kararına katılmamaktayım.
+
+[p89] Üye
+
+[p90] Yusuf Şevki HAKYEMEZ

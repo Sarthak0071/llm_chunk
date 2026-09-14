@@ -1,0 +1,277 @@
+==============================================================================
+ aym   doc_id a2cf33ab-59a6-e13b-1180-c7c62ef26344
+ case_no 2019/12951
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is the COURT'S OWN paragraph number (aym). A real citation unit.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 120 paragraphs, 27831 characters
+==============================================================================
+
+[p1] TÜRKİYE CUMHURİYETİ
+
+[p2] ANAYASA MAHKEMESİ
+
+[p3] BİRİNCİ BÖLÜM
+
+[p4] KARAR
+
+[p5] TURKCELL İLETİŞİM HİZMETLERİ A.Ş. BAŞVURUSU (5)
+
+[p6] (Başvuru Numarası: 2019/12951)
+
+[p7] Karar Tarihi: 17/9/2024
+
+[p8] R.G. Tarih ve Sayı: 21/2/2025 - 32820
+
+[p9] BİRİNCİ BÖLÜM
+
+[p10] KARAR
+
+[p11] Başkan
+
+[p12] :
+
+[p13] Hasan Tahsin GÖKCAN
+
+[p14] Üyeler
+
+[p15] :
+
+[p16] Yusuf Şevki HAKYEMEZ
+
+[p17] Selahaddin MENTEŞ
+
+[p18] Muhterem İNCE
+
+[p19] Yılmaz AKÇİL
+
+[p20] Raportör
+
+[p21] :
+
+[p22] Kamber Ozan TUTAL
+
+[p23] Başvurucu
+
+[p24] :
+
+[p25] Turkcell İletişim Hizmetleri A.Ş.
+
+[p26] Vekilleri
+
+[p27] :
+
+[p28] 1. Av. Onur Meriç BEKAR
+
+[p29] 2. Av. Betül Zekiye GÜRBÜZ
+
+[p30] I. BAŞVURUNUN KONUSU
+
+[p31] 1. Başvuru, rekabet kurallarına aykırı davranıldığından dolayı idari para cezası verilmesi gerektiğine ilişkin kesinleşmiş mahkeme kararı nedeniyle mülkiyet hakkının ihlal edildiği iddiasına ilişkindir.
+
+[p32] II. BAŞVURU SÜRECİ
+
+[p33] 2. Başvuru 26/4/2019 tarihinde yapılmıştır. Komisyon; başvurunun makul sürede yargılanma hakkının ihlal edildiği iddiası yönünden kabul edilemez olduğuna, mülkiyet hakkının ihlal edildiği iddiası yönünden kabul edilebilirlik incelemesinin ise Bölüm tarafından yapılmasına karar vermiştir.
+
+[p34] 3. Başvuru belgelerinin bir örneği, bilgi için Adalet Bakanlığına (Bakanlık) gönderilmiştir. Bakanlık, görüşünü bildirmiştir. Başvurucu, Bakanlığın görüşüne karşı süresinde beyanda bulunmamıştır.
+
+[p35] III. OLAY VE OLGULAR
+
+[p36] 4. Başvuru formu ve eklerinde ifade edildiği şekliyle ilgili olaylar şöyledir:
+
+[p37] A. Bireysel Başvuruya Konu Süreç
+
+[p38] 5. Başvurucu, entegre iletişim ve teknoloji hizmeti alanında faaliyet göstermekte olup elektronik haberleşme hizmeti sunan bir şirkettir. Başvurucuyla benzer alanda faaliyet gösteren çeşitli şirketler, 2009 yılında Rekabet Kurumu Başkanlığına (Kurum) müracaat ederek başvurucunun distribütörlerine ve bayilerine yönelik uygulamaları nedeniyle 7/12/1994 tarihli ve 4054 sayılı Rekabetin Korunması Hakkında Kanun'un 4. ve 6. maddelerini ihlal ettiğini ileri sürmüştür.
+
+[p39] 6. Yapılan ön araştırma sonucunda Kurum bünyesindeki Rekabet Kurulu (Kurul) 11/11/2009 tarihinde başvurucu hakkında soruşturma açılmasına karar vermiştir. Kurul 17/11/2009 tarihinde başvurucuya soruşturma açıldığına ve ilk yazılı savunmasını göndermesine dair bildirimde bulunmuştur. Başvurucu 31/12/2009 tarihinde ilk yazılı savunmasını sunmuştur. Kurul 6/5/2009 tarihinde soruşturma süresini altı ay daha uzatmıştır. İkinci yazılı savunma için ek süre talebi kabul edilen başvurucu 24/1/2011 tarihinde ikinci yazılı savunmasını bildirmiştir. İkinci yazılı savunmaya karşı hazırlanan görüş başvurucuya gönderilmiştir. Başvurucunun üçüncü yazılı savunmaya ilişkin ek süre talebi de kabul edilmiştir. Kurul 31/5/2011 tarihinde sözlü savunma toplantısı yapılmasına karar vermiş, karar taraflara tebliğ edilmiş ve anılan tarihte sözlü savunma gerçekleştirilmiştir.
+
+[p40] 7. Kurul 6/6/2011 tarihli kararında; GSM hizmetleri pazarında hâkim konumda bulunan başvurucunun çok markalı olması gereken pazarda alt bayileri fiilî olarak münhasırlığa zorlayarak rakiplerinin faaliyetlerini zorlaştırıp hâkim durumunu kötüye kullandığını belirterek 4054 sayılı Kanun'un 6. maddesinin (a) bendini ihlal ettiğinden bahisle başvurucuya 91.942.343,31 TL idari para cezası vermiş; diğer taraftan başvurucunun tavsiye edilen fiyatı bildirmenin ötesinde yeniden satış fiyatı belirlediğine ve tavsiye edilen fiyattan sapmaları cezalandırdığına ilişkin yeterli delil elde edilemediğini belirterek 4054 sayılı Kanun'un 4. maddesini ihlal etmediğine oyçokluğuyla karar vermiştir. Bu yöndeki karara ilişkin karşıoy görüşünde ise soruşturma dosyasında yer alan çok sayıda belge ve tespit karşısında başvurucunun yeniden satış fiyatı belirlediği anlaşıldığından başvurucunun 4054 sayılı Kanun'un 4. maddesini de ihlal ettiğini kaydetmiştir.
+
+[p41] 8. Başvurucu aleyhine Kurula başvuran şirketlerden biri olan D. Dağıtım Satış Pazarlama Matbaacılık Ödeme Aracılık ve Tahsilat Sistemleri Anonim Şirketi (D. Şirketi) 9/12/2011 tarihinde Kurul kararının 4054 sayılı Kanun'un 4. maddesinin ihlal edilmediğine ilişkin kısmının iptali için dava açmıştır. D. Şirketi yeniden satış fiyatı belirlenmesiyle ilgili yeterli bir inceleme yapılmadığını ileri sürmüştür.
+
+[p42] 9. Başvurucu 17/7/2012 tarihinde davaya müdahil olma talebinde bulunmuştur. Davaya ilk derece mahkemesi sıfatıyla bakan Danıştay Onüçüncü Dairesi (Daire) 5/12/2012 tarihinde başvurucunun davalı yanında davanın bulunduğu noktadan itibaren katılma talebini kabul etmiştir. Dairenin 8/3/2016 tarihinde yaptığı duruşmada başvurucu, avukatla temsil edilmiş ve davanın taraflarına açıklamada bulunmak üzere söz verilmiştir.
+
+[p43] 10. Daire 16/10/2017 tarihinde davanın kabulü ile Kurul kararının dava konusu kısmının iptaline karar vermiş, karar gerekçesinde;
+
+[p44] i. Soruşturma raporunun ekinde yer alan belgeler ile ön araştırma aşamasındaki tespitlere göre başvurucunun fiziki ve dijital kontörlerin satış fiyatını yeniden belirlediğini,
+
+[p45] ii. Dosyadaki belge ve tablolarda başvurucuya bağlı çeşitli alt kademeler ve ürün satışını yapacaklar bakımından kontör fiyatlarının ve kâr oranlarının ayrıntılı olarak saptandığını, bunun dışında başvurucunun çalışanlarının elektronik posta yazışmalarının, alt kademedeki bazı yetkililerin beyanlarının olduğunu,
+
+[p46] iii. Soruşturma raporunda POS cihazları ve internet üzerinden yapılan dijital kontör satışlarında sabit fiyat uygulaması yapıldığının, mavi nokta (perakende satış yapan bayiler) olarak tabir edilen bayilere bu fiyatları değiştirme imkânı verilmediğinin tespit edildiğini,
+
+[p47] iv. İlgili pazarda hâkim durumda olan başvurucunun yeniden satış fiyatı belirlemesinin rekabete aykırılık oluşturduğunu ve buna izin verilmemesi gerektiğini,
+
+[p48] v. Sonuç olarak hâkim durumdaki teşebbüsün fiyat, dağıtım ve satışa ilişkin politika ve uygulamaları çerçevesinde özellikle kontör fiyatlarının her düzeyde belirlenmesi yönünde çok sayıda bulgu ve belge dikkate alındığında başvurucunun 4054 sayılı Kanun'un 4. maddesini ihlal ettiği sonucuna varıldığından anılan Kanun'un 4. maddesinin ihlal edilmediğine ve başvurucu hakkında idari para cezası verilmesine gerek olmadığına dair Kurul kararında hukuka uygunluk bulunmadığını ifade etmiştir.
+
+[p49] 11. Davalı Kurum yanında kararı temyiz eden başvurucu, gerekçesiz olarak karar verildiğini, iddia ve itirazlarının karşılanmadığını, yargılamadan haberdar edilmediğini belirtmiştir. Ayrıca dosyadaki bilgi ve belgelerle ilgili olarak gerekli inceleme ve araştırmalar yapılmadan yerindelik denetimi niteliğinde hukuka aykırı karar verildiğini ileri sürmüştür.
+
+[p50] 12. Danıştay İdari Dava Daireleri Kurulu 31/1/2019 tarihinde davalı Kurumun ve başvurucunun temyiz talebini reddederek usul ve hukuka uygun bulduğu kararı onamıştır.
+
+[p51] 13. Başvurucu, nihai hükmü 2/4/2019 tarihinde öğrendikten sonra 26/4/2019 tarihinde bireysel başvuruda bulunmuştur.
+
+[p52] B. Bireysel Başvuru Sonrasındaki Süreç
+
+[p53] 14. Kurul 10/1/2019 tarihinde Dairenin ilgili kararı, ek rapor ve dosya kapsamına göre başvurucunun kontörlerin yeniden satış fiyatını belirlemek suretiyle 4054 sayılı Kanun'un 4. maddesini ihlal ettiği sonucuna ulaşmıştır. Kurul, 4054 sayılı Kanun'un 16. maddesinin üçüncü fıkrası ile 15/2/2009 tarihli ve 27142 sayılı Resmî Gazete’de yayımlanan Rekabeti Sınırlayıcı Anlaşma, Uyumlu Eylem ve Kararlar ile Hakim Durumun Kötüye Kullanılması Halinde Verilecek Para Cezalarına İlişkin Yönetmelik'in 5. ve 6. maddeleri uyarınca başvurucunun 2010 yılı yıllık gayrisafi gelirinin takdiren %1,125 oranı karşılığı olan 91.942.343,31 TL idari para cezasına karar vermiştir.
+
+[p54] 15. Ceza tutarına yapılan itiraz sonucunda Kurul 12/11/2019 tarihinde başvurucunun 2010 mali yılı sonunda oluşan yıllık gayrisafi gelirlerinin takdiren %0,75 oranında olmak üzere 61.294.895,54 TL idari para cezası ile cezalandırılmasına karar vermiştir.
+
+[p55] 16. Başvurucunun işlemin iptali istemiyle açtığı davada Ankara 17. İdare Mahkemesi 28/1/2021 tarihinde söz konusu kararı hukuka uygun bularak davayı reddetmiştir.
+
+[p56] 17. Ankara Bölge İdare Mahkemesi 8. İdari Dava Dairesi 4/11/2021 tarihinde başvurucunun istinaf başvurusunu reddetmiştir. Başvurucunun temyiz ettiği karar Daire önünde derdest durumdadır.
+
+[p57] IV. İLGİLİ HUKUK
+
+[p58] 18. 4054 sayılı Kanun'un "Rekabeti Sınırlayıcı Anlaşma, Uyumlu Eylem ve Kararlar" kenar başlıklı 4. maddesinin ilgili kısmı şöyledir:
+
+[p59] "Belirli bir mal veya hizmet piyasasında doğrudan veya dolaylı olarak rekabeti engelleme, bozma ya da kısıtlama amacını taşıyan veya bu etkiyi doğuran yahut doğurabilecek nitelikte olan teşebbüsler arası anlaşmalar, uyumlu eylemler ve teşebbüs birliklerinin bu tür karar ve eylemleri hukuka aykırı ve yasaktır.
+
+[p60] Bu haller, özellikle şunlardır:
+
+[p61] a) Mal veya hizmetlerin alım ya da satım fiyatının, fiyatı oluşturan maliyet, kar gibi unsurlar ile her türlü alım yahut satım şartlarının tesbit edilmesi,
+
+[p62] ..."
+
+[p63] 19. 4054 sayılı Kanun'un "Hakim Durumun Kötüye Kullanılması" kenar başlıklı 6. maddesinin ilgili kısmı şöyledir:
+
+[p64] "Bir veya birden fazla teşebbüsün ülkenin bütününde ya da bir bölümünde bir mal veya hizmet piyasasındaki hakim durumunu tek başına yahut başkaları ile yapacağı anlaşmalar ya da birlikte davranışlar ile kötüye kullanması hukuka aykırı ve yasaktır.
+
+[p65] Kötüye kullanma halleri özellikle şunlardır:
+
+[p66] a) Ticari faaliyet alanına başka bir teşebbüsün girmesine doğrudan veya dolaylı olarak engel olunması ya da rakiplerin piyasadaki faaliyetlerinin zorlaştırılmasını amaçlayan eylemler,
+
+[p67] ..."
+
+[p68] 20. 4054 sayılı Kanun'un "İdarî Para Cezası" kenar başlıklı 16. maddesinin üçüncü fıkrası şöyledir:
+
+[p69] "Bu Kanunun 4, 6 ve 7 nci maddelerinde yasaklanmış davranışlarda bulunanlara, ceza verilecek teşebbüs ile teşebbüs birlikleri veya bu birliklerin üyelerinin nihai karardan bir önceki mali yıl sonunda oluşan veya bunun hesaplanması mümkün olmazsa nihai karar tarihine en yakın mali yıl sonunda oluşan ve Kurul tarafından saptanacak olan yıllık gayri safi gelirlerinin yüzde onuna kadar idarî para cezası verilir."
+
+[p70] V. İNCELEME VE GEREKÇE
+
+[p71] 21. Anayasa Mahkemesinin 17/9/2024 tarihinde yapmış olduğu toplantıda başvuru incelenip gereği düşünüldü:
+
+[p72] A. Başvurucunun İddiaları ve Bakanlık Görüşü
+
+[p73] 22. Başvurucu, yargılama sürecinde ileri sürdüğü iddia ve itirazların mahkemelerce değerlendirilmediğini, özellikle soruşturma aşamasında aleyhe beyanda bulunan bir şirketin daha sonra bu iddialarından vazgeçmiş olmasının dikkate alınmadığını, Kurul kararının karşıoyunda yer verilen hususların doğrudan Danıştay Dairesi kararına taşındığını ve temyiz itirazlarının da gerekçe gösterilmeksizin reddedildiğini ileri sürmüştür. Davanın açılmasıyla birlikte yargılamaya resen dâhil edilmesi gerektiğini belirten başvurucu, dilekçeler aşaması geçildikten sonra ve müdahil olma talebi neticesinde davaya dâhil olmasının savunma hakkını kısıtladığını iddia etmiştir. Danıştay Dairesinin yargısal denetim sınırını aşarak idare yerine geçip ihlal tespiti yaptığını ve idari para cezası uygulanması gerektiğine karar verdiğini, bu nedenle de Rekabet Kurulunun idari para cezası uygulamak zorunda kaldığını kaydetmiştir. Başvurucu, Danıştay Dairesi kararına dayanak olan Kurul raporundaki karşıoy yazısında dahi idari para cezası verilmesi gerektiğinin belirtilmediğini, Kurulun benzer bir durumda tek bir maddeye dayalı olarak para cezası vermesine karşılık hukuka aykırı karar nedeniyle Kurul yerleşik lehe uygulamadan yararlanması imkânı kalmadığını ve ne bis in idem ilkesine aykırı olarak tek bir davranıştan dolayı iki defa cezalandırılmış olduğunu ifade etmiştir. Başvurucu, sonuç olarak bu gerekçelerle adil yargılanma ve mülkiyet haklarının ihlal edildiğini ileri sürmüştür.
+
+[p74] 23. Bakanlık görüşünde ne bis in idem ilkesinin düzenlendiği Avrupa İnsan Hakları Sözleşmesi'ne ek (7) No.lu Protokol Türkiye'de 1/8/2016 tarihinde yürürlüğe girdiğinden ve başvurucunun idari para cezasına konu faaliyetleri ise 2006-2008 dönemine ilişkin olduğundan söz konusu şikâyetler yönünden konu bakımından yetkisizlik kararı verilmesi gerektiği açıklanmıştır. Bakanlık, Danıştay Dairesi kararı sonrasında verilen idari para cezasına karşı başvurucunun açığı davanın temyiz aşamasında derdest olduğundan başvuru yollarının tüketilmediğini kaydetmiştir. Mülkiyet hakkının ihlal edildiği şikâyetinin temellendirilmediğini belirten Bakanlık, başvurucuya birden fazla idari para cezası verilmesinin ne bis in idem ilkesine aykırılık teşkil etmediğini, 4054 sayılı Kanun'un 4. maddesi ile 6. maddesinin farklı olguları düzenlediğini ve somut olayda da farklı fiillere farklı cezaların verildiğini belirtmiştir.
+
+[p75] 24. Başvurucu, Bakanlık görüşüne karşı süresinde beyanda bulunmamıştır.
+
+[p76] B. Değerlendirme
+
+[p77] 25. Anayasa’nın "Mülkiyet hakkı" kenar başlıklı 35. maddesi şöyledir:
+
+[p78] “Herkes, mülkiyet ve miras haklarına sahiptir.
+
+[p79] Bu haklar, ancak kamu yararı amacıyla, kanunla sınırlanabilir.
+
+[p80] Mülkiyet hakkının kullanılması toplum yararına aykırı olamaz.”
+
+[p81] 26. Anayasa Mahkemesi, olayların başvurucu tarafından yapılan hukuki nitelendirmesi ile bağlı olmayıp olay ve olguların hukuki tavsifini kendisi takdir eder. Başvurucu, mülkiyet hakkı ile birlikte adil yargılanma hakkının da ihlal edildiğini ileri sürmüştür. Bununla birlikte kesinleşmiş bir mahkeme kararıyla başvurucunun 4054 sayılı Kanun'un 4. maddesine aykırı davrandığı, buna bağlı olarak da başvurucuya idari para cezası verilmesi gerektiği hükme bağlanmıştır. Dolayısıyla başvurucunun şikâyetlerinin esas itibarıyla mülkiyet hakkını ilgilendirdiği anlaşıldığından başvurunun mülkiyet hakkının ihlali iddiası kapsamında incelenmesi gerektiği değerlendirilmiştir.
+
+[p82] 1. Kabul Edilebilirlik Yönünden
+
+[p83] 27. Turkcell İletişim Hizmetleri A.Ş. (4) ([GK], B. No: 2017/36186, 28/12/2022, kararında kamu gücü ayrıcalığı ile donatılmayan ve kamu tüzel kişiliğini haiz olmayan başvurucunun kişi bakımından başvuru yapmaya ehliyetli olduğu kabul edilmiştir (aynı kararda bkz. § 72). Bakanlık görüşünde başvurucu hakkındaki idari para cezasına ilişkin yargılamanın temyiz aşamasında olduğundan henüz başvuru yollarının tüketilmediği belirtilmiştir. Danıştay Dairesinin kararı sonrasında hakkında uygulanan yaptırıma karşı başvurucunun başlattığı yargısal sürecin devam ettiği anlaşılmaktadır. Bununla birlikte Danıştay İdari Dava Daireleri Kurulu kararıyla nihayete eren eldeki başvuruya konu yargılama süreciyle ilgili olarak başvuru yollarının usulüne uygun şekilde tüketilmesinden sonra bireysel başvuru yapıldığı değerlendirilmiştir.
+
+[p84] 28. Açıkça dayanaktan yoksun olmadığı ve kabul edilemezliğine karar verilmesini gerektirecek başka bir neden de bulunmadığı anlaşılan mülkiyet hakkının ihlal edildiğine ilişkin iddianın kabul edilebilir olduğuna karar verilmesi gerekir.
+
+[p85] 2. Esas Yönünden
+
+[p86] a. Mülkün Varlığı
+
+[p87] 29. Mülkiyet hakkının ihlal edildiğinden şikâyet eden bir kimse, önce böyle bir hakkının var olduğunu kanıtlamak zorundadır ( Mustafa Ateşoğlu ve diğerleri , B. No: 2013/1178, 5/11/2015, §§ 49-54). Anayasa'nın 35. maddesinin birinci fıkrasında "Herkes, mülkiyet ve miras haklarına sahiptir." denilmek suretiyle mülkiyet hakkı güvenceye bağlanmıştır. Anayasa'nın anılan maddesiyle güvenceye bağlanan mülkiyet hakkı, ekonomik değer ifade eden ve parayla değerlendirilebilen her türlü mal varlığı hakkını kapsamaktadır (AYM, E.2015/39, K.2015/62, 1/7/2015, § 20). Bu bağlamda mülk olarak değerlendirilmesi gerektiğinde kuşku bulunmayan menkul ve gayrimenkul mallar ile bunların üzerinde tesis edilen sınırlı ayni ve fikrî hakların yanı sıra icrası kabil olan her türlü alacak da mülkiyet hakkının kapsamına dâhildir ( Mahmut Duran ve diğerleri , B. No: 2014/11441, 1/2/2017, § 60). Mülkiyet hakkı, özel hukukta veya idari yargıda kabul edilen mülkiyet hakkı kavramlarından farklı bir anlam ve kapsama sahip olup bu alanlarda kabul edilen mülkiyet hakkı, yasal düzenlemeler ile yargı içtihatlarından bağımsız olarak özerk bir yorum ile ele alınmalıdır ( Hüseyin Remzi Polge , B. No: 2013/2166, 25/6/2015, § 31).
+
+[p88] 30. Anayasa'nın 35. maddesinde düzenlenen mülkiyet hakkı mevcut mal, mülk ve varlıkları koruyan bir güvencedir. Bir kişinin hâlihazırda sahibi olmadığı bir mülkün mülkiyetini kazanma hakkı -kişinin bu konudaki menfaati ne kadar güçlü olursa olsun- Anayasa'yla korunan mülkiyet kavramı içinde değildir. Bu hususun istisnası olarak belli durumlarda bir ekonomik değer veya icrası mümkün bir alacağı elde etmeye yönelik meşru bir beklenti Anayasa'da yer alan mülkiyet hakkı güvencesinden yararlanabilir ( Kemal Yeler ve Ali Arslan Çelebi , B. No: 2012/636, 15/4/2014, §§ 36, 37).
+
+[p89] 31. Somut olayda 4054 sayılı Kanun'un 4. maddesine aykırı davranması nedeniyle başvurucu hakkında idari para cezası uygulanması gerektiğine ilişkin mahkeme kararı kesinleşmiştir. Bu hâliyle başvurucu, bir idari para cezası yaptırımı ile karşı karşıya kalmıştır. Nitekim kesinleşen mahkeme kararı sonrasında Kurul, başvurucuya -iptali için açılan dava temyiz aşamasında derdest olmakla birlikte- idari para cezası vermiştir. Dolayısıyla idari para cezası uygulanmamasına ilişkin idari işlemin kesinleşmiş bir mahkeme kararıyla iptal edilmesinin mal varlığı üzerinde bir azalma meydana getireceği gözetildiğinde ve somut olayın koşulları bir bütün olarak ele alındığında başvurucunun Anayasa'nın 35. maddesi kapsamında korunması gereken ekonomik bir menfaatinin olduğu değerlendirilmiştir.
+
+[p90] b. Müdahalenin Varlığı ve Türü
+
+[p91] 32. Malikin mülkünü kullanma, mülkün semerelerinden yararlanma ve mülkü üzerinde tasarruf etme yetkilerinden herhangi birinin sınırlanması mülkiyet hakkına müdahale teşkil eder ( Recep Tarhan ve Afife Tarhan , B . No: 2014/1546, 2/2/2017, § 53). Anayasa’nın 35. maddesi ile mülkiyet hakkına temas eden diğer hükümleri birlikte değerlendirildiğinde Anayasa'nın mülkiyet hakkına müdahaleyle ilgili üç kural ihtiva ettiği hatırlatılmalıdır (Anayasa'nın 35. maddesinin yapısı ve içerdiği üç kural ile ilgili olarak bkz. Recep Tarhan ve Afife Tarhan , §§ 55-58).
+
+[p92] 33. Somut olayda idari para cezası uygulanmamasına ilişkin idari işlemin başvurucunun rekabet kurallarına aykırı davrandığını tespit eden kesinleşmiş bir mahkeme kararıyla iptal edilmesi mülkiyet hakkına müdahale teşkil etmektedir. Söz konusu müdahale ile rekabet ortamının korunması amaçlanmaktadır. Bu durumda başvurucunun mülkiyet hakkına yapılan müdahalenin mülkiyetin kamu yararına kullanımının kontrolüne veya düzenlenmesine ilişkin üçüncü kural çerçevesinde incelenmesi gerekir (benzer yöndeki değerlendirmeler için bkz. Mars Sinema Turizm ve Sportif Tesisler İşletmeciliği A.Ş. , B. No: 2017/23849, 10/10/2018, § 48)
+
+[p93] c. Müdahalenin İhlal Oluşturup Oluşturmadığı
+
+[p94] 34. Anayasa'nın 13. maddesi şöyledir:
+
+[p95] "Temel hak ve hürriyetler, özlerine dokunulmaksızın yalnızca Anayasanın ilgili maddelerinde belirtilen sebeplere bağlı olarak ve ancak kanunla sınırlanabilir. Bu sınırlamalar, Anayasanın sözüne ve ruhuna, demokratik toplum düzeninin ve lâik Cumhuriyetin gereklerine ve ölçülülük ilkesine aykırı olamaz."
+
+[p96] 35. Anayasa’nın 35. maddesinde mülkiyet hakkı sınırsız bir hak olarak düzenlenmemiş, bu hakkın kamu yararı amacıyla ve kanunla sınırlandırılabileceği öngörülmüştür. Mülkiyet hakkına müdahalede bulunulurken temel hak ve özgürlüklerin sınırlandırılmasına ilişkin genel ilkeleri düzenleyen Anayasa'nın 13. maddesinin de gözönünde bulundurulması gerekmektedir. Dolayısıyla mülkiyet hakkına yönelik müdahalenin Anayasa'ya uygun olabilmesi için müdahalenin kanuna dayanması, kamu yararı amacı taşıması ve ayrıca ölçülülük ilkesi gözetilerek yapılması gerekmektedir( Recep Tarhan ve Afife Tarhan , § 62).
+
+[p97] i. Kanunilik
+
+[p98] 36. Mülkiyet hakkına yönelik müdahalelerde ilk incelenmesi gereken ölçüt kanuna dayalı olma ölçütüdür. Bu ölçütün sağlanmadığı tespit edildiğinde diğer ölçütler bakımından inceleme yapılmaksızın mülkiyet hakkının ihlal edildiği sonucuna varılacaktır. Müdahalenin kanuna dayalı olması, müdahaleye ilişkin yeterince ulaşılabilir, belirli ve öngörülebilir kanun hükümlerinin bulunmasını gerektirmektedir ( Türkiye İş Bankası A.Ş. [GK], B. No: 2014/6192, 12/11/2014, § 44; Ford Motor Company , B. No: 2014/13518, 26/10/2017, § 49; Necmiye Çiftçi ve diğerleri , B. No: 2013/1301, 30/12/2014, § 55).
+
+[p99] 37. Kesinleşen mahkeme kararıyla piyasada hâkim durumda olduğu tespit edilen başvurucunun yeniden satış fiyatı belirlemesinin 4054 sayılı Kanun'un 4. maddesine aykırılık oluşturduğu kabul edilmiştir. Müdahaleye dayanak olan 4054 sayılı Kanun hükümlerinin açık, ulaşılabilir ve öngörülebilir mahiyette olduğu dikkate alındığında başvurucunun mülkiyet hakkına yapılan müdahalenin kanuna dayalı olduğu kuşkusuzdur.
+
+[p100] ii. Meşru Amaç
+
+[p101] 38. Anayasa'nın 13. ve 35. maddeleri uyarınca mülkiyet hakkı ancak kamu yararı amacıyla sınırlandırılabilmektedir. Kamu yararı kavramı, mülkiyet hakkının kamu yararının gerektirdiği durumlarda sınırlandırılması imkânı vermekle bir sınırlandırma amacı olmasının yanı sıra mülkiyet hakkının kamu yararı amacı dışında sınırlanamayacağını öngörerek ve bu anlamda bir sınırlama sınırı oluşturarak mülkiyet hakkını etkin bir şekilde korumaktadır. Kamu yararı kavramı, devlet organlarının takdir yetkisini de beraberinde getiren bir kavram olup objektif bir tanıma elverişli olmayan bu ölçütün her somut olay temelinde ayrıca değerlendirilmesi gerekir ( Nusrat Külah ,B. No : 2013/6151, 21/4/2016, §§ 53, 56; Yunis Ağlar , B. No: 2013/1239, 20/3/2014, §§ 28, 29).
+
+[p102] 39. Rekabetin korunması amacıyla teşebbüslere yükümlülükler yüklenmesinin ve bu yükümlülüklerin ihlali hâlinde yaptırım uygulanmasının kamu yararını sağlamaya yönelik olduğu açıktır ( Ford Otomotiv Sanayi A.Ş. [GK], B. No: 2019/40991, 23/3/2023, § 95). Somut olayda da teşebbüsler arasındaki rekabetin korunması amacıyla gerçekleştirilen müdahalede kamu yararı bulunduğu değerlendirilmiştir.
+
+[p103] iii. Ölçülülük
+
+[p104] 40. Son olarak kamu makamlarınca başvurucunun mülkiyet hakkına yapılan müdahaleyle gerçekleştirilmek istenen amaç ile bu amacın gerçekleştirilmesi için kullanılan araçlar arasında makul bir ölçülülük ilişkisinin olup olmadığı değerlendirilmelidir.
+
+[p105] 41. Ölçülülük ilkesi elverişlilik , gereklilik ve orantılılık olmak üzere üç alt ilkeden oluşmaktadır. Elverişlilik öngörülen müdahalenin ulaşılmak istenen amacı gerçekleştirmeye elverişli olmasını, gereklilik ulaşılmak istenen amaç bakımından müdahalenin zorunlu olmasını yani aynı amaca daha hafif bir müdahale ile ulaşılmasının mümkün olmamasını, orantılılık ise bireyin hakkına yapılan müdahale ile ulaşılmak istenen amaç arasında makul bir dengenin gözetilmesi gerekliliğini ifade etmektedir (AYM, E.2011/111, K.2012/56, 11/4/2012; E.2014/176, K.2015/53, 27/5/2015; E.2016/13, K.2016/127, 22/6/2016, § 18; Mehmet Akdoğan ve diğerleri , B. No: 2013/817, 19/12/2013, § 38).
+
+[p106] 42. Orantılılık ilkesi gereği kişilerin mülkiyet hakkının sınırlandırılması hâlinde elde edilmek istenen kamu yararı ile bireyin hakları arasında adil bir dengenin kurulması gerekmektedir. Bu adil denge, başvurucunun şahsi olarak aşırı bir yüke katlandığının tespit edilmesi durumunda bozulmuş olacaktır. Müdahalenin orantılılığını değerlendirirken Anayasa Mahkemesi; bir taraftan ulaşılmak istenen meşru amacın önemini, diğer taraftan da müdahalenin niteliğini, başvurucunun ve kamu otoritelerinin davranışlarını gözönünde bulundurarak başvurucuya yüklenen külfeti dikkate alacaktır ( Arif Güven , B. No: 2014/13966, 15/2/2017, §§ 58, 60; Osman Ukav , B. No: 2014/12501, 6/7/2017, § 71).
+
+[p107] 43. Anayasa'nın 35. maddesi usule ilişkin açık bir güvenceden söz etmemektedir. Bununla birlikte mülkiyet hakkının gerçek anlamda korunabilmesi bakımından bu madde, Anayasa Mahkemesinin çeşitli kararlarında da ifade edildiği üzere mülk sahibine müdahalenin kanun dışı veya keyfî ya da makul olmayan şekilde uygulandığına ilişkin savunma ve itirazlarını sorumlu makamlar önünde etkin bir biçimde ortaya koyabilme olanağının tanınması güvencesini kapsamaktadır. Bu değerlendirme ise uygulanan sürecin bütününe bakılarak yapılmalıdır ( Züliye Öztürk , B. No: 2014/1734, 14/9/2017, § 64; Bekir Yazıcı [GK], B. No: 2013/3044, 17/12/2015, § 71).
+
+[p108] 44. Başvurucuya rekabet kurallarına aykırı davrandığından dolayı idari para cezası verilmesi gerektiğine ilişkin kesinleşmiş mahkeme kararının kamu makamlarınca takip edilen rekabetin korunması amacını gerçekleştirmeye elverişli olduğunda şüphe yoktur. İkinci olarak başvurucunun mülkiyet hakkına yapılan müdahalenin gerekli olup olmadığı irdelenmelidir. Buna göre mülkiyetin kamu yararına kullanımının kontrolüne ilişkin üçüncü kural çerçevesinde kamu makamlarının sahip olduğu geniş takdir yetkisi, aynı amaca varmak için daha hafif bir müdahale yönteminin varlığının ortaya konulmaması ve başvurucu hakkında yalnızca idari para cezası uygulandığı dikkate alındığında müdahalenin gerekli olmadığı söylenemez.
+
+[p109] 45. Orantılılık yönünden ise öncelikle mülkiyet hakkına yapılan müdahaleye karşı başvurucuya iddia ve savunmalarını etkin bir biçimde ortaya koyabilme olanağı tanınıp tanınmadığı değerlendirilmelidir. Başvurucunun rekabet kurallarına aykırı hareket ettiğinden bahisle yapılan şikâyetler sonrasında yürütülen soruşturma aşamasında yazılı olarak savunmalarını sunan başvurucuya ayrıca sözlü savunma imkânı sağlanmıştır. Yine Daire önünde görülen davada başvurucu davaya dâhil olmuş ve yapılan duruşmada yer almıştır. Başvurucu, davaya geç katıldığından yakınmaktaysa da bu gecikmenin iddia ve itirazlarını ileri sürmesini ne şekilde etkilediğine dair bir açıklamada bulunmamıştır. Davanın aleyhine sonuçlanması üzerine başvurucu, davalı idare yanında temyiz kanun yoluna gidebilmiştir. Üstelik başvurucu, tüm yargılama sürecinde avukatla temsil edilmiştir.
+
+[p110] 46. Kurul, başvurucunun yeniden satış fiyatı belirlemesi suretiyle rekabet kurallarına aykırı davrandığına dair yeterli delil elde edilemediğini kaydetmiş; buna karşılık Daire aksi bir kanaate vararak fiyatların belirlenmesi konusunda çok sayıda bulgu ve belge olduğunu belirtmiştir. Başvurucu, bir şirketin şikâyetinden vazgeçmiş olmasına rağmen bunun dikkate alınmadığını ileri sürmüştür. Öte yandan Dairenin sonuca ulaşırken başvurucu hakkındaki soruşturma dosyası ve eklerinde yer alan başka birçok tespit ve belgelere de atıfta bulunduğu görülmüştür. Dolayısıyla Dairenin davanın esasına ilişkin temel iddia ve itirazları karşıladığı, kararında ilgili ve yeterli gerekçe ortaya koyduğu anlaşılmıştır. Ayrıca davalı idare yanında başvurucunun da temyiz ettiği karar hukuka uygun bulunmuştur.
+
+[p111] 47. Başvurucu, Dairenin yargısal denetim sınırını aşarak idare yerine geçtiğini ve ihlal tespiti yapıp idari para cezası uygulanması gerektiğine karar verdiğini belirtmektedir. Daire ,başvurucunun 4054 sayılı Kanun'un 4. maddesini ihlal ettiği sonucuna vardığından Kurulun anılan maddenin ihlal edilmediğine ve idari para cezası verilmesine gerek olmadığına ilişkin kararında hukuka uygunluk bulunmadığını kaydetmiştir. Kurul, yargılama devam ederken Dairenin iptal kararı doğrultusunda başvurucu hakkında idari para cezası uygulamıştır. Söz konusu yaptırıma karşı açılan dava ise eldeki bireysel başvurunun inceleme tarihi itibarıyla temyiz aşamasında derdesttir. Bu hâliyle Dairenin Kurul kararını hukuka aykırı bularak iptal e tt iğ i ,
+
+[p112] buna uygun olarak başvurucu hakkında yeni bir soruşturma açıp rekabet kuralına aykırı davrandığını tespit edenin ve buna bağlı olarak da idari para cezası verenin Kurul olduğu görülmektedir. Kaldı ki idari para cezasına iptali talebiyle açılan davanın inceleme tarihi itibariyle sonuçlanmadığı belirtilmelidir.
+
+[p113] 48. Sonuç olarak mevcut aşama itibarıyla mülkiyet hakkına yapılan müdahalenin başvurucuya şahsi olarak aşırı ve olağan dışı bir külfet yüklemediği değerlendirilmiştir. Öte yandan kesinleşen mahkeme kararı sonrasında Kurul tarafından uygulanan idari para cezasına ilişkin yargılama süreci ise devam ettiğinden Anayasa Mahkemesi, incelemesini nihayete ermiş olan başvuruya konu yargılama süreci ile sınırlı olarak yaptığını kaydetmektedir.
+
+[p114] 49. Açıklanan gerekçelerle Anayasa’nın 35. maddesinde güvence altına alınan mülkiyet hakkının ihlal edilmediğine karar verilmesi gerekir.
+
+[p115] VI. HÜKÜM
+
+[p116] Açıklanan gerekçelerle;
+
+[p117] A. Mülkiyet hakkının ihlal edildiğine ilişkin iddianın KABUL EDİLEBİLİR OLDUĞUNA,
+
+[p118] B. Anayasa’nın 35. maddesinde güvence altına alınan mülkiyet hakkının İHLAL EDİLMEDİĞİNE,
+
+[p119] C. Yargılama giderlerinin başvurucu üzerinde BIRAKILMASINA,
+
+[p120] D. Kararın bir örneğinin Adalet Bakanlığına GÖNDERİLMESİNE 17/9/2024 tarihinde OYBİRLİĞİYLE karar verildi.

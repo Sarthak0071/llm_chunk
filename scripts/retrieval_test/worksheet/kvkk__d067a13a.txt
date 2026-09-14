@@ -1,0 +1,45 @@
+==============================================================================
+ kvkk   doc_id d067a13a-6ee5-506c-96e4-ae8e1bef17c5
+ case_no 2024/1899
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 4 paragraphs, 1023 characters
+==============================================================================
+
+[p1] Veri sorumlusu tarafından Kuruma iletilen kişisel veri ihlali bildirimi ve diğer yazılarda özetle;
+
+[p2] belirtilmiştir.
+
+[p3] Veri sorumlusu bünyesinde gerçekleşen kişisel veri ihlalinin Kurumumuzun görev ve yetki alanı çerçevesinde incelenmesi neticesinde Kişisel Verileri Koruma Kurulunun 07/11/2024 tarih ve 2024/1899 sayılı Kararı ile,
+
+[p4] hususları dikkate alındığında, 6698 sayılı Kişisel Verilerin Korunması Kanununun (Kanun) 12 nci maddesinin (1) numaralı fıkrasında yer alan “Veri sorumlusu; a) Kişisel verilerin hukuka aykırı olarak işlenmesini önlemek, b) Kişisel verilere hukuka aykırı olarak erişilmesini önlemek, c) Kişisel verilerin muhafazasını sağlamak, amacıyla uygun güvenlik düzeyini temin etmeye yönelik gerekli her türlü teknik ve idari tedbirleri almak zorundadır.” hükmü çerçevesinde veri güvenliğini sağlamaya yönelik gerekli teknik ve idari tedbirleri almayan veri sorumlusu hakkında Kanunun 18 inci maddesinin (1) numaralı fıkrasının (b) bendi uyarınca 700.000 TL idari para cezası uygulanmasına karar verilmiştir.
