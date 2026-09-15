@@ -1,0 +1,188 @@
+{
+  "_about": {
+    "purpose": "Product-style topic questions -- 'find decisions about X' -- scored honestly against a 12-document corpus.",
+    "two_kinds": {
+      "findable": "The corpus genuinely holds a matching decision. Passing means RETURNING IT.",
+      "absent_control": "The corpus holds nothing on this topic. Passing means RETURNING NOTHING. These are not filler: in legal search a confident wrong answer is worse than silence, because the user cannot tell 'no such ruling' from 'not indexed'."
+    },
+    "where_the_findable_queries_came_from": [
+      "Written by Claude on 2026-09-15 by reading ONLY the raw court text of the 12",
+      "chunked documents (content_text / html_content in data/). The generated",
+      "output/chunk/ files were never opened while writing them. Same independence",
+      "rule as queries.json, and the same weakness: the author is the assistant, not",
+      "a disinterested lawyer. The n-gram audit is the enforcement, not the promise."
+    ],
+    "where_the_absent_queries_came_from": [
+      "Product team (Umay Toker), 14 September 2026, verbatim. Every one of them is",
+      "absent from the chunked corpus -- and 4 of the 8 topics are absent from our",
+      "entire raw sample too (0/200 aym documents mention kanuni hakim or unutulma",
+      "hakki; 0/345 yargitay documents mention cezai sart). That is a data-pull",
+      "problem, recorded here so it cannot be mistaken for a retrieval problem."
+    ],
+    "ground_truth_rule": "topic_terms are matched against RAW court text, never against generated chunks. Building the answer key from generated output would score the generator against itself.",
+    "boilerplate_rule": "Every query is scored twice: as written, and with retrieval boilerplate ('kararlarini getir', 'bul', the court's name) removed. Those tokens are not stopwords and appear in nearly every capsule, so a pass that survives only the first scoring was bought with the word 'karar'."
+  },
+  "queries": [
+    {
+      "id": "aym-koye-donus",
+      "kind": "findable",
+      "expect_source": "aym",
+      "query_tr": "Terör olayları nedeniyle boşaltılan yerleşim yerine dönülememesinden doğan zararın tazminine ilişkin kararları getir.",
+      "topic_terms": ["boşaltıldığı", "köye dönüş"]
+    },
+    {
+      "id": "aym-yargilama-yenilenmesi",
+      "kind": "findable",
+      "expect_source": "aym",
+      "query_tr": "Yargılamanın yenilenmesi talebinin reddedilmesine ilişkin kararları bul.",
+      "topic_terms": ["yargılamanın yenilenmesi"]
+    },
+    {
+      "id": "aym-hakim-durum-kotuye",
+      "kind": "findable",
+      "expect_source": "aym",
+      "query_tr": "Hâkim durumun kötüye kullanılması nedeniyle verilen idari para cezasına ilişkin kararlar.",
+      "topic_terms": ["hâkim durumunu kötüye", "hakim durumunu kötüye"]
+    },
+    {
+      "id": "aym-mulkiyet-hakki",
+      "kind": "findable",
+      "expect_source": "aym",
+      "query_tr": "Mülkiyet hakkının ihlal edildiği iddiasıyla yapılan başvurulara ilişkin kararları getir.",
+      "topic_terms": ["mülkiyet hakkının ihlal"]
+    },
+    {
+      "id": "bam-sahte-cek-imza",
+      "kind": "findable",
+      "expect_source": "bam",
+      "query_tr": "Çekteki imzanın şirket yetkilisine ait olmadığı iddiasıyla açılan davalara ilişkin kararları bul.",
+      "topic_terms": ["çek üzerinde", "imzanın şirket yetkili"]
+    },
+    {
+      "id": "bam-spk-para-toplama",
+      "kind": "findable",
+      "expect_source": "bam",
+      "query_tr": "Sermaye piyasası mevzuatına aykırı biçimde halktan para toplanmasına ilişkin kararlar.",
+      "topic_terms": ["hisse senedi teslim", "halka arz olunmuş sayılan"]
+    },
+    {
+      "id": "danistay-sahte-fatura",
+      "kind": "findable",
+      "expect_source": "danistay",
+      "query_tr": "Sahte fatura kullanımı nedeniyle kesilen vergi ziyaı cezasına ilişkin kararları getir.",
+      "topic_terms": ["gerçek emtia teslimi"]
+    },
+    {
+      "id": "danistay-alkollu-icki",
+      "kind": "findable",
+      "expect_source": "danistay",
+      "query_tr": "Açık alkollü içki satış belgesinin süre uzatımının yapılmamasına ilişkin kararlar.",
+      "topic_terms": ["alkollü içki satış belgesi"]
+    },
+    {
+      "id": "fd-tasima-hasar-rucu",
+      "kind": "findable",
+      "expect_source": "first_degree",
+      "query_tr": "Nakliye sırasında zarar gören iş makinesi nedeniyle sigortacının rücu davasına ilişkin kararları bul.",
+      "topic_terms": ["torna tezgah", "rücuen tazminat"]
+    },
+    {
+      "id": "fd-kredi-dosya-masrafi",
+      "kind": "findable",
+      "expect_source": "first_degree",
+      "query_tr": "Bankanın ticari kredide aldığı dosya masrafının geri ödenmesi istemiyle açılan davalara ilişkin kararlar.",
+      "topic_terms": ["dosya ve sair masrafı", "belirsiz alacak"],
+      "_reworded": "First draft was 'dosya masrafı adı altında tahsil edilen tutarın iadesine', which shared the 5-gram 'masrafı adı altında tahsil edilen' with the capsule -- the phrase was lifted from the raw text. Reworded BEFORE the first scored run, so the change cannot be a reaction to a result."
+    },
+    {
+      "id": "kvkk-veri-ihlali-tedbir",
+      "kind": "findable",
+      "expect_source": "kvkk",
+      "query_tr": "Veri güvenliğine yönelik teknik ve idari tedbirlerin alınmaması nedeniyle verilen idari para cezalarına ilişkin kararları getir.",
+      "topic_terms": ["teknik ve idari tedbirleri almayan"],
+      "_note": "Deliberately TWO acceptable answers. Both KVKK decisions in the corpus turn on the same Article 12 duty, so either is correct -- an answer key that demanded one would be punishing the system for a real property of the data."
+    },
+    {
+      "id": "yargitay-kamulastirma",
+      "kind": "findable",
+      "expect_source": "yargitay",
+      "query_tr": "Kamulaştırma bedelinin tespitinde düzenleme ortaklık payı uygulamasına ilişkin kararları getir.",
+      "topic_terms": ["düzenleme ortaklık payı"]
+    },
+    {
+      "id": "yargitay-adli-yardim",
+      "kind": "findable",
+      "expect_source": "yargitay",
+      "query_tr": "Adli yardım talebinin reddine ilişkin kararları bul.",
+      "topic_terms": ["adli yardım talebinin reddine"],
+      "_note": "The term must include 'reddine'. Bare 'adli yardim' also matches the AYM decision, which GRANTED legal aid (kabulune) on an unrelated case -- an incidental mention, not the same topic."
+    },
+
+    {
+      "id": "aym-kanuni-hakim",
+      "kind": "absent_control",
+      "expect_source": "aym",
+      "query_tr": "Kanuni hâkim güvencesine ilişkin AYM kararlarını getir.",
+      "query_en": "Find Constitutional Court decisions concerning the guarantee of the lawful judge.",
+      "topic_terms": ["kanuni hakim", "kanunî hâkim", "kanuni hâkim", "tabii hakim", "doğal hakim", "tabiî hâkim"]
+    },
+    {
+      "id": "aym-unutulma-hakki",
+      "kind": "absent_control",
+      "expect_source": "aym",
+      "query_tr": "Unutulma hakkına ilişkin AYM kararları nelerdir?",
+      "query_en": "Find Constitutional Court decisions concerning the right to be forgotten.",
+      "topic_terms": ["unutulma hakk"]
+    },
+    {
+      "id": "yargitay-cezai-sart",
+      "kind": "absent_control",
+      "expect_source": "yargitay",
+      "query_tr": "Cezai şartın indirilmesine ilişkin Yargıtay kararlarını bul.",
+      "query_en": "Find Court of Cassation decisions concerning the reduction of contractual penalties.",
+      "topic_terms": ["cezai şart", "cezaî şart", "ceza koşulu"]
+    },
+    {
+      "id": "yargitay-tenkis-sakli-pay",
+      "kind": "absent_control",
+      "expect_source": "yargitay",
+      "query_tr": "Tenkis davalarında saklı payın hesabına ilişkin kararları bul.",
+      "query_en": "Find decisions concerning the calculation of the reserved portion in tenkis actions.",
+      "topic_terms": ["tenkis", "saklı pay", "mahfuz hisse"]
+    },
+    {
+      "id": "danistay-yetki-unsuru",
+      "kind": "absent_control",
+      "expect_source": "danistay",
+      "query_tr": "Yetki unsuru yönünden iptal edilen idari işlemlere ilişkin kararları bul.",
+      "query_en": "Find decisions concerning administrative acts annulled for defects in competence.",
+      "topic_terms": ["yetki unsuru", "yetki yönünden", "yetki bakımından"]
+    },
+    {
+      "id": "danistay-vergi-ziyai",
+      "kind": "findable",
+      "expect_source": "danistay",
+      "query_tr": "Vergi ziyaı cezasına ilişkin Danıştay kararlarını getir.",
+      "query_en": "Find Council of State decisions concerning tax loss penalties.",
+      "topic_terms": ["vergi ziyaı", "vergi ziya"],
+      "_note": "The only one of the product team's eight that the corpus can actually answer."
+    },
+    {
+      "id": "kvkk-telefon-reklam",
+      "kind": "absent_control",
+      "expect_source": "kvkk",
+      "query_tr": "Telefon numarasının reklam amacıyla kullanılmasına ilişkin kararları getir.",
+      "query_en": "Find decisions concerning the use of telephone numbers for advertising purposes.",
+      "topic_terms": ["telefon numaras"]
+    },
+    {
+      "id": "kvkk-parmak-izi",
+      "kind": "absent_control",
+      "expect_source": "kvkk",
+      "query_tr": "Parmak izi ile personel devam kontrol sistemlerine ilişkin kararlar.",
+      "query_en": "Find decisions concerning fingerprint-based employee attendance systems.",
+      "topic_terms": ["parmak izi"],
+      "_note": "Bare 'biyometrik' was removed after it produced a FALSE answer key. KVKK doc 76402deb is a data-BREACH notification that mentions 'biyometrik veri' once inside a list of affected data categories; it is not about attendance systems. Matching on it scored the retrieval as having missed a document it was right to ignore."
+    }
+  ]
+}

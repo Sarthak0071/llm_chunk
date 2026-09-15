@@ -1,0 +1,311 @@
+{
+  "_provenance": {
+    "status": "assistant-reviewed, NOT lawyer-verified",
+    "note": "Gemini drafted this document using the bam example as a stand-in; the assistant then corrected it against the raw court text. The other five fewshot files are hand-verified ground truth and are a higher grade than this one. Do not cite this as gold.",
+    "source_doc_id": "1221692000",
+    "reviewed": "2026-09-14",
+    "corrections_applied": [
+      "1221692000-p1: confidence high->low (header block)",
+      "1221692000-p2_to_p3: confidence high->low (header block)",
+      "1221692000-p4_to_p5: confidence high->low (header block)",
+      "1221692000-p6: confidence high->low (header block)",
+      "1221692000-p13_to_p14: article_no null->'Geçici 18', canonical 1479/unknown->1479/geçici-18",
+      "capsule: outcome 'appeal_denied'->'onama' (p25 says ONANMASINA)"
+    ]
+  },
+  "chunks": [
+    {
+      "chunk_id": "4f46cb8c-4a0a-519e-aa4c-008b996f4f6d",
+      "chunk_label": "1221692000-p1",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p1"
+      ],
+      "text": "10. Hukuk Dairesi 2025/18072 E. , 2026/3572 K.",
+      "char_length": 46,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "low",
+      "court_reasoning_role": "other",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "b4da0b86-656c-5984-b2ec-3ef863c51d45",
+      "chunk_label": "1221692000-p2_to_p3",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p2",
+        "p3"
+      ],
+      "text": "\"İçtihat Metni\"MAHKEMESİ : İstanbul Bölge Adliye Mahkemesi 34. Hukuk Dairesi\nSAYISI : 2023/3347 E., 2025/827 K.",
+      "char_length": 111,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "low",
+      "court_reasoning_role": "other",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "d312c8eb-a1d7-539f-8633-27830759c44a",
+      "chunk_label": "1221692000-p4_to_p5",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "text": "İLK DERECE MAHKEMESİ : İstanbul Anadolu 29. İş Mahkemesi\nSAYISI : 2022/104 E., 2023/56 K.",
+      "char_length": 89,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "low",
+      "court_reasoning_role": "other",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "9dec2b26-e792-5392-b343-5d01b84a0fc2",
+      "chunk_label": "1221692000-p6",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p6"
+      ],
+      "text": "Bölge Adliye Mahkemesi kararı davalı Kurum vekili tarafından temyiz edilmekle; kesinlik, süre, temyiz şartı ve diğer usul eksiklikleri yönünden yapılan ön inceleme sonucunda, temyiz dilekçesinin kabulüne karar verildikten ve Tetkik Hâkimi ... tarafından hazırlanan rapor dinlendikten sonra dosyadaki belgeler incelenip gereği düşünüldü;",
+      "char_length": 336,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "low",
+      "court_reasoning_role": "other",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "d9776719-0e04-5d60-a084-c4bc604289b1",
+      "chunk_label": "1221692000-p7_to_p8",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p7",
+        "p8"
+      ],
+      "text": "I. DAVA\nDavacı vekili dava dilekçesinde özetle; davacının 09.04.1996-04.10.2000 tarihleri arasında Bağ-Kur sigortalısı olduğunun tespitini talep etmiştir.",
+      "char_length": 154,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "99282375-c81b-53e8-b4d0-fd1ecd0a6d96",
+      "chunk_label": "1221692000-p9_to_p10",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p9",
+        "p10"
+      ],
+      "text": "II. CEVAP\nDavalı Kurum vekili cevap dilekçesinde özetle; davanın reddini talep etmiştir.",
+      "char_length": 88,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "eb29ac89-b986-5c54-83fe-5e12bf9ec2fb",
+      "chunk_label": "1221692000-p11_to_p12",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p11",
+        "p12"
+      ],
+      "text": "III. İLK DERECE MAHKEMESİ KARARI\nİlk Derece Mahkemesinin yukarıda tarih ve sayısı belirtilen kararı ile davanın reddine karar verilmiştir.",
+      "char_length": 138,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "51d75627-bffb-55d9-a6c0-a578ff77bc91",
+      "chunk_label": "1221692000-p13_to_p14",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p13",
+        "p14"
+      ],
+      "text": "IV. İSTİNAF\nİlk Derece Mahkemesinin yukarıda belirtilen kararına karşı süresi içinde davacı vekilinin istinaf başvurusunda bulunması üzerine, Bölge Adliye Mahkemesinin yukarıda tarih ve sayısı belirtilen kararı ile davacının 1479 sayılı Kanun'un geçici 18. maddesinde öngörülen 02.08.2003 tarihinden önce Kuruma intikal eden giriş bildirgesi ve/veya prim ödemesi bulunması ve ilgili tarihlerde şirket ortaklık kayıtlarının bulunduğu gerekçesiyle İlk Derece Mahkemesi kararının kaldırılmasına davanın kabulüne karar verilmiştir.",
+      "char_length": 527,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "facts",
+      "cited_legislations": [
+        {
+          "canonical_id": "1479/geçici-18",
+          "legislation_type": "statute",
+          "law_no": "1479",
+          "law_short": null,
+          "law_name": null,
+          "article_no": "Geçici 18",
+          "paragraph_no": "geçici 18",
+          "verbatim_mention": "1479 sayılı Kanun'un geçici 18. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "a701c41d-677c-55ff-bc11-5d85972f9b39",
+      "chunk_label": "1221692000-p15_to_p18",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p15",
+        "p16",
+        "p17",
+        "p18"
+      ],
+      "text": "V. TEMYİZ\nA. Temyiz Sebepleri\nDavalı Kurum vekili, Kurum işleminin yerinde olduğunu, eksik araştırma ve incelemeye dayalı hüküm kurulduğunu\nbelirterek kararın bozulmasını talep etmiştir.",
+      "char_length": 186,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "background",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "issue",
+      "cited_legislations": []
+    },
+    {
+      "chunk_id": "29b77dc2-5c16-54f0-80c0-f9ae2b5be516",
+      "chunk_label": "1221692000-p19_to_p22",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p19",
+        "p20",
+        "p21",
+        "p22"
+      ],
+      "text": "B. Değerlendirme ve Gerekçe\nUyuşmazlık, .. sigortalılık tespitine ilişkindir.\nBölge adliye mahkemelerinin nihai kararlarının bozulması 6100 sayılı Kanun'un 371. maddesinde yer alan sebeplerden birinin varlığı hâlinde mümkündür.\nTemyizen incelenen karar, tarafların karşılıklı iddia ve savunmalarına, dayandıkları belgelere, uyuşmazlığa uygulanması gereken hukuk kuralları ile hukuki ilişkinin nitelendirilmesine, dava şartlarına, yargılama ve ispat kuralları ile kararda belirtilen gerekçelere ve özellikle davacının 02.08.2003 tarihinden önce Kuruma intikal eden giriş bildirgesi ve/veya prim ödemesi bulunması ve şirket kayıtlarına göre usul ve kanuna uygun olup, davalı Kurum vekili tarafından temyiz dilekçesinde ileri sürülen nedenler kararın bozulmasını gerektirecek nitelikte görülmemiştir.",
+      "char_length": 797,
+      "content_type": "reasoning",
+      "firac_role": null,
+      "reasoning_stage": "analysis",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "rule_application",
+      "cited_legislations": [
+        {
+          "canonical_id": "6100/371",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_short": null,
+          "law_name": null,
+          "article_no": "371",
+          "paragraph_no": null,
+          "verbatim_mention": "6100 sayılı Kanun'un 371. maddesinde",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "chunk_id": "6eaff21d-8cda-5fb2-8da6-7761b9fd4055",
+      "chunk_label": "1221692000-p23_to_p27",
+      "source_type": "yargitay",
+      "case_no": "2025/18072",
+      "decision_date": "2026-04-01",
+      "citation_granularity": "synthetic_segment",
+      "source_paragraph_ids": [
+        "p23",
+        "p24",
+        "p25",
+        "p26",
+        "p27"
+      ],
+      "text": "VI. KARAR\nAçıklanan sebeplerle;\nTemyiz olunan Bölge Adliye Mahkemesi kararının 6100 sayılı Kanun'un 370. maddesinin birinci fıkrası uyarınca ONANMASINA,\nDosyanın İlk Derece Mahkemesine, kararın bir örneğinin Bölge Adliye Mahkemesine gönderilmesine,\n01.04.2026 tarihinde oy birliğiyle karar verildi.",
+      "char_length": 298,
+      "content_type": "ruling",
+      "firac_role": null,
+      "reasoning_stage": "outcome",
+      "rights": null,
+      "confidence": "high",
+      "court_reasoning_role": "conclusion",
+      "cited_legislations": [
+        {
+          "canonical_id": "6100/370",
+          "legislation_type": "statute",
+          "law_no": "6100",
+          "law_short": null,
+          "law_name": null,
+          "article_no": "370",
+          "paragraph_no": "1",
+          "verbatim_mention": "6100 sayılı Kanun'un 370. maddesinin birinci fıkrası",
+          "law_date": null,
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "reasoning_capsules": [
+    {
+      "case_no": "2025/18072",
+      "source_type": "yargitay",
+      "decision_date": "2026-04-01",
+      "subject_type": "civil_or_administrative_case",
+      "subject_id": "bagkur_sigortalilik_tespiti",
+      "opinion_type": "majority",
+      "outcome": "onama",
+      "conclusion_sentence": "Temyiz olunan Bölge Adliye Mahkemesi kararının 6100 sayılı Kanun'un 370. maddesinin birinci fıkrası uyarınca ONANMASINA karar verilmiştir.",
+      "reasoning_summary": "Davacı, 09.04.1996-04.10.2000 tarihleri arasında Bağ-Kur sigortalısı olduğunun tespitini istemiştir. İlk derece mahkemesi davayı reddetmiş, ancak Bölge Adliye Mahkemesi, davacının 1479 sayılı Kanun'un geçici 18. maddesi uyarınca ilgili tarihlerde Kuruma intikal eden giriş bildirgesi ve/veya prim ödemesi ile şirket ortaklık kayıtlarının bulunduğu gerekçesiyle kararı kaldırıp davayı kabul etmiştir. Davalı Kurum temyizinde eksik inceleme ve Kurum işleminin yerinde olduğunu savunmuştur. Yargıtay, Bölge Adliye Mahkemesi kararının usul ve kanuna uygun olduğunu, davalı temyiz nedenlerinin kararı bozmayı gerektirmediğini belirterek onamıştır.",
+      "reasoning_summary_method": "llm_generated",
+      "supporting_chunk_ids": [
+        "29b77dc2-5c16-54f0-80c0-f9ae2b5be516",
+        "6eaff21d-8cda-5fb2-8da6-7761b9fd4055"
+      ]
+    }
+  ]
+}

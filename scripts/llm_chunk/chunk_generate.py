@@ -51,11 +51,97 @@ SOURCES = {
                      "role_field": "court_reasoning_role", "subject_type": "civil_or_administrative_case"},
     "kvkk": {"text_field": "html_content", "granularity": "synthetic_segment",
              "role_field": "regulatory_role", "subject_type": "data_controller_violation"},
+    # Court of Cassation. The subject_type here is only a FALLBACK: yargitay spans
+    # criminal and civil chambers (29 of 45 export rows are Ceza), so the real value
+    # is resolved per document by resolve_subject_type(). The court LEVEL stays in
+    # source_type -- criminal-vs-civil is subject matter, not court level.
+    "yargitay": {"text_field": "html_content", "granularity": "synthetic_segment",
+                 "role_field": "court_reasoning_role",
+                 "subject_type": "civil_or_administrative_case"},
+    # Sources 7 and 8. text_field and granularity are NULL on purpose, not
+    # forgotten: every row of both is pending_extraction, so we have never seen a
+    # body and cannot know whether the text will land in content_text or
+    # html_content. Guessing that is precisely what went wrong with yargitay,
+    # whose content_text had no newlines and whose HTML wrapped the whole
+    # decision in a single <p> -- both existing strategies returned the entire
+    # document as one paragraph. The role_field is safe to fix now because it
+    # follows from what the institution IS, not from how its text is laid out.
+    "rekabet": {"text_field": None, "granularity": None,
+                "role_field": "regulatory_role",
+                "subject_type": "other_competition_matter"},
+    "uyusmazlik": {"text_field": None, "granularity": None,
+                   "role_field": "court_reasoning_role",
+                   "subject_type": "jurisdictional_dispute"},
 }
+
+# Registered sources that carry no extracted text yet. Confirmed against the
+# database, not inferred from our sample: all 10,367 rekabet rows are
+# status=pending_extraction and a `content_text <> ''` filter returns zero rows.
+# The bodies exist only as PDFs at metadata.data.pdf_url. Everything derivable
+# from metadata (case_no, decision_date, subject_type) is wired and tested; the
+# paragraph strategy, role values and prompt stay unset until real text exists.
+TEXT_PENDING_SOURCES = {"rekabet", "uyusmazlik"}
+
+# Rekabet Kurumu classifies each decision itself, and that classification is a
+# TYPE distinction rather than a subject: a merger clearance is a different kind
+# of matter from an infringement finding. Same shape as yargitay's per-document
+# criminal-vs-civil split. Read from metadata.data.decision_type and NEVER from
+# chamber_id -- despite appearances chamber_id is not a chamber here, it merely
+# mirrors decision_type, and its numbering already changed between two exports
+# (418xxx vs 104xxx), so anything keyed on it breaks on the next one.
+REKABET_SUBJECT_TYPE = {
+    "Birleşme ve Devralma": "merger_or_acquisition",
+    "Rekabet İhlali": "competition_infringement",
+    "Menfi Tespit ve Muafiyet": "negative_clearance_or_exemption",
+    "Özelleştirme": "privatisation",
+    "Diğer": "other_competition_matter",
+}
+
+# Documents reserved as worked examples in fewshot/. Never chunked, because a
+# document the model was shown cannot also be a document it is scored on.
+FEWSHOT_DOC_IDS = {("yargitay", "1221692000")}
+
+# A record is usable when the upstream fetch finished. Two writers populate this
+# corpus and they disagree on the word: the scraper writes "fetched", the SQL
+# export writes "completed". Accepting only "fetched" silently skipped all 45
+# rows of the yargitay export -- zero documents, no error, no clue why.
+USABLE_STATUSES = {"fetched", "completed"}
+
+# Yargitay chamber numbering: Hukuk (civil) chambers keep their own number,
+# Ceza (criminal) chambers are offset by +23. Holds on all 45 export rows and is
+# more reliable than parsing the title string.
+CEZA_CHAMBER_ID_MIN = 23
+
+# What `subject_id` IS, per document. For a criminal cassation the subject is the
+# OFFENCE, so subject_id "dolandiricilik" under subject_type "criminal_offence"
+# answers "every fraud cassation decision" -- the query a lawyer runs. Naming it
+# "criminal_case" instead would merely restate source_type and leave subject_id
+# meaningless. Only yargitay varies per document; every other source keeps the
+# fixed constant in SOURCES.
+SUBJECT_TYPE_BY_CHAMBER = {"ceza": "criminal_offence",
+                           "hukuk": "civil_or_administrative_case"}
 
 # Set explicitly so a truncated response is reported as truncation rather than
 # as a baffling "EOF while parsing a string" from the JSON parser.
-MAX_OUTPUT_TOKENS = 32768
+#
+# 65,536 is Gemini 2.5 Flash-Lite's documented ceiling. Raised from 32,768 after a
+# probe: aym document 0ddd6b3c (184,377 chars, 559 paragraphs) failed with
+# max_output_tokens_truncated on BOTH attempts, each stopping exactly at the old
+# 32,768 cap -- half the available budget was simply unused.
+MAX_OUTPUT_TOKENS = 65536
+
+# Output tokens per input character, CALIBRATED from real runs this session:
+#   aym 0.471, bam 0.504, danistay 0.502, first_degree 0.591, yargitay 0.902
+# Short documents skew high because capsule text is roughly fixed-size overhead.
+# 0.50 is deliberately taken from the long-document end of that range, since this
+# guard only matters for long documents -- applying the short-document ratio would
+# refuse things that would have succeeded.
+#
+# This is a HEURISTIC, not a guarantee: it refuses the one document known to fail
+# (184,377 chars -> ~92,000 predicted) while letting through the next-largest
+# (122,573 -> ~61,000), which is untested and may still truncate. finish_reason
+# remains the authoritative signal; this only avoids paying twice to learn it.
+OUTPUT_TOKENS_PER_CHAR = 0.50
 
 # A model-vs-source text delta this large suggests a missing paragraph ref rather
 # than a copying slip, so it is flagged for review instead of merely counted.
@@ -66,6 +152,19 @@ MODEL_TEXT_DELTA_RATIO = 0.05
 # (notably "..." from a redacted DOSYA NO line) is unreadable source, not a
 # competing reading of the case number.
 WELLFORMED_CASE_NO = re.compile(r"\d{4}/\d+")
+
+# Rekabet Kurumu does not use the courts' esas/karar pair at all; its decisions
+# are numbered "06-90/1142-338". Widening the shared regex to accept that would
+# quietly loosen the check for all six working sources, so the per-source form is
+# kept separate and only rekabet is judged by it.
+CASE_NO_FORMS = {"rekabet": re.compile(r"\d{2}-\d+/\d+-\w+")}
+
+
+def is_wellformed_case_no(value, source):
+    """Is this a case number the court could really have printed, or is it
+    unreadable source (a redacted "..." line)? The distinction decides whether a
+    model/source disagreement is reported as a mismatch or as bad input data."""
+    return bool(CASE_NO_FORMS.get(source, WELLFORMED_CASE_NO).fullmatch(value or ""))
 
 DISSENT_ROLES = {"dissent"}
 RULING_ROLES = {"conclusion", "outcome"}
@@ -83,6 +182,14 @@ OUTCOME_PATTERNS = {
     "violation": [r"İHLÂL\s+EDİLDİĞİNE", r"İHLAL\s+EDİLDİĞİNE"],
     "denied": [r"REDDİNE"],
     "affirmed": [r"ONANMASINA"],
+    # Cassation dispositions (yargitay). Without these the outcome cross-check
+    # finds no pattern and every yargitay capsule reads as contradicting its own
+    # ruling -- the same English-key-vs-Turkish-label failure fixed twice before.
+    "reversed": [r"BOZULMASINA", r"BOZULMASI"],
+    "corrected_affirmed": [r"DÜZELTİLEREK"],
+    "remitted": [r"TEVDİİNE"],
+    "abated": [r"DÜŞMESİNE"],
+    "remanded": [r"GERİ\s+ÇEVRİLMESİNE"],
 }
 
 # The model writes its outcome LABEL in Turkish while the pattern keys above are
@@ -94,6 +201,16 @@ OUTCOME_LABEL_FORMS = {
     "violation": ("ihlal", "violation"),
     "denied": ("red", "denied", "dismiss", "kabul_edilemez"),
     "affirmed": ("onan", "onama", "affirm", "onandi"),
+    "reversed": ("bozma", "bozul", "reversed", "bozuldu"),
+    "corrected_affirmed": ("duzelt", "düzelt", "corrected", "onan", "onama"),
+    "remitted": ("tevdi", "remit", "gonderil", "gönderil"),
+    "abated": ("dusme", "düşme", "abat", "ortadan_kaldir"),
+    # Both stems: Turkish drops the vowel in "cevrilme" / "çevrilmesine", so
+    # "çevir" does not match it. English forms too -- `outcome` is a free
+    # string and the model mixes languages across sources ("ihlal_yok" but
+    # "return_for_procedural_action"), so the check must accept both.
+    "remanded": ("geri_cevir", "geri_çevir", "geri_cevr", "geri_çevr",
+                 "remand", "return", "iade"),
 }
 
 ENGLISH_STOPWORDS = {"the", "and", "of", "was", "were", "that", "this", "court",
@@ -114,11 +231,11 @@ TURKISH_MARKERS = {
 }
 
 
-# --------------------------------------------------------------------------- #
+
 # Response schema -- what we ask Gemini for. Deliberately excludes chunk_id,
 # canonical_id, char_length, citation_granularity, chunk_label, subject_type and
 # reasoning_summary_method: those are code-owned (docs 15.2-15.4).
-# --------------------------------------------------------------------------- #
+
 
 class CitedLegislation(BaseModel):
     law_no: Optional[str] = None
@@ -191,9 +308,9 @@ def response_model_for(source):
     return _RESPONSE_MODELS[source]
 
 
-# --------------------------------------------------------------------------- #
+
 # Code-owned field construction
-# --------------------------------------------------------------------------- #
+
 
 def make_chunk_id(doc_id, paragraph_range):
     return str(uuid.uuid5(CHUNK_NAMESPACE, f"{doc_id}-{paragraph_range}"))
@@ -232,6 +349,21 @@ def normalise_law_short(law_short):
     s = re.sub(r"[.\s ]+", "", str(law_short))
     s = lib.tr_upper(s)
     return s or None
+
+
+def is_legislation(c):
+    """Is this citation a legal instrument at all, or the court citing case law?
+
+    The rule is deliberately conservative: reject only when the type is outside the
+    documented vocabulary AND there is neither a law number nor a law name -- i.e.
+    nothing whatsoever identifies a statute, decree-law, constitution, regulation or
+    directive. Validated on the real corpus: drops 15 of 15 case-law citations with
+    0 false positives, and leaves the one genuine treaty reference (an ECHR protocol,
+    which carries a law_name) untouched.
+    """
+    if c.legislation_type in LEGISLATION_TYPES:
+        return True
+    return bool(c.law_no or c.law_name)
 
 
 def make_canonical_id(law_no, article_no, legislation_type, law_name):
@@ -289,9 +421,9 @@ def strip_dotted_i(s):
     return s.replace("̇", "") if s else s
 
 
-# --------------------------------------------------------------------------- #
+
 # Source data
-# --------------------------------------------------------------------------- #
+
 
 def parse_metadata(record):
     """metadata is a JSON *string*. bam/danistay/first_degree have no "data" key at
@@ -316,6 +448,15 @@ def compute_case_no(record, source):
             if record.get("karar_year") and record.get("karar_no"):
                 return f'{record["karar_year"]}/{record["karar_no"]}'
         return case_no or None
+    if source == "rekabet":
+        # Rekabet numbers its decisions "06-90/1142-338", which decomposes as
+        # {karar_year%100}-{meeting_no}/{esas_no}-{karar_no} -- verified on all
+        # 250 rows with zero mismatches. esas_year is null for every one of them,
+        # so the generic branch below would return None. Taken verbatim rather
+        # than rebuilt from the columns: the raw string is what the Kurul itself
+        # prints and what a lawyer would search for.
+        raw = (parse_metadata(record).get("data") or {}).get("decision_number_raw") or ""
+        return raw.strip() or None
     if record.get("esas_year") and record.get("esas_no"):
         return f'{record["esas_year"]}/{record["esas_no"]}'
     return None
@@ -327,10 +468,17 @@ def _iso_from_dotted(s):
     return f"{int(m.group(3)):04d}-{int(m.group(2)):02d}-{int(m.group(1)):02d}" if m else None
 
 
-# Danıştay rulings close with a formulaic dated sentence:
-#   "... 28/12/2022 tarihinde oyçokluğuyla karar verildi."
-# Verified present in 150 of 200 danistay records. The other 50 get null + flag.
-RE_RULING_DATE = re.compile(r"(\d{1,2}/\d{1,2}/\d{4})\s+tarihinde\s+(?:oy|karar)", re.IGNORECASE)
+# Rulings close with a formulaic dated sentence:
+#   "... 28/12/2022 tarihinde oyçokluğuyla karar verildi."   (danistay)
+#   "... 20.02.2018 gününde oybirliğiyle karar verildi."     (yargitay)
+# BOTH the separator and the adverb vary, and both variations are load-bearing.
+# The earlier pattern required "/" and "tarihinde", which matched only 15 of 45
+# yargitay documents: they mostly use "." and split 28 "tarihinde" / 17
+# "gününde" as a chamber house style. Accepting both takes yargitay to 45/45
+# with no nulls, and leaves every existing source's date unchanged (verified on
+# all 12 previously generated documents).
+RE_RULING_DATE = re.compile(
+    r"(\d{1,2}[./]\d{1,2}[./]\d{4})\s*(?:tarihinde|gününde)", re.IGNORECASE)
 
 
 def compute_decision_date(record, source, paragraphs):
@@ -347,7 +495,8 @@ def compute_decision_date(record, source, paragraphs):
     inner = (meta.get("data") or {}).get("decision_date")
     if inner and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(inner)[:10]):
         return str(inner)[:10], None
-    top = meta.get("decision_date")
+    # yargitay stores it flat as karar_tarihi (DD.MM.YYYY, present on all 300).
+    top = meta.get("decision_date") or meta.get("karar_tarihi")
     if top:
         iso = _iso_from_dotted(top) or lib._iso_date(top.replace(".", "/"))
         if iso:
@@ -355,8 +504,64 @@ def compute_decision_date(record, source, paragraphs):
     for para in reversed(paragraphs):                  # the ruling is at the end
         m = RE_RULING_DATE.search(para)
         if m:
-            return lib._iso_date(m.group(1)), None
+            # _iso_date splits on "/" only, but the widened pattern also matches
+            # dot-separated dates ("13.01.2026 gününde"). Without normalising the
+            # separator it returns None and this loop returned a SILENT null --
+            # no date and no flag, the worst of both. Keep scanning on a failed
+            # parse instead of giving up on the first match.
+            iso = lib._iso_date(m.group(1).replace(".", "/"))
+            if iso:
+                return iso, None
     return None, "decision_date_unavailable"
+
+
+def resolve_subject_type(record, source):
+    """Per-document subject_type where the source needs it, else the per-source
+    constant. Yargitay spans criminal and civil chambers, so a single fixed value
+    is wrong for whichever half it does not describe: 29 of 45 export rows are
+    Ceza. chamber_id is the primary discriminator, the title is the fallback."""
+    default = SOURCES[source]["subject_type"]
+    if source == "yargitay":
+        cid = record.get("chamber_id")
+        if isinstance(cid, int):
+            return SUBJECT_TYPE_BY_CHAMBER["ceza" if cid >= CEZA_CHAMBER_ID_MIN else "hukuk"]
+        m = re.search(r"\b(Ceza|Hukuk)\s+Dairesi", record.get("title") or "", re.IGNORECASE)
+        return SUBJECT_TYPE_BY_CHAMBER.get(lib.tr_lower(m.group(1)), default) if m else default
+    if source == "rekabet":
+        # An unmapped value falls back to the source default rather than being
+        # slugified on the fly: a decision_type we have not seen is new Kurul
+        # vocabulary that should be read and mapped deliberately, not invented
+        # here under a name nothing else in the corpus uses.
+        dtype = (parse_metadata(record).get("data") or {}).get("decision_type")
+        return REKABET_SUBJECT_TYPE.get((dtype or "").strip(), default)
+    return default
+
+
+# "SUÇ : Nitelikli hırsızlık" / "Suç : Taksirle yaralama" / "DAVA TÜRÜ : ALACAK".
+# Case varies by CHAMBER, not by accident: 3./8./11./14./15./18. Ceza write
+# "SUÇ", 10./12./16. Ceza write "Suç". A case-sensitive match finds 13 of 45 and
+# silently loses 8 -- the same Turkish-casing trap as the .lower() bug.
+RE_SUBJECT_LABEL = re.compile(
+    r"^\s*(suç(?:lar)?|dava\s+türü|dava)\s*:\s*(.+)$", re.IGNORECASE)
+
+
+def candidate_subject(record, source, paragraphs):
+    """The subject the document states about itself, if any -- the same mechanism
+    as aym's candidate rights: code supplies, Gemini narrows. Present on 30 of 45
+    yargitay export rows; the other 15 state nothing and the model derives one.
+
+    Returns (label_kind, raw_value) or (None, None). "DAVA :" is weaker than the
+    others -- 9. Hukuk uses it for the full prayer for relief rather than a short
+    subject tag -- so it is returned as a hint and never used as a constraint.
+    """
+    if source != "yargitay":
+        return None, None
+    for p in paragraphs[:8]:                      # always inside the header block
+        m = RE_SUBJECT_LABEL.match(p)
+        if m:
+            kind = re.sub(r"\s+", "_", lib.tr_lower(m.group(1)))
+            return kind, m.group(2).strip()
+    return None, None
 
 
 def candidate_rights(record, source):
@@ -375,23 +580,66 @@ def candidate_rights(record, source):
     return out
 
 
+def extract_paragraphs_html_br(raw):
+    """Paragraphs from HTML that separates them with <br>, not <p>.
+
+    Yargitay HTML wraps the whole decision in ONE <p align=justify> and uses <br>
+    between lines, so bs4's find_all("p") returns a single element -- the entire
+    document as one paragraph. Its content_text is no better: the <br> tags were
+    stripped without inserting whitespace, gluing headings to body text
+    ("talep etmistir.II. CEVAPDavali idare..."), so splitlines() also yields one
+    paragraph. Both existing strategies fail on this source, hence a third.
+    """
+    from html import unescape
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(unescape(raw), "html.parser")
+    for tag in soup.find_all(["br", "p"]):
+        tag.insert_after("\n")
+    text = soup.get_text().replace("\xa0", " ")
+    return [p for p in (norm_ws(line) for line in text.split("\n")) if p]
+
+
+# How each source's paragraphs are recovered. Named explicitly rather than
+# inferred from the field name, because two sources store HTML and need
+# different extractors -- inferring from "html_content" silently picked the
+# wrong one for yargitay.
+PARAGRAPH_STRATEGY = {
+    "aym": "html_p", "kvkk": "html_p",
+    "yargitay": "html_br",
+    "bam": "lines", "danistay": "lines", "first_degree": "lines",
+}
+
+
 def extract_paragraphs(record, source):
-    """aym/kvkk come from html_content via the copied bs4 helper; the other three
-    from content_text split on blank lines. The returned list IS the text Gemini
-    sees, so the grounding check must run against this same normalized text."""
+    """The returned list IS the text Gemini sees, and the text chunks are later
+    assembled from, so every consumer must reproduce it exactly."""
     field = SOURCES[source]["text_field"]
+    if field is None or source not in PARAGRAPH_STRATEGY:
+        # Reached only if a text-pending source somehow acquires text without
+        # anyone choosing how to split it. A named error here is the difference
+        # between "nobody has picked a paragraph strategy for rekabet yet" and a
+        # bare KeyError two frames down that reads like a typo.
+        raise NotImplementedError(
+            f"{source}: no paragraph strategy chosen yet. Every {source} record is "
+            f"pending_extraction upstream, so no decision body has ever been seen "
+            f"and the strategy cannot be picked from evidence. Read 2-3 real "
+            f"decisions, then add entries to SOURCES[{source!r}]['text_field'] and "
+            f"PARAGRAPH_STRATEGY -- and mirror them into retrieval_test/corpus.py, "
+            f"which must extract byte-identically or grounding checks fail.")
     raw = record.get(field) or ""
     if not raw.strip():
         return []
-    if field == "html_content":
+    strategy = PARAGRAPH_STRATEGY[source]
+    if strategy == "html_p":
         return lib.aym_extract_paragraph_texts(raw)
+    if strategy == "html_br":
+        return extract_paragraphs_html_br(raw)
     # content_text is newline-separated with NO blank lines (verified: bam 36 lines /
     # 19k chars, danistay 62, first_degree 25, and zero occurrences of a blank line in
     # any of them). Splitting on blank lines returned the whole document as a single
     # paragraph, which made paragraph_refs useless. norm_ws also collapses the \xa0
     # non-breaking spaces danistay text is full of.
-    paras = [norm_ws(p) for p in raw.splitlines()]
-    return [p for p in paras if p]
+    return [p for p in (norm_ws(x) for x in raw.splitlines()) if p]
 
 
 def pick_documents(records, source, n):
@@ -399,14 +647,23 @@ def pick_documents(records, source, n):
     guaranteed usable. kvkk has 11 empty records (pending_extraction/pending_fetch);
     taking the slice first could spend the whole sample on them."""
     field = SOURCES[source]["text_field"]
-    usable = [r for r in records
-              if r.get("status") == "fetched" and (r.get(field) or "").strip()]
-    return usable[:n], len(records) - len(usable)
+    if field is None:
+        # No text field determined because no row has ever carried text. Counted
+        # as "all empty" rather than crashing, so run() can report the real
+        # upstream reason instead of a stack trace.
+        return [], len(records), 0
+    has_text = [r for r in records
+                if r.get("status") in USABLE_STATUSES and (r.get(field) or "").strip()]
+    usable = [r for r in has_text
+              if (source, r.get("doc_id")) not in FEWSHOT_DOC_IDS]
+    # Reported separately: "no text upstream" and "reserved as a worked example"
+    # are different facts, and yargitay has both (297 pending + 1 example).
+    return usable[:n], len(records) - len(has_text), len(has_text) - len(usable)
 
 
-# --------------------------------------------------------------------------- #
+
 # Gemini
-# --------------------------------------------------------------------------- #
+
 
 def build_client():
     from google import genai
@@ -460,9 +717,9 @@ def finish_reason_of(resp):
     return getattr(fr, "name", None) or str(fr)
 
 
-# --------------------------------------------------------------------------- #
+
 # Post-processing (docs section 6 order)
-# --------------------------------------------------------------------------- #
+
 
 def resolve_refs(seg, n_paras):
     """paragraph_refs -> validated 1-based paragraph indices, plus bad refs."""
@@ -546,7 +803,7 @@ def build_chunks(parsed, record, source, doc_id, case_no, paragraphs, decision_d
             # (real example: "DOSYA NO : ..." in bam/726546200, which has 43 such
             # redactions), so the model reported the redaction instead of echoing the
             # value we supplied. That is a source-data property, not a disagreement.
-            kind = ("case_no_mismatch" if WELLFORMED_CASE_NO.fullmatch(seg.case_no)
+            kind = ("case_no_mismatch" if is_wellformed_case_no(seg.case_no, source)
                     else "case_no_unreadable_in_source")
             flags.append(f"{kind}:{seg.local_id}:{seg.case_no}")
 
@@ -580,9 +837,22 @@ def build_chunks(parsed, record, source, doc_id, case_no, paragraphs, decision_d
                     continue
                 canonical = make_canonical_id(
                     c.law_no, c.article_no, c.legislation_type, c.law_name)
+                if not is_legislation(c):
+                    # Not a legal instrument at all -- almost always the court citing
+                    # its own precedent ("Mehmet Serif Ay (B. No: 2012/1181)",
+                    # "Ibrahim Er ve digerleri"). Measured: 15 of 89 citations, 17%,
+                    # every one of them AYM case law. Storing them here pollutes
+                    # "find every decision citing this law" with case-law noise, and
+                    # they carry nothing to join on. Dropped, but FLAGGED -- a silent
+                    # drop would hide the model ignoring an explicit instruction.
+                    #
+                    # AYM cites its own precedent constantly and that IS valuable; it
+                    # belongs in a cited_decisions field (AYM metadata already carries
+                    # referenced_decisions). Out of scope here.
+                    flags.append(f"dropped_non_legislation:{seg.local_id}:"
+                                 f"{(c.verbatim_mention or '')[:40]}")
+                    continue
                 if c.legislation_type not in LEGISLATION_TYPES:
-                    # Seen for real: the model returned "other" for a European Court
-                    # of Human Rights reference, which is case law, not legislation.
                     flags.append(f"unknown_legislation_type:{seg.local_id}:"
                                  f"{c.legislation_type}")
                 if canonical is None:
@@ -635,7 +905,8 @@ def build_chunks(parsed, record, source, doc_id, case_no, paragraphs, decision_d
     return chunks, id_map, flags, minor_diffs
 
 
-def build_capsules(parsed, chunks, id_map, source, case_no, cand_rights, decision_date):
+def build_capsules(parsed, chunks, id_map, source, case_no, cand_rights, decision_date,
+                   subject_type):
     cfg = SOURCES[source]
     capsules, flags = [], []
     role_of = {c["chunk_id"]: c.get("_role") for c in chunks}
@@ -679,10 +950,18 @@ def build_capsules(parsed, chunks, id_map, source, case_no, cand_rights, decisio
         subject_id = strip_dotted_i(cap.subject_id) or "unspecified"
         if source == "aym" and cand_rights and subject_id not in cand_rights:
             flags.append(f"subject_id_not_in_candidates:{subject_id}")
+        # subject_id is a RETRIEVAL field: "unspecified" makes the capsule
+        # unfindable by subject, and a topic-query test found 4 of 14 capsules
+        # carrying it -- a securities case, a tax-fraud case and a carriage-damage
+        # case among them, all of which plainly state what they are about. The one
+        # place it is legitimate is an aym norm-review decision, which genuinely
+        # has no examination_results and so no right to name.
+        if subject_id == "unspecified" and not (source == "aym" and not cand_rights):
+            flags.append("subject_id_unspecified")
 
         if cap.case_no and case_no and cap.case_no != case_no:
             kind = ("capsule_case_no_mismatch"
-                    if WELLFORMED_CASE_NO.fullmatch(cap.case_no)
+                    if is_wellformed_case_no(cap.case_no, source)
                     else "capsule_case_no_unreadable_in_source")
             flags.append(f"{kind}:{cap.case_no}")
 
@@ -703,7 +982,7 @@ def build_capsules(parsed, chunks, id_map, source, case_no, cand_rights, decisio
             "case_no": case_no,
             "source_type": source,
             "decision_date": decision_date,
-            "subject_type": cfg["subject_type"],
+            "subject_type": subject_type,
             "subject_id": subject_id,
             "opinion_type": opinion,
             "outcome": strip_dotted_i(cap.outcome),
@@ -755,9 +1034,9 @@ def legislation_crosscheck(chunks):
     }
 
 
-# --------------------------------------------------------------------------- #
+
 # Driver
-# --------------------------------------------------------------------------- #
+
 
 def process_document(client, model, record, source, stats):
     doc_id = record.get("doc_id")
@@ -768,8 +1047,27 @@ def process_document(client, model, record, source, stats):
         return None, None, {"doc_id": doc_id, "case_no": case_no,
                             "reason": "no_paragraphs_extracted", "failed_checks": []}, None
 
+    # Pre-flight size check. Costs nothing and turns a confusing two-attempt
+    # truncation into a named, up-front refusal. Verified against a real failure:
+    # aym 0ddd6b3c, 184,377 chars / 559 paragraphs, exhausted the output budget
+    # twice before reporting anything useful.
+    doc_chars = sum(len(p) for p in paragraphs)
+    predicted = int(doc_chars * OUTPUT_TOKENS_PER_CHAR)
+    if predicted > MAX_OUTPUT_TOKENS:
+        return None, None, {
+            "doc_id": doc_id, "case_no": case_no,
+            "reason": "document_too_long_for_one_call",
+            "error": (f"{doc_chars:,} characters in {len(paragraphs)} paragraphs needs "
+                      f"roughly {predicted:,} output tokens, over the "
+                      f"{MAX_OUTPUT_TOKENS:,} cap. Split the document or raise the cap; "
+                      f"not attempted, so no tokens were spent."),
+            "failed_checks": [], "raw_response": None}, None
+
     schema = response_model_for(source)
-    system_instruction = prompts.build_system_instruction(source, case_no, cand)
+    subj_kind, subj_value = candidate_subject(record, source, paragraphs)
+    system_instruction = prompts.build_system_instruction(
+        source, case_no, cand,
+        subject_hint=(subj_kind, subj_value) if subj_kind else None)
     user_content = prompts.build_user_content(paragraphs)
 
     raw_text, parsed, last_err, finish, perturbed = None, None, None, None, False
@@ -817,7 +1115,7 @@ def process_document(client, model, record, source, stats):
         flags.append(date_flag)
     stats["minor_text_diffs"] += len(minor_diffs)
     capsules, cap_flags = build_capsules(parsed, chunks, id_map, source, case_no, cand,
-                                         decision_date)
+                                         decision_date, resolve_subject_type(record, source))
     flags += cap_flags
     disagreement = legislation_crosscheck(chunks)
 
@@ -832,12 +1130,18 @@ def process_document(client, model, record, source, stats):
     return chunks, capsules, review, disagreement
 
 
-def run(sources, limit):
+def run(sources, limit, only_doc_id=None, out_dir=None):
     load_dotenv(ROOT / ".env")
     model = os.getenv("MODEL", "gemini-2.5-flash-lite")
     per_source = limit if limit is not None else int(os.getenv("DOCS_PER_SOURCE", "2"))
     client = build_client()
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    # A probe run must never write into output/chunk/: the 30 retrieval queries
+    # are keyed to the 10 doc_ids generated there, so a different document set
+    # landing in that directory silently invalidates every one of them.
+    out_root = Path(out_dir) if out_dir else OUTPUT_DIR
+    if not out_root.is_absolute():
+        out_root = ROOT / out_root
+    out_root.mkdir(parents=True, exist_ok=True)
 
     print(f"model    : {model}")
     print(f"project  : {os.getenv('GOOGLE_CLOUD_PROJECT')}  location: {os.getenv('GOOGLE_CLOUD_LOCATION')}")
@@ -850,7 +1154,43 @@ def run(sources, limit):
             print(f"=== {source} === SKIPPED, no {path.name} in data/")
             continue
         records = json.loads(path.read_text(encoding="utf-8"))
-        picked, skipped_empty = pick_documents(records, source, per_source)
+        if only_doc_id:
+            # Deliberate bypass of the reserved-example skip-set: the example
+            # document has to be generated once in order to become the example.
+            wanted = [x.strip() for x in str(only_doc_id).split(",") if x.strip()]
+            by_id = {str(r.get("doc_id")): r for r in records}
+            picked = [by_id[w] for w in wanted if w in by_id]
+            missing = [w for w in wanted if w not in by_id]
+            if missing:
+                print(f"  !! doc_id(s) not found in {source}: {missing}")
+            skipped_empty = skipped_fewshot = 0
+            if not picked:
+                print(f"=== {source} === doc_id {only_doc_id} not in this source")
+                continue
+        else:
+            picked, skipped_empty, skipped_fewshot = pick_documents(
+                records, source, per_source)
+
+        # A registered source with no usable document must say WHY. The bland
+        # skip line is the failure mode that hid 45 yargitay documents for a
+        # whole round: the export wrote status="completed", the filter accepted
+        # only "fetched", and the run reported zero documents with no error and
+        # no clue. Never call Gemini for these -- there is nothing to send, and
+        # their prompts are placeholders.
+        if source in TEXT_PENDING_SOURCES and not picked:
+            print(f"=== {source} === BLOCKED: 0 of {len(records)} records have "
+                  f"extracted text")
+            print(f"    every row is status=pending_extraction; the decision bodies "
+                  f"are PDFs at metadata.data.pdf_url.")
+            print(f"    Confirmed database-wide, not sampled: all 10,367 rekabet rows "
+                  f"are unextracted and a")
+            print(f"    `content_text <> ''` filter returns no rows. Blocked upstream, "
+                  f"not a pipeline fault.")
+            print(f"    Metadata-derived fields (case_no, decision_date, subject_type) "
+                  f"are wired and tested;")
+            print(f"    paragraph strategy and role values stay unset until real text "
+                  f"exists.\n")
+            continue
 
         all_chunks, all_caps, reviews = [], [], []
         stats = {"input_tokens": 0, "output_tokens": 0, "minor_text_diffs": 0,
@@ -883,7 +1223,7 @@ def run(sources, limit):
         # document in a source fails, the old run is the better artifact and
         # silently clobbering it loses real work -- which is exactly what
         # happened to aym.json once.
-        out_path = OUTPUT_DIR / f"{source}.json"
+        out_path = out_root / f"{source}.json"
         if not all_chunks and out_path.is_file():
             print(f"  !! every {source} document failed -- KEEPING the previous "
                   f"{out_path.name} rather than overwriting it with an empty file")
@@ -891,15 +1231,22 @@ def run(sources, limit):
             out_path.write_text(
                 json.dumps({"chunks": all_chunks, "reasoning_capsules": all_caps},
                            ensure_ascii=False, indent=2), encoding="utf-8")
+        review_path = out_root / f"{source}_review.json"
         if reviews:
-            (OUTPUT_DIR / f"{source}_review.json").write_text(
+            review_path.write_text(
                 json.dumps(reviews, ensure_ascii=False, indent=2), encoding="utf-8")
+        elif review_path.is_file():
+            # A clean run must not leave the previous run's flags lying around --
+            # a stale review file reads as unresolved problems that no longer exist.
+            review_path.unlink()
+            print(f"  (removed stale {review_path.name}: this run had no flags)")
 
         grand["ok"] += ok
         grand["flagged"] += flagged
         grand["failed"] += failed
         print(f"=== {source} ===  {len(picked)} docs | ok {ok} | flagged {flagged} | "
               f"failed {failed} | skipped_empty {skipped_empty} | "
+              + (f"reserved_as_example {skipped_fewshot} | " if skipped_fewshot else "") +
               f"{len(all_chunks)} chunks | {len(all_caps)} capsules")
         print(f"  legislation: gemini-only {only_g}, regex-only {only_r}")
         print(f"  minor text diffs (model copy vs source join; stored text unaffected): "
@@ -910,15 +1257,23 @@ def run(sources, limit):
         print(f"  tokens: in {stats['input_tokens']}, out {stats['output_tokens']}\n")
 
     print(f"TOTAL: ok {grand['ok']} | flagged {grand['flagged']} | failed {grand['failed']}")
-    print(f"Output: {OUTPUT_DIR}")
+    print(f"Output: {out_root}")
 
 
 def main():
     ap = argparse.ArgumentParser(description="LLM chunking via Gemini 2.5 Flash-Lite")
     ap.add_argument("--source", choices=sorted(SOURCES), help="only this source")
     ap.add_argument("--limit", type=int, help="documents per source (overrides .env)")
+    ap.add_argument("--out-dir", help="write output here instead of output/chunk/. Use for "
+                                      "probe runs -- writing a different document set into "
+                                      "output/chunk/ invalidates the retrieval queries")
+    ap.add_argument("--doc-id", help="generate exactly these documents (comma-separated), "
+                                     "even if reserved in FEWSHOT_DOC_IDS. Used to build a "
+                                     "worked example, or to choose a test set deliberately "
+                                     "rather than taking whichever documents come first")
     args = ap.parse_args()
-    run([args.source] if args.source else list(SOURCES), args.limit)
+    run([args.source] if args.source else list(SOURCES), args.limit, args.doc_id,
+        args.out_dir)
 
 
 if __name__ == "__main__":

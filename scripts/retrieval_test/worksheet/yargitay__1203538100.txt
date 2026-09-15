@@ -1,0 +1,127 @@
+==============================================================================
+ yargitay   doc_id 1203538100
+ case_no 2025/18071
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 45 paragraphs, 5063 characters
+==============================================================================
+
+[p1] 5. Hukuk Dairesi 2025/18071 E. , 2026/3615 K.
+
+[p2] "İçtihat Metni"MAHKEMESİ : Bursa Bölge Adliye Mahkemesi 8. Hukuk Dairesi
+
+[p3] SAYISI : 2024/2750 Esas, 2025/2097 Karar
+
+[p4] KARAR : Esastan ret
+
+[p5] İLK DERECE MAHKEMESİ : Yalova 3. Asliye Hukuk Mahkemesi
+
+[p6] SAYISI : 2023/547 Esas, 2024/535 Karar
+
+[p7] Taraflar arasındaki kamulaştırmasız el atılan taşınmaz bedelinin tahsili istemine ilişkin davada yapılan yargılama sonunda İlk Derece Mahkemesince davanın kabulüne karar verilmiştir.
+
+[p8] Kararın davalı idare vekili tarafından istinaf edilmesi üzerine, Bölge Adliye Mahkemesince başvurunun esastan reddine karar verilmiştir.
+
+[p9] Bölge Adliye Mahkemesi kararı davalı idare vekili tarafından temyiz edilmekle; kesinlik süre, temyiz şartı ve diğer usul eksiklikleri yönünden yapılan incelemede:
+
+[p10] Dosya içeriğine göre Bölge Adliye Mahkemesi karar tarihinin 30.10.2025 olduğu ve 7550 sayılı Kanun'un 20 nci maddesi ile 6100 sayılı Hukuk Muhakemeleri Kanunu'nun (6100 sayılı Kanun) Ek 1 inci maddesinin ikinci fıkrasına getirilen değişikliğin yürürlükte olduğu anlaşıldığından davacılar ..., ..., ..., ..., ..., davacı ... , ... yönünden hüküm altına alınan bedeller dava tarihi itibarıyla kesinlik sınırı olan 238.730,00 TL'nin altında kalmaktadır.
+
+[p11] Davacılar ..., ..., ..., ..., ... hisseleri bakımından davalı idare vekilinin gerekli şartları taşıdığı anlaşılan temyiz dilekçesinin kabulüne karar verildikten ve Tetkik Hakimi tarafından hazırlanan rapor dinlendikten sonra dosyadaki belgeler incelenip gereği düşünüldü:
+
+[p12] I. DAVA
+
+[p13] Davacılar vekili dava dilekçesinde; dava konusu Yalova ili ... mevki, 249 parsel sayılı taşınmazın davalı idare tarafından kamulaştırma yapılmadığı hâlde, fiilen yol olarak kullanmak suretiyle el atıldığını, bu nedenle taşınmazın tamamının bedelinin dava tarihinden itibaren işleyecek yasal faizi ile birlikte davalı idareden tahsiline karar verilmesini talep etmiştir.
+
+[p14] II. CEVAP
+
+[p15] Davalı idare vekili cevap dilekçesinde; davanın reddine karar verilmesini talep etmiştir.
+
+[p16] III. İLK DERECE MAHKEMESİ KARARI
+
+[p17] İlk Derece Mahkemesinin yukarıda tarih ve sayısı belirtilen kararı ile davanın kabulüne dava konusu taşınmazın davacı adına olan tapu kaydının iptali ile davalı idare adına tesciline, yol olarak terkinine karar verilmiştir.
+
+[p18] IV. İSTİNAF
+
+[p19] A. İstinaf Yoluna Başvuranlar
+
+[p20] İlk Derece Mahkemesinin yukarıda belirtilen kararına karşı süresi içinde davalı idare vekili istinaf başvurusunda bulunmuştur.
+
+[p21] B. İstinaf Sebepleri
+
+[p22] Davalı idare vekili istinaf dilekçesinde özetle; hak düşürücü sürenin dolduğunu, zamanaşımı süresinin sona erdiğini, bedelin hukuka aykırı hesaplandığını, emsalin yanlış alındığını, düzenleme ortaklık payı uygulamasının hatalı yapıldığını, taşınmazın arazi olduğunu, tarım arazisi olarak hesap yapılmasının gerektiğini ve lehe vekâlet ücreti ödenmemesinin hatalı olduğunu belirterek kararın kaldırılmasını talep etmiştir.
+
+[p23] C. Gerekçe ve Sonuç
+
+[p24] Bölge Adliye Mahkemesinin yukarıda tarih ve sayısı belirtilen kararı ile arsa niteliğindeki dava konusu taşınmaza emsal karşılaştırması yapılarak değer biçilmesinde isabetsizlik bulunmaması sebebiyle davalı idare vekilinin istinaf başvurusunun esastan reddine karar verilmiştir.
+
+[p25] V. TEMYİZ
+
+[p26] A. Temyiz Yoluna Başvuranlar
+
+[p27] Bölge Adliye Mahkemesinin yukarıda belirtilen kararına karşı süresi içinde davalı idare vekili temyiz isteminde bulunmuştur.
+
+[p28] B. Temyiz Sebepleri
+
+[p29] Davalı idare vekili temyiz dilekçesinde özetle; istinaf dilekçesinde ileri sürdüğü sebepleri tekrar etmiştir.
+
+[p30] C. Gerekçe
+
+[p31] 1. Uyuşmazlık ve Hukuki Nitelendirme
+
+[p32] Uyuşmazlık, kamulaştırmasız el atma nedeniyle tazminat istemine ilişkindir.
+
+[p33] 2. Değerlendirme
+
+[p34] 1. Bölge adliye mahkemelerinin nihai kararlarının bozulması 6100 sayılı Hukuk Muhakemeleri Kanunu'nun (6100 sayılı Kanun) 371 inci maddesinde yer alan sebeplerden birinin varlığı hâlinde mümkündür.
+
+[p35] 2. Arsa niteliğindeki dava konusu taşınmaza 2942 sayılı Kamulaştırma Kanunu'nun 11 inci maddesinin birinci fıkrasının (g) bendi uyarınca emsalin üstün ve eksik yönleri belirlenip kıyaslaması yapılarak değer biçilmesinde bir isabetsizlik bulunmamaktadır.
+
+[p36] 3. Temyizen incelenen karar, tarafların karşılıklı iddia ve savunmalarına, dayandıkları belgelere, uyuşmazlığa uygulanması gereken hukuk kuralları ile hukuki ilişkinin nitelendirilmesine, dava şartlarına, yargılama ve ispat kuralları ile kararda belirtilen gerekçelere göre usul ve kanuna uygun olup temyiz dilekçesinde ileri sürülen nedenler kararın bozulmasını gerektirecek nitelikte görülmemiştir.
+
+[p37] VI. KARAR
+
+[p38] Açıklanan sebeplerle;
+
+[p39] A.Davalı İdare Vekilinin Davacılar ..., ..., ..., ..., ..., ... , ... İlişkin Temyizi Yönünden;
+
+[p40] Davalı idare vekilinin temyiz dilekçesinin miktardan REDDİNE,
+
+[p41] B.Davalı İdare Vekilinin Davacılar ..., ..., ..., ..., ... İlişkin Temyizi Yönünden;
+
+[p42] Davalı idare vekilinin yerinde görülmeyen tüm temyiz itirazlarının reddi ile temyiz olunan Bölge Adliye Mahkemesi kararının 6100 sayılı Kanun'un 370 inci maddesinin birinci fıkrası uyarınca ONANMASINA,
+
+[p43] Davalı idare harçtan muaf olduğundan harç alınmasına yer olmadığına,
+
+[p44] Dosyanın İlk Derece Mahkemesine, kararın bir örneğinin Bölge Adliye Mahkemesine gönderilmesine,02.03.2026 tarihinde oy birliğiyle karar verildi.
+
+[p45] .

@@ -1,0 +1,83 @@
+==============================================================================
+ yargitay   doc_id 1209647600
+ case_no 2025/18047
+==============================================================================
+
+ PARAGRAPH NUMBERING: [pN] is OUR synthetic split, not the court's numbering. A location marker only.
+
+ HOW TO WRITE A QUERY
+   Read the paragraphs below. Write questions a lawyer would actually ask.
+   Do NOT open output/chunk/ -- these paragraphs are the only source.
+
+   STAGE 1 asks "which case is this?"  -> a natural, factual question about
+   what happened and how it was decided. Expected answer is this document.
+
+   STAGE 2 asks "which paragraph answers this?" -> a narrower question, plus
+   the paragraph number that answers it. Code resolves which chunk contains
+   that paragraph, so you never pick a chunk by hand.
+
+ Paraphrase. Do not copy distinctive phrases out of the text -- a query that
+ reuses a rare phrase wins on keyword overlap and proves nothing. The audit in
+ test_retrieval.py --audit-only reports exactly how much you reused.
+
+==============================================================================
+ WRITE QUERIES HERE  (copy into queries.json when done)
+==============================================================================
+
+ STAGE1_QUERY:
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:      (e.g. p18)
+
+ STAGE2_QUERY:
+ STAGE2_PARAGRAPH:
+
+==============================================================================
+ RAW DOCUMENT -- 23 paragraphs, 3598 characters
+==============================================================================
+
+[p1] 5. Hukuk Dairesi 2025/18047 E. , 2026/240 K.
+
+[p2] "İçtihat Metni"MAHKEMESİ : İzmir Bölge Adliye Mahkemesi 5. Hukuk Dairesi
+
+[p3] SAYISI : 2023/914 Esas, 2025/3553 Karar
+
+[p4] KARAR : Esastan ret
+
+[p5] İLK DERECE MAHKEMESİ : Milas 3. Asliye Hukuk Mahkemesi
+
+[p6] SAYISI : 2022/547 Esas, 2022/4 93... sayılı Yargıtay Kanunu’nun 40 ıncı ve Yargıtay İç Yönetmeliği’nin 18 inci maddeleri uyarınca yapılan ön incelemede; İlk Derece Mahkemesi kararının davalı ... vekili tarafından adli yardım talepli olarak temyiz edildiği, bu sebeple de temyiz dilekçesi verilirken gerekli harç ve giderlerin yatırılmadığı belirlenmiştir.
+
+[p7] Adli yardım talebi temyiz yoluna başvuru sırasında istendiğinden 6100 sayılı Hukuk Muhakemeleri Kanunu’nun (6100 sayılı Kanun) 336 ncı maddesinin üçüncü fıkrası uyarınca, davalı ... vekilinin adli yardım talebini inceleme görevi Yargıtaya aittir.
+
+[p8] Adli yardım 6100 sayılı Kanun’un 334 ve devamı maddelerinde düzenlenmiştir. Anılan maddelere göre gerçek kişiler ile kamuya yararlı dernek ve vakıfların yararlanabileceği adli yardımın şartları, ödeme gücünden yoksun olma ve talebin açıkça dayanaktan yoksun olmamasıdır. Adli yardım talebinde bulunan gerçek kişi veya tüzel kişinin yargılama giderlerini karşılayabilecek durumda olmadığını gösteren mali durumuna ilişkin belgeleri de mahkemeye ibraz etmesi gerekir. Adli yardım talebinde bulunanın ödeme gücünden yoksun olup olmadığı, bu belgeler incelenerek belirlenecektir.
+
+[p9] Bu açıklamalar ışığında adli yardım talebini içeren dilekçe ile ekindeki belge ve bilgiler birlikte değerlendirildiğinde; adli yardım talebinde bulunan davacının ödeme gücünden yoksun olduğuna ilişkin belge sunulmadığından adli yardım talebinde bulunan tarafın, kendisi ve ailesinin geçimini önemli ölçüde zor duruma düşürmeksizin gereken temyiz yoluna başvuru giderlerini kısmen veya tamamen ödeme gücünden yoksun olduğu yönünde kanaat oluşmadığından, adli yardım talebinin reddine karar vermek gerekmiştir.
+
+[p10] Bu itibarla;
+
+[p11] 1. Hükmü veren Mahkeme tarafından 6100 sayılı Kanun’un 337 nci maddesi uyarınca;
+
+[p12] a) Adli yardım talebinin reddine dair kararın, talebi reddedilen tarafa “6100 sayılı Hukuk Muhakemeleri Kanunu’nun 337 nci maddesinin ikinci fıkrası uyarınca tebliğinden itibaren bir hafta içinde mahkemeye dilekçe vermek suretiyle karara itiraz edebileceği” şerhini içeren davetiye ile tebliğ edilmesi,
+
+[p13] b) Adli yardım talebinde bulunan tarafın, ret kararına karşı itiraz etmesi hâlinde dosyanın itirazı incelemekle görevli Yargıtay 6. Hukuk Dairesine gönderilmek üzere Dairemize gönderilmesi,
+
+[p14] 2. Adli yardım talebinin reddi kararına karşı itiraz edilmemesi veya itirazın Yargıtay tarafından reddedilmesi hâlinde, 6100 sayılı Kanun’un 366 ncı maddesi atfıyla aynı Kanun’un 344 üncü maddesi uyarınca;
+
+[p15] a) Temyiz harçlarının bir haftalık kesin süre içerisinde tamamlanması, aksi hâlde temyiz başvurusundan vazgeçmiş sayılacağı hususunun başvurana yazılı olarak bildirilmesi,
+
+[p16] b) Verilen kesin süre içinde temyiz harçları tamamlanmadığı takdirde temyiz başvurusunun yapılmamış sayılmasına karar verilerek başvurana tebliğ edilmesi,
+
+[p17] 3. Verilen kesin süre içinde;
+
+[p18] a) Temyiz harçlarının tamamlanması hâlinde,
+
+[p19] b)Temyiz harçlarının tamamlanmaması sebebiyle temyiz başvurusunun yapılmamış sayılmasına dair verilen kararın tebliğ tarihinden itibaren bir hafta içinde temyiz edilmesi durumunda ise temyiz harç ve giderleri de yatırıldıktan sonra, dosyanın temyiz incelemesi yapılmak üzere Daireye gönderilmesi gerekir.
+
+[p20] KARAR
+
+[p21] Açıklanan sebeplerle;
+
+[p22] Belirtilen işlemlerin yerine getirilmesi için dosyanın hükmü veren hükmü veren Bölge Adliye Mahkemesine GERİ ÇEVRİLMESİNE,
+
+[p23] 13.01.2026 tarihinde oy birliğiyle karar verildi.

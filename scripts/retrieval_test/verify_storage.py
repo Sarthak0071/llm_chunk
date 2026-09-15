@@ -53,6 +53,15 @@ ROLE_VOCAB = {
     "danistay": {"facts", "issue", "rule_application", "conclusion", "dissent", "other"},
     "first_degree": {"facts", "issue", "rule_application", "conclusion", "dissent", "other"},
     "kvkk": {"background", "analysis", "outcome"},
+    "yargitay": {"facts", "issue", "rule_application", "conclusion", "dissent", "other"},
+    # Sources 7 and 8, registered but not yet chunkable: every row is
+    # pending_extraction upstream, so output/chunk/ holds no file for either and
+    # these vocabularies are never exercised. Stated anyway so that the day a
+    # file does appear it is checked rather than skipped for want of an entry.
+    # rekabet takes kvkk's regulatory stages; uyusmazlik reuses the court
+    # vocabulary unchanged rather than adding a field to the chunk schema.
+    "rekabet": {"background", "analysis", "outcome"},
+    "uyusmazlik": {"facts", "issue", "rule_application", "conclusion", "dissent", "other"},
 }
 
 OUTCOME_PATTERNS = {
@@ -60,6 +69,8 @@ OUTCOME_PATTERNS = {
     "violation": [r"İHLÂL\s+EDİLDİĞİNE", r"İHLAL\s+EDİLDİĞİNE"],
     "denied": [r"REDDİNE"],
     "affirmed": [r"ONANMASINA"],
+    "reversed": [r"BOZULMASINA"],
+    "remanded": [r"GERİ\s+ÇEVRİLMESİNE"],
 }
 
 # The outcome LABEL is written by the model in Turkish ("ihlal_yok"), while the
@@ -73,6 +84,15 @@ OUTCOME_LABEL_FORMS = {
     "violation": ("ihlal", "violation"),
     "denied": ("red", "denied", "dismiss", "kabul_edilemez"),
     "affirmed": ("onan", "onama", "affirm", "onandi"),
+    "reversed": ("bozma", "bozul", "reversed", "bozuldu"),
+    # Both stems: Turkish drops the vowel in "cevrilme" / "çevrilmesine", so
+    # "çevir" does not match it. Verified: geri_çevrilme flagged without this.
+    # Both stems: Turkish drops the vowel in "cevrilme" / "çevrilmesine", so
+    # "çevir" does not match it. English forms too -- `outcome` is a free
+    # string and the model mixes languages across sources ("ihlal_yok" but
+    # "return_for_procedural_action"), so the check must accept both.
+    "remanded": ("geri_cevir", "geri_çevir", "geri_cevr", "geri_çevr",
+                 "remand", "return", "iade"),
 }
 
 # Case-number lines in the document's own header, e.g. "ESAS NO : 2016/1359".
