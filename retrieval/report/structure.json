@@ -1,0 +1,213 @@
+{
+  "legislation": {
+    "chunks_with_law": 44,
+    "chunk_total": 142,
+    "distinct_refs": 65,
+    "probes": [
+      {
+        "ref": "6100",
+        "chunks": 14,
+        "docs": 5,
+        "false_positives": 0
+      },
+      {
+        "ref": "4054",
+        "chunks": 9,
+        "docs": 1,
+        "false_positives": 0
+      },
+      {
+        "ref": "4054/4",
+        "chunks": 9,
+        "docs": 1,
+        "false_positives": 0
+      },
+      {
+        "ref": "constitution/35",
+        "chunks": 6,
+        "docs": 1,
+        "false_positives": 0
+      },
+      {
+        "ref": "HMK",
+        "chunks": 6,
+        "docs": 3,
+        "false_positives": 0
+      },
+      {
+        "ref": "TTK",
+        "chunks": 4,
+        "docs": 2,
+        "false_positives": 0
+      },
+      {
+        "ref": "6100/353",
+        "chunks": 4,
+        "docs": 2,
+        "false_positives": 0
+      },
+      {
+        "ref": "2577",
+        "chunks": 4,
+        "docs": 3,
+        "false_positives": 0
+      },
+      {
+        "ref": "6102",
+        "chunks": 3,
+        "docs": 2,
+        "false_positives": 0
+      },
+      {
+        "ref": "6698",
+        "chunks": 3,
+        "docs": 2,
+        "false_positives": 0
+      }
+    ]
+  },
+  "role_filter": {
+    "rows": [
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": null,
+        "reasoning_only": 10
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": null,
+        "reasoning_only": 3
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 15,
+        "reasoning_only": 2
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 11,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 4,
+        "reasoning_only": 3
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 3
+      },
+      {
+        "all": 3,
+        "reasoning_only": 2
+      },
+      {
+        "all": 13,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 1
+      },
+      {
+        "all": 1,
+        "reasoning_only": 2
+      },
+      {
+        "all": 1,
+        "reasoning_only": 2
+      }
+    ],
+    "lost": 0,
+    "gained": 2
+  },
+  "capsule": {
+    "capsules": 14,
+    "top1": 23,
+    "never": 2,
+    "n": 30
+  },
+  "summary_vs_text": {
+    "capsule summary": {
+      "top1": 23,
+      "top5": 28,
+      "n": 30
+    },
+    "chunk text": {
+      "top1": 23,
+      "top5": 25,
+      "n": 30
+    }
+  }
+}

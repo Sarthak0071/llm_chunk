@@ -1,0 +1,45 @@
+[transformers] Disabling PyTorch because PyTorch >= 2.5 is required but found 2.1.0
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+  loading BAAI/bge-m3 (ONNX)…
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  ready. inputs=['attention_mask', 'input_ids']
+    10 to embed in 3 batches (144 already cached); longest 4553 tokens
+    7/10  (batch 7 x 1425 tok, peak ~0.85 GB)
+    10/10  (batch 1 x 4553 tok, peak ~1.24 GB)
+    1002 to embed in 102 batches (23 already cached); longest 2048 tokens
+    32/1002  (batch 32 x 136 tok, peak ~0.04 GB)
+    504/1002  (batch 10 x 1557 tok, peak ~1.44 GB)
+    636/1002  (batch 6 x 2048 tok, peak ~1.50 GB)
+    756/1002  (batch 6 x 2048 tok, peak ~1.50 GB)
+    876/1002  (batch 6 x 2048 tok, peak ~1.50 GB)
+    996/1002  (batch 6 x 2048 tok, peak ~1.50 GB)
+    1002/1002  (batch 6 x 2048 tok, peak ~1.50 GB)
+C:\Users\NITRO\Desktop\Hammurabi\llm_chunk\retrieval\qdrant_index.py:102: UserWarning: Payload indexes have no effect in the local Qdrant. Please use server Qdrant if you need payload indexes.
+  qc.create_payload_index(collection_name=name, field_name=field,
+==========================================================================
+ INDEXING BOTH ARMS
+==========================================================================
+ documents with text : 1037
+ chunks              : 142 covering 12 decisions
+ contract            : 1179 records, 0 failures
+
+ Arm A (baseline)    : 1037 points, all whole documents
+ Arm B (ours)        : 1167 points = 1025 documents + 142 chunks
+   decisions replaced by their chunks: 12
+
+ embedding, two tiers (cached by text+ceiling; first run is slow)
+   under test  : 12 documents + 142 chunks @ 8192 tokens (production fidelity)
+   haystack    : 1025 distractors @ 2048 tokens (identical in both arms)
+ embedded            : 1179 vectors
+
+ docs_baseline
+   upserted   : 1037
+   verified   : 1037 points, dim 1024, Cosine
+   indexes ok : 5 (chamber, court, esas_year, high_court, karar_year)
+
+ chunks_ours
+   upserted   : 1167
+   verified   : 1167 points, dim 1024, Cosine
+   indexes ok : 11 (chamber, chunk_index, content_type, court, esas_year, high_court, karar_year, parent_uuid, role, source_type, unit)
+
+ ALL CHECKS PASS  (2802s)

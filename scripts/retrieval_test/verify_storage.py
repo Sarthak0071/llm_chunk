@@ -37,7 +37,7 @@ import corpus as C
 
 # Only the two key builders, nothing else from the generator (see module doc).
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "llm_chunk"))
-from chunk_generate import make_canonical_id, normalise_law_short  # noqa: E402
+from chunker import make_canonical_id, normalise_law_short  # noqa: E402
 
 MAX_CHUNK_CHARS = 2000
 RULING_ROLES = {"conclusion", "outcome"}
@@ -174,6 +174,33 @@ class Results:
             print(f"  [PASS] {name}{('  ' + note) if note else ''}")
 
 
+def _citation_grounded(cit, text):
+    """Is the citation supported by the text, even when its quoted phrase is not?
+
+    Deliberately re-implemented rather than imported from chunk_generate: the
+    value of this file is that it shares no logic with the generator. It must
+    agree on the RULE, not on the code.
+    """
+    body = C.norm_ws(text or "")
+    if not body:
+        return False
+    article = (cit.get("article_no") or "").strip()
+    if article and not re.search(rf"(?<!\d){re.escape(article)}(?!\d)", body):
+        return False
+    ids = []
+    if cit.get("law_no"):
+        ids.append(re.escape(str(cit["law_no"]).strip()))
+    if cit.get("law_short"):
+        ids.append(re.escape(cit["law_short"].strip().replace(".", r"\.?")))
+    if cit.get("law_name"):
+        words = [w for w in re.split(r"\W+", cit["law_name"]) if len(w) > 5]
+        if words:
+            ids.append(re.escape(max(words, key=len)))
+    if cit.get("legislation_type") == "constitution":
+        ids.append("Anayasa")
+    return any(re.search(i, body, re.IGNORECASE) for i in ids) if ids else False
+
+
 def run(as_json=False):
     c = C.Corpus()
     if not c.chunks:
@@ -251,7 +278,20 @@ def run(as_json=False):
         for g in ch.get("cited_legislations") or []:
             vm = C.norm_ws(g.get("verbatim_mention"))
             if vm and vm not in C.norm_ws(ch.get("text")):
-                mentions.append(f"{ch.get('chunk_label')}: verbatim_mention not in chunk text")
+                # NOT automatically wrong. Turkish decisions enumerate provisions
+                # in one phrase -- "Anayasa'nin 2., 6., 10. ... ve 161.
+                # maddelerine" -- so a citation to one of them CANNOT be a
+                # contiguous quote and is necessarily reconstructed. Requiring a
+                # literal substring flagged 367 citations here, and in the
+                # generator the same rule was deleting them outright.
+                #
+                # The honest test is grounding: does the article number appear in
+                # the text, and does something identifying the law appear too?
+                # Re-derived here rather than imported, because this file stays
+                # independent of the generator by design.
+                if not _citation_grounded(g, ch.get("text")):
+                    mentions.append(f"{ch.get('chunk_label')}: citation not grounded "
+                                    f"in chunk text ({vm[:40]})")
     res.report("chunk text built only from real source paragraphs", ungrounded,
                note=f"{len(c.chunks)} chunks")
     res.report("verbatim_mention grounded in chunk text", mentions)

@@ -1,0 +1,22 @@
+{
+  "totals": {
+    "docs_flagged": 1,
+    "chunks_flagged": 1,
+    "chunks": 142,
+    "new_penalty": 0,
+    "docs": 12
+  },
+  "flagged_chunks": [
+    {
+      "source": "aym",
+      "doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344",
+      "chunk_label": "a2cf33ab-59a6-e13b-1180-c7c62ef26344-p70_to_p76_p2",
+      "role": "application",
+      "content_type": "reasoning",
+      "chars": 996,
+      "reason": "görevsizlik (jurisdictional)",
+      "phrase_density": 0.0181,
+      "doc_also_flagged": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "target": 1,
+    "units": 142,
+    "median_chars": 633.5,
+    "median_tokens": 162.5,
+    "top1": 25,
+    "top5": 25,
+    "mrr": 0.847,
+    "never": 2,
+    "pinpoint": 16,
+    "pinpoint_askable": 20,
+    "n": 30,
+    "chars": 70540
+  },
+  {
+    "target": 3000,
+    "units": 39,
+    "median_chars": 3386,
+    "median_tokens": 773,
+    "top1": 25,
+    "top5": 25,
+    "mrr": 0.847,
+    "never": 2,
+    "pinpoint": 16,
+    "pinpoint_askable": 20,
+    "n": 30,
+    "chars": 70540
+  }
+]

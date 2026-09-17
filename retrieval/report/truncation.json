@@ -1,0 +1,6232 @@
+{
+  "model": "BAAI/bge-m3",
+  "max_tokens": 8192,
+  "median_chars_per_token": 4.114,
+  "documents": 1037,
+  "over_ceiling": 61,
+  "pct_tokens_visible": 88.86,
+  "rows": [
+    {
+      "source": "aym",
+      "doc_id": "a2cf33ab-59a6-e13b-1180-c7c62ef26344",
+      "chars": 27950,
+      "tokens": 6509
+    },
+    {
+      "source": "aym",
+      "doc_id": "8d4909ed-b24d-0ee1-6d5e-4b03bd653ab2",
+      "chars": 21132,
+      "tokens": 4646
+    },
+    {
+      "source": "aym",
+      "doc_id": "e12c57f4-74ef-9031-16ad-efbf7f62d23c",
+      "chars": 36396,
+      "tokens": 8645
+    },
+    {
+      "source": "aym",
+      "doc_id": "5a1d5e2a-7cdd-472d-dda6-221edce97e67",
+      "chars": 20920,
+      "tokens": 5029
+    },
+    {
+      "source": "aym",
+      "doc_id": "4f22838c-12d7-498b-9d4c-fc13d9fe11c2",
+      "chars": 24192,
+      "tokens": 5726
+    },
+    {
+      "source": "aym",
+      "doc_id": "6c0f7d2a-bdd2-21a5-edc3-42c64b965ea9",
+      "chars": 15486,
+      "tokens": 3627
+    },
+    {
+      "source": "aym",
+      "doc_id": "80493af2-b96c-1f3a-13b1-e25b41aecb81",
+      "chars": 46142,
+      "tokens": 10957
+    },
+    {
+      "source": "aym",
+      "doc_id": "908e471e-7583-63e3-8b3d-2544dab4db5b",
+      "chars": 26930,
+      "tokens": 5950
+    },
+    {
+      "source": "aym",
+      "doc_id": "67e79bee-936a-8e89-f06d-b6c0414fa415",
+      "chars": 29641,
+      "tokens": 6702
+    },
+    {
+      "source": "aym",
+      "doc_id": "975f5e91-5b66-cc13-31d3-7e2b3de356e5",
+      "chars": 26627,
+      "tokens": 6166
+    },
+    {
+      "source": "aym",
+      "doc_id": "d35597bd-3082-dda0-2e9d-50a1435bd2fc",
+      "chars": 13914,
+      "tokens": 3334
+    },
+    {
+      "source": "aym",
+      "doc_id": "430ac446-ecf8-bd99-db70-ae88dc3dae83",
+      "chars": 14194,
+      "tokens": 3374
+    },
+    {
+      "source": "aym",
+      "doc_id": "d73dfdff-9d92-37eb-d96b-987434b72f26",
+      "chars": 13132,
+      "tokens": 3120
+    },
+    {
+      "source": "aym",
+      "doc_id": "c9415d92-a7c5-88a4-ab65-e28dadf6a429",
+      "chars": 19401,
+      "tokens": 4501
+    },
+    {
+      "source": "aym",
+      "doc_id": "08d38437-3e13-6e3a-f959-27f87a932b25",
+      "chars": 41315,
+      "tokens": 9485
+    },
+    {
+      "source": "aym",
+      "doc_id": "8b84a656-3e05-37fa-cd46-9ce16363c48e",
+      "chars": 8667,
+      "tokens": 2077
+    },
+    {
+      "source": "aym",
+      "doc_id": "c2271d53-7417-56e6-052a-977ded589b4c",
+      "chars": 26373,
+      "tokens": 6185
+    },
+    {
+      "source": "aym",
+      "doc_id": "675fb2e2-6379-3848-c51b-9f2ed818cdc7",
+      "chars": 13715,
+      "tokens": 3204
+    },
+    {
+      "source": "aym",
+      "doc_id": "a445b449-049c-479d-a803-82f6ef8aeffb",
+      "chars": 20777,
+      "tokens": 4895
+    },
+    {
+      "source": "aym",
+      "doc_id": "16ce6eeb-a177-3c65-f4ce-202b79268c4a",
+      "chars": 18314,
+      "tokens": 4297
+    },
+    {
+      "source": "aym",
+      "doc_id": "548fd778-e992-6bb2-1528-d2ce12733af4",
+      "chars": 74735,
+      "tokens": 17448
+    },
+    {
+      "source": "aym",
+      "doc_id": "f86d66e0-8a02-d9c8-fd33-cb374f9444c8",
+      "chars": 48631,
+      "tokens": 11134
+    },
+    {
+      "source": "aym",
+      "doc_id": "0ddd6b3c-7114-694c-1bbd-7f582b50cfb8",
+      "chars": 184935,
+      "tokens": 42077
+    },
+    {
+      "source": "aym",
+      "doc_id": "6230ece0-b792-5fb9-7332-9703914e428c",
+      "chars": 19076,
+      "tokens": 4556
+    },
+    {
+      "source": "aym",
+      "doc_id": "2fc99dda-c99d-e9f8-3435-12ba6d219648",
+      "chars": 46204,
+      "tokens": 10779
+    },
+    {
+      "source": "aym",
+      "doc_id": "618de7ce-8b35-4165-bba2-3166dde4e0e4",
+      "chars": 14647,
+      "tokens": 3671
+    },
+    {
+      "source": "aym",
+      "doc_id": "6aabf85e-75cd-43f6-8601-bc74e4a98f6a",
+      "chars": 23782,
+      "tokens": 5656
+    },
+    {
+      "source": "aym",
+      "doc_id": "536c2722-490b-4ae0-a22d-793ea5339d2d",
+      "chars": 12867,
+      "tokens": 3114
+    },
+    {
+      "source": "aym",
+      "doc_id": "9fad42b1-fc8a-4ed1-bf94-0000a6ece081",
+      "chars": 28637,
+      "tokens": 6759
+    },
+    {
+      "source": "aym",
+      "doc_id": "17459340-6f02-465f-8f7d-35c40cb92980",
+      "chars": 25102,
+      "tokens": 5920
+    },
+    {
+      "source": "aym",
+      "doc_id": "76a41edc-ac5a-a8cd-e49a-5d41601e28ea",
+      "chars": 11911,
+      "tokens": 2844
+    },
+    {
+      "source": "aym",
+      "doc_id": "8f4c62ab-2356-132e-df13-2283cedb29bd",
+      "chars": 32404,
+      "tokens": 7565
+    },
+    {
+      "source": "aym",
+      "doc_id": "8f4ee08d-8cde-69f8-275f-42dc234ac6ec",
+      "chars": 32387,
+      "tokens": 7898
+    },
+    {
+      "source": "aym",
+      "doc_id": "a41511b7-9bda-81d0-6fe6-0f2b6f60f80b",
+      "chars": 16568,
+      "tokens": 3933
+    },
+    {
+      "source": "aym",
+      "doc_id": "0865d657-b107-9884-9c30-793f79f40609",
+      "chars": 50513,
+      "tokens": 11623
+    },
+    {
+      "source": "aym",
+      "doc_id": "c8476f6b-3317-16c8-f9b3-1f4ebc367bf5",
+      "chars": 26484,
+      "tokens": 6396
+    },
+    {
+      "source": "aym",
+      "doc_id": "e4c81e90-0a5e-511f-baba-30da2e635e47",
+      "chars": 80254,
+      "tokens": 18177
+    },
+    {
+      "source": "aym",
+      "doc_id": "28486d1c-0495-2b3e-2699-54b93e13cbe7",
+      "chars": 10678,
+      "tokens": 2550
+    },
+    {
+      "source": "aym",
+      "doc_id": "a7d56157-929b-6324-93b0-f012f5a027a4",
+      "chars": 21710,
+      "tokens": 5163
+    },
+    {
+      "source": "aym",
+      "doc_id": "5aac57e7-96bb-4de7-aa2c-e0e010e5e2dd",
+      "chars": 8312,
+      "tokens": 2068
+    },
+    {
+      "source": "aym",
+      "doc_id": "52281537-2a43-27b8-4a30-c94671a159e4",
+      "chars": 23215,
+      "tokens": 5555
+    },
+    {
+      "source": "aym",
+      "doc_id": "4f8aea66-619a-3667-6d00-07c86c7dcf32",
+      "chars": 33876,
+      "tokens": 7892
+    },
+    {
+      "source": "aym",
+      "doc_id": "5ea9f054-0c33-c179-7e5a-5eef2ee64ebd",
+      "chars": 21343,
+      "tokens": 5179
+    },
+    {
+      "source": "aym",
+      "doc_id": "88da9263-f7a8-4ef7-7b6b-4442240596ce",
+      "chars": 17255,
+      "tokens": 4021
+    },
+    {
+      "source": "aym",
+      "doc_id": "8d5c028e-4832-2ad7-b81d-cf3884c96c44",
+      "chars": 10819,
+      "tokens": 2626
+    },
+    {
+      "source": "aym",
+      "doc_id": "69277644-a0ef-4145-22a6-5a765af1a9f5",
+      "chars": 22547,
+      "tokens": 5585
+    },
+    {
+      "source": "aym",
+      "doc_id": "b84e9cc8-a5aa-9727-c8c2-424e4b5f078c",
+      "chars": 16502,
+      "tokens": 4034
+    },
+    {
+      "source": "aym",
+      "doc_id": "f19c146b-a5aa-1cc7-6df1-489c4a114cdc",
+      "chars": 19159,
+      "tokens": 4664
+    },
+    {
+      "source": "aym",
+      "doc_id": "a4dcfa2d-8677-b922-4520-ecfe748dad08",
+      "chars": 66123,
+      "tokens": 15314
+    },
+    {
+      "source": "aym",
+      "doc_id": "a56faebf-abcc-48e9-8663-0430443402e3",
+      "chars": 8309,
+      "tokens": 2070
+    },
+    {
+      "source": "aym",
+      "doc_id": "90a5dc00-7b34-d790-2f32-1fdb87d7c762",
+      "chars": 16826,
+      "tokens": 3962
+    },
+    {
+      "source": "aym",
+      "doc_id": "8c117431-c025-b654-9eca-9e03ed6de2ce",
+      "chars": 9920,
+      "tokens": 2257
+    },
+    {
+      "source": "aym",
+      "doc_id": "11075698-79ff-3137-03a7-0841e20e7b81",
+      "chars": 11190,
+      "tokens": 2575
+    },
+    {
+      "source": "aym",
+      "doc_id": "41d8a2f0-2f4a-041c-4f24-f208b40982ba",
+      "chars": 11507,
+      "tokens": 2708
+    },
+    {
+      "source": "aym",
+      "doc_id": "13b0f0eb-27d6-55d5-78b8-c86897115ea0",
+      "chars": 41313,
+      "tokens": 9779
+    },
+    {
+      "source": "aym",
+      "doc_id": "9f7c85de-66cc-50e5-66c8-5ab542fe9c98",
+      "chars": 27373,
+      "tokens": 6494
+    },
+    {
+      "source": "aym",
+      "doc_id": "ad3dd993-d242-46dd-72cc-30d8b6474f48",
+      "chars": 19591,
+      "tokens": 4478
+    },
+    {
+      "source": "aym",
+      "doc_id": "88ce4dfa-b573-75f8-8613-7ecbcab3a02b",
+      "chars": 17151,
+      "tokens": 4148
+    },
+    {
+      "source": "aym",
+      "doc_id": "74100311-132b-6f43-110a-143aa2e4df99",
+      "chars": 50003,
+      "tokens": 11336
+    },
+    {
+      "source": "aym",
+      "doc_id": "b102e743-9142-a49f-47da-dffd24698ee8",
+      "chars": 50294,
+      "tokens": 12064
+    },
+    {
+      "source": "aym",
+      "doc_id": "c9672773-8b8a-95d2-62e5-7ad9123de2d3",
+      "chars": 48925,
+      "tokens": 11382
+    },
+    {
+      "source": "aym",
+      "doc_id": "aec40f6f-e93f-1c77-0d1f-f7381664e31e",
+      "chars": 24937,
+      "tokens": 6104
+    },
+    {
+      "source": "aym",
+      "doc_id": "6dab5f81-27cb-6274-9a84-5938a63df87c",
+      "chars": 46140,
+      "tokens": 10866
+    },
+    {
+      "source": "aym",
+      "doc_id": "9a89496a-f223-4187-0955-72da66841509",
+      "chars": 17345,
+      "tokens": 4115
+    },
+    {
+      "source": "aym",
+      "doc_id": "a634d74c-2169-248c-fd14-f9261fc1409f",
+      "chars": 15037,
+      "tokens": 3637
+    },
+    {
+      "source": "aym",
+      "doc_id": "dc4542eb-668f-516d-5faf-2fbf876b4077",
+      "chars": 31246,
+      "tokens": 7480
+    },
+    {
+      "source": "aym",
+      "doc_id": "b272a230-ecb2-ceb2-6cbe-12e6d87d3c76",
+      "chars": 28573,
+      "tokens": 6675
+    },
+    {
+      "source": "aym",
+      "doc_id": "3f0a230b-491d-b20b-c168-89eb60c72800",
+      "chars": 13562,
+      "tokens": 3109
+    },
+    {
+      "source": "aym",
+      "doc_id": "d826f6cd-50ba-a7d5-5b8c-5da068ef4d47",
+      "chars": 56058,
+      "tokens": 13114
+    },
+    {
+      "source": "aym",
+      "doc_id": "6184b407-ce57-0581-11d8-ad8ad18e6507",
+      "chars": 7893,
+      "tokens": 1935
+    },
+    {
+      "source": "aym",
+      "doc_id": "3761c1e6-927c-d1f6-4c40-e41022a34351",
+      "chars": 21458,
+      "tokens": 5055
+    },
+    {
+      "source": "aym",
+      "doc_id": "742fcf4d-ac78-005f-b7a7-df234fed72da",
+      "chars": 11836,
+      "tokens": 2826
+    },
+    {
+      "source": "aym",
+      "doc_id": "92be5543-bba0-fa2f-81e6-8bd8bbcbfe07",
+      "chars": 32580,
+      "tokens": 7556
+    },
+    {
+      "source": "aym",
+      "doc_id": "a240cb31-99da-3e4e-84e4-837e77a0e94b",
+      "chars": 62719,
+      "tokens": 14529
+    },
+    {
+      "source": "aym",
+      "doc_id": "ff2ce127-1e8c-f826-8bca-5401a163904f",
+      "chars": 15769,
+      "tokens": 3600
+    },
+    {
+      "source": "aym",
+      "doc_id": "1624645a-7f32-e715-1162-de94b56f884b",
+      "chars": 21798,
+      "tokens": 5167
+    },
+    {
+      "source": "aym",
+      "doc_id": "3e3ce21b-d749-a926-f413-f505d77b9f4e",
+      "chars": 27213,
+      "tokens": 6728
+    },
+    {
+      "source": "aym",
+      "doc_id": "a127af9c-c9d4-3449-05db-c2479c21962d",
+      "chars": 115163,
+      "tokens": 26761
+    },
+    {
+      "source": "aym",
+      "doc_id": "8059d332-bfa7-b7f5-e77e-08435fd973c2",
+      "chars": 9078,
+      "tokens": 2162
+    },
+    {
+      "source": "aym",
+      "doc_id": "95a0f21d-529a-4b5c-2cd8-832c26b17f7c",
+      "chars": 46028,
+      "tokens": 10767
+    },
+    {
+      "source": "aym",
+      "doc_id": "f1c7aacd-f452-2665-a265-3ce6d39ff800",
+      "chars": 34417,
+      "tokens": 8273
+    },
+    {
+      "source": "aym",
+      "doc_id": "7f116eb6-8191-27e8-e76a-ed12a710ce93",
+      "chars": 48890,
+      "tokens": 11916
+    },
+    {
+      "source": "aym",
+      "doc_id": "6e3e77fc-ec59-8014-7015-045a3d63bebf",
+      "chars": 73840,
+      "tokens": 18124
+    },
+    {
+      "source": "aym",
+      "doc_id": "f85edc82-c52d-f288-452a-15742133ef1b",
+      "chars": 15776,
+      "tokens": 3539
+    },
+    {
+      "source": "aym",
+      "doc_id": "16fe44af-c998-99b3-bae3-6d32a958c43c",
+      "chars": 26993,
+      "tokens": 6373
+    },
+    {
+      "source": "aym",
+      "doc_id": "3d99ec3d-0bc8-2863-346a-6b50085fab19",
+      "chars": 8969,
+      "tokens": 2160
+    },
+    {
+      "source": "aym",
+      "doc_id": "2468997e-273f-2c3d-6b21-d0476873705c",
+      "chars": 26816,
+      "tokens": 6372
+    },
+    {
+      "source": "aym",
+      "doc_id": "b1959328-6d81-2c19-4183-170f6c1b53b4",
+      "chars": 33208,
+      "tokens": 8016
+    },
+    {
+      "source": "aym",
+      "doc_id": "0dfc5024-e81a-2810-5f4c-d2039126bd03",
+      "chars": 45834,
+      "tokens": 11351
+    },
+    {
+      "source": "aym",
+      "doc_id": "36fece07-fd2e-8553-8073-b97522743043",
+      "chars": 17312,
+      "tokens": 4069
+    },
+    {
+      "source": "aym",
+      "doc_id": "a0932782-140e-3571-360f-1c9631dd499b",
+      "chars": 27947,
+      "tokens": 6584
+    },
+    {
+      "source": "aym",
+      "doc_id": "7a0060c4-1e50-0816-d529-3e8f5cb9d878",
+      "chars": 23586,
+      "tokens": 5769
+    },
+    {
+      "source": "aym",
+      "doc_id": "cf1cd47b-ddcf-afbb-8062-d7c61c03f0aa",
+      "chars": 11491,
+      "tokens": 2731
+    },
+    {
+      "source": "aym",
+      "doc_id": "781aa835-b619-ab03-8487-278ab688bbae",
+      "chars": 27844,
+      "tokens": 6456
+    },
+    {
+      "source": "aym",
+      "doc_id": "bf77cce3-6e61-d8ae-d7da-a47e070ac160",
+      "chars": 40494,
+      "tokens": 9701
+    },
+    {
+      "source": "aym",
+      "doc_id": "b908224f-c4df-fbfd-425f-f013de228d84",
+      "chars": 46286,
+      "tokens": 11412
+    },
+    {
+      "source": "aym",
+      "doc_id": "6538c7e8-7a2e-e580-2853-4d1b5272e5b5",
+      "chars": 32341,
+      "tokens": 7707
+    },
+    {
+      "source": "aym",
+      "doc_id": "3816c80a-4ffe-2093-3534-2f397f2e039a",
+      "chars": 12231,
+      "tokens": 2944
+    },
+    {
+      "source": "aym",
+      "doc_id": "52cad96e-bee4-6b62-a706-71ba6a4289a1",
+      "chars": 16056,
+      "tokens": 3823
+    },
+    {
+      "source": "aym",
+      "doc_id": "c15f950a-20a7-42c4-bd86-fc584321b23a",
+      "chars": 22286,
+      "tokens": 5020
+    },
+    {
+      "source": "aym",
+      "doc_id": "a9941553-5a05-c2af-62ef-60c4996dbb52",
+      "chars": 21651,
+      "tokens": 5048
+    },
+    {
+      "source": "aym",
+      "doc_id": "92a6a1ac-4439-1ef9-9166-8fa857a6f5ad",
+      "chars": 23333,
+      "tokens": 5465
+    },
+    {
+      "source": "aym",
+      "doc_id": "80f905a0-d67f-24a9-4fd1-524d9305016f",
+      "chars": 13731,
+      "tokens": 3189
+    },
+    {
+      "source": "aym",
+      "doc_id": "ee79e25f-c311-fdc9-e0a7-057e12635763",
+      "chars": 45286,
+      "tokens": 10623
+    },
+    {
+      "source": "aym",
+      "doc_id": "98b19c20-2881-d244-6d78-8d049bad1779",
+      "chars": 36969,
+      "tokens": 8235
+    },
+    {
+      "source": "aym",
+      "doc_id": "c5be8422-7044-3e7e-e2d4-c37f9eda4d28",
+      "chars": 54663,
+      "tokens": 12558
+    },
+    {
+      "source": "aym",
+      "doc_id": "2a9811aa-dea0-98cb-6f48-e006a99daac2",
+      "chars": 21792,
+      "tokens": 5018
+    },
+    {
+      "source": "aym",
+      "doc_id": "e2f3e92c-a1cf-923b-349a-a883ba13f629",
+      "chars": 37986,
+      "tokens": 8907
+    },
+    {
+      "source": "aym",
+      "doc_id": "90de3f74-a32a-0760-9cce-14eb06eb07e0",
+      "chars": 60263,
+      "tokens": 14050
+    },
+    {
+      "source": "aym",
+      "doc_id": "fef8c380-70fe-fd9e-9fc5-01a28afef223",
+      "chars": 78126,
+      "tokens": 18016
+    },
+    {
+      "source": "aym",
+      "doc_id": "735dd43e-5358-4cbd-3a9b-76d246575c6b",
+      "chars": 7079,
+      "tokens": 1681
+    },
+    {
+      "source": "aym",
+      "doc_id": "05d652a6-f94a-0420-6a3f-8c619d04b56d",
+      "chars": 11109,
+      "tokens": 2622
+    },
+    {
+      "source": "aym",
+      "doc_id": "e027d366-dd90-cacf-60df-ec0e50e1cc44",
+      "chars": 6585,
+      "tokens": 1578
+    },
+    {
+      "source": "aym",
+      "doc_id": "31adc84c-4865-662f-bdbb-0bb4abc75996",
+      "chars": 19667,
+      "tokens": 4475
+    },
+    {
+      "source": "aym",
+      "doc_id": "d35805db-ced8-b9f2-f635-dd38b9a05c1a",
+      "chars": 9938,
+      "tokens": 2306
+    },
+    {
+      "source": "aym",
+      "doc_id": "c016ff02-ff21-7ea2-0fd6-5c2380f33f5a",
+      "chars": 15579,
+      "tokens": 3598
+    },
+    {
+      "source": "aym",
+      "doc_id": "45743b14-1963-4f57-f18e-3da77895dfe0",
+      "chars": 19471,
+      "tokens": 4763
+    },
+    {
+      "source": "aym",
+      "doc_id": "83b64b52-8a24-1c6a-a21d-13a090838a61",
+      "chars": 20324,
+      "tokens": 4821
+    },
+    {
+      "source": "aym",
+      "doc_id": "e2a5034a-86f8-fbc0-40ea-c27d21807ad9",
+      "chars": 21912,
+      "tokens": 4876
+    },
+    {
+      "source": "aym",
+      "doc_id": "e059df3f-407e-04ba-c9fc-1ea58a384e30",
+      "chars": 19803,
+      "tokens": 4618
+    },
+    {
+      "source": "aym",
+      "doc_id": "1607dc2e-50c1-4c7b-5f18-51f0e8a07b3b",
+      "chars": 64427,
+      "tokens": 14688
+    },
+    {
+      "source": "aym",
+      "doc_id": "0c4a76fe-eac2-e3b6-9be8-dbd0557f6e0c",
+      "chars": 12170,
+      "tokens": 2871
+    },
+    {
+      "source": "aym",
+      "doc_id": "1d90630a-27cc-eda2-622e-4ae798a42c06",
+      "chars": 85292,
+      "tokens": 19589
+    },
+    {
+      "source": "aym",
+      "doc_id": "72eb9df0-6355-6b20-fdf3-fd2006f24be0",
+      "chars": 13329,
+      "tokens": 3086
+    },
+    {
+      "source": "aym",
+      "doc_id": "5b03bf15-9db5-2b27-8df1-771a8fb9d7d3",
+      "chars": 48283,
+      "tokens": 11620
+    },
+    {
+      "source": "aym",
+      "doc_id": "5e7ea69b-5b96-3227-3b54-2df62cd30e44",
+      "chars": 17102,
+      "tokens": 4047
+    },
+    {
+      "source": "aym",
+      "doc_id": "7b4b8d2b-96ea-f754-490e-01e941c64238",
+      "chars": 23406,
+      "tokens": 5639
+    },
+    {
+      "source": "aym",
+      "doc_id": "18672ca8-136b-ab6c-79b4-2b97cb50cf2b",
+      "chars": 24538,
+      "tokens": 5531
+    },
+    {
+      "source": "aym",
+      "doc_id": "1f5edb5e-17b3-d70c-2b25-fac670b6fcb2",
+      "chars": 21772,
+      "tokens": 5176
+    },
+    {
+      "source": "aym",
+      "doc_id": "368c642a-227c-50b7-7197-e5ed18fe2b98",
+      "chars": 11722,
+      "tokens": 2783
+    },
+    {
+      "source": "aym",
+      "doc_id": "2ee9e51a-94d3-d595-2c4d-55a70c7ff0e6",
+      "chars": 3933,
+      "tokens": 1068
+    },
+    {
+      "source": "aym",
+      "doc_id": "f91887b9-1d6e-4e95-8601-a2a7cb51a1e1",
+      "chars": 20337,
+      "tokens": 4716
+    },
+    {
+      "source": "aym",
+      "doc_id": "c0a7e9c5-4bec-4c9d-b644-abd6f667910d",
+      "chars": 17040,
+      "tokens": 4010
+    },
+    {
+      "source": "aym",
+      "doc_id": "2efdda74-7985-4a8c-afc0-0777c5b3ce64",
+      "chars": 30231,
+      "tokens": 7136
+    },
+    {
+      "source": "aym",
+      "doc_id": "9b1e0dd1-dd6b-4877-9dfe-0e595f6c20e8",
+      "chars": 98428,
+      "tokens": 22541
+    },
+    {
+      "source": "aym",
+      "doc_id": "65927491-390f-4494-90fe-a0ad2e302780",
+      "chars": 37164,
+      "tokens": 8941
+    },
+    {
+      "source": "aym",
+      "doc_id": "ee77bac0-60fd-b726-1e08-645a0ec882d0",
+      "chars": 24991,
+      "tokens": 6179
+    },
+    {
+      "source": "aym",
+      "doc_id": "478259a0-9d01-983a-4d15-d220c6cec391",
+      "chars": 44400,
+      "tokens": 10757
+    },
+    {
+      "source": "aym",
+      "doc_id": "31dfb386-3852-2edf-938f-ceb2eddd7885",
+      "chars": 26724,
+      "tokens": 6523
+    },
+    {
+      "source": "aym",
+      "doc_id": "8aa0a8a5-bdf8-fbfb-f835-3ec806a062cf",
+      "chars": 24758,
+      "tokens": 5584
+    },
+    {
+      "source": "aym",
+      "doc_id": "7fa393e8-3b61-33c3-9ae1-094181dc79c9",
+      "chars": 10922,
+      "tokens": 2586
+    },
+    {
+      "source": "aym",
+      "doc_id": "8baf68a0-5d9b-64ec-2629-dce9cc611b87",
+      "chars": 64667,
+      "tokens": 14805
+    },
+    {
+      "source": "aym",
+      "doc_id": "15df2365-5a40-510d-e9c4-c66ee2ea97de",
+      "chars": 16483,
+      "tokens": 3850
+    },
+    {
+      "source": "aym",
+      "doc_id": "2813b91f-2b8e-d378-8aa5-7d251a6d54f9",
+      "chars": 30755,
+      "tokens": 7429
+    },
+    {
+      "source": "aym",
+      "doc_id": "50df0681-bdad-4857-959c-b5c586a04b91",
+      "chars": 32033,
+      "tokens": 7677
+    },
+    {
+      "source": "aym",
+      "doc_id": "31a6f62d-1633-4370-a324-2a6c76055882",
+      "chars": 16471,
+      "tokens": 4060
+    },
+    {
+      "source": "aym",
+      "doc_id": "74fe11e0-171c-4633-8448-73c94fc1194d",
+      "chars": 13844,
+      "tokens": 3471
+    },
+    {
+      "source": "aym",
+      "doc_id": "aeac23fb-0df1-5d2e-02ed-f0462cf7d8c9",
+      "chars": 45933,
+      "tokens": 10735
+    },
+    {
+      "source": "aym",
+      "doc_id": "00743e80-29c7-ee50-2d39-907de2771d1b",
+      "chars": 22884,
+      "tokens": 5367
+    },
+    {
+      "source": "aym",
+      "doc_id": "d07f9f0e-18f6-c5f1-6965-6624fe8e8079",
+      "chars": 53231,
+      "tokens": 12546
+    },
+    {
+      "source": "aym",
+      "doc_id": "6d72fe21-251c-5234-82d2-b8af7cc16fcc",
+      "chars": 42415,
+      "tokens": 10091
+    },
+    {
+      "source": "aym",
+      "doc_id": "1c769fe4-76bf-cbff-9cb3-1f0a1a904795",
+      "chars": 35409,
+      "tokens": 8345
+    },
+    {
+      "source": "aym",
+      "doc_id": "a53f4d4b-a74b-e306-044a-3960c22ef00a",
+      "chars": 32731,
+      "tokens": 7729
+    },
+    {
+      "source": "aym",
+      "doc_id": "9f11fbf2-92ec-78e3-b83a-ae2ab6574403",
+      "chars": 21330,
+      "tokens": 4913
+    },
+    {
+      "source": "aym",
+      "doc_id": "9fb55be2-4c19-4998-ec60-d1284e33e117",
+      "chars": 10925,
+      "tokens": 2557
+    },
+    {
+      "source": "aym",
+      "doc_id": "8984f776-bb6e-980e-c602-b14998099ee0",
+      "chars": 17252,
+      "tokens": 4125
+    },
+    {
+      "source": "aym",
+      "doc_id": "806d21f2-6be7-0749-a643-257e5fd1ca52",
+      "chars": 18313,
+      "tokens": 4299
+    },
+    {
+      "source": "aym",
+      "doc_id": "e5e27a98-b9d8-5473-8bf7-ed80f9db1459",
+      "chars": 15902,
+      "tokens": 3744
+    },
+    {
+      "source": "aym",
+      "doc_id": "1a9bee05-c1e6-cfc6-2046-6d5d8abdc1bc",
+      "chars": 12707,
+      "tokens": 2937
+    },
+    {
+      "source": "aym",
+      "doc_id": "e6fcfdf2-aa82-a3cf-8db6-ad61590df728",
+      "chars": 15248,
+      "tokens": 3796
+    },
+    {
+      "source": "aym",
+      "doc_id": "641a8011-20f7-7d46-e439-e4f04372a42c",
+      "chars": 12811,
+      "tokens": 3022
+    },
+    {
+      "source": "aym",
+      "doc_id": "b8933472-4f56-9596-4375-f9e66db6f96b",
+      "chars": 13692,
+      "tokens": 3248
+    },
+    {
+      "source": "aym",
+      "doc_id": "b154a758-646e-b1b7-bd8e-271dea13e711",
+      "chars": 17887,
+      "tokens": 4181
+    },
+    {
+      "source": "aym",
+      "doc_id": "4ab44095-3471-79a8-ffd8-71c1dffc35c8",
+      "chars": 41904,
+      "tokens": 9922
+    },
+    {
+      "source": "aym",
+      "doc_id": "db35adda-89e0-5d5f-df4f-cd0521bb7a9a",
+      "chars": 15341,
+      "tokens": 3758
+    },
+    {
+      "source": "aym",
+      "doc_id": "ff53f648-8378-4c9d-bbd4-48075ff87665",
+      "chars": 11202,
+      "tokens": 2756
+    },
+    {
+      "source": "aym",
+      "doc_id": "c441ef4d-9abd-5722-440a-d3a26fd1ec4d",
+      "chars": 54199,
+      "tokens": 12251
+    },
+    {
+      "source": "aym",
+      "doc_id": "2135a1b5-f976-4386-39f7-55221fcd295b",
+      "chars": 27461,
+      "tokens": 6506
+    },
+    {
+      "source": "aym",
+      "doc_id": "2cb93fb4-88f2-b67f-f06b-a2f2347fa2f2",
+      "chars": 32032,
+      "tokens": 7277
+    },
+    {
+      "source": "aym",
+      "doc_id": "3b9e72e9-e432-53ee-1ee2-a625b12ee2c1",
+      "chars": 11951,
+      "tokens": 2866
+    },
+    {
+      "source": "aym",
+      "doc_id": "77c44e11-617e-1bed-66d4-3fd00fa67282",
+      "chars": 10414,
+      "tokens": 2461
+    },
+    {
+      "source": "aym",
+      "doc_id": "c569513b-f762-8a33-2c71-0f0a35b3aef9",
+      "chars": 23188,
+      "tokens": 5461
+    },
+    {
+      "source": "aym",
+      "doc_id": "1fe43fae-3cc4-6db0-aef3-486cfb37fabc",
+      "chars": 27942,
+      "tokens": 6429
+    },
+    {
+      "source": "aym",
+      "doc_id": "df461224-6245-8705-f96a-a405d08b421e",
+      "chars": 31123,
+      "tokens": 7259
+    },
+    {
+      "source": "aym",
+      "doc_id": "1ad3f681-008b-a1c2-46e2-2320e57277e3",
+      "chars": 29041,
+      "tokens": 6787
+    },
+    {
+      "source": "aym",
+      "doc_id": "ed963079-bf2c-6f8e-56a9-e53c03fc8eb0",
+      "chars": 32103,
+      "tokens": 7450
+    },
+    {
+      "source": "aym",
+      "doc_id": "314a3f08-8709-c2b4-ed63-ec7e1f1e7c85",
+      "chars": 49930,
+      "tokens": 11796
+    },
+    {
+      "source": "aym",
+      "doc_id": "898208f8-232f-4363-8b0c-90b8c8a95096",
+      "chars": 23357,
+      "tokens": 5661
+    },
+    {
+      "source": "aym",
+      "doc_id": "676b7143-21f9-7fc4-17b9-c17c1b1c37ec",
+      "chars": 55540,
+      "tokens": 13034
+    },
+    {
+      "source": "aym",
+      "doc_id": "3c8c0f84-d3a1-8cef-8541-ba8db4fa2b39",
+      "chars": 23285,
+      "tokens": 5552
+    },
+    {
+      "source": "aym",
+      "doc_id": "4bdbd220-bf42-acd2-03cc-82368ba21b65",
+      "chars": 10047,
+      "tokens": 2339
+    },
+    {
+      "source": "aym",
+      "doc_id": "3c5d7471-9e66-03f8-1506-fac08c466f33",
+      "chars": 35612,
+      "tokens": 8386
+    },
+    {
+      "source": "aym",
+      "doc_id": "4f34d1a3-e06a-3709-578d-b90ae6748488",
+      "chars": 12525,
+      "tokens": 2902
+    },
+    {
+      "source": "aym",
+      "doc_id": "d152ad7d-2e75-8524-0785-fac9c074e1e0",
+      "chars": 16661,
+      "tokens": 3880
+    },
+    {
+      "source": "aym",
+      "doc_id": "6d8c8dfa-95d0-126e-7e8f-25cb15bf278c",
+      "chars": 12861,
+      "tokens": 3115
+    },
+    {
+      "source": "aym",
+      "doc_id": "d04a5786-b978-6b9f-e03d-9e40ab296ebe",
+      "chars": 44794,
+      "tokens": 10540
+    },
+    {
+      "source": "aym",
+      "doc_id": "a4a7988d-ff84-8764-96de-ecf7681238d8",
+      "chars": 16575,
+      "tokens": 3829
+    },
+    {
+      "source": "aym",
+      "doc_id": "08761b6c-3e97-2e69-df07-46334347a3a8",
+      "chars": 44699,
+      "tokens": 10355
+    },
+    {
+      "source": "aym",
+      "doc_id": "e58d8dcc-b7d7-9d30-0c98-b9ade140e055",
+      "chars": 12281,
+      "tokens": 3031
+    },
+    {
+      "source": "aym",
+      "doc_id": "cc01a48e-b465-71c4-8f6c-f18796d0f256",
+      "chars": 14746,
+      "tokens": 3372
+    },
+    {
+      "source": "aym",
+      "doc_id": "8e0092d8-26bd-c70d-c135-1ed3679ab851",
+      "chars": 9860,
+      "tokens": 2406
+    },
+    {
+      "source": "aym",
+      "doc_id": "b0d91d1a-71bc-5c54-fe06-c5fea96cbe78",
+      "chars": 74485,
+      "tokens": 16645
+    },
+    {
+      "source": "aym",
+      "doc_id": "b7c40e8a-3d47-1e54-d58d-cba26e42160a",
+      "chars": 26042,
+      "tokens": 6053
+    },
+    {
+      "source": "aym",
+      "doc_id": "b20ecdd2-95bf-4e9d-b73a-df9bbc646a64",
+      "chars": 30570,
+      "tokens": 6863
+    },
+    {
+      "source": "aym",
+      "doc_id": "222cd1ef-7d2d-81aa-c9ed-d885f6e37564",
+      "chars": 26213,
+      "tokens": 6152
+    },
+    {
+      "source": "aym",
+      "doc_id": "4455b375-3205-e835-83ba-23761a371f83",
+      "chars": 7060,
+      "tokens": 1740
+    },
+    {
+      "source": "aym",
+      "doc_id": "d110f10a-a83d-5557-c648-f0b7388a15d6",
+      "chars": 63389,
+      "tokens": 15948
+    },
+    {
+      "source": "aym",
+      "doc_id": "c139f0a4-7fc0-847b-5821-3dbc41c50099",
+      "chars": 28018,
+      "tokens": 6494
+    },
+    {
+      "source": "aym",
+      "doc_id": "f4eeee27-fed2-216f-2485-d9b3d82860a6",
+      "chars": 51587,
+      "tokens": 11866
+    },
+    {
+      "source": "aym",
+      "doc_id": "888122d0-5821-71c2-1ca0-3fae45f445ad",
+      "chars": 30478,
+      "tokens": 7526
+    },
+    {
+      "source": "bam",
+      "doc_id": "676966100",
+      "chars": 19362,
+      "tokens": 4551
+    },
+    {
+      "source": "bam",
+      "doc_id": "726546200",
+      "chars": 12972,
+      "tokens": 3169
+    },
+    {
+      "source": "bam",
+      "doc_id": "679990200",
+      "chars": 14073,
+      "tokens": 3358
+    },
+    {
+      "source": "bam",
+      "doc_id": "401627500",
+      "chars": 4830,
+      "tokens": 1236
+    },
+    {
+      "source": "bam",
+      "doc_id": "914748400",
+      "chars": 9299,
+      "tokens": 2338
+    },
+    {
+      "source": "bam",
+      "doc_id": "695544800",
+      "chars": 2871,
+      "tokens": 811
+    },
+    {
+      "source": "bam",
+      "doc_id": "778569600",
+      "chars": 7579,
+      "tokens": 1975
+    },
+    {
+      "source": "bam",
+      "doc_id": "828457700",
+      "chars": 16528,
+      "tokens": 3924
+    },
+    {
+      "source": "bam",
+      "doc_id": "577174400",
+      "chars": 4037,
+      "tokens": 1045
+    },
+    {
+      "source": "bam",
+      "doc_id": "842659700",
+      "chars": 34249,
+      "tokens": 8000
+    },
+    {
+      "source": "bam",
+      "doc_id": "1052794900",
+      "chars": 14917,
+      "tokens": 3649
+    },
+    {
+      "source": "bam",
+      "doc_id": "441259000",
+      "chars": 1617,
+      "tokens": 445
+    },
+    {
+      "source": "bam",
+      "doc_id": "885963600",
+      "chars": 21465,
+      "tokens": 5103
+    },
+    {
+      "source": "bam",
+      "doc_id": "824117000",
+      "chars": 28789,
+      "tokens": 6861
+    },
+    {
+      "source": "bam",
+      "doc_id": "987840600",
+      "chars": 14452,
+      "tokens": 3594
+    },
+    {
+      "source": "bam",
+      "doc_id": "509876000",
+      "chars": 8408,
+      "tokens": 2140
+    },
+    {
+      "source": "bam",
+      "doc_id": "548328400",
+      "chars": 3115,
+      "tokens": 762
+    },
+    {
+      "source": "bam",
+      "doc_id": "615318100",
+      "chars": 3451,
+      "tokens": 892
+    },
+    {
+      "source": "bam",
+      "doc_id": "937463400",
+      "chars": 16260,
+      "tokens": 4043
+    },
+    {
+      "source": "bam",
+      "doc_id": "550258000",
+      "chars": 13081,
+      "tokens": 3196
+    },
+    {
+      "source": "bam",
+      "doc_id": "437051600",
+      "chars": 3283,
+      "tokens": 787
+    },
+    {
+      "source": "bam",
+      "doc_id": "832114200",
+      "chars": 6560,
+      "tokens": 1723
+    },
+    {
+      "source": "bam",
+      "doc_id": "959828600",
+      "chars": 10976,
+      "tokens": 2754
+    },
+    {
+      "source": "bam",
+      "doc_id": "833126900",
+      "chars": 10588,
+      "tokens": 2727
+    },
+    {
+      "source": "bam",
+      "doc_id": "677790500",
+      "chars": 11435,
+      "tokens": 2929
+    },
+    {
+      "source": "bam",
+      "doc_id": "718402500",
+      "chars": 7774,
+      "tokens": 2030
+    },
+    {
+      "source": "bam",
+      "doc_id": "1103305500",
+      "chars": 11680,
+      "tokens": 2871
+    },
+    {
+      "source": "bam",
+      "doc_id": "942878100",
+      "chars": 5875,
+      "tokens": 1458
+    },
+    {
+      "source": "bam",
+      "doc_id": "1038841500",
+      "chars": 9321,
+      "tokens": 2198
+    },
+    {
+      "source": "bam",
+      "doc_id": "716213500",
+      "chars": 14159,
+      "tokens": 3319
+    },
+    {
+      "source": "bam",
+      "doc_id": "1114784400",
+      "chars": 8110,
+      "tokens": 2087
+    },
+    {
+      "source": "bam",
+      "doc_id": "1034959500",
+      "chars": 13543,
+      "tokens": 3247
+    },
+    {
+      "source": "bam",
+      "doc_id": "977496800",
+      "chars": 9774,
+      "tokens": 2331
+    },
+    {
+      "source": "bam",
+      "doc_id": "900713200",
+      "chars": 4197,
+      "tokens": 1080
+    },
+    {
+      "source": "bam",
+      "doc_id": "1144837800",
+      "chars": 18145,
+      "tokens": 4230
+    },
+    {
+      "source": "bam",
+      "doc_id": "1043813400",
+      "chars": 14735,
+      "tokens": 3526
+    },
+    {
+      "source": "bam",
+      "doc_id": "1126079900",
+      "chars": 6960,
+      "tokens": 1767
+    },
+    {
+      "source": "bam",
+      "doc_id": "1017198200",
+      "chars": 8731,
+      "tokens": 2272
+    },
+    {
+      "source": "bam",
+      "doc_id": "1107380100",
+      "chars": 7128,
+      "tokens": 1748
+    },
+    {
+      "source": "bam",
+      "doc_id": "874626400",
+      "chars": 28580,
+      "tokens": 6580
+    },
+    {
+      "source": "bam",
+      "doc_id": "1122717900",
+      "chars": 30635,
+      "tokens": 7314
+    },
+    {
+      "source": "bam",
+      "doc_id": "701819900",
+      "chars": 2533,
+      "tokens": 646
+    },
+    {
+      "source": "bam",
+      "doc_id": "582967800",
+      "chars": 1697,
+      "tokens": 461
+    },
+    {
+      "source": "bam",
+      "doc_id": "592337200",
+      "chars": 22125,
+      "tokens": 5416
+    },
+    {
+      "source": "bam",
+      "doc_id": "661714300",
+      "chars": 8842,
+      "tokens": 2232
+    },
+    {
+      "source": "bam",
+      "doc_id": "901207900",
+      "chars": 15689,
+      "tokens": 3746
+    },
+    {
+      "source": "bam",
+      "doc_id": "740205700",
+      "chars": 10578,
+      "tokens": 2610
+    },
+    {
+      "source": "bam",
+      "doc_id": "902019200",
+      "chars": 5862,
+      "tokens": 1571
+    },
+    {
+      "source": "bam",
+      "doc_id": "561146300",
+      "chars": 4146,
+      "tokens": 969
+    },
+    {
+      "source": "bam",
+      "doc_id": "682764300",
+      "chars": 17187,
+      "tokens": 4127
+    },
+    {
+      "source": "bam",
+      "doc_id": "1040203600",
+      "chars": 19611,
+      "tokens": 4872
+    },
+    {
+      "source": "bam",
+      "doc_id": "728846500",
+      "chars": 2851,
+      "tokens": 834
+    },
+    {
+      "source": "bam",
+      "doc_id": "978160900",
+      "chars": 8361,
+      "tokens": 2090
+    },
+    {
+      "source": "bam",
+      "doc_id": "613896200",
+      "chars": 10062,
+      "tokens": 2435
+    },
+    {
+      "source": "bam",
+      "doc_id": "881811900",
+      "chars": 7923,
+      "tokens": 1929
+    },
+    {
+      "source": "bam",
+      "doc_id": "944757000",
+      "chars": 12545,
+      "tokens": 3240
+    },
+    {
+      "source": "bam",
+      "doc_id": "943440900",
+      "chars": 5574,
+      "tokens": 1465
+    },
+    {
+      "source": "bam",
+      "doc_id": "723577200",
+      "chars": 14942,
+      "tokens": 3564
+    },
+    {
+      "source": "bam",
+      "doc_id": "963932900",
+      "chars": 5810,
+      "tokens": 1488
+    },
+    {
+      "source": "bam",
+      "doc_id": "832041900",
+      "chars": 24556,
+      "tokens": 5890
+    },
+    {
+      "source": "bam",
+      "doc_id": "814282500",
+      "chars": 6089,
+      "tokens": 1569
+    },
+    {
+      "source": "bam",
+      "doc_id": "1003096400",
+      "chars": 3459,
+      "tokens": 933
+    },
+    {
+      "source": "bam",
+      "doc_id": "1111160000",
+      "chars": 5605,
+      "tokens": 1463
+    },
+    {
+      "source": "bam",
+      "doc_id": "1121102000",
+      "chars": 5958,
+      "tokens": 1555
+    },
+    {
+      "source": "bam",
+      "doc_id": "1102557300",
+      "chars": 36347,
+      "tokens": 8759
+    },
+    {
+      "source": "bam",
+      "doc_id": "1158688600",
+      "chars": 20600,
+      "tokens": 5073
+    },
+    {
+      "source": "bam",
+      "doc_id": "1142231200",
+      "chars": 10426,
+      "tokens": 2643
+    },
+    {
+      "source": "bam",
+      "doc_id": "969411600",
+      "chars": 11920,
+      "tokens": 2995
+    },
+    {
+      "source": "bam",
+      "doc_id": "1095517600",
+      "chars": 11136,
+      "tokens": 2767
+    },
+    {
+      "source": "bam",
+      "doc_id": "579113300",
+      "chars": 1653,
+      "tokens": 447
+    },
+    {
+      "source": "bam",
+      "doc_id": "913684000",
+      "chars": 35917,
+      "tokens": 8066
+    },
+    {
+      "source": "bam",
+      "doc_id": "839406900",
+      "chars": 14586,
+      "tokens": 3480
+    },
+    {
+      "source": "bam",
+      "doc_id": "681043000",
+      "chars": 4542,
+      "tokens": 1205
+    },
+    {
+      "source": "bam",
+      "doc_id": "847411000",
+      "chars": 1365,
+      "tokens": 444
+    },
+    {
+      "source": "bam",
+      "doc_id": "938303700",
+      "chars": 8889,
+      "tokens": 2263
+    },
+    {
+      "source": "bam",
+      "doc_id": "630144200",
+      "chars": 15733,
+      "tokens": 3907
+    },
+    {
+      "source": "bam",
+      "doc_id": "1088744300",
+      "chars": 4525,
+      "tokens": 1296
+    },
+    {
+      "source": "bam",
+      "doc_id": "1078628800",
+      "chars": 7391,
+      "tokens": 1968
+    },
+    {
+      "source": "bam",
+      "doc_id": "572118700",
+      "chars": 12613,
+      "tokens": 3156
+    },
+    {
+      "source": "bam",
+      "doc_id": "416732300",
+      "chars": 9216,
+      "tokens": 2222
+    },
+    {
+      "source": "bam",
+      "doc_id": "1155784500",
+      "chars": 8622,
+      "tokens": 2208
+    },
+    {
+      "source": "bam",
+      "doc_id": "1031005600",
+      "chars": 8797,
+      "tokens": 2217
+    },
+    {
+      "source": "bam",
+      "doc_id": "1112696500",
+      "chars": 11508,
+      "tokens": 2990
+    },
+    {
+      "source": "bam",
+      "doc_id": "487500900",
+      "chars": 4987,
+      "tokens": 1343
+    },
+    {
+      "source": "bam",
+      "doc_id": "394245600",
+      "chars": 3145,
+      "tokens": 844
+    },
+    {
+      "source": "bam",
+      "doc_id": "816021400",
+      "chars": 9566,
+      "tokens": 2276
+    },
+    {
+      "source": "bam",
+      "doc_id": "775925000",
+      "chars": 6082,
+      "tokens": 1521
+    },
+    {
+      "source": "bam",
+      "doc_id": "647133800",
+      "chars": 3595,
+      "tokens": 971
+    },
+    {
+      "source": "bam",
+      "doc_id": "596225100",
+      "chars": 10794,
+      "tokens": 2667
+    },
+    {
+      "source": "bam",
+      "doc_id": "1004706300",
+      "chars": 19003,
+      "tokens": 4627
+    },
+    {
+      "source": "bam",
+      "doc_id": "842302100",
+      "chars": 2948,
+      "tokens": 798
+    },
+    {
+      "source": "bam",
+      "doc_id": "842630000",
+      "chars": 5944,
+      "tokens": 1388
+    },
+    {
+      "source": "bam",
+      "doc_id": "1116479200",
+      "chars": 12578,
+      "tokens": 3123
+    },
+    {
+      "source": "bam",
+      "doc_id": "763736600",
+      "chars": 7688,
+      "tokens": 1836
+    },
+    {
+      "source": "bam",
+      "doc_id": "624005400",
+      "chars": 6384,
+      "tokens": 1623
+    },
+    {
+      "source": "bam",
+      "doc_id": "497189200",
+      "chars": 1940,
+      "tokens": 519
+    },
+    {
+      "source": "bam",
+      "doc_id": "584572500",
+      "chars": 2780,
+      "tokens": 726
+    },
+    {
+      "source": "bam",
+      "doc_id": "498069200",
+      "chars": 3618,
+      "tokens": 871
+    },
+    {
+      "source": "bam",
+      "doc_id": "778519900",
+      "chars": 7792,
+      "tokens": 2066
+    },
+    {
+      "source": "bam",
+      "doc_id": "738271800",
+      "chars": 14870,
+      "tokens": 3557
+    },
+    {
+      "source": "bam",
+      "doc_id": "910366700",
+      "chars": 6667,
+      "tokens": 1626
+    },
+    {
+      "source": "bam",
+      "doc_id": "863699800",
+      "chars": 8719,
+      "tokens": 2199
+    },
+    {
+      "source": "bam",
+      "doc_id": "1115224400",
+      "chars": 5007,
+      "tokens": 1310
+    },
+    {
+      "source": "bam",
+      "doc_id": "1108641100",
+      "chars": 6552,
+      "tokens": 1685
+    },
+    {
+      "source": "bam",
+      "doc_id": "1116129400",
+      "chars": 9183,
+      "tokens": 2259
+    },
+    {
+      "source": "bam",
+      "doc_id": "1049236400",
+      "chars": 2089,
+      "tokens": 572
+    },
+    {
+      "source": "bam",
+      "doc_id": "1123925700",
+      "chars": 4162,
+      "tokens": 1143
+    },
+    {
+      "source": "bam",
+      "doc_id": "450574600",
+      "chars": 1297,
+      "tokens": 363
+    },
+    {
+      "source": "bam",
+      "doc_id": "584237900",
+      "chars": 1624,
+      "tokens": 448
+    },
+    {
+      "source": "bam",
+      "doc_id": "522842900",
+      "chars": 1393,
+      "tokens": 382
+    },
+    {
+      "source": "bam",
+      "doc_id": "583089900",
+      "chars": 1556,
+      "tokens": 414
+    },
+    {
+      "source": "bam",
+      "doc_id": "717800100",
+      "chars": 17672,
+      "tokens": 4125
+    },
+    {
+      "source": "bam",
+      "doc_id": "609658600",
+      "chars": 11345,
+      "tokens": 2688
+    },
+    {
+      "source": "bam",
+      "doc_id": "717351200",
+      "chars": 6144,
+      "tokens": 1584
+    },
+    {
+      "source": "bam",
+      "doc_id": "844523300",
+      "chars": 10078,
+      "tokens": 2424
+    },
+    {
+      "source": "bam",
+      "doc_id": "1089242300",
+      "chars": 8131,
+      "tokens": 2077
+    },
+    {
+      "source": "bam",
+      "doc_id": "747533300",
+      "chars": 3194,
+      "tokens": 873
+    },
+    {
+      "source": "bam",
+      "doc_id": "961825200",
+      "chars": 12564,
+      "tokens": 3007
+    },
+    {
+      "source": "bam",
+      "doc_id": "740820500",
+      "chars": 13129,
+      "tokens": 3200
+    },
+    {
+      "source": "bam",
+      "doc_id": "760925200",
+      "chars": 7269,
+      "tokens": 1702
+    },
+    {
+      "source": "bam",
+      "doc_id": "642288500",
+      "chars": 2140,
+      "tokens": 576
+    },
+    {
+      "source": "bam",
+      "doc_id": "870115500",
+      "chars": 21998,
+      "tokens": 5385
+    },
+    {
+      "source": "bam",
+      "doc_id": "743393400",
+      "chars": 31605,
+      "tokens": 7391
+    },
+    {
+      "source": "bam",
+      "doc_id": "919586600",
+      "chars": 45254,
+      "tokens": 10533
+    },
+    {
+      "source": "bam",
+      "doc_id": "919031400",
+      "chars": 8326,
+      "tokens": 2135
+    },
+    {
+      "source": "bam",
+      "doc_id": "942534100",
+      "chars": 8799,
+      "tokens": 2133
+    },
+    {
+      "source": "bam",
+      "doc_id": "1036132200",
+      "chars": 22130,
+      "tokens": 5330
+    },
+    {
+      "source": "bam",
+      "doc_id": "970480000",
+      "chars": 12707,
+      "tokens": 3092
+    },
+    {
+      "source": "bam",
+      "doc_id": "1075336100",
+      "chars": 42181,
+      "tokens": 10558
+    },
+    {
+      "source": "bam",
+      "doc_id": "1044844400",
+      "chars": 11273,
+      "tokens": 2864
+    },
+    {
+      "source": "bam",
+      "doc_id": "483343000",
+      "chars": 9477,
+      "tokens": 2294
+    },
+    {
+      "source": "bam",
+      "doc_id": "519529900",
+      "chars": 1220,
+      "tokens": 314
+    },
+    {
+      "source": "bam",
+      "doc_id": "409701100",
+      "chars": 6311,
+      "tokens": 1601
+    },
+    {
+      "source": "bam",
+      "doc_id": "725237300",
+      "chars": 11160,
+      "tokens": 2588
+    },
+    {
+      "source": "bam",
+      "doc_id": "909062000",
+      "chars": 5601,
+      "tokens": 1446
+    },
+    {
+      "source": "bam",
+      "doc_id": "577542300",
+      "chars": 7441,
+      "tokens": 1902
+    },
+    {
+      "source": "bam",
+      "doc_id": "584073400",
+      "chars": 1556,
+      "tokens": 414
+    },
+    {
+      "source": "bam",
+      "doc_id": "581193700",
+      "chars": 2684,
+      "tokens": 704
+    },
+    {
+      "source": "bam",
+      "doc_id": "1045670000",
+      "chars": 7730,
+      "tokens": 1952
+    },
+    {
+      "source": "bam",
+      "doc_id": "726859200",
+      "chars": 2520,
+      "tokens": 674
+    },
+    {
+      "source": "bam",
+      "doc_id": "857269400",
+      "chars": 6655,
+      "tokens": 1711
+    },
+    {
+      "source": "bam",
+      "doc_id": "437497600",
+      "chars": 3637,
+      "tokens": 1018
+    },
+    {
+      "source": "bam",
+      "doc_id": "797365400",
+      "chars": 3271,
+      "tokens": 861
+    },
+    {
+      "source": "bam",
+      "doc_id": "822778100",
+      "chars": 8603,
+      "tokens": 2142
+    },
+    {
+      "source": "bam",
+      "doc_id": "453071200",
+      "chars": 1618,
+      "tokens": 434
+    },
+    {
+      "source": "bam",
+      "doc_id": "457076100",
+      "chars": 6774,
+      "tokens": 1697
+    },
+    {
+      "source": "bam",
+      "doc_id": "778724700",
+      "chars": 1128,
+      "tokens": 311
+    },
+    {
+      "source": "bam",
+      "doc_id": "670702400",
+      "chars": 26155,
+      "tokens": 6270
+    },
+    {
+      "source": "bam",
+      "doc_id": "582667100",
+      "chars": 1688,
+      "tokens": 455
+    },
+    {
+      "source": "bam",
+      "doc_id": "555961000",
+      "chars": 1111,
+      "tokens": 319
+    },
+    {
+      "source": "bam",
+      "doc_id": "614951000",
+      "chars": 3283,
+      "tokens": 829
+    },
+    {
+      "source": "bam",
+      "doc_id": "641946400",
+      "chars": 7961,
+      "tokens": 1976
+    },
+    {
+      "source": "bam",
+      "doc_id": "696388500",
+      "chars": 1741,
+      "tokens": 521
+    },
+    {
+      "source": "bam",
+      "doc_id": "924034200",
+      "chars": 2158,
+      "tokens": 585
+    },
+    {
+      "source": "bam",
+      "doc_id": "831999600",
+      "chars": 12641,
+      "tokens": 3045
+    },
+    {
+      "source": "bam",
+      "doc_id": "815299000",
+      "chars": 8122,
+      "tokens": 1980
+    },
+    {
+      "source": "bam",
+      "doc_id": "952334800",
+      "chars": 31451,
+      "tokens": 7202
+    },
+    {
+      "source": "bam",
+      "doc_id": "1033822500",
+      "chars": 12488,
+      "tokens": 3181
+    },
+    {
+      "source": "bam",
+      "doc_id": "848741800",
+      "chars": 6692,
+      "tokens": 1710
+    },
+    {
+      "source": "bam",
+      "doc_id": "1124265300",
+      "chars": 13722,
+      "tokens": 3411
+    },
+    {
+      "source": "bam",
+      "doc_id": "467014500",
+      "chars": 14993,
+      "tokens": 3514
+    },
+    {
+      "source": "bam",
+      "doc_id": "439891200",
+      "chars": 1444,
+      "tokens": 392
+    },
+    {
+      "source": "bam",
+      "doc_id": "499289700",
+      "chars": 12374,
+      "tokens": 3049
+    },
+    {
+      "source": "bam",
+      "doc_id": "582607000",
+      "chars": 1566,
+      "tokens": 427
+    },
+    {
+      "source": "bam",
+      "doc_id": "642737400",
+      "chars": 11444,
+      "tokens": 2944
+    },
+    {
+      "source": "bam",
+      "doc_id": "583331000",
+      "chars": 1600,
+      "tokens": 446
+    },
+    {
+      "source": "bam",
+      "doc_id": "722484000",
+      "chars": 12796,
+      "tokens": 3137
+    },
+    {
+      "source": "bam",
+      "doc_id": "654707500",
+      "chars": 11696,
+      "tokens": 2958
+    },
+    {
+      "source": "bam",
+      "doc_id": "590118600",
+      "chars": 1563,
+      "tokens": 427
+    },
+    {
+      "source": "bam",
+      "doc_id": "610665700",
+      "chars": 1218,
+      "tokens": 342
+    },
+    {
+      "source": "bam",
+      "doc_id": "643628300",
+      "chars": 13222,
+      "tokens": 3314
+    },
+    {
+      "source": "bam",
+      "doc_id": "732303400",
+      "chars": 5482,
+      "tokens": 1393
+    },
+    {
+      "source": "bam",
+      "doc_id": "640259100",
+      "chars": 3405,
+      "tokens": 855
+    },
+    {
+      "source": "bam",
+      "doc_id": "813275400",
+      "chars": 1512,
+      "tokens": 437
+    },
+    {
+      "source": "bam",
+      "doc_id": "739705300",
+      "chars": 5021,
+      "tokens": 1305
+    },
+    {
+      "source": "bam",
+      "doc_id": "1137536200",
+      "chars": 14712,
+      "tokens": 3587
+    },
+    {
+      "source": "bam",
+      "doc_id": "1046904000",
+      "chars": 17223,
+      "tokens": 4071
+    },
+    {
+      "source": "bam",
+      "doc_id": "1153373900",
+      "chars": 14062,
+      "tokens": 3467
+    },
+    {
+      "source": "bam",
+      "doc_id": "863635600",
+      "chars": 2930,
+      "tokens": 784
+    },
+    {
+      "source": "bam",
+      "doc_id": "1031876900",
+      "chars": 15205,
+      "tokens": 3737
+    },
+    {
+      "source": "bam",
+      "doc_id": "1069953500",
+      "chars": 6424,
+      "tokens": 1633
+    },
+    {
+      "source": "bam",
+      "doc_id": "1034765600",
+      "chars": 10794,
+      "tokens": 2691
+    },
+    {
+      "source": "bam",
+      "doc_id": "1073497100",
+      "chars": 3497,
+      "tokens": 876
+    },
+    {
+      "source": "bam",
+      "doc_id": "1095189100",
+      "chars": 9209,
+      "tokens": 2330
+    },
+    {
+      "source": "bam",
+      "doc_id": "1115447500",
+      "chars": 12189,
+      "tokens": 2976
+    },
+    {
+      "source": "bam",
+      "doc_id": "1098925800",
+      "chars": 6921,
+      "tokens": 1823
+    },
+    {
+      "source": "bam",
+      "doc_id": "1111365600",
+      "chars": 13167,
+      "tokens": 3255
+    },
+    {
+      "source": "bam",
+      "doc_id": "1140342400",
+      "chars": 5467,
+      "tokens": 1411
+    },
+    {
+      "source": "bam",
+      "doc_id": "418072300",
+      "chars": 8240,
+      "tokens": 2204
+    },
+    {
+      "source": "bam",
+      "doc_id": "462384000",
+      "chars": 6834,
+      "tokens": 1622
+    },
+    {
+      "source": "bam",
+      "doc_id": "583757400",
+      "chars": 2783,
+      "tokens": 718
+    },
+    {
+      "source": "bam",
+      "doc_id": "765224800",
+      "chars": 13213,
+      "tokens": 3174
+    },
+    {
+      "source": "bam",
+      "doc_id": "548312800",
+      "chars": 1451,
+      "tokens": 396
+    },
+    {
+      "source": "bam",
+      "doc_id": "582440400",
+      "chars": 1626,
+      "tokens": 447
+    },
+    {
+      "source": "bam",
+      "doc_id": "873727500",
+      "chars": 10945,
+      "tokens": 2662
+    },
+    {
+      "source": "bam",
+      "doc_id": "612952200",
+      "chars": 7799,
+      "tokens": 1936
+    },
+    {
+      "source": "bam",
+      "doc_id": "802951100",
+      "chars": 11533,
+      "tokens": 2858
+    },
+    {
+      "source": "bam",
+      "doc_id": "1014732000",
+      "chars": 21845,
+      "tokens": 5054
+    },
+    {
+      "source": "bam",
+      "doc_id": "1098737800",
+      "chars": 11620,
+      "tokens": 3168
+    },
+    {
+      "source": "bam",
+      "doc_id": "665708200",
+      "chars": 2438,
+      "tokens": 684
+    },
+    {
+      "source": "danistay",
+      "doc_id": "879597400",
+      "chars": 11045,
+      "tokens": 2685
+    },
+    {
+      "source": "danistay",
+      "doc_id": "971050200",
+      "chars": 5348,
+      "tokens": 1312
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1038963600",
+      "chars": 12151,
+      "tokens": 2954
+    },
+    {
+      "source": "danistay",
+      "doc_id": "882283800",
+      "chars": 7982,
+      "tokens": 2072
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1107058300",
+      "chars": 4049,
+      "tokens": 1015
+    },
+    {
+      "source": "danistay",
+      "doc_id": "915886600",
+      "chars": 6384,
+      "tokens": 1551
+    },
+    {
+      "source": "danistay",
+      "doc_id": "919892100",
+      "chars": 5677,
+      "tokens": 1365
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1046632600",
+      "chars": 6542,
+      "tokens": 1687
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1134865500",
+      "chars": 4842,
+      "tokens": 1172
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1072829000",
+      "chars": 3395,
+      "tokens": 847
+    },
+    {
+      "source": "danistay",
+      "doc_id": "984286000",
+      "chars": 4204,
+      "tokens": 1119
+    },
+    {
+      "source": "danistay",
+      "doc_id": "931218200",
+      "chars": 4595,
+      "tokens": 1185
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1072857600",
+      "chars": 5670,
+      "tokens": 1395
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1109068000",
+      "chars": 3487,
+      "tokens": 870
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1042905400",
+      "chars": 6719,
+      "tokens": 1689
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1164570300",
+      "chars": 3786,
+      "tokens": 970
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1113006500",
+      "chars": 9599,
+      "tokens": 2315
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1151823000",
+      "chars": 51827,
+      "tokens": 11976
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1042728300",
+      "chars": 3872,
+      "tokens": 1043
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1021052500",
+      "chars": 14894,
+      "tokens": 3663
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1012750200",
+      "chars": 3812,
+      "tokens": 938
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1023564200",
+      "chars": 13822,
+      "tokens": 3340
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1148303600",
+      "chars": 4727,
+      "tokens": 1221
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1025825800",
+      "chars": 12385,
+      "tokens": 2917
+    },
+    {
+      "source": "danistay",
+      "doc_id": "987792900",
+      "chars": 20527,
+      "tokens": 5039
+    },
+    {
+      "source": "danistay",
+      "doc_id": "997937800",
+      "chars": 2364,
+      "tokens": 654
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1087705000",
+      "chars": 6892,
+      "tokens": 1665
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1100344600",
+      "chars": 5058,
+      "tokens": 1211
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1025553100",
+      "chars": 4300,
+      "tokens": 1096
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1130346400",
+      "chars": 11830,
+      "tokens": 2899
+    },
+    {
+      "source": "danistay",
+      "doc_id": "661300900",
+      "chars": 4179,
+      "tokens": 1090
+    },
+    {
+      "source": "danistay",
+      "doc_id": "718855300",
+      "chars": 5526,
+      "tokens": 1383
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1158130000",
+      "chars": 18235,
+      "tokens": 4422
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1103719200",
+      "chars": 3052,
+      "tokens": 762
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1031333400",
+      "chars": 12905,
+      "tokens": 3180
+    },
+    {
+      "source": "danistay",
+      "doc_id": "917369500",
+      "chars": 3053,
+      "tokens": 775
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1098613000",
+      "chars": 3204,
+      "tokens": 801
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1152024400",
+      "chars": 76237,
+      "tokens": 16871
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1102729100",
+      "chars": 3924,
+      "tokens": 941
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1072303100",
+      "chars": 11088,
+      "tokens": 2728
+    },
+    {
+      "source": "danistay",
+      "doc_id": "965607700",
+      "chars": 2141,
+      "tokens": 588
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1096927300",
+      "chars": 5456,
+      "tokens": 1298
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1096922100",
+      "chars": 5362,
+      "tokens": 1273
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1115810600",
+      "chars": 13492,
+      "tokens": 3216
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1068531200",
+      "chars": 3408,
+      "tokens": 882
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1039832100",
+      "chars": 7260,
+      "tokens": 1857
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1004943900",
+      "chars": 10546,
+      "tokens": 2545
+    },
+    {
+      "source": "danistay",
+      "doc_id": "943916700",
+      "chars": 3132,
+      "tokens": 776
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1047943000",
+      "chars": 7992,
+      "tokens": 2004
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1137558400",
+      "chars": 5477,
+      "tokens": 1457
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1080268500",
+      "chars": 3697,
+      "tokens": 892
+    },
+    {
+      "source": "danistay",
+      "doc_id": "908630300",
+      "chars": 2055,
+      "tokens": 560
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1126978800",
+      "chars": 12203,
+      "tokens": 2978
+    },
+    {
+      "source": "danistay",
+      "doc_id": "999213700",
+      "chars": 8509,
+      "tokens": 2125
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1018947500",
+      "chars": 4115,
+      "tokens": 1037
+    },
+    {
+      "source": "danistay",
+      "doc_id": "831379300",
+      "chars": 4495,
+      "tokens": 1155
+    },
+    {
+      "source": "danistay",
+      "doc_id": "913384400",
+      "chars": 3018,
+      "tokens": 759
+    },
+    {
+      "source": "danistay",
+      "doc_id": "866008600",
+      "chars": 4776,
+      "tokens": 1140
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1097859100",
+      "chars": 5541,
+      "tokens": 1399
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1154383800",
+      "chars": 54843,
+      "tokens": 12862
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1083906700",
+      "chars": 10236,
+      "tokens": 2529
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1164923500",
+      "chars": 2491,
+      "tokens": 641
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1122010500",
+      "chars": 5785,
+      "tokens": 1383
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1082714900",
+      "chars": 3411,
+      "tokens": 932
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1109174300",
+      "chars": 2682,
+      "tokens": 650
+    },
+    {
+      "source": "danistay",
+      "doc_id": "956196600",
+      "chars": 3044,
+      "tokens": 807
+    },
+    {
+      "source": "danistay",
+      "doc_id": "767800600",
+      "chars": 6160,
+      "tokens": 1525
+    },
+    {
+      "source": "danistay",
+      "doc_id": "804274200",
+      "chars": 28240,
+      "tokens": 6736
+    },
+    {
+      "source": "danistay",
+      "doc_id": "881298600",
+      "chars": 20271,
+      "tokens": 4846
+    },
+    {
+      "source": "danistay",
+      "doc_id": "803493700",
+      "chars": 4317,
+      "tokens": 1118
+    },
+    {
+      "source": "danistay",
+      "doc_id": "720075000",
+      "chars": 3861,
+      "tokens": 1005
+    },
+    {
+      "source": "danistay",
+      "doc_id": "933315600",
+      "chars": 128,
+      "tokens": 28
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1160225300",
+      "chars": 7414,
+      "tokens": 1706
+    },
+    {
+      "source": "danistay",
+      "doc_id": "985050200",
+      "chars": 3574,
+      "tokens": 935
+    },
+    {
+      "source": "danistay",
+      "doc_id": "970069700",
+      "chars": 2920,
+      "tokens": 728
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1043851400",
+      "chars": 2445,
+      "tokens": 671
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1010735200",
+      "chars": 4571,
+      "tokens": 1133
+    },
+    {
+      "source": "danistay",
+      "doc_id": "924855300",
+      "chars": 7872,
+      "tokens": 1923
+    },
+    {
+      "source": "danistay",
+      "doc_id": "930165300",
+      "chars": 4659,
+      "tokens": 1187
+    },
+    {
+      "source": "danistay",
+      "doc_id": "993021400",
+      "chars": 3815,
+      "tokens": 1016
+    },
+    {
+      "source": "danistay",
+      "doc_id": "995620100",
+      "chars": 2149,
+      "tokens": 578
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1114988800",
+      "chars": 15095,
+      "tokens": 3783
+    },
+    {
+      "source": "danistay",
+      "doc_id": "868166000",
+      "chars": 5692,
+      "tokens": 1435
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1062896200",
+      "chars": 7232,
+      "tokens": 1830
+    },
+    {
+      "source": "danistay",
+      "doc_id": "943368300",
+      "chars": 3403,
+      "tokens": 871
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1160659000",
+      "chars": 3344,
+      "tokens": 882
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1085965000",
+      "chars": 2727,
+      "tokens": 740
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1044352700",
+      "chars": 2795,
+      "tokens": 772
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1030106800",
+      "chars": 3077,
+      "tokens": 752
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1109074100",
+      "chars": 4019,
+      "tokens": 955
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1068449200",
+      "chars": 16125,
+      "tokens": 3929
+    },
+    {
+      "source": "danistay",
+      "doc_id": "957724100",
+      "chars": 2885,
+      "tokens": 762
+    },
+    {
+      "source": "danistay",
+      "doc_id": "992479900",
+      "chars": 2749,
+      "tokens": 689
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1104142000",
+      "chars": 4008,
+      "tokens": 954
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1073069600",
+      "chars": 9134,
+      "tokens": 2139
+    },
+    {
+      "source": "danistay",
+      "doc_id": "935938900",
+      "chars": 4630,
+      "tokens": 1171
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1057545500",
+      "chars": 5863,
+      "tokens": 1500
+    },
+    {
+      "source": "danistay",
+      "doc_id": "928783600",
+      "chars": 3820,
+      "tokens": 938
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1085568700",
+      "chars": 10112,
+      "tokens": 2348
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1026975500",
+      "chars": 5464,
+      "tokens": 1352
+    },
+    {
+      "source": "danistay",
+      "doc_id": "951816300",
+      "chars": 3216,
+      "tokens": 839
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1125276500",
+      "chars": 3358,
+      "tokens": 908
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1079741500",
+      "chars": 3013,
+      "tokens": 738
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1147471900",
+      "chars": 2654,
+      "tokens": 714
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1153349600",
+      "chars": 5351,
+      "tokens": 1399
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1055246900",
+      "chars": 7902,
+      "tokens": 1971
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1018977000",
+      "chars": 6897,
+      "tokens": 1661
+    },
+    {
+      "source": "danistay",
+      "doc_id": "787811500",
+      "chars": 2912,
+      "tokens": 728
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1049345800",
+      "chars": 2793,
+      "tokens": 709
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1160107200",
+      "chars": 25649,
+      "tokens": 5955
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1098965200",
+      "chars": 2333,
+      "tokens": 616
+    },
+    {
+      "source": "danistay",
+      "doc_id": "924022800",
+      "chars": 2775,
+      "tokens": 750
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1027872000",
+      "chars": 10153,
+      "tokens": 2519
+    },
+    {
+      "source": "danistay",
+      "doc_id": "918207300",
+      "chars": 4405,
+      "tokens": 1101
+    },
+    {
+      "source": "danistay",
+      "doc_id": "915402500",
+      "chars": 2622,
+      "tokens": 666
+    },
+    {
+      "source": "danistay",
+      "doc_id": "971742700",
+      "chars": 7752,
+      "tokens": 1947
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1161013700",
+      "chars": 57470,
+      "tokens": 12712
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1158884500",
+      "chars": 2367,
+      "tokens": 629
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1149163400",
+      "chars": 17481,
+      "tokens": 4276
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1103947100",
+      "chars": 5848,
+      "tokens": 1392
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1160693800",
+      "chars": 68078,
+      "tokens": 15827
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1160907300",
+      "chars": 122803,
+      "tokens": 27058
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1134986900",
+      "chars": 19546,
+      "tokens": 4531
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1049820300",
+      "chars": 5067,
+      "tokens": 1288
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1045096800",
+      "chars": 2374,
+      "tokens": 643
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1167987400",
+      "chars": 6522,
+      "tokens": 1571
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1047085000",
+      "chars": 10794,
+      "tokens": 2613
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1169329000",
+      "chars": 4358,
+      "tokens": 1106
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1086500200",
+      "chars": 17378,
+      "tokens": 4067
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1045386000",
+      "chars": 6427,
+      "tokens": 1560
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1135170100",
+      "chars": 5640,
+      "tokens": 1422
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1009485400",
+      "chars": 5493,
+      "tokens": 1360
+    },
+    {
+      "source": "danistay",
+      "doc_id": "916485800",
+      "chars": 4197,
+      "tokens": 1009
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1136443900",
+      "chars": 8348,
+      "tokens": 2137
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1163094700",
+      "chars": 2652,
+      "tokens": 677
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1164167600",
+      "chars": 35337,
+      "tokens": 8065
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1136362300",
+      "chars": 16507,
+      "tokens": 4004
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1138550600",
+      "chars": 2334,
+      "tokens": 578
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1110097300",
+      "chars": 4020,
+      "tokens": 1019
+    },
+    {
+      "source": "danistay",
+      "doc_id": "918658400",
+      "chars": 9115,
+      "tokens": 2196
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1067162200",
+      "chars": 3888,
+      "tokens": 1008
+    },
+    {
+      "source": "danistay",
+      "doc_id": "947544000",
+      "chars": 5316,
+      "tokens": 1342
+    },
+    {
+      "source": "danistay",
+      "doc_id": "917152300",
+      "chars": 1346,
+      "tokens": 367
+    },
+    {
+      "source": "danistay",
+      "doc_id": "919183600",
+      "chars": 3838,
+      "tokens": 950
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1059100200",
+      "chars": 5292,
+      "tokens": 1449
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1092385600",
+      "chars": 2069,
+      "tokens": 557
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1130346300",
+      "chars": 4335,
+      "tokens": 1117
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1098212100",
+      "chars": 24048,
+      "tokens": 5512
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1035902300",
+      "chars": 3716,
+      "tokens": 888
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1054096300",
+      "chars": 2484,
+      "tokens": 632
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1098586000",
+      "chars": 18316,
+      "tokens": 4282
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1164662800",
+      "chars": 3400,
+      "tokens": 843
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1049450200",
+      "chars": 6897,
+      "tokens": 1677
+    },
+    {
+      "source": "danistay",
+      "doc_id": "650490500",
+      "chars": 4415,
+      "tokens": 1096
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1015186400",
+      "chars": 4503,
+      "tokens": 1133
+    },
+    {
+      "source": "danistay",
+      "doc_id": "976144100",
+      "chars": 8836,
+      "tokens": 2188
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1003153900",
+      "chars": 2826,
+      "tokens": 702
+    },
+    {
+      "source": "danistay",
+      "doc_id": "934195400",
+      "chars": 4217,
+      "tokens": 1083
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1030792900",
+      "chars": 10440,
+      "tokens": 2555
+    },
+    {
+      "source": "danistay",
+      "doc_id": "888339900",
+      "chars": 12604,
+      "tokens": 3028
+    },
+    {
+      "source": "danistay",
+      "doc_id": "786132300",
+      "chars": 1518,
+      "tokens": 450
+    },
+    {
+      "source": "danistay",
+      "doc_id": "912554900",
+      "chars": 3881,
+      "tokens": 1004
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1038632500",
+      "chars": 11089,
+      "tokens": 2730
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1093040300",
+      "chars": 2537,
+      "tokens": 669
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1100258800",
+      "chars": 3461,
+      "tokens": 847
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1167809700",
+      "chars": 3365,
+      "tokens": 867
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1070104100",
+      "chars": 9960,
+      "tokens": 2403
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1169922400",
+      "chars": 3921,
+      "tokens": 1012
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1053928200",
+      "chars": 2985,
+      "tokens": 738
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1056973200",
+      "chars": 3203,
+      "tokens": 792
+    },
+    {
+      "source": "danistay",
+      "doc_id": "932146900",
+      "chars": 2566,
+      "tokens": 623
+    },
+    {
+      "source": "danistay",
+      "doc_id": "826048900",
+      "chars": 2942,
+      "tokens": 748
+    },
+    {
+      "source": "danistay",
+      "doc_id": "932690400",
+      "chars": 6978,
+      "tokens": 1794
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1014185200",
+      "chars": 2151,
+      "tokens": 575
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1064355600",
+      "chars": 10114,
+      "tokens": 2407
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1129596300",
+      "chars": 22712,
+      "tokens": 5463
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1060887900",
+      "chars": 2983,
+      "tokens": 792
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1076702000",
+      "chars": 1832,
+      "tokens": 496
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1104353000",
+      "chars": 24532,
+      "tokens": 5869
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1039005100",
+      "chars": 6553,
+      "tokens": 1655
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1105029800",
+      "chars": 3720,
+      "tokens": 889
+    },
+    {
+      "source": "danistay",
+      "doc_id": "991229100",
+      "chars": 2913,
+      "tokens": 739
+    },
+    {
+      "source": "danistay",
+      "doc_id": "949037100",
+      "chars": 2311,
+      "tokens": 583
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1052734100",
+      "chars": 2698,
+      "tokens": 690
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1090520200",
+      "chars": 3118,
+      "tokens": 801
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1159036700",
+      "chars": 4638,
+      "tokens": 1140
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1131160700",
+      "chars": 6197,
+      "tokens": 1472
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1130342400",
+      "chars": 20032,
+      "tokens": 4704
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1165686100",
+      "chars": 2961,
+      "tokens": 745
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1133673200",
+      "chars": 1851,
+      "tokens": 538
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1056312000",
+      "chars": 2899,
+      "tokens": 739
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1144256500",
+      "chars": 3839,
+      "tokens": 922
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1154296400",
+      "chars": 2067,
+      "tokens": 558
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1167908400",
+      "chars": 4862,
+      "tokens": 1212
+    },
+    {
+      "source": "danistay",
+      "doc_id": "950633000",
+      "chars": 4339,
+      "tokens": 1102
+    },
+    {
+      "source": "danistay",
+      "doc_id": "997430900",
+      "chars": 21515,
+      "tokens": 4843
+    },
+    {
+      "source": "danistay",
+      "doc_id": "920446600",
+      "chars": 4410,
+      "tokens": 1126
+    },
+    {
+      "source": "danistay",
+      "doc_id": "985601100",
+      "chars": 2194,
+      "tokens": 602
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1044067800",
+      "chars": 9934,
+      "tokens": 2460
+    },
+    {
+      "source": "danistay",
+      "doc_id": "1040470300",
+      "chars": 12476,
+      "tokens": 2912
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "442551100",
+      "chars": 4534,
+      "tokens": 1081
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "416911500",
+      "chars": 5683,
+      "tokens": 1423
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "513746700",
+      "chars": 10771,
+      "tokens": 2606
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "997455900",
+      "chars": 11447,
+      "tokens": 2822
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "665344800",
+      "chars": 28606,
+      "tokens": 6671
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1039189700",
+      "chars": 6094,
+      "tokens": 1467
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "516000400",
+      "chars": 5420,
+      "tokens": 1358
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "655553200",
+      "chars": 5904,
+      "tokens": 1513
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "721762200",
+      "chars": 5498,
+      "tokens": 1390
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "680882600",
+      "chars": 7580,
+      "tokens": 1930
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "804486400",
+      "chars": 5739,
+      "tokens": 1444
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "613863800",
+      "chars": 9135,
+      "tokens": 2145
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "853037400",
+      "chars": 4889,
+      "tokens": 1239
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "895389500",
+      "chars": 9215,
+      "tokens": 2380
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1036251900",
+      "chars": 8711,
+      "tokens": 2299
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "742483000",
+      "chars": 5949,
+      "tokens": 1550
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "942070700",
+      "chars": 8873,
+      "tokens": 2253
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "897257000",
+      "chars": 2431,
+      "tokens": 629
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "883975300",
+      "chars": 6517,
+      "tokens": 1794
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1133647600",
+      "chars": 20833,
+      "tokens": 5128
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "917600000",
+      "chars": 11924,
+      "tokens": 2893
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "632166200",
+      "chars": 8853,
+      "tokens": 2205
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1100414900",
+      "chars": 12219,
+      "tokens": 3101
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "868198800",
+      "chars": 3620,
+      "tokens": 985
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "584547500",
+      "chars": 3734,
+      "tokens": 956
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "714717000",
+      "chars": 8001,
+      "tokens": 2075
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "975313100",
+      "chars": 17677,
+      "tokens": 4340
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "953646600",
+      "chars": 10922,
+      "tokens": 2731
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1009826000",
+      "chars": 10562,
+      "tokens": 2596
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "942514900",
+      "chars": 3986,
+      "tokens": 1087
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "791428200",
+      "chars": 4630,
+      "tokens": 1186
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "921821500",
+      "chars": 9461,
+      "tokens": 2305
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1161759500",
+      "chars": 11150,
+      "tokens": 2836
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "577577400",
+      "chars": 6928,
+      "tokens": 1702
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "457094400",
+      "chars": 14444,
+      "tokens": 3577
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1127041100",
+      "chars": 5185,
+      "tokens": 1328
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1044368600",
+      "chars": 12878,
+      "tokens": 3232
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1071127300",
+      "chars": 9968,
+      "tokens": 2330
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "706858300",
+      "chars": 9134,
+      "tokens": 2214
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "712997200",
+      "chars": 6291,
+      "tokens": 1519
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "848277300",
+      "chars": 6151,
+      "tokens": 1546
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "966621000",
+      "chars": 3388,
+      "tokens": 921
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1159609100",
+      "chars": 9504,
+      "tokens": 2412
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "995621500",
+      "chars": 5467,
+      "tokens": 1449
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "858101600",
+      "chars": 4683,
+      "tokens": 1170
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1152347300",
+      "chars": 8524,
+      "tokens": 2258
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1074852700",
+      "chars": 7596,
+      "tokens": 2006
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1160429500",
+      "chars": 15587,
+      "tokens": 3513
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1101053400",
+      "chars": 3165,
+      "tokens": 832
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1135573600",
+      "chars": 7751,
+      "tokens": 1862
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "813512500",
+      "chars": 7529,
+      "tokens": 1931
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "576420400",
+      "chars": 11045,
+      "tokens": 2671
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "896372400",
+      "chars": 4634,
+      "tokens": 1136
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1114079600",
+      "chars": 3627,
+      "tokens": 887
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1075267500",
+      "chars": 25152,
+      "tokens": 6083
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1118933200",
+      "chars": 8682,
+      "tokens": 2152
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1127052000",
+      "chars": 4201,
+      "tokens": 1085
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1144502000",
+      "chars": 3380,
+      "tokens": 827
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "527829000",
+      "chars": 6020,
+      "tokens": 1452
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "843890900",
+      "chars": 7463,
+      "tokens": 1889
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "689630500",
+      "chars": 6116,
+      "tokens": 1518
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "725833900",
+      "chars": 8237,
+      "tokens": 2115
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "666600600",
+      "chars": 4832,
+      "tokens": 1199
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "728335500",
+      "chars": 4322,
+      "tokens": 1030
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "729124900",
+      "chars": 11769,
+      "tokens": 2922
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "669702800",
+      "chars": 8964,
+      "tokens": 2309
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "608109400",
+      "chars": 3968,
+      "tokens": 1029
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "750322000",
+      "chars": 33130,
+      "tokens": 8108
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "709855900",
+      "chars": 3743,
+      "tokens": 933
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "678000600",
+      "chars": 9827,
+      "tokens": 2395
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "615945600",
+      "chars": 3628,
+      "tokens": 914
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "677817100",
+      "chars": 7119,
+      "tokens": 1773
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1131870800",
+      "chars": 5211,
+      "tokens": 1269
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "668761200",
+      "chars": 4022,
+      "tokens": 994
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "913832200",
+      "chars": 8072,
+      "tokens": 2071
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "759794700",
+      "chars": 5627,
+      "tokens": 1383
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "963118800",
+      "chars": 15425,
+      "tokens": 3682
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "744019800",
+      "chars": 8768,
+      "tokens": 2007
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "763653700",
+      "chars": 3564,
+      "tokens": 1011
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "777171600",
+      "chars": 14254,
+      "tokens": 3575
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "713301900",
+      "chars": 6495,
+      "tokens": 1533
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1030449000",
+      "chars": 6337,
+      "tokens": 1594
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "970705900",
+      "chars": 8919,
+      "tokens": 2177
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "969251300",
+      "chars": 2315,
+      "tokens": 683
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1029323600",
+      "chars": 2437,
+      "tokens": 689
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1018838800",
+      "chars": 9480,
+      "tokens": 2316
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "981341000",
+      "chars": 7511,
+      "tokens": 1896
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "870404900",
+      "chars": 7746,
+      "tokens": 1902
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "916778600",
+      "chars": 3999,
+      "tokens": 1098
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "700272200",
+      "chars": 21845,
+      "tokens": 5345
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "995133200",
+      "chars": 2497,
+      "tokens": 693
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "867749600",
+      "chars": 3615,
+      "tokens": 882
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "826147200",
+      "chars": 4519,
+      "tokens": 1205
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "666284400",
+      "chars": 15909,
+      "tokens": 3854
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "869543500",
+      "chars": 16335,
+      "tokens": 4231
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "719702500",
+      "chars": 4983,
+      "tokens": 1319
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "848488500",
+      "chars": 26261,
+      "tokens": 6107
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1031638000",
+      "chars": 4976,
+      "tokens": 1335
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "966318900",
+      "chars": 3863,
+      "tokens": 999
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "628650700",
+      "chars": 14975,
+      "tokens": 3694
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1135128100",
+      "chars": 3648,
+      "tokens": 938
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "627614400",
+      "chars": 5239,
+      "tokens": 1310
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "484337900",
+      "chars": 2557,
+      "tokens": 677
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1037156900",
+      "chars": 5987,
+      "tokens": 1448
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1029574000",
+      "chars": 7396,
+      "tokens": 1811
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "882812300",
+      "chars": 4502,
+      "tokens": 1097
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1048735300",
+      "chars": 8575,
+      "tokens": 2183
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "869558100",
+      "chars": 10698,
+      "tokens": 2747
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "577526200",
+      "chars": 7214,
+      "tokens": 1776
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "399747000",
+      "chars": 9589,
+      "tokens": 2288
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "396078600",
+      "chars": 8741,
+      "tokens": 2120
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "484920900",
+      "chars": 18433,
+      "tokens": 4402
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "559722900",
+      "chars": 6868,
+      "tokens": 1675
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "832478500",
+      "chars": 3571,
+      "tokens": 982
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "446035900",
+      "chars": 3802,
+      "tokens": 936
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "753764600",
+      "chars": 13023,
+      "tokens": 3041
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "666746200",
+      "chars": 16440,
+      "tokens": 3950
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "500935700",
+      "chars": 10207,
+      "tokens": 2568
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "671484800",
+      "chars": 30246,
+      "tokens": 7311
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "695886600",
+      "chars": 7151,
+      "tokens": 1926
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "505162200",
+      "chars": 7793,
+      "tokens": 1889
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1147608600",
+      "chars": 19427,
+      "tokens": 4828
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "669925700",
+      "chars": 14460,
+      "tokens": 3251
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "708775800",
+      "chars": 14394,
+      "tokens": 3664
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "964353800",
+      "chars": 18566,
+      "tokens": 4371
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "784827100",
+      "chars": 8549,
+      "tokens": 2066
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "831817000",
+      "chars": 8521,
+      "tokens": 2123
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "853379100",
+      "chars": 7633,
+      "tokens": 1866
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "752822600",
+      "chars": 7262,
+      "tokens": 1786
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "871835600",
+      "chars": 8352,
+      "tokens": 2078
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "998733400",
+      "chars": 15172,
+      "tokens": 3743
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "883429600",
+      "chars": 24598,
+      "tokens": 5906
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "703226500",
+      "chars": 20053,
+      "tokens": 4778
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "700297400",
+      "chars": 25413,
+      "tokens": 5831
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "935762400",
+      "chars": 4410,
+      "tokens": 1125
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "743227300",
+      "chars": 3796,
+      "tokens": 926
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "841397700",
+      "chars": 5884,
+      "tokens": 1401
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "748757700",
+      "chars": 6914,
+      "tokens": 1795
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "725390700",
+      "chars": 4084,
+      "tokens": 1006
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "743351600",
+      "chars": 6294,
+      "tokens": 1655
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "760498100",
+      "chars": 3291,
+      "tokens": 847
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "758209500",
+      "chars": 22571,
+      "tokens": 5574
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "847716800",
+      "chars": 4591,
+      "tokens": 1137
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "783781800",
+      "chars": 3924,
+      "tokens": 988
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "817892000",
+      "chars": 5449,
+      "tokens": 1387
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "788094400",
+      "chars": 3824,
+      "tokens": 980
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1038148400",
+      "chars": 3575,
+      "tokens": 927
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "846330400",
+      "chars": 20510,
+      "tokens": 5645
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "706143000",
+      "chars": 5994,
+      "tokens": 1437
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "767636400",
+      "chars": 7942,
+      "tokens": 2082
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "700210000",
+      "chars": 9484,
+      "tokens": 2372
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "713511300",
+      "chars": 9832,
+      "tokens": 2362
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "495639400",
+      "chars": 1535,
+      "tokens": 397
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "596030500",
+      "chars": 7803,
+      "tokens": 1958
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "513157400",
+      "chars": 4292,
+      "tokens": 1088
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1098191300",
+      "chars": 9507,
+      "tokens": 2524
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "715943700",
+      "chars": 15055,
+      "tokens": 3629
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "646345000",
+      "chars": 3345,
+      "tokens": 935
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "535209900",
+      "chars": 4434,
+      "tokens": 1113
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "672052800",
+      "chars": 9299,
+      "tokens": 2441
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "574663100",
+      "chars": 4609,
+      "tokens": 1147
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "654021700",
+      "chars": 3916,
+      "tokens": 1038
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "811323700",
+      "chars": 9079,
+      "tokens": 2326
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "392956200",
+      "chars": 5012,
+      "tokens": 1291
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "582575200",
+      "chars": 2215,
+      "tokens": 585
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "587732000",
+      "chars": 5152,
+      "tokens": 1316
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "671471700",
+      "chars": 17037,
+      "tokens": 3890
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1055902100",
+      "chars": 3598,
+      "tokens": 904
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "495787100",
+      "chars": 1953,
+      "tokens": 490
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "623245600",
+      "chars": 11188,
+      "tokens": 2664
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "984553600",
+      "chars": 1922,
+      "tokens": 540
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1004815300",
+      "chars": 8101,
+      "tokens": 2059
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "895400200",
+      "chars": 4820,
+      "tokens": 1306
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1101179500",
+      "chars": 11222,
+      "tokens": 2699
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1127053100",
+      "chars": 7935,
+      "tokens": 1978
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "679354100",
+      "chars": 19966,
+      "tokens": 4857
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "566245300",
+      "chars": 11507,
+      "tokens": 2772
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "516383100",
+      "chars": 14319,
+      "tokens": 3465
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "784393500",
+      "chars": 11631,
+      "tokens": 2912
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "539625900",
+      "chars": 14322,
+      "tokens": 3481
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "555036800",
+      "chars": 6151,
+      "tokens": 1565
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "586880400",
+      "chars": 14143,
+      "tokens": 3487
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "417098100",
+      "chars": 1476,
+      "tokens": 400
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "932592000",
+      "chars": 5362,
+      "tokens": 1477
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "855594300",
+      "chars": 2751,
+      "tokens": 770
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "665101300",
+      "chars": 9450,
+      "tokens": 2504
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "817833200",
+      "chars": 11418,
+      "tokens": 2809
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "585744700",
+      "chars": 4321,
+      "tokens": 1102
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "621409200",
+      "chars": 7440,
+      "tokens": 1754
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "684283200",
+      "chars": 5713,
+      "tokens": 1449
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "1045204900",
+      "chars": 9037,
+      "tokens": 2187
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "784722400",
+      "chars": 13681,
+      "tokens": 3548
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "578157800",
+      "chars": 2774,
+      "tokens": 687
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "739651700",
+      "chars": 6785,
+      "tokens": 1562
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "862935100",
+      "chars": 11294,
+      "tokens": 2710
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "674813900",
+      "chars": 3225,
+      "tokens": 847
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "682136600",
+      "chars": 4279,
+      "tokens": 1041
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "770090700",
+      "chars": 21844,
+      "tokens": 4877
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "717115600",
+      "chars": 8775,
+      "tokens": 2118
+    },
+    {
+      "source": "first_degree",
+      "doc_id": "756171600",
+      "chars": 2182,
+      "tokens": 569
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "76402deb-b96b-5c07-857a-779977bcff9f",
+      "chars": 2843,
+      "tokens": 640
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d067a13a-6ee5-506c-96e4-ae8e1bef17c5",
+      "chars": 1026,
+      "tokens": 239
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a98c7b92-6109-5253-9d4c-c9f611e6421e",
+      "chars": 1175,
+      "tokens": 275
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c3ce8681-4774-5eb9-bcff-3fc0bd188a7d",
+      "chars": 1403,
+      "tokens": 290
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8159a699-4d54-5a26-839a-9496cfd7b98e",
+      "chars": 4839,
+      "tokens": 1023
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "521f9583-6082-5f9b-832d-d1006e693c7a",
+      "chars": 4197,
+      "tokens": 973
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b426f5e0-a9e1-5dd8-9a34-c69f25e3a1a6",
+      "chars": 10035,
+      "tokens": 2000
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "0eedda3a-355c-58d2-8f58-e53690ba4bd7",
+      "chars": 9840,
+      "tokens": 2024
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d7d2c632-d862-54db-9f37-81e834cfe4c9",
+      "chars": 9135,
+      "tokens": 1884
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "18ad692e-46b5-500b-88f9-a6961ccb3c59",
+      "chars": 8679,
+      "tokens": 1828
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4ddb1edd-5ea7-593e-acf3-60e80cba9df5",
+      "chars": 3633,
+      "tokens": 741
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4ed81e68-e5e9-54c4-bd26-097134797ef8",
+      "chars": 2186,
+      "tokens": 480
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "5ac6d0f8-11af-5751-b838-baadaa4dc48c",
+      "chars": 669,
+      "tokens": 156
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ba6f817d-ab60-5bad-8d57-2cc36417c072",
+      "chars": 799,
+      "tokens": 183
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "df215c81-d199-55fd-a9d8-d84627400593",
+      "chars": 684,
+      "tokens": 151
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b982e5df-6a96-5a1a-8792-3e788ea519a9",
+      "chars": 2757,
+      "tokens": 603
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c9cb1c58-b4a9-5eb1-be44-abdaab19bfe7",
+      "chars": 367,
+      "tokens": 98
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b16e01aa-49fb-5c1a-9cf6-68f4bb8fb768",
+      "chars": 520,
+      "tokens": 122
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "e1eec33b-61ed-5021-9401-bfa7f4b3ace8",
+      "chars": 1803,
+      "tokens": 420
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6717bbbc-e718-5016-b08e-9cb4bad342ae",
+      "chars": 539,
+      "tokens": 108
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b6d40e96-1baa-5173-83ea-1d534591e3d4",
+      "chars": 11780,
+      "tokens": 2501
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6b64ddc4-063b-5704-8bc0-feac706d9ddb",
+      "chars": 711,
+      "tokens": 152
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "f47d7e19-22ab-58d6-a1f8-5475d342bfcb",
+      "chars": 2070,
+      "tokens": 472
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "773195fa-5507-5b39-9ad4-95fcb94ed450",
+      "chars": 7315,
+      "tokens": 1578
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ff0389f4-cece-5bf4-bc77-412113b5ff12",
+      "chars": 3857,
+      "tokens": 815
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "31611c99-8edf-5149-9341-fb496000d84a",
+      "chars": 1485,
+      "tokens": 324
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c912e2b5-b3ed-5088-a1c6-9d5648802606",
+      "chars": 2263,
+      "tokens": 473
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "f0049c31-ac5f-5c30-ad4d-6711bbc410ce",
+      "chars": 1223,
+      "tokens": 258
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "f5cf3b29-18a2-5dc4-8b35-f750b13c2925",
+      "chars": 1345,
+      "tokens": 281
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "5a885dbe-9777-54a9-9cfb-04739c923e33",
+      "chars": 2881,
+      "tokens": 578
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "648ebc6d-3d00-5adb-9ee0-5d2f72d8f945",
+      "chars": 4061,
+      "tokens": 886
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "f544683e-ee12-582f-af2f-577cfb8e5740",
+      "chars": 11949,
+      "tokens": 2518
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a4db2170-2ccb-5fbc-859a-08256cb490dd",
+      "chars": 15330,
+      "tokens": 3299
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "dffba643-a34f-5e90-aa73-0b88a68e211d",
+      "chars": 3147,
+      "tokens": 680
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "bb220108-3872-55a8-ac38-3a5b7aafdf2e",
+      "chars": 864,
+      "tokens": 193
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "342c421f-a130-5d60-a8ef-dc25d5958ed4",
+      "chars": 258,
+      "tokens": 56
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "e01ab92f-db14-5629-86b8-bae920c30986",
+      "chars": 1109,
+      "tokens": 238
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ef1eb9ab-56bb-5dc5-8b1d-8df5725e7c33",
+      "chars": 1754,
+      "tokens": 408
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1136a25e-c571-5e8c-b9fb-9fd2636c4d7b",
+      "chars": 1421,
+      "tokens": 331
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d5ff60df-c1ce-5d04-82da-16ed3942c21f",
+      "chars": 2084,
+      "tokens": 467
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4ad00b5d-2b38-50f7-a42e-71db2b273c9f",
+      "chars": 1203,
+      "tokens": 276
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4cdb3425-c65d-5ddb-bccb-3bdd89588d54",
+      "chars": 816,
+      "tokens": 178
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c1eb82f3-122e-5dbf-9b66-36edee3abd86",
+      "chars": 1309,
+      "tokens": 273
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7dbfc336-dde8-56cd-b475-b11fb21b83cb",
+      "chars": 1387,
+      "tokens": 309
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "eb8a585c-ecbb-5164-a3e8-9913aec4d577",
+      "chars": 2244,
+      "tokens": 478
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "22a20a9d-bcf0-566e-a084-ec4150cd779f",
+      "chars": 1172,
+      "tokens": 260
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "5fa3fc87-320f-5ad8-be08-f69563dec652",
+      "chars": 1492,
+      "tokens": 332
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b23f9335-e39e-55c9-89e9-86888b864d9d",
+      "chars": 506,
+      "tokens": 114
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "749bc5cb-2420-521f-9338-8472f594a6cd",
+      "chars": 731,
+      "tokens": 159
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6bb62477-f615-5499-84b4-4d980984c65c",
+      "chars": 1141,
+      "tokens": 255
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "43d62068-cccd-504e-8d7a-23675a8e730d",
+      "chars": 1044,
+      "tokens": 244
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1d2928c7-e6ff-577d-ae23-a439664d364e",
+      "chars": 689,
+      "tokens": 148
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "260aaaa6-dd68-58f0-b7f0-e597a8f7eb6d",
+      "chars": 525,
+      "tokens": 120
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "9668e8e3-5a19-579e-9514-54b9f2a60968",
+      "chars": 549,
+      "tokens": 123
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d180b611-67e1-551c-84bf-b706b86b8768",
+      "chars": 562,
+      "tokens": 125
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1245dda8-e2a4-51e8-b514-b8c212d99acc",
+      "chars": 529,
+      "tokens": 122
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "933c0f78-f056-5a61-8817-bbf8e0a3f3cb",
+      "chars": 441,
+      "tokens": 104
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "acf0c75b-8448-5099-bf5a-73f6cdd3f562",
+      "chars": 526,
+      "tokens": 119
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ca12a1d4-7172-5151-9e94-d09833abf79f",
+      "chars": 468,
+      "tokens": 102
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a38d4087-f1e6-5823-9302-fcf0f7301347",
+      "chars": 1323,
+      "tokens": 268
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "5ce80d4f-68ec-5e04-b70b-c7c2c0f9cc5b",
+      "chars": 1022,
+      "tokens": 237
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d01aa92f-9b12-582d-8837-740bbf3ca9c1",
+      "chars": 1136,
+      "tokens": 257
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d5c5a56b-b633-5d64-a060-1aab72961231",
+      "chars": 1031,
+      "tokens": 237
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "eca0cc48-0065-5474-905e-6481e96044c9",
+      "chars": 2552,
+      "tokens": 553
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "860f1674-98f1-5570-b5e3-ba69b1111ecc",
+      "chars": 1695,
+      "tokens": 355
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4f5da04c-d32b-5ca4-ab94-d52d51c59564",
+      "chars": 698,
+      "tokens": 142
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "627bc887-0bbc-558e-81b6-96bd937eaff0",
+      "chars": 913,
+      "tokens": 200
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "56371d01-9c59-5438-b0e3-e4dc5373a4af",
+      "chars": 1478,
+      "tokens": 308
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "505fd5ca-4cf2-5fd9-a7bb-426296e911f8",
+      "chars": 1231,
+      "tokens": 284
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7365d995-1418-5c70-be69-ff0676ad6df8",
+      "chars": 913,
+      "tokens": 189
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7f6b07ee-55bf-5d91-a5b6-f8997626299c",
+      "chars": 1170,
+      "tokens": 271
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "efbe7ebf-8d2d-5cd2-b053-74b818a68631",
+      "chars": 530,
+      "tokens": 118
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "55539e61-4ef9-5cd0-b23b-5ea6d213a1bd",
+      "chars": 792,
+      "tokens": 168
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "41a87ce5-32e2-58bc-a11e-171bfe0a0b75",
+      "chars": 1280,
+      "tokens": 269
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4d21de2e-a406-5f03-83b4-b8ec1fd6dbd7",
+      "chars": 2429,
+      "tokens": 516
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "9352d63a-930a-561c-b044-e9bdcdcc7e3a",
+      "chars": 1124,
+      "tokens": 223
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "9aee364b-6a68-51f3-b47a-466a8f44a2b8",
+      "chars": 1248,
+      "tokens": 267
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "302a2e04-bab4-5717-856f-65dea1f724d0",
+      "chars": 449,
+      "tokens": 93
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "828ccb5a-cbf8-53f5-b04b-4d1932ea337a",
+      "chars": 1268,
+      "tokens": 266
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4d6326f6-06e6-536f-bacc-eb2871371b6a",
+      "chars": 450,
+      "tokens": 106
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cc7f4cff-ea34-59c8-baa6-543ddf3459ef",
+      "chars": 1546,
+      "tokens": 345
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cbd57889-edd9-50f6-a5d5-d033ac2bd78e",
+      "chars": 1155,
+      "tokens": 273
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "bb374456-1931-5517-a3f2-24d3ed0b47bd",
+      "chars": 1060,
+      "tokens": 238
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1e7f7929-ab9b-5b70-ab2f-1e1e415d261f",
+      "chars": 998,
+      "tokens": 221
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8ca4b233-546b-51a7-a355-8ed975eebf08",
+      "chars": 2702,
+      "tokens": 555
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8e6b6a93-5726-5433-8eb9-a827aaf58440",
+      "chars": 416,
+      "tokens": 89
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "800786c9-4fc9-530a-ae93-4c464aa26e96",
+      "chars": 524,
+      "tokens": 120
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "68af86fe-ad01-5d47-8a30-42404cbe0406",
+      "chars": 931,
+      "tokens": 180
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1135ec70-10ef-57cb-9ae0-8631cc026b86",
+      "chars": 3374,
+      "tokens": 699
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1117ed58-3a1e-556c-9817-8a1f7632f1af",
+      "chars": 499,
+      "tokens": 110
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "547917b9-6f63-53e7-a3bc-9efa26a3130d",
+      "chars": 2482,
+      "tokens": 582
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a3e8f6f9-8af9-5a9f-9ee2-03534b81d453",
+      "chars": 1157,
+      "tokens": 226
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3d67c555-d8ec-53d6-a5ca-550b3f1a0150",
+      "chars": 661,
+      "tokens": 159
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "53e80ede-da77-53ca-a8e0-c83c59a4b8d8",
+      "chars": 769,
+      "tokens": 179
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "18b0cb62-d96c-550f-9ef2-c885a075bc66",
+      "chars": 516,
+      "tokens": 111
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cd38ad50-a4dc-531a-9339-e9512f8db9d7",
+      "chars": 923,
+      "tokens": 194
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8dc735ff-a2ed-5cea-a97c-88f3cb008fba",
+      "chars": 564,
+      "tokens": 120
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "2c32a199-9e61-5984-91f8-a778f5842fa4",
+      "chars": 1010,
+      "tokens": 212
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7d7190c3-9242-5abc-b31f-24849a4c3acc",
+      "chars": 1098,
+      "tokens": 224
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c031d37c-1798-5b81-88ac-885332a84393",
+      "chars": 511,
+      "tokens": 112
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "476b2797-ece0-5293-b5a2-b7353a71bd8e",
+      "chars": 1537,
+      "tokens": 327
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6d780953-ad8e-5c3f-a889-03cd2e124057",
+      "chars": 689,
+      "tokens": 147
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7061af15-1592-58ec-848b-f3b4db995449",
+      "chars": 656,
+      "tokens": 139
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "2e64d43e-cc55-5ca3-b10a-af47b28d52a3",
+      "chars": 1823,
+      "tokens": 369
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "13c1cf98-890a-5d53-b3b1-bb5a25a5882c",
+      "chars": 1690,
+      "tokens": 331
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "84c81180-ac5c-5430-b125-c3d6003cec4c",
+      "chars": 1118,
+      "tokens": 246
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "4d725236-c1d0-55fa-bf07-3e0ffe4d9af1",
+      "chars": 608,
+      "tokens": 134
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8dbe7fa8-fce2-53ff-9a4a-1e663113378f",
+      "chars": 1309,
+      "tokens": 250
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "0d2991c8-3313-5ab0-b3cf-b11c14fc7c22",
+      "chars": 1105,
+      "tokens": 220
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d62d4b0c-8e63-5a7e-9a2e-80bf91a04851",
+      "chars": 1197,
+      "tokens": 262
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7251a9c4-5555-5093-8a9a-ef54cabdef26",
+      "chars": 1740,
+      "tokens": 345
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ab45e971-394e-5461-8179-3bf35c66c70a",
+      "chars": 1185,
+      "tokens": 259
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "90425200-592d-5c1b-af58-0f68164d1d97",
+      "chars": 1231,
+      "tokens": 267
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8cdfcd40-db5f-560e-b4b0-733789f707d0",
+      "chars": 2167,
+      "tokens": 498
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cc07b875-4481-5fb6-9645-66f3bb900d24",
+      "chars": 1131,
+      "tokens": 242
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b364772a-5bc4-5baa-8fe6-8b73f68fdd80",
+      "chars": 1135,
+      "tokens": 244
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "28be8b5c-ab91-5646-ae32-9cb03e3b5083",
+      "chars": 793,
+      "tokens": 182
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "05b83773-092e-5e92-ab70-49ded93be4a8",
+      "chars": 1210,
+      "tokens": 261
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a3dfff85-d28f-5efe-a96b-3c743c26ba9b",
+      "chars": 1962,
+      "tokens": 416
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "10113d99-2603-5114-b303-73415e050881",
+      "chars": 976,
+      "tokens": 227
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "60b03c8e-efc0-50ce-b5d6-d4ad6e6d8932",
+      "chars": 3259,
+      "tokens": 646
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8f08addd-f9b4-53a9-a094-714cb2dcc836",
+      "chars": 809,
+      "tokens": 178
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "78e91ad8-1ee2-5db2-a8a7-330997f590ce",
+      "chars": 1219,
+      "tokens": 256
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cd70606a-b760-5d43-bded-764ca4ef2f95",
+      "chars": 1723,
+      "tokens": 368
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ff8a66b4-4ef3-5e94-ad96-a43f3a2f9917",
+      "chars": 1212,
+      "tokens": 264
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "bff27a62-d588-51b2-8a1a-e941b563762a",
+      "chars": 3131,
+      "tokens": 663
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ef4ee9a6-e5e5-5356-a3b3-8571031674e1",
+      "chars": 9265,
+      "tokens": 1900
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "df57a41b-611f-5e69-bb4b-fcd063f493d0",
+      "chars": 1461,
+      "tokens": 286
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ae46d1cb-2da2-55b1-8f0f-8a5600ede281",
+      "chars": 2388,
+      "tokens": 510
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3e8a9ced-9aa9-5adf-97b8-ced58b07b7d5",
+      "chars": 977,
+      "tokens": 209
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "fc0d6f7f-c81f-584c-8093-73f3a47d64f9",
+      "chars": 1723,
+      "tokens": 364
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "428461ef-bf9d-5387-aae9-171cbe84a3fc",
+      "chars": 1819,
+      "tokens": 385
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "cf2d4d30-5ec1-5a10-b7fc-7cc7f325999b",
+      "chars": 1150,
+      "tokens": 251
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8582b2dd-c8ea-54df-baea-8dc4f7252c91",
+      "chars": 953,
+      "tokens": 196
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3d79bbff-ef82-5d4e-a5b5-58c4ceae180b",
+      "chars": 1405,
+      "tokens": 297
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "dfc2071d-3d67-5eba-9446-ce1bf2d3f102",
+      "chars": 1254,
+      "tokens": 257
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "61eb0a78-09a8-5f51-b6a7-7a91d4629e52",
+      "chars": 1498,
+      "tokens": 299
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "75aec53d-68d1-51e3-9392-6d5afed8b0e3",
+      "chars": 1253,
+      "tokens": 292
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1b2cd6c3-e0eb-54bc-b4ee-6aff76e112da",
+      "chars": 723,
+      "tokens": 157
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c70be0fc-6663-5318-ba5d-d0f89cc81e14",
+      "chars": 3479,
+      "tokens": 784
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b22e54a0-f9b1-5c8c-a893-46768c5e528a",
+      "chars": 839,
+      "tokens": 192
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1ab64990-86f3-5f01-9b12-6cb5e6600d05",
+      "chars": 415,
+      "tokens": 96
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6d039d74-82ef-5a8f-b821-1e75baa3b36e",
+      "chars": 915,
+      "tokens": 203
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1cd90a9e-1e3d-5a8a-9767-2b08e16bc66c",
+      "chars": 1276,
+      "tokens": 276
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "dcdc9c48-f1a1-5140-8ee1-8b88ec5fd7b5",
+      "chars": 2172,
+      "tokens": 468
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "fa902a22-fd3f-51b4-979e-ddb842cafad2",
+      "chars": 1363,
+      "tokens": 282
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "158c34a7-6a99-53a6-8f7d-eeafbac8f591",
+      "chars": 20408,
+      "tokens": 4311
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "fb9bde1d-be3e-5b75-87f7-076fb0e5338f",
+      "chars": 1188,
+      "tokens": 255
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "579fd34c-d693-50b2-ae81-4de3d34c7cfa",
+      "chars": 1288,
+      "tokens": 269
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3d2e906c-5b59-5fb8-89fb-ac46ebf90293",
+      "chars": 2147,
+      "tokens": 470
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ef68cf8c-d1ca-57b0-b680-cb79b10e98ad",
+      "chars": 2619,
+      "tokens": 547
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b3bfa031-ed3d-5c6f-a97a-eafa1c914827",
+      "chars": 3243,
+      "tokens": 718
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "52654e51-159c-5d90-bdfb-11845952c021",
+      "chars": 2130,
+      "tokens": 431
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7781312f-3f98-5c0e-973d-d0fd77387662",
+      "chars": 3427,
+      "tokens": 737
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "a2da9435-2d2b-57a7-b992-20573c5ac28f",
+      "chars": 2509,
+      "tokens": 520
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "954a5898-19ba-507d-a482-c4f070087744",
+      "chars": 3474,
+      "tokens": 751
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "81f5aef6-037b-5341-a28f-6a42771f35ac",
+      "chars": 801,
+      "tokens": 168
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "597d1bd9-c6c7-5bfb-b8bc-822cf2a41aa8",
+      "chars": 1605,
+      "tokens": 334
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "bb61c8ae-87f2-5397-9428-f62a44b5bf1b",
+      "chars": 707,
+      "tokens": 166
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "7fc4ce16-3d76-572d-a364-77b7226659e3",
+      "chars": 616,
+      "tokens": 138
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6bde2de2-c2aa-5568-b6d4-ee3939552741",
+      "chars": 1081,
+      "tokens": 244
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6d21585e-a39d-5a3e-b22f-e2cc6595072a",
+      "chars": 690,
+      "tokens": 158
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "f16b24e1-b4e2-58fd-b719-5636370a2cb5",
+      "chars": 1157,
+      "tokens": 248
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1cd62c64-e88e-5c3a-9173-c2731b1b3e12",
+      "chars": 2117,
+      "tokens": 434
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "37b030a9-e828-535e-9fd9-8d8be26502bd",
+      "chars": 1261,
+      "tokens": 257
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1e5993f8-6cef-5d6b-927f-b313b2c2e900",
+      "chars": 1903,
+      "tokens": 410
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6fbc4760-e790-5724-a104-8ae7fa64a37f",
+      "chars": 10876,
+      "tokens": 2402
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c9a51af8-09b8-542a-854f-fe4230391739",
+      "chars": 2726,
+      "tokens": 558
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "8639b355-8ab5-56c5-b851-5d8d56950e72",
+      "chars": 363,
+      "tokens": 78
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1fbcb424-f709-5200-9809-d1c1567d6011",
+      "chars": 1845,
+      "tokens": 397
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3040a89e-d7ef-594c-a0d8-b4dd2dbebe49",
+      "chars": 2625,
+      "tokens": 583
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "b1883ef8-f008-51bc-aa78-a6f2115b49e4",
+      "chars": 1367,
+      "tokens": 295
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "bd1a8a11-d197-57b8-9f57-e28877d315ae",
+      "chars": 5153,
+      "tokens": 1061
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "86002941-03bf-5b1c-9987-a49d68ee792f",
+      "chars": 3232,
+      "tokens": 706
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "e6634324-75fe-5d13-a4cc-5fb2c8a11a74",
+      "chars": 5419,
+      "tokens": 1193
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "79773241-3b3b-54b4-ac8b-64d24e6708e9",
+      "chars": 517,
+      "tokens": 122
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "ca7773a9-b30a-5994-9bb2-9fe8ec76c65f",
+      "chars": 337,
+      "tokens": 79
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1ffe75f6-189a-5681-b252-500f944f2868",
+      "chars": 10010,
+      "tokens": 2102
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c17cba79-9d5d-5640-8427-078607688750",
+      "chars": 571,
+      "tokens": 134
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "9fddad13-dc95-5e47-b9e6-e62beb577888",
+      "chars": 19631,
+      "tokens": 4256
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "1d6d9de6-750c-52dc-8df6-3725a3bdfeac",
+      "chars": 1695,
+      "tokens": 366
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "eef86fda-2a0a-53ad-89b0-8434fb37caa5",
+      "chars": 8041,
+      "tokens": 1795
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "3798af7b-aea3-5714-ae78-6a9f54680ae8",
+      "chars": 1839,
+      "tokens": 402
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "c33e6021-b597-5411-bf3e-1fa2221c1b18",
+      "chars": 133,
+      "tokens": 30
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "2ed92053-c58e-5bdf-866d-639dc3244ba6",
+      "chars": 637,
+      "tokens": 134
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "55381158-9976-5d1e-9e53-e5462ba44c94",
+      "chars": 545,
+      "tokens": 109
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d5d8c3e8-d794-5020-a30b-c125dc001b26",
+      "chars": 633,
+      "tokens": 130
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "6470309c-f587-5e07-8a80-75f81eb22dd1",
+      "chars": 1366,
+      "tokens": 294
+    },
+    {
+      "source": "kvkk",
+      "doc_id": "d96d801e-abee-56d2-9ebc-69e16ea34d8e",
+      "chars": 673,
+      "tokens": 157
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "1209647600",
+      "chars": 3620,
+      "tokens": 883
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "1203538100",
+      "chars": 5107,
+      "tokens": 1281
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "1221692000",
+      "chars": 2780,
+      "tokens": 680
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "381533400",
+      "chars": 1249,
+      "tokens": 308
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "411040200",
+      "chars": 833,
+      "tokens": 211
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "432106400",
+      "chars": 1449,
+      "tokens": 374
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "365310400",
+      "chars": 682,
+      "tokens": 184
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "683027000",
+      "chars": 974,
+      "tokens": 273
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "388366800",
+      "chars": 723,
+      "tokens": 193
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "462024100",
+      "chars": 1530,
+      "tokens": 401
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "417839000",
+      "chars": 897,
+      "tokens": 240
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "782734500",
+      "chars": 1544,
+      "tokens": 398
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "493115700",
+      "chars": 755,
+      "tokens": 211
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "665260000",
+      "chars": 368,
+      "tokens": 99
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "311735500",
+      "chars": 521,
+      "tokens": 133
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "438554400",
+      "chars": 727,
+      "tokens": 196
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "407610600",
+      "chars": 1039,
+      "tokens": 275
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "416256200",
+      "chars": 702,
+      "tokens": 196
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "493555500",
+      "chars": 689,
+      "tokens": 194
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "512355300",
+      "chars": 1305,
+      "tokens": 316
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "715888700",
+      "chars": 1928,
+      "tokens": 488
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "453975900",
+      "chars": 1685,
+      "tokens": 445
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "432678900",
+      "chars": 899,
+      "tokens": 232
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "725791300",
+      "chars": 980,
+      "tokens": 255
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "403108000",
+      "chars": 1309,
+      "tokens": 349
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "433748500",
+      "chars": 963,
+      "tokens": 251
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "359596100",
+      "chars": 1140,
+      "tokens": 314
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "420497800",
+      "chars": 1737,
+      "tokens": 444
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "337691200",
+      "chars": 512,
+      "tokens": 153
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "547687600",
+      "chars": 1492,
+      "tokens": 385
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "383253400",
+      "chars": 1758,
+      "tokens": 484
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "337683200",
+      "chars": 901,
+      "tokens": 247
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "339701600",
+      "chars": 3205,
+      "tokens": 791
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "351445500",
+      "chars": 1037,
+      "tokens": 280
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "610187000",
+      "chars": 668,
+      "tokens": 171
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "328274900",
+      "chars": 856,
+      "tokens": 228
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "517991300",
+      "chars": 873,
+      "tokens": 226
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "408940400",
+      "chars": 769,
+      "tokens": 196
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "449874500",
+      "chars": 1291,
+      "tokens": 329
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "489538000",
+      "chars": 721,
+      "tokens": 199
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "392907900",
+      "chars": 1972,
+      "tokens": 489
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "389673000",
+      "chars": 866,
+      "tokens": 240
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "694464000",
+      "chars": 2100,
+      "tokens": 523
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "403156200",
+      "chars": 1626,
+      "tokens": 405
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "558301300",
+      "chars": 2542,
+      "tokens": 642
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "435974100",
+      "chars": 1757,
+      "tokens": 461
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "524237900",
+      "chars": 930,
+      "tokens": 242
+    },
+    {
+      "source": "yargitay",
+      "doc_id": "650777400",
+      "chars": 1033,
+      "tokens": 275
+    }
+  ]
+}

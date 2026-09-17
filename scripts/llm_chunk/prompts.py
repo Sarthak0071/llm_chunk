@@ -1,11 +1,7 @@
 """
-prompts.py -- system instructions and few-shot construction for chunk_generate.py.
-
-Kept separate so the prompt text can be read and edited without scrolling past the
-pipeline logic. Few-shot examples come from llm_chunk/fewshot/, which holds the five
-hand-verified gold documents (ground truth already confirmed correct). They are
-converted back into the *response* shape we ask Gemini for -- segments/capsules with
-local_ids -- not the post-processed output shape, so the example matches the task.
+prompts.py -- what the model is told. Generation prompt, per-kind notes, allowed
+values with Turkish glosses, worked examples from fewshot/, and the audit prompt.
+No imports from chunker.py: the vocabularies are passed in.
 """
 
 import json
@@ -14,468 +10,302 @@ from pathlib import Path
 
 FEWSHOT_DIR = Path(__file__).resolve().parents[2] / "fewshot"
 
-# Role field name and allowed values per source. aym uses FIRAC; the other four do
-# not (docs 14.1). "dissent" is in both vocabularies per the dissent-role +
-# opinion_type decision.
+# Role field and allowed values per source (docs 14.1). aym uses FIRAC.
 ROLE_VOCAB = {
-    "aym": ("firac_role",
-            ["facts", "issue", "rule", "application", "conclusion", "dissent", "unknown"]),
-    "bam": ("court_reasoning_role",
-            ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
-    "danistay": ("court_reasoning_role",
-                 ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
-    "first_degree": ("court_reasoning_role",
-                     ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
+    "aym": ("firac_role", ["facts", "issue", "rule", "application", "conclusion", "dissent", "unknown"]),
+    "bam": ("court_reasoning_role", ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
+    "danistay": ("court_reasoning_role", ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
+    "first_degree": ("court_reasoning_role", ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
+    "yargitay": ("court_reasoning_role", ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
+    "uyusmazlik": ("court_reasoning_role", ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
     "kvkk": ("regulatory_role", ["background", "analysis", "outcome"]),
-    # Yargitay reuses bam's vocabulary unchanged. No cassation-specific role value
-    # is needed: the six values already cover every function a cassation decision
-    # performs, and `other` absorbs the header blocks and file-routing directives
-    # that make up much of a short one.
-    "yargitay": ("court_reasoning_role",
-                 ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
-    # Sources 7 and 8. PROVISIONAL -- no rekabet or uyusmazlik decision body has
-    # ever been seen (every row is pending_extraction upstream), so these values
-    # are inherited from the closest institution rather than observed. Nothing
-    # reaches Gemini: chunk_generate.run() refuses any source in
-    # TEXT_PENDING_SOURCES before a request is built. They exist so the module is
-    # complete and the schema builder can be exercised.
-    #
-    # rekabet is an authority, not a court, so it takes kvkk's regulatory_role.
-    # Likely too thin once text lands -- Rekabet decisions are long, carry karsi
-    # oy dissents and a formal operative section -- but widening it now would be
-    # inventing values for documents nobody has read.
     "rekabet": ("regulatory_role", ["background", "analysis", "outcome"]),
-    # uyusmazlik rules on WHICH court has jurisdiction rather than on the merits,
-    # but it is still a court writing a reasoned decision, so it reuses the
-    # existing court vocabulary unchanged. Deliberately NOT a new role field:
-    # adding one would extend the chunk schema on a guess.
-    "uyusmazlik": ("court_reasoning_role",
-                   ["facts", "issue", "rule_application", "conclusion", "dissent", "other"]),
 }
+CATCHALL = {"aym": "unknown", "kvkk": "background", "rekabet": "background"}
 
-# When a source has no worked example of its own, borrow the structurally closest
-# one. Yargitay reviews an appellate ruling, exactly like bam, and shares its role
-# vocabulary -- see build_fewshot's stand-in handling.
-# rekabet borrows kvkk's, the only regulatory example that exists. uyusmazlik
-# gets NO stand-in on purpose: nothing in fewshot/ resembles a ruling on forum
-# rather than merits, and a structurally wrong example teaches a wrong shape more
-# firmly than no example at all -- the yargitay few-shot leaked its own case_no
-# into a generated document when it was merely the wrong archetype.
-FEWSHOT_STAND_IN = {"yargitay": "bam", "rekabet": "kvkk"}
-
-SOURCE_NOTES = {
-    "aym": (
-        "AYM (Constitutional Court) decisions have REAL court-numbered paragraphs. Use "
-        "FIRAC roles. Sections are marked by Roman numerals and headings such as OLAY VE "
-        "OLGULAR (facts), ILGILI HUKUK / GENEL ILKELER (rule), ESAS / DEGERLENDIRME "
-        "(application), HUKUM (conclusion), KARSIOY (dissent). Scope `rights` PER "
-        "PARAGRAPH -- pick only the right(s) that paragraph actually discusses, not every "
-        "right the case mentions."
-    ),
+KIND_NOTES = {
+    # Written from an inventory of the raw records (headings counted over every
+    # usable document), not from assumptions.
+    "aym_individual_application": (
+        "AYM individual application (bireysel başvuru). Layout: header lines TÜRKİYE CUMHURİYETİ / "
+        "ANAYASA MAHKEMESİ / BİRİNCİ or İKİNCİ BÖLÜM or GENEL KURUL / KARAR / <applicant> BAŞVURUSU / "
+        "(Başvuru Numarası: …) / Karar Tarihi / R.G. Tarih ve Sayı, then the panel list (Başkan, "
+        "Üyeler, Raportör, Başvurucu, Vekili) -> ALL `unknown`, one segment. Then numbered paragraphs "
+        "under Roman-numeral sections: I. BAŞVURUNUN KONUSU -> issue; II. BAŞVURU SÜRECİ -> facts; "
+        "III. OLAY VE OLGULAR -> facts; IV. İLGİLİ HUKUK (quoted statutes, Constitution, ECHR case "
+        "law) -> rule; V. İNCELEME VE GEREKÇE with A. Kabul Edilebilirlik and B. Esas / DEĞERLENDİRME "
+        "-> application (a quoted provision inside it -> rule); VI. GİDERİM -> application; VII. HÜKÜM "
+        "-> conclusion. KARŞIOY GEREKÇESİ -> dissent (opinion_type dissent); FARKLI GEREKÇE / EK "
+        "GEREKÇE / DEĞİŞİK GEREKÇE -> dissent role with opinion_type concurring. Signature block "
+        "(Başkan / Üye / names) -> `unknown`. Lone ':' lines are part of the header. '...' is a "
+        "redaction, never a value. Scope `rights` per paragraph from the candidate list; one capsule "
+        "per right the court decided."),
+    "aym_norm_review": (
+        "AYM norm review (norm denetimi): no applicant, no violated right -- a court or deputies ask "
+        "whether a STATUTE conforms to the Constitution. Header: ANAYASA MAHKEMESİ KARARI / Esas "
+        "Sayısı / Karar Sayısı / Karar Günü (/ Resmi Gazete) -> `unknown`, one segment. Then İTİRAZ "
+        "YOLUNA BAŞVURAN / İPTAL DAVASINI AÇAN -> facts; İTİRAZIN KONUSU / İPTALİ İSTENEN -> issue; "
+        "OLAY -> facts; İPTALİ İSTENEN KANUN HÜKÜMLERİ / DAYANILAN ANAYASA KURALLARI / YASA METİNLERİ "
+        "(quoted text) -> rule; İLK İNCELEME -> issue; ESASIN İNCELENMESİ (per-provision merits "
+        "sections 'A. …', 'B. …') -> application; SONUÇ / HÜKÜM -> conclusion; KARŞIOY / MUHALEFET "
+        "ŞERHİ / AYRIŞIK OY -> dissent; signature block -> `unknown`. Decisions from the 1960s-80s "
+        "carry few headings: judge by function. `rights` is null everywhere. `subject_id` names the "
+        "reviewed provision as a Turkish slug (e.g. 5393_belediye_kanunu_m23); one capsule per "
+        "provision decided. Outcome is about the NORM: annulled or denied."),
     "bam": (
-        "BAM (regional appellate) decisions use keyword section markers: DAVA, CEVAP, ILK "
-        "DERECE MAHKEMESI KARARININ OZETI, ISTINAF NEDENLERI, GEREKCE, HUKUM. There are no "
-        "official paragraph numbers -- your segments are synthetic. Rule and Application "
-        "are fused in GEREKCE: use `rule_application`."
-    ),
+        "BAM (bölge adliye mahkemesi, regional appellate court). Header block T.C. / <İL> / BÖLGE "
+        "ADLİYE MAHKEMESİ / n. HUKUK DAİRESİ / DOSYA NO / KARAR NO / T Ü R K  M İ L L E T İ  A D I N A "
+        "/ İ S T İ N A F  K A R A R I (letter-spaced) and the İNCELENEN KARARIN block (MAHKEMESİ, "
+        "TARİHİ, NUMARASI, DAVANIN KONUSU, KARAR TARİHİ, KARAR YAZIM TARİHİ) -> `other`, one segment. "
+        "DAVA / CEVAP / İLK DERECE MAHKEMESİ KARARININ ÖZETİ -> facts; İSTİNAF NEDENLERİ -> issue; "
+        "GEREKÇE / GEREĞİ DÜŞÜNÜLDÜ / DELİLLERİN DEĞERLENDİRİLMESİ -> rule_application (rule and "
+        "application are fused); HÜKÜM -> conclusion; BAŞKAN / ÜYE / KATİP signature -> `other`; "
+        "MUHALEFET ŞERHİ -> dissent. Letter-spaced lines are headings: read them without the spaces."),
     "danistay": (
-        "Danistay (Council of State) decisions use markers: ISTEMIN KONUSU, YARGILAMA "
-        "SURECI, TEMYIZ EDENIN IDDIALARI, KARSI TARAFIN SAVUNMASI, HUKUKI DEGERLENDIRME, "
-        "KARAR SONUCU, and KARSI OY for dissent. HUKUKI DEGERLENDIRME fuses Rule and "
-        "Application: use `rule_application`. Note YARGILAMA SURECI often embeds the "
-        "entire lower-court ruling and can be very long -- segment it sensibly rather "
-        "than emitting one huge block."
-    ),
+        "Danıştay (Council of State). Header: T.C. / D A N I Ş T A Y / n. DAİRE / Esas No / Karar No / "
+        "TEMYİZ EDEN, KARŞI TARAF, VEKİLİ lines / TÜRK MİLLETİ ADINA -> `other`, one segment. İSTEMİN "
+        "KONUSU -> issue; YARGILAMA SÜRECİ / MADDİ OLAY / DAVA KONUSU İSTEM (often embeds the whole "
+        "lower ruling: segment it) -> facts; TEMYİZ EDENİN İDDİALARI / KARŞI TARAFIN SAVUNMASI -> "
+        "issue; DANIŞTAY TETKİK HAKİMİ … DÜŞÜNCESİ / SAVCI DÜŞÜNCESİ -> other; İLGİLİ MEVZUAT (quoted "
+        "law) -> rule_application; HUKUKİ DEĞERLENDİRME / İNCELEME VE GEREKÇE -> rule_application; "
+        "KARAR SONUCU -> conclusion; KARŞI OY -> dissent. Newer records have no markers at all: judge "
+        "by function. Some records begin with scraper noise ('Karar İçeriği', 'ee3', '0', "
+        "'2023/1999999'); it is removed by code before you see it."),
     "first_degree": (
-        "First-instance decisions have the thinnest structure: DAVA, then GEREGI "
-        "DUSUNULDU, then one long undifferentiated reasoning block, then H U K U M "
-        "(letter-spaced). There are no internal markers inside the reasoning block, so "
-        "use `confidence: low` for role calls you cannot ground in a marker."
-    ),
-    # Written around FUNCTION, not section markers, on purpose. Yargitay has ~46
-    # chambers and the 48 documents we hold show at least four different layouts;
-    # the most common one (23 of 45) has no section labels at all. Listing markers
-    # for 46 chambers is a losing game, and the next export will show layouts these
-    # 48 do not. Semantics generalise where markers do not -- which is exactly the
-    # case docs 15 says this pipeline exists for.
-    "yargitay": (
-        "Yargitay (Court of Cassation) reviews a lower court's ruling on points of "
-        "law; it does not retry the facts. Decisions are SHORT -- typically 6 to 8 "
-        "paragraphs.\n\n"
-        "THERE IS NO FIXED STRUCTURE. Different chambers write differently, and most "
-        "decisions have no section headings at all. Do NOT look for a template. "
-        "Identify each paragraph by WHAT IT DOES:\n"
-        "  - recounts the charge, the claim, or what the courts below decided -> facts\n"
-        "  - states what the appellant argues, or the legal question -> issue\n"
-        "  - the court's own reasoning and its application of law -> rule_application\n"
-        "  - the operative disposition, almost always the LAST paragraph -> conclusion\n"
-        "  - header lines, file-routing directives, anything else -> other\n"
-        "Use `confidence: low` whenever the role is your inference rather than "
-        "something the document states. That is the honest answer here and it is "
-        "expected often.\n\n"
-        "Headings, where they appear at all, take many forms: a Roman numeral series "
-        "(I. DAVA ... VI. KARAR), a labelled field (SUC :, Suc :, HUKUM :, DAVA TURU :), "
-        "or a LETTER-SPACED line such as 'Y A R G I T A Y  K A R A R I' or 'K A R A R'. "
-        "Letter-spaced lines ARE headings -- read them with the spaces removed.\n\n"
-        "The opening lines are a HEADER BLOCK, not content: chamber and case numbers, "
-        "the literal scrape artifact \"Ictihat Metni\" glued to whatever follows it, "
-        "MAHKEMESI :, SAYISI :, ILK DERECE MAHKEMESI :. Tag these `other`, "
-        "`confidence: low`. A labelled field's VALUE may continue onto the next one or "
-        "two paragraphs as bare lines -- include those continuation paragraphs in the "
-        "same segment.\n\n"
-        "The disposition lives in the final paragraph. Words like KABULUNE or REDDINE "
-        "appearing EARLIER in the text usually describe what the LOWER court did, not "
-        "what Yargitay decided -- do not read those as this court's outcome. Real "
-        "dispositions: ONANMASINA (affirmed), BOZULMASINA (reversed), DUZELTILEREK "
-        "ONANMASINA (corrected then affirmed), REDDINE (denied), TEVDIINE (file "
-        "remitted), DUSMESINE (abated), GERI CEVRILMESINE (returned on a procedural "
-        "defect). A single decision often carries SEVERAL of these at once -- part "
-        "reversed, part affirmed. Name the court's principal disposition in `outcome` "
-        "and describe the full picture in `conclusion_sentence`.\n\n"
-        "Party names are redacted as '...' in the published text. That is the source, "
-        "not missing data -- never treat a redaction as a value."
-    ),
+        "First-instance court (asliye ticaret / asliye hukuk). Header: T.C. / <İL> n. ASLİYE … "
+        "MAHKEMESİ / ESAS NO / KARAR NO / DAVA TARİHİ / KARAR TARİHİ / GEREKÇELİ KARARIN YAZILDIĞI TARİH "
+        "/ HAKİM / KATİP / DAVACI / DAVALI / VEKİLİ lines -> `other`, one segment. DAVA / CEVAP / "
+        "DELİLLER -> facts; DELİLLERİN DEĞERLENDİRİLMESİ VE GEREKÇE / GEREĞİ DÜŞÜNÜLDÜ (one long "
+        "reasoning block; use confidence low where nothing marks the role) -> rule_application; "
+        "H Ü K Ü M / HÜKÜM -> conclusion; closing HAKİM / KATİP signature -> `other`."),
+    "yargitay_hukuk": (
+        "Yargıtay civil chamber: reviews a lower ruling on points of law, does not retry facts. Short, "
+        "no fixed layout. Roles by function:\n"
+        "  - header lines (chamber + E./K. numbers, 'İçtihat Metni', MAHKEMESİ :, SAYISI :, DAVA TÜRÜ :) "
+        "and letter-spaced titles ('K A R A R', 'Y A R G I T A Y  K A R A R I') -> other\n"
+        "  - what the courts below decided, the claim, the parties' history ('Taraflar arasındaki ... "
+        "davasından dolayı ... hükmün ... temyiz edilmesi üzerine') -> facts\n"
+        "  - procedural intro lines ('temyiz edilmekle evrak okunarak', 'Gereği görüşülüp düşünüldü', "
+        "'dosya incelendi') -> other\n"
+        "  - the appellant's arguments / the question examined -> issue\n"
+        "  - the chamber's own reasoning, including numbered items 1), 2), a), b) after 'Gereği "
+        "görüşülüp düşünüldü' -> rule_application\n"
+        "  - the disposition paragraph -- ONANMASINA, BOZULMASINA, DÜZELTİLEREK ONANMASINA, REDDİNE, "
+        "TEVDİİNE, GERİ ÇEVRİLMESİNE, İADESİNE, DÜŞMESİNE -- is ALWAYS `conclusion`, even when the same "
+        "paragraph also reasons ('Dosyadaki yazılara ... göre ... ONANMASINA'). Never give it another role.\n"
+        "  - a few chambers use a Roman-numeral layout: I. DAVA -> facts, II. CEVAP -> facts, III. İLK "
+        "DERECE MAHKEMESİ KARARI -> facts, IV. İSTİNAF -> facts/issue, V. TEMYİZ -> issue, VI. KARAR -> "
+        "conclusion (its GEREKÇE part -> rule_application).\n"
+        "KABULÜNE/REDDİNE earlier in the text describe the lower court, not this chamber. Party names "
+        "are redacted as '...' -- that is the source, not a value."),
+    "yargitay_ceza": (
+        "Yargıtay criminal chamber. Same rules as the civil chambers, plus: SUÇ : (the offence) and "
+        "HÜKÜM : (the lower court's judgment) are content -> facts, and the offence is the subject_id "
+        "(e.g. nitelikli_hirsizlik, sahte_belge_duzenleme). Numbered findings '1) ... 2) ...' that "
+        "explain what the lower court got wrong are the chamber's reasoning -> rule_application; "
+        "'Bozmayı gerektirmiş ... BOZULMASINA' is the disposition -> conclusion. When one decision "
+        "disposes of several counts differently (one count affirmed, another reversed), emit one "
+        "capsule per count."),
     "kvkk": (
-        "KVKK (data protection authority) decisions have NO section headings and no "
-        "paragraph numbers -- a short narrative decision summary. Use the three "
-        "regulatory stages only. KVKK cites Yonetmelik (regulations) and Yonerge "
-        "(directives) constantly; these have NO law number at all -- set law_no to null "
-        "and put the full official name in law_name, with legislation_type 'regulation' "
-        "or 'directive'. Capturing these is a specific goal here: the regex extractor "
-        "structurally cannot find them."
-    ),
-    # PLACEHOLDERS -- never sent. chunk_generate.run() refuses any source in
-    # TEXT_PENDING_SOURCES before a request is built, because no decision body
-    # for either court has ever been extracted. Writing a real source note means
-    # describing a layout, and describing a layout nobody has read is how the
-    # yargitay few-shot ended up teaching an archetype that fitted 3 of 48
-    # documents. These exist so the registry is complete and every source's
-    # schema can be built and tested.
-    "rekabet": (
-        "PLACEHOLDER -- not a usable prompt. Rekabet Kurumu (Competition Authority) "
-        "decisions have never been extracted; the bodies are PDFs. Before this is "
-        "written, read 2-3 real decisions and establish: whether section headings "
-        "exist, whether karsi oy dissents appear and how they are marked, how the "
-        "operative part is introduced, and whether the three regulatory stages are "
-        "enough or a procedural/dissent value is needed."
-    ),
-    "uyusmazlik": (
-        "PLACEHOLDER -- not a usable prompt. Uyusmazlik Mahkemesi decides WHICH "
-        "court has jurisdiction, not who wins, so the usual reasoning roles may map "
-        "awkwardly. Before this is written, read 2-3 real decisions and establish: "
-        "how the dispute type (olumlu gorev uyusmazligi / olumsuz gorev uyusmazligi "
-        "/ hukum uyusmazligi) is stated -- it is the natural subject_id and appears "
-        "in NO structured field -- and how the two competing courts are named."
-    ),
+        "KVKK (data protection board) decision summary. STAGES: the title line and the Karar Tarihi / "
+        "Karar No / Konu Özeti rows -> background; the complaint (\"şikâyette özetle;\" and its list) "
+        "and the data controller's defence (\"cevapta özetle;\" and its list) -> background; the "
+        "Board's own evaluations -- the list after \"Kurulunun ... Kararı ile;\" stating what it found "
+        "-> analysis; ONLY the disposition lines -> outcome (\"idari para cezası uygulanmasına\", "
+        "\"talimatlandırılmasına\", \"yapılacak bir işlem olmadığına\", \"hatırlatılmasına\", "
+        "\"sorumlular hakkında işlem yapılmasına\" and the closing \"karar verilmiştir.\"). A Board "
+        "decision often carries SEVERAL dispositions: emit one capsule per disposition, each "
+        "opinion_type board_decision. KVKK cites Yönetmelik/Tebliğ constantly: legislation_type "
+        "regulation/directive, law_no null, full name in law_name."),
+    "rekabet": "PLACEHOLDER -- no Rekabet Kurumu decision body has been extracted yet.",
+    "uyusmazlik": "PLACEHOLDER -- no Uyuşmazlık Mahkemesi decision body has been extracted yet.",
 }
 
-BASE_INSTRUCTION = """You segment Turkish court decisions into retrievable chunks and write one reasoning capsule per legal conclusion.
+BASE_INSTRUCTION = """You segment Turkish court and board decisions into retrievable chunks and write one reasoning capsule per legal conclusion.
 
-You will receive a decision as numbered paragraphs, one per line, each prefixed with a marker like [p1], [p2].
+INPUT. The decision as numbered paragraphs, one per line, each prefixed [p1], [p2], ... That is the WORKING COPY: every reference you make uses these markers. Sometimes a second block follows, "PLAIN TEXT COPY": the same decision as the database's plain text, without paragraph markers (for some courts it is one long line with the breaks removed). Read it if it helps you understand a passage; never cite it. Everything you store points at [pN] markers.
 
 ## segments[]
 
-Group CONSECUTIVE paragraphs that share the same legal role into one segment.
-
-- `local_id`: "seg_1", "seg_2", ... in document order. These are your own labels for
-  linking capsules to segments. Never invent any other kind of id.
-- `paragraph_refs`: EVERY marker whose text belongs in this segment, e.g.
-  ["p6","p7","p8"]. Use exactly the marker names from the input, without the brackets.
-  THIS IS THE MOST IMPORTANT FIELD YOU PRODUCE: the stored chunk text is assembled by
-  code from exactly the paragraphs you list here, so a missing ref silently drops real
-  content, and a wrong ref pulls in content that does not belong. List them all, in
-  order, with no gaps.
-- `text`: the merged paragraph text, COPIED VERBATIM from the input. Do not paraphrase,
-  summarise, translate, fix typos, change capitalisation, or reorder. Join merged
-  paragraphs with a single newline. Do not include the [pN] markers themselves. This is
-  compared against the paragraphs you referenced, and any difference is reported -- so
-  it is a check on whether your refs and your reading agree, not a place to tidy the
-  text up.
-- `role`: REQUIRED on every single segment, and it must be one of the values listed
-  for this source below. Never omit it and never leave it null. If the section is
-  genuinely unclassifiable use the source's catch-all value ("unknown" for aym,
-  "other" for the others) with `confidence: low` -- an honest catch-all is useful,
-  a missing role makes the chunk unfilterable.
-- `content_type`: "ruling" for the operative ruling (conclusion / outcome roles),
-  "reasoning" for everything else.
-- `reasoning_stage`: "background", "analysis" or "outcome". Universal across sources.
-- `confidence`: "high" when the role is clearly grounded in a section marker or
-  unmistakable content; "low" when you are unsure. Be honest -- "low" is useful
-  signal, a wrong "high" is not.
-- `source_type` and `case_no`: copy the values given to you below, exactly as given.
-  Turkish court documents are often published with identifying details redacted as
-  "..." -- including the case-number lines themselves ("DOSYA NO : ...", "KARAR NO :
-  ..."), and also names, notary numbers and plate numbers. A redaction is not a value:
-  never write "...", "N/A", "unknown" or any other placeholder into `case_no`. Use the
-  number given below even when the document's own header is redacted. The one time to
-  write something different is when the document plainly states a DIFFERENT real case
-  number (e.g. "ESAS NO : 2016/1359" where a different number was given to you) -- then
-  report what the document says, because that disagreement is worth knowing about.
-
-Aim for segments under 2000 characters. Do not pad to reach a size, and do not split
-mid-sentence to avoid one -- oversized segments are split automatically afterwards.
-Segment on legal role, not on length.
+Group CONSECUTIVE paragraphs that share the same legal role into one segment. A segment is a retrievable unit: aim for 500-2,000 characters (code splits longer ones). Do not make one segment per paragraph when neighbouring paragraphs share a role -- a long HUKUKİ DEĞERLENDİRME or ESASIN İNCELENMESİ is a few segments of several paragraphs each, not fifty one-paragraph segments. A heading line joins the segment it introduces. THE ONE EXCEPTION TO GROUPING: the operative disposition (the paragraph or lines with REDDİNE / İPTALİNE / ONANMASINA / BOZULMASINA / İHLAL EDİLDİĞİNE / KABULÜNE / "idari para cezası uygulanmasına" / "yapılacak bir işlem olmadığına" / "... karar verildi/verilmiştir") is ALWAYS its own segment with the conclusion/outcome role, even when it is a single short line and even when it follows the reasoning without a heading. Never let it end a reasoning segment.
+- `local_id`: "seg_1", "seg_2", ... in document order.
+- `paragraph_refs`: EVERY marker in the segment, e.g. ["p6","p7","p8"], in order, no gaps. The stored chunk text is built by code from exactly these refs. EVERY paragraph of the input must appear in exactly one segment: none left out, none listed twice. Headers, signature lists and one-line headings are paragraphs too and go into a segment. A paragraph you leave out is put into a low-confidence catch-all chunk by code, which is worse than your grouping; a paragraph listed twice is kept only in its first segment.
+- `role`: one of the values listed for this document. Three rules are checked:
+  1. The DOCKET HEADER (court name, "ANAYASA MAHKEMESİ KARARI", "T.C.", Esas/Karar Sayısı or No, Karar Günü/Tarihi, Resmi Gazete line, "İçtihat Metni", MAHKEMESİ:/SAYISI:/DOSYA NO: lines, Karar Tarihi/Karar No/Konu Özeti rows) is ONE segment with the catch-all role (CATCHALL_ROLE below), never `facts`. The same for the SIGNATURE BLOCK (Başkan / Üye / names) and panel lists. Party lines that follow (İTİRAZ YOLUNA BAŞVURAN, DAVACI, DAVALI, TEMYİZ EDEN) start the content.
+  2. `conclusion` / `outcome` is ONLY the operative section: SONUÇ / HÜKÜM / KARAR SONUCU / the decision items -- REDDİNE, İPTALİNE, ONANMASINA, BOZULMASINA, İHLAL EDİLDİĞİNE, KABULÜNE, "... karar verildi/verilmiştir". The sentence closing a reasoning section ("... reddi gerekir.") and per-provision merits sections are application / rule_application. An interim ruling inside the reasoning stays in the reasoning role.
+  3. Verbatim statute or Constitution text (quoted provisions, "Madde 5 - ...", the İLGİLİ HUKUK / İPTALİ İSTENEN KANUN HÜKÜMLERİ block) is `rule` (aym) or `rule_application` (courts). The court's paraphrase is `application`.
+- `confidence`: "high" when the role is grounded in a marker or unmistakable content, "low" when it is your inference. Be honest.
+- `rights` (aym individual applications only): the right(s) THIS paragraph discusses, from the candidate list; null when none.
 
 ## cited_legislations[] (inside each segment)
 
-Every law, decree-law, constitutional article, regulation or directive cited in THAT
-segment's own text. Empty array if none.
-
-- `verbatim_mention`: the exact citation text as written, copied from the segment.
-  Also substring-checked.
-- `law_no`: the number before "sayili". null for constitution citations and for
-  regulations/directives, which are named rather than numbered. Set it ONLY when
-  the court states the number in the text.
-- `law_short`: the abbreviation exactly as the court wrote it, when it cites a law
-  that way -- "T.B.K.", "HMK", "İYUK", "TTK", "KVKK". null if no abbreviation is
-  used. NEVER convert an abbreviation into a law number yourself: "BK" meant Law
-  818 before 2012 and Law 6098 after, and "TMK" is usually the Civil Code but
-  sometimes the Anti-Terror Law. If the court wrote only "T.B.K. madde 56", then
-  law_short="T.B.K.", law_no=null, article_no="56".
-- `law_name`: the name if stated at that mention, else null.
-- `article_no`: as written -- "15", "141/A", "Gecici 3", "Ek 5". null if not stated.
-  Keep Gecici/Ek articles distinct from plain articles of the same number.
-- `paragraph_no`: the fikra number as a digit, converting Turkish ordinal words
-  (ikinci -> "2"). null if absent.
-- `law_date`: ISO (1994-12-07) if the text gives a date, else null.
-- `legislation_type`: "statute" (Kanun), "decree_law" (KHK / Kanun Hukmunde
-  Kararname), "constitution" (Anayasa), "regulation" (Yonetmelik), "directive"
-  (Yonerge).
-- `confidence`: "high" when a specific article is identified, "low" when only the law
-  is named.
-
-Use ONLY those five legislation_type values.
-
-CASE LAW IS NOT LEGISLATION, and this is the single most common mistake made here.
-A court citing its own earlier decisions -- "Mehmet Serif Ay (B. No: 2012/1181,
-17/9/2013)", "Nihat Akbulak ([GK], B. No: 2015/10131)", "Ibrahim Er ve digerleri",
-or a bare party name like "Osman Kizilcan" -- is citing PRECEDENT, not a statute.
-The giveaways are a person's name, "B. No:", "[GK]", "E. 2019/123", "K. 2020/456",
-a chamber name, or "ve digerleri". None of these belong in cited_legislations. Leave
-them out entirely; do not invent a type such as "other" to hold them. References to
-academic doctrine are excluded for the same reason.
-
-A citation belongs here only if it names a LAW: a numbered statute or decree-law,
-the Constitution, or a named regulation or directive. If you emit a regulation or
-directive you MUST give its full official name in law_name, because with no law_no
-and no name there is nothing to identify the provision by.
-
-List each distinct provision AT MOST ONCE per segment. If the same article is cited
-several times in one segment, emit it once. Never repeat an identical citation object
--- an aym response once emitted the same Anayasa article 561 times and exhausted the
-output budget before finishing the document.
-
-Never infer a field the text does not state -- use null. A null means the court did
-not say it, never that you failed.
+REQUIRED on every segment whose text names a law, decree-law, constitutional article, regulation, directive or communiqué (Tebliğ) -- "6698 sayılı Kanun'un 12'nci maddesi", "Anayasa'nın 20. maddesi", "Kişisel Sağlık Verileri Hakkında Yönetmelik". Empty only when the segment names none. An empty list on a segment that names a law is an error that is checked. `verbatim_mention` exactly as written. `law_no` only when the text states the number (null for the Constitution and for named regulations). `law_short` the abbreviation exactly as written (T.B.K., HMK, İYUK); never convert it to a number. `law_name` if stated at that mention. `article_no` as written ("15", "141/A", "Geçici 3"). `paragraph_no` as a digit (ikinci -> "2"). `law_date` ISO if given. `legislation_type`: statute, decree_law, constitution, regulation, directive, treaty (AİHS and other conventions), or not_legislation. `confidence`: high when an article is identified, low when only the law is named.
+CASE LAW IS NOT LEGISLATION: a person's name, "B. No:", "[GK]", "E. 2019/123", "Anayasa Mahkemesi Kararlar Dergisi", "ve diğerleri" mark precedent or doctrine -- leave them out, or give them not_legislation. List each provision at most once per segment. Never infer a field the text does not state: use null.
 
 ## capsules[]
 
-One per legal subject decided, PLUS one per dissenting opinion.
+One per legal subject decided, PLUS one per dissenting or concurring opinion.
+- `outcome`: ONE of the values listed for this document. For the majority: the court's principal disposition, read from the operative ruling. For a dissent: the disposition the dissenter argued for -- a dissenter who would have found a violation says violation, who would have found none says no_violation, who would have annulled says annulled, who would have upheld the provision says denied, who would have reversed says reversed. A dissent that objects only to procedure or jurisdiction names the disposition that objection leads to (dismissed_procedural, no_jurisdiction, remanded). Never the opinion type, never the violation: it names WHAT WAS DECIDED. Several dispositions -> several capsules. "other" is a last resort explained in conclusion_sentence.
+- `opinion_type`: majority; dissent (karşı oy / muhalefet şerhi / ayrışık oy); concurring (farklı / ek / değişik gerekçe); board_decision for a KVKK board ruling.
+- `dissent_authors`: surnames as printed under a dissent or concurring opinion; empty otherwise.
+- `subject_id`: a short snake_case TURKISH slug naming the subject in dispute, in the court's own words (vergi_ziyai_cezasi, kamulastirmasiz_el_atma, veri_guvenligi_ihlali). Never "unspecified".
+- `conclusion_sentence`: one sentence IN TURKISH stating what was decided and why, naming the concrete subject.
+- `reasoning_summary`: 2-4 sentences IN TURKISH explaining WHY, read from the rule and application segments, keeping the decision's own terms of art verbatim (a lawyer searches with the term of art). Every law number, article number and case number you write must appear in the decision text.
+- `supporting_local_ids`: the segments that support this conclusion. A dissent or concurring capsule cites only that opinion's own dissent segments; a majority capsule never cites a dissent segment.
 
-- `outcome`: a short snake_case label grounded in the ruling text.
-- `conclusion_sentence`: one sentence IN TURKISH stating what the court decided and
-  why, naming the concrete subject matter -- not a restatement of the label. MUST be
-  Turkish: this text is searched by Turkish queries alongside reasoning_summary, so an
-  English sentence here is dead weight and is automatically rejected.
-- `reasoning_summary`: 2-4 sentences IN TURKISH explaining WHY the court decided this,
-  read from the rule and application segments. This is the field a lawyer's question
-  gets matched against, so it must carry real factual content: what the dispute was
-  about, what test the court applied, what tipped it. MUST be Turkish -- an English
-  summary is automatically rejected. Never write a placeholder.
-  KEEP THE LEGAL TERM OF ART VERBATIM. Write the specific named concepts the decision
-  itself uses -- "sermaye piyasasi mevzuati", "duzenleme ortaklik payi", "vergi ziyai
-  cezasi", "kamulastirmasiz el atma", "belirsiz alacak davasi", "adli yardim" -- in the
-  court's own words. Do NOT paraphrase them into everyday language. A lawyer searches
-  with the term of art, so a summary that says "ortak olmak amaciyla para verdigi"
-  instead of naming "sermaye piyasasi mevzuatina aykiri para toplanmasi" cannot be
-  found by the very question it answers. This is measured, not hypothetical: two of
-  fourteen topic queries missed the top result for exactly this reason, because the
-  summary had dropped the term the question was asked with. Summarise the REASONING,
-  never the VOCABULARY.
-- `opinion_type`: "majority", or "dissent:<judge surname>" for a dissent, or
-  "board_decision" for a KVKK board ruling.
-- `supporting_local_ids`: the `local_id`s of the segments that actually support this
-  conclusion -- typically the rule, application and ruling segments. A dissent capsule
-  must reference the dissent segments, not the majority's.
-- `case_no`, `subject_id`: echo the values given below.
+Do not output chunk_id, canonical_id, char_length, citation_granularity, chunk_label, subject_type, content_type, reasoning_stage or reasoning_summary_method: code sets them."""
 
-Do not output chunk_id, canonical_id, char_length, citation_granularity, chunk_label,
-subject_type or reasoning_summary_method. Those are set by code and any value you
-supply for them is discarded."""
+AUDIT_INSTRUCTION = """You are AUDITING a first-pass segmentation of a Turkish court or board decision made by another model. You receive the decision as numbered paragraphs, the first pass's segments (local_id, paragraph range, role) and its capsules (index, opinion type, outcome, subject, conclusion sentence).
+
+Return ONLY what must change. Empty lists mean the first pass is right. A fix is for a clear error; prefer the first pass when in doubt. Do not re-segment.
+
+role_fixes -- ONLY these four clear cases, nothing else: (1) a docket header or signature block not in the catch-all role; (2) the paragraph carrying the operative disposition not in conclusion/outcome; (3) kvkk: Board evaluations tagged outcome, or disposition lines tagged analysis; (4) a KARŞI OY / MUHALEFET ŞERHİ / AYRIŞIK OY / FARKLI GEREKÇE opinion not tagged dissent. Every other role call belongs to the first pass -- leave it. NEVER move the paragraph that carries the operative disposition (ONANMASINA, BOZULMASINA, REDDİNE, İPTALİNE, İHLAL EDİLDİĞİNE, KABULÜNE, "karar verildi/verilmiştir") out of conclusion/outcome, even if that paragraph also contains reasoning; a decision without a conclusion segment is wrong. The docket header and the signature block take the catch-all role, never `facts`. `conclusion`/`outcome` is only the operative section (SONUÇ / HÜKÜM / KARAR SONUCU / decision items + "karar verildi/verilmiştir"); the sentence closing a reasoning section and per-provision merits sections are application / rule_application. For kvkk, the Board's evaluations under "Kararı ile;" are analysis; only the disposition lines are outcome. Verbatim statute text is rule (aym) / rule_application (courts). A KARŞI OY / MUHALEFET ŞERHİ / AYRIŞIK OY / FARKLI GEREKÇE opinion is dissent; "X bu görüşe katılmamıştır" inside the majority is not.
+
+outcome_fixes -- a capsule whose outcome does not name what the operative ruling decided for THAT capsule's subject and opinion (a dissent's outcome is what the dissenter argued for). Use only the allowed values below.
+
+missing_capsules -- a disposition in the operative ruling that has no capsule at all (a fine AND an instruction, but only the fine has a capsule).
+
+missing_citations -- a law, decree-law, constitutional article, regulation, directive or communiqué named in a segment's text that the first pass did not cite there. Give the segment's local_id and the citation fields exactly as the text states them (law_no only if the number is written; law_name for named regulations; verbatim_mention copied from the text). Each segment's existing citations are listed, so add only what is missing.
+
+One sentence of reason in Turkish for every fix."""
+
+# Gold-file values with no honest mapping into the closed vocabulary.
+_GOLD_OUTCOME = {"i̇hlal": "violation", "ihlal": "violation", "denied_on_merits": "denied",
+                 "appeal_denied_lower_ruling_affirmed": "affirmed", "denied_procedural": "dismissed_procedural",
+                 "no_action_needed": "no_action", "onama": "affirmed"}
+_GOLD_DISSENT = {"danistay": "reversed"}
 
 
-def _short_ref(paragraph_id, counter):
-    """Gold files use full ids (uuid-...-p7, facts_p1, seg3). The response format wants
-    the short [pN] markers we hand the model, so aym's real paragraph numbers are
-    extracted and the other sources are numbered sequentially."""
-    m = re.search(r"-p(\d+)$", str(paragraph_id))
+def _short_ref(pid, counter):
+    m = re.search(r"-p(\d+)$", str(pid))
     if m:
         return "p" + m.group(1), counter
-    counter += 1
-    return "p" + str(counter), counter
+    return "p" + str(counter + 1), counter + 1
 
 
-def build_fewshot(source, echo_source=None, echo_case_no=None):
-    """Load a gold document and convert it into the response shape, so the worked
-    example is in exactly the format we are asking Gemini to produce.
-
-    A source with no example of its own borrows the structurally closest one
-    (FEWSHOT_STAND_IN). When it does, `echo_source`/`echo_case_no` rewrite the two
-    echoed fields in the example, because a bam example shown under a yargitay
-    instruction says source_type "bam" and a bam case_no on every segment -- which
-    directly contradicts the "echo the values given to you below" rule and would
-    produce a source_type_mismatch flag on every segment of the first run. The
-    example is there to teach structure, not to supply facts.
-    """
+def build_fewshot(source, kind, case_no, candidate_rights, outcomes):
+    """A gold document rendered in the response shape. None for norm review (the
+    individual-application example taught `facts` on the header) and for kinds
+    with no structurally similar example."""
+    if kind == "aym_norm_review":
+        return None
     path = FEWSHOT_DIR / (source + ".json")
     if not path.is_file():
-        stand_in = FEWSHOT_STAND_IN.get(source)
-        path = FEWSHOT_DIR / (stand_in + ".json") if stand_in else path
-        if not stand_in or not path.is_file():
+        path = FEWSHOT_DIR / ({"yargitay": "bam"}.get(source, source) + ".json")
+        if not path.is_file():
             return None
-        source = stand_in
     gold = json.loads(path.read_text(encoding="utf-8"))
-    role_field = ROLE_VOCAB[source][0]
-    # Gold files predate law_short; .get() yields null for it, which is the
-    # correct value to show since those citations state the law number.
-    cite_keys = ("law_no", "law_short", "law_name", "article_no", "paragraph_no",
-                 "law_date", "legislation_type", "confidence", "verbatim_mention")
-
-    segments, label_for_chunk, counter = [], {}, 0
+    keys = ("law_no", "law_short", "law_name", "article_no", "paragraph_no", "law_date",
+            "legislation_type", "confidence", "verbatim_mention")
+    segments, label, counter = [], {}, 0
     for i, ch in enumerate(gold.get("chunks", []), 1):
-        local_id = "seg_" + str(i)
-        label_for_chunk[ch.get("chunk_id")] = local_id
+        lid = f"seg_{i}"
+        label[ch.get("chunk_id")] = lid
         refs = []
         for pid in ch.get("source_paragraph_ids") or []:
             ref, counter = _short_ref(pid, counter)
             refs.append(ref)
-        segments.append({
-            "local_id": local_id,
-            "role": ch.get(role_field),
-            "paragraph_refs": refs,
-            "text": ch.get("text"),
-            "content_type": ch.get("content_type"),
-            "reasoning_stage": ch.get("reasoning_stage"),
-            "rights": ch.get("rights"),
-            "confidence": ch.get("confidence"),
-            "source_type": echo_source or ch.get("source_type"),
-            "case_no": echo_case_no or ch.get("case_no"),
-            "cited_legislations": [
-                {k: c.get(k) for k in cite_keys}
-                for c in (ch.get("cited_legislations") or [])
-            ],
-        })
-
+        role = ch.get("firac_role") or ch.get("court_reasoning_role") or ch.get("regulatory_role") or ch.get("role")
+        seg = {"local_id": lid, "paragraph_refs": refs, "role": role,
+               "confidence": ch.get("confidence") or "high",
+               "cited_legislations": [{k: c.get(k) for k in keys} for c in ch.get("cited_legislations") or []]}
+        for c in seg["cited_legislations"]:
+            c["legislation_type"] = c["legislation_type"] or "statute"
+            c["confidence"] = c["confidence"] or "low"
+        if source == "aym":
+            seg["rights"] = [r for r in ch.get("rights") or [] if r in candidate_rights] or None
+        segments.append(seg)
     capsules = []
     for cap in gold.get("reasoning_capsules", []):
-        capsules.append({
-            "outcome": cap.get("outcome"),
-            "conclusion_sentence": cap.get("conclusion_sentence"),
-            "reasoning_summary": cap.get("reasoning_summary"),
-            "opinion_type": cap.get("opinion_type"),
-            "supporting_local_ids": [label_for_chunk[c]
-                                     for c in (cap.get("supporting_chunk_ids") or [])
-                                     if c in label_for_chunk],
-            "case_no": echo_case_no or cap.get("case_no"),
-            "subject_id": cap.get("subject_id"),
-        })
+        kind_, _, author = (cap.get("opinion_type") or "majority").partition(":")
+        outcome = _GOLD_OUTCOME.get((cap.get("outcome") or "").replace("̇", ""), cap.get("outcome"))
+        if outcome not in outcomes:
+            outcome = _GOLD_DISSENT.get(source, "other") if kind_ == "dissent" else "other"
+        subject = cap.get("subject_id") or "unspecified"
+        if candidate_rights and subject not in candidate_rights:
+            subject = candidate_rights[0]
+        capsules.append({"outcome": outcome, "opinion_type": kind_,
+                         "dissent_authors": [author] if author else [],
+                         "subject_id": subject,
+                         "conclusion_sentence": cap.get("conclusion_sentence"),
+                         "reasoning_summary": cap.get("reasoning_summary"),
+                         "supporting_local_ids": [label[c] for c in cap.get("supporting_chunk_ids") or [] if c in label]})
     return {"segments": segments, "capsules": capsules}
 
 
-def build_system_instruction(source, case_no, candidate_rights, subject_hint=None):
-    role_field, role_values = ROLE_VOCAB[source]
-    parts = [BASE_INSTRUCTION, "", "## This document", ""]
-    parts.append("source_type: " + source)
-    parts.append("case_no: " + str(case_no))
-    parts.append("Role field: `" + role_field + "`, one of: " + ", ".join(role_values))
-    parts.append("")
-    parts.append(SOURCE_NOTES[source])
-    parts.append("")
-
-    if source == "aym":
-        if candidate_rights:
-            parts.append(
-                "Candidate rights for this case, taken from the court's own "
-                "examination_results metadata. `rights` and `subject_id` must be chosen "
-                "from this list ONLY -- never invent a right that is not here. Pick the "
-                "one(s) each paragraph actually discusses; use null where a paragraph "
-                "discusses none:")
-            for r in candidate_rights:
-                parts.append("  - " + r)
-            parts.append("")
-            parts.append("Emit one capsule per right in that list that the court "
-                         "actually decided, plus one per dissenting opinion.")
-        else:
-            parts.append(
-                "This record has NO examination_results in its metadata (it is a "
-                "norm-review decision, not an individual application). Set `rights` to "
-                "null on every segment and `subject_id` to \"unspecified\" on every "
-                "capsule.")
-    else:
-        # "unspecified" used to be offered here as an alternative, and the model
-        # took it on 4 of 14 capsules -- including a securities case, a tax-fraud
-        # case and a carriage-damage case, all of which plainly state what they
-        # are about. subject_id is a retrieval field: "unspecified" makes the
-        # capsule unfindable by subject. The escape hatch is removed rather than
-        # merely discouraged, and the model is told to infer where no label is
-        # printed, because every contested case HAS a subject matter.
-        parts.append("Set `rights` to null on every segment -- this source has no "
-                     "constitutional-rights concept. Set `subject_id` to a short "
-                     "snake_case TURKISH label naming the subject matter in dispute, "
-                     "taken from the court's own vocabulary -- for example "
-                     "`vergi_ziyai_cezasi`, `kamulastirmasiz_el_atma`, "
-                     "`sermaye_piyasasi_mevzuatina_aykirilik`, `tasima_hasari_rucu`. "
-                     "Every contested case is ABOUT something, so derive the label "
-                     "from the dispute even when the decision prints no subject line. "
-                     "Do NOT write \"unspecified\": it is not a subject, it makes the "
-                     "decision unfindable by subject, and it is treated as a failure "
-                     "to read the document rather than as a property of the document.")
-        if subject_hint:
-            # The document states its own subject. Same mechanism as aym's
-            # candidate rights: code supplies, the model narrows. Offered as a
-            # hint rather than a constraint -- the values are free text, and
-            # 9. Hukuk uses "DAVA :" for the full prayer for relief rather than
-            # a short subject tag.
-            kind, value = subject_hint
-            parts.append("")
-            parts.append(f"This decision states its own subject on a \"{kind}\" line: "
-                         f"\"{value}\". Base `subject_id` on that, as a short "
-                         f"snake_case Turkish slug, unless the text plainly "
-                         f"contradicts it. If it names several subjects, pick the one "
-                         f"this decision actually turns on.")
-
-    stand_in = FEWSHOT_STAND_IN.get(source) if not (FEWSHOT_DIR / (source + ".json")).is_file() else None
-    # The example's echoed fields are ALWAYS rewritten to this document's values,
-    # not only for a borrowed example. Verified necessary: yargitay document
-    # 1209647600 (case 2025/18047) came back with case_no 2025/18072 on three
-    # segments and its capsule -- the case number of the worked example, copied
-    # straight out of it. The instruction says "echo the values given below", so
-    # showing the model a DIFFERENT case_no in the example contradicts it and
-    # invites exactly that copy. The example teaches structure; the facts must
-    # come from the document being read.
-    few = build_fewshot(source, echo_source=source, echo_case_no=str(case_no))
+def build_system_instruction(source, kind, case_no, candidate_rights, examined, vocab, corrections=None):
+    role_field, roles = ROLE_VOCAB[source]
+    parts = [BASE_INSTRUCTION, "", "## This document", "",
+             f"source_type: {source}", f"kind: {kind}", f"case_no: {case_no}",
+             f"Role field `{role_field}`, one of: {', '.join(roles)}",
+             f"CATCHALL_ROLE for headers and signature blocks: {CATCHALL.get(source, 'other')}", "",
+             KIND_NOTES[kind], "", "## Allowed values", "", "`outcome` (with its Turkish meaning):"]
+    parts += [f"  - {v}: {vocab['gloss'][v]}" for v in vocab["outcomes"]]
+    parts += [f"`opinion_type`: {', '.join(vocab['opinion_kinds'])}",
+              f"`legislation_type`: {', '.join(vocab['legislation_types'])}", ""]
+    if candidate_rights:
+        parts += ["Candidate rights from the court's own metadata. `rights` and `subject_id` must come "
+                  "from this list only; one capsule per right the court decided:"]
+        parts += [f"  - {r}" for r in candidate_rights] + [""]
+    if examined:
+        parts += ["Provisions under review, from the record's own metadata (subject_id names one of these):"]
+        parts += [f"  - {e['law']} m.{e['article']}" + (f"/{e['clause']}" if e.get("clause") else "")
+                  + (f"  -> {e['result']}" if e.get("result") else "") for e in examined[:12]] + [""]
+    if corrections:
+        parts += ["## Corrections to your previous answer", "",
+                  "Your previous answer for THIS document was rejected by automated checks. Produce "
+                  "the whole answer again, fixing every item below and changing nothing else:"]
+        parts += [f"  - {c[:400]}" for c in corrections] + [""]
+    few = build_fewshot(source, kind, case_no, candidate_rights, vocab["outcomes"])
     if few:
-        parts += ["", "## Worked example", "",
-                  ("A correct response for a different document from the " + stand_in +
-                   " court, shown because " + source + " has no worked example yet. "
-                   "MATCH ITS STRUCTURE, NOT ITS FACTS -- the case it describes is "
-                   "unrelated to yours, and its role labels follow the same vocabulary "
-                   "you were given above."
-                   if stand_in else
-                   "A hand-verified correct response for a different " + source +
-                   " document. Match this level of detail and this exact structure -- "
-                   "note how reasoning_summary carries real facts rather than a label."),
-                  "",
-                  "ONE EXCEPTION: this example predates the Turkish-language "
-                  "requirement and its `conclusion_sentence` is written in English. Do "
-                  "NOT copy that. Yours must be in Turkish, as specified above. Follow "
-                  "the instructions over the example wherever they disagree.",
-                  "", json.dumps(few, ensure_ascii=False, indent=2)]
+        parts += ["## Worked example", "",
+                  f"A hand-verified response for a different {source} document. Match its structure and "
+                  "level of detail, not its facts. Its conclusion_sentence predates the Turkish rule: "
+                  "yours must be Turkish.", "", json.dumps(few, ensure_ascii=False, indent=1)]
     return "\n".join(parts)
 
 
-def build_user_content(paragraphs):
-    """Numbered paragraph markers -- the same markers paragraph_refs must use, and the
-    same normalized text the grounding check runs against."""
-    lines = ["[p" + str(i) + "] " + t for i, t in enumerate(paragraphs, 1)]
-    return "Decision text:\n\n" + "\n".join(lines)
+def build_user_content(paragraphs, plain_copy=None):
+    lines = ["Decision text:", ""] + [f"[p{i}] {t}" for i, t in enumerate(paragraphs, 1)]
+    if plain_copy:
+        lines += ["", "PLAIN TEXT COPY (same decision, no paragraph markers; read only, never cite):",
+                  plain_copy]
+    return "\n".join(lines)
+
+
+def build_audit_instruction(source, kind, roles, outcomes, gloss):
+    parts = [AUDIT_INSTRUCTION, "", "## This document", "", f"source_type: {source}", f"kind: {kind}",
+             f"Allowed roles: {', '.join(roles)}",
+             f"Catch-all role: {CATCHALL.get(source, 'other')}", "", KIND_NOTES[kind], "",
+             "Allowed `outcome` values:"]
+    parts += [f"  - {v}: {gloss[v]}" for v in outcomes]
+    return "\n".join(parts)
+
+
+def build_audit_content(paragraphs, segments, capsules, metadata_hint=None, no_ruling=False):
+    lines = ["Decision text:", ""] + [f"[p{i}] {t}" for i, t in enumerate(paragraphs, 1)]
+    if no_ruling:
+        lines += ["", "ALERT: the first pass has NO conclusion/outcome segment. Every decision has an "
+                  "operative disposition. Find the segment that contains it (REDDİNE / İPTALİNE / "
+                  "ONANMASINA / BOZULMASINA / İHLAL EDİLDİĞİNE / KABULÜNE / 'idari para cezası "
+                  "uygulanmasına' / 'yapılacak bir işlem olmadığına' / '... karar verildi/verilmiştir' / "
+                  "DEVRİNE / GÖNDERİLMESİNE) and return a role_fix moving it to conclusion (or outcome "
+                  "for kvkk). If that segment also holds reasoning, still move it: the disposition wins."]
+    lines += ["", "FIRST-PASS SEGMENTS (local_id: paragraphs -> role):"]
+    for seg in segments:
+        refs = [str(r) for r in getattr(seg, "paragraph_refs", [])]
+        rng = (refs[0] + ("-" + refs[-1] if len(refs) > 1 else "")) if refs else "(none)"
+        cites = []
+        for c in getattr(seg, "cited_legislations", []) or []:
+            law = getattr(c, "law_no", None) or getattr(c, "law_short", None) or (getattr(c, "law_name", None) or "?")[:40]
+            art = getattr(c, "article_no", None)
+            cites.append(f"{law}" + (f" m.{art}" if art else ""))
+        lines.append(f"  {seg.local_id}: {rng} -> {seg.role}" + (f"  | cites: {'; '.join(cites)}" if cites else "  | cites: none"))
+    lines += ["", "FIRST-PASS CAPSULES (index: opinion_type | outcome | subject_id :: conclusion_sentence):"]
+    for k, cap in enumerate(capsules):
+        lines.append(f"  [{k}] {getattr(cap, 'opinion_type', None)} | {getattr(cap, 'outcome', None)} | "
+                     f"{getattr(cap, 'subject_id', None)} :: {(getattr(cap, 'conclusion_sentence', None) or '')[:300]}")
+    if metadata_hint:
+        lines += ["", "THE COURT'S OWN METADATA (structured verdicts; authoritative unless the text "
+                  "plainly says otherwise):", metadata_hint]
+    return "\n".join(lines)

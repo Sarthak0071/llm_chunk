@@ -1,0 +1,29 @@
+C:\Users\NITRO\Desktop\Hammurabi\llm_chunk\retrieval\qdrant_index.py:106: UserWarning: Payload indexes have no effect in the local Qdrant. Please use server Qdrant if you need payload indexes.
+  qc.create_payload_index(collection_name=name, field_name=field,
+==========================================================================
+ INDEXING BOTH ARMS
+==========================================================================
+ documents with text : 1037
+ chunks              : 142 covering 12 decisions
+ contract            : 1179 records, 0 failures
+
+ Arm A (baseline)    : 1037 points, all whole documents
+ Arm B (ours)        : 1167 points = 1025 documents + 142 chunks
+   decisions replaced by their chunks: 12
+
+ embedding, two tiers (cached by text+ceiling; first run is slow)
+   under test  : 12 documents + 142 chunks @ 8192 tokens (production fidelity)
+   haystack    : 1025 distractors @ 2048 tokens (identical in both arms)
+ embedded            : 1179 vectors
+
+ docs_baseline
+   upserted   : 1037
+   verified   : 1037 points, dim 1024, Cosine
+   indexes ok : 5 (chamber, court, esas_year, high_court, karar_year)
+
+ chunks_ours
+   upserted   : 1167
+   verified   : 1167 points, dim 1024, Cosine
+   indexes ok : 12 (chamber, chunk_index, content_type, court, esas_year, high_court, karar_year, law_refs, parent_uuid, role, source_type, unit)
+
+ ALL CHECKS PASS  (15s)

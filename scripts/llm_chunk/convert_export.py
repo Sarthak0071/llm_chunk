@@ -107,6 +107,9 @@ def main():
     ap.add_argument("--in", dest="infile", required=True, help="the export JSON to convert")
     ap.add_argument("--dry-run", action="store_true",
                     help="report what would change and write nothing")
+    ap.add_argument("--out-dir", help="write here instead of data/. Use a staging "
+                                      "directory to inspect an export before it "
+                                      "touches the corpus the pipeline reads.")
     args = ap.parse_args()
 
     src = Path(args.infile)
@@ -115,7 +118,8 @@ def main():
     if not src.is_file():
         raise SystemExit(f"no such file: {src}")
 
-    dest = DATA_DIR / f"{args.source}.json"
+    dest = (Path(args.out_dir) if args.out_dir else DATA_DIR) / f"{args.source}.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
 
     incoming, sql = unwrap(json.loads(src.read_text(encoding="utf-8")), src.name)
     check_schema(incoming, src.name)

@@ -1,0 +1,43 @@
+{
+  "arm_a": 1162,
+  "arm_b": 2695,
+  "chunks": 1674,
+  "replaced": 141,
+  "verify": {
+    "docs_baseline": {
+      "count": 1162,
+      "size": 1024,
+      "distance": "Cosine",
+      "indexes": [
+        "chamber",
+        "court",
+        "esas_year",
+        "high_court",
+        "karar_year"
+      ],
+      "problems": []
+    },
+    "chunks_ours": {
+      "count": 2765,
+      "size": 1024,
+      "distance": "Cosine",
+      "indexes": [
+        "chamber",
+        "chunk_index",
+        "content_type",
+        "court",
+        "esas_year",
+        "high_court",
+        "karar_year",
+        "law_refs",
+        "parent_uuid",
+        "role",
+        "source_type",
+        "unit"
+      ],
+      "problems": [
+        "point count 2765, expected 2695"
+      ]
+    }
+  }
+}

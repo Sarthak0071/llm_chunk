@@ -67,6 +67,14 @@ CHUNK_BASE_FIELDS = [
     "citation_granularity", "source_paragraph_ids", "text", "char_length",
     "content_type", "firac_role", "reasoning_stage", "rights", "confidence",
     "cited_legislations",
+    # schema v2. `role` carries the same value as the per-source role field under
+    # a name that does not change between sources, so it can be indexed and
+    # filtered as one thing; `role_vocabulary` keeps the distinction that made
+    # three names tempting. `schema_version` lets a stored chunk say which shape
+    # it is. Added to the chunker first -- this list not being updated with it
+    # reported all 1,674 chunks as schema failures, which is how a verifier
+    # teaches people to ignore it.
+    "role", "role_vocabulary", "schema_version",
 ]
 CAPSULE_FIELDS = [
     "case_no", "source_type", "decision_date", "subject_type", "subject_id",
@@ -84,7 +92,7 @@ ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # Mirrors chunk_generate.PARAGRAPH_STRATEGY. Two sources store HTML and need
 # different extractors, so the choice is named rather than inferred from the field.
 PARAGRAPH_STRATEGY = {
-    "aym": "html_p", "kvkk": "html_p",
+    "aym": "html_p", "kvkk": "html_blocks",
     "yargitay": "html_br",
     "bam": "lines", "danistay": "lines", "first_degree": "lines",
 }
@@ -120,6 +128,86 @@ def extract_paragraphs(record, source):
             f"{source}: no paragraph strategy chosen yet -- see "
             f"chunk_generate.extract_paragraphs. This file must extract "
             f"byte-identically to the generator, so both are changed together.")
+    # RESCUE, mirroring chunk_generate.extract_paragraphs exactly.
+    #
+    # The scraper changed format mid-corpus: newer bam and danistay records store a
+    # flattened content_text with no newlines and put the structure in
+    # html_content as <br> tags, while older records of the same sources do the
+    # opposite. The generator falls back when its configured strategy collapses to
+    # one paragraph, and this file MUST do the same -- not because it shares code,
+    # but because it deliberately does not. Two independent implementations only
+    # catch the generator's mistakes while they agree on the answer; the moment
+    # they split on the same input, every grounding check is testing the checker.
+    strategy = PARAGRAPH_STRATEGY[source]
+    paras = _split_with(record.get(field) or "", strategy)
+    if len(paras) > 1:
+        return paras
+    other = "content_text" if field == "html_content" else "html_content"
+    best = paras
+    for cand_field, cand_strategy in ((other, "html_br"), (other, "html_p"),
+                                      (other, "lines"), (field, "html_br"),
+                                      (field, "lines")):
+        alt = _split_with(record.get(cand_field) or "", cand_strategy)
+        if len(alt) > len(best):
+            best = alt
+    return best
+
+
+def _split_with(raw, strategy):
+    """One strategy, one string. Re-derived here rather than imported, so the two
+    extractors stay independent -- but they must produce identical output."""
+    if not (raw or "").strip():
+        return []
+    if strategy == "html_p":
+        return lib.aym_extract_paragraph_texts(raw)
+    if strategy == "html_br":
+        from html import unescape
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(unescape(raw), "html.parser")
+        for tag in soup.find_all(["br", "p"]):
+            tag.insert_after("\n")
+        text = soup.get_text().replace("\xa0", " ")
+        return [p for p in (norm_ws(line) for line in text.split("\n")) if p]
+    if strategy == "html_blocks":
+        # Mirrors chunk_generate.extract_paragraphs_html_blocks exactly: kvkk
+        # keeps its substance in <li>/<td>, which a <p>-only walk drops (80% of
+        # every document, measured over 193 records). Recursive so a container's
+        # own inline text is kept as a paragraph before its nested blocks.
+        from html import unescape
+        from bs4 import BeautifulSoup, NavigableString, Comment
+        soup = BeautifulSoup(unescape(raw), "html.parser")
+        tags = ("p", "li", "h1", "h2", "h3", "tr", "div")
+        out = []
+
+        def flush(buf):
+            txt = norm_ws(" ".join(buf).replace(" ", " "))
+            if txt:
+                out.append(txt)
+
+        def walk(node):
+            buf = []
+            for child in node.children:
+                if isinstance(child, Comment):
+                    continue
+                if isinstance(child, NavigableString):
+                    buf.append(str(child))
+                elif child.name in tags or child.find(tags):
+                    flush(buf)
+                    buf = []
+                    if child.find(tags):
+                        walk(child)
+                    else:
+                        flush([child.get_text(separator=" ")])
+                else:
+                    buf.append(child.get_text(separator=" "))
+            flush(buf)
+
+        walk(soup)
+        return out
+    return [p for p in (norm_ws(x) for x in raw.splitlines()) if p]
+
+
+def _unused_original(record, source, field):
     raw = record.get(field) or ""
     if not raw.strip():
         return []
