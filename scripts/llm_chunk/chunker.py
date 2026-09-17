@@ -1,12 +1,22 @@
 """
 chunker.py -- raw court-decision JSON -> chunks[] + reasoning_capsules[].
 
-One Gemini call reads the decision and returns segments (which paragraphs belong
-together, their role, citations) and capsules (outcome, summary, dissents). A
-second call re-reads the result and returns only fixes. Code does what the docs
-(section 15.2) give to code: ids, dates, case numbers, text assembly, size cap,
-derived fields, and the mechanical checks -- above all that EVERY paragraph of
-the document is in exactly one chunk.
+Three steps per document, so the same code runs now (direct calls) and later
+(Vertex AI batch):
+  1. prepare            pure code: paragraphs, code-owned fields, the requests
+  2. call_request       the only API step. STRUCTURE returns segments (which
+                        paragraphs belong together, their role); CAPSULES
+                        returns one capsule per decision and separate opinion,
+                        pointing at paragraphs; LAWS returns the citations of
+                        every paragraph, one window of paragraphs per request so
+                        no answer reaches the output ceiling. None needs
+                        another's answer: sent in parallel now, in the same
+                        batch job later.
+  3. assemble_document  pure code, what the docs (section 15.2) give to code:
+                        citations attached by paragraph, ids, dates, case
+                        numbers, text assembly, size cap, derived fields, and
+                        the mechanical checks -- above all that EVERY paragraph
+                        of the document is in exactly one chunk.
 
     python chunker.py --source kvkk --limit 10
     python chunker.py --doc-id-file ..\\..\\output\\kvkk_first10.json --out-dir output/chunk
@@ -25,7 +35,7 @@ from pathlib import Path
 from typing import List, Literal, Optional
 
 from dotenv import load_dotenv
-from pydantic import BaseModel, Field, create_model
+from pydantic import BaseModel, ConfigDict, Field, create_model
 
 import chunk_lib as lib
 import prompts
@@ -39,12 +49,19 @@ CHUNK_NAMESPACE = uuid.UUID("f08fd9b5-14a7-46ef-b7ac-a664a1b45032")
 CHUNK_SCHEMA_VERSION = 2
 REASONING_SUMMARY_METHOD = "llm_generated"
 
-MAX_OUTPUT_TOKENS = 65535          # Gemini 2.5 Flash-Lite ceiling is exclusive at 65536
-MIN_COVERAGE = 0.85                # paragraphs must carry this share of the record's text
-FRAGMENT_CHARS = 40                # a shorter segment is merged into its neighbour
-WORKERS = 4                        # documents processed in parallel (two calls each, in order)
+MAX_OUTPUT_TOKENS = 65535          # Gemini 2.5 Flash-Lite's own ceiling (exclusive at 65536); cannot be raised
+# LAWS goes in windows so no answer can reach that ceiling: the citations of one
+# 561-paragraph norm review needed ~196,000 output tokens as a single answer.
+LAWS_WINDOW_PARAS = 60
+LAWS_WINDOW_CHARS = 30000
+# Structure and capsule answers stay small even for the longest decision (9,849
+# output tokens for 561 paragraphs); a document is held back only when its input
+# could not fit the model at all.
+MAX_DOCUMENT_CHARS = 2_000_000
+PARALLEL_REQUESTS = 6              # requests of one document in flight at once
+FRAGMENT_CHARS = 40                # a shorter segment joins a same-role neighbour
+WORKERS = 4                        # documents processed in parallel
 USABLE_STATUSES = {"fetched", "completed"}
-FEWSHOT_DOC_IDS = {("yargitay", "1221692000")}   # worked examples are never chunked
 TEXT_PENDING_SOURCES = {"rekabet", "uyusmazlik"}  # no decision body extracted upstream yet
 
 SOURCES = {
@@ -147,7 +164,7 @@ RESPONSE_LEGISLATION_TYPES = LEGISLATION_TYPES + ("treaty", "not_legislation")
 CONFIDENCE = ("high", "low")
 LAW_SHORT_RE = re.compile(r"^[A-ZÇĞİÖŞÜ]{2,8}$")
 
-# AYM's own structured verdicts, used only as a HINT to the audit call.
+# AYM's own structured verdicts, shown to the STRUCTURE call as a hint.
 AYM_INDIVIDUAL_OUTCOME = {
     "İhlal": "violation", "İhlal Olmadığı": "no_violation",
     "Açıkça Dayanaktan Yoksunluk": "inadmissible", "Başvuru Yollarının Tüketilmemesi": "inadmissible",
@@ -163,6 +180,14 @@ AYM_NORM_RESULT = {
     "Esas - Karar Verilmesine/İncelenmesine Yer Olmadığı": "no_decision_needed",
     "İlk - Karar Verilmesine/İncelenmesine Yer Olmadığı": "no_decision_needed",
 }
+
+
+def cost_usd(tokens_in, tokens_out):
+    """USD for a token count. Gemini 2.5 Flash-Lite paid tier: $0.10 input and $0.40
+    output per 1M tokens (ai.google.dev pricing, checked 2026-09-17); a batch job
+    costs half. PRICE_INPUT_PER_M / PRICE_OUTPUT_PER_M in .env override both."""
+    return (tokens_in * float(os.getenv("PRICE_INPUT_PER_M", "0.10"))
+            + tokens_out * float(os.getenv("PRICE_OUTPUT_PER_M", "0.40"))) / 1e6
 
 
 # Text helpers
@@ -206,10 +231,24 @@ def looks_turkish(text):
     return any(w in TURKISH_MARKERS for w in words)
 
 
+def language_of(text):
+    """'tr', 'en' or None. Capsule text must be in the decision's own language."""
+    if looks_turkish(text):
+        return "tr"
+    words = re.findall(r"[a-z]+", (text or "").lower())
+    if words and sum(1 for w in words if w in ENGLISH_STOPWORDS) / len(words) >= 0.08:
+        return "en"
+    return None
+
+
+LOWER_RE = re.compile(r"[a-zçğıöşüâîû]")
+
+
 def is_heading_line(text):
     """Short line with no lowercase letter: heading, docket label, name. No vocabulary."""
     t = (text or "").strip()
-    return len(t) <= 80 and not re.search(r"[a-zçğıöşüâîû]", t)
+    return len(t) <= 80 and not LOWER_RE.search(t)
+
 
 
 
@@ -269,29 +308,66 @@ def plain_text(s):
 # Scraper artefacts that sit on their own line in almost every Danıştay record
 # ("Karar İçeriği", "ee3", "0", "2023/1999999") and lone punctuation lines.
 # Exact tokens only -- no vocabulary. Removed before numbering so they do not
-# become chunks; coverage is measured after removal against the raw text.
+# become chunks; the words of the removed lines are the only words allowed to go.
 JUNK_LINE_RE = re.compile(r"^(?:Karar İçeriği|ee3|0|\d{4}/1999999|[.:;\-–…]+)$")
+WORD_RE = re.compile(r"\w+")
+
+
+def lost_words(raw_text, texts, junk=()):
+    """{word: count} of raw_text words (as a multiset) that `texts` do not carry.
+    The words of `junk` lines are allowed to be missing. Empty = nothing lost."""
+    want = Counter(WORD_RE.findall(raw_text or ""))
+    want.subtract(Counter(WORD_RE.findall(" ".join(junk))))
+    have = Counter(WORD_RE.findall(" ".join(texts)))
+    return {w: c - have[w] for w, c in want.items() if c > have[w]}
+
+
+def raw_column(record):
+    """The longer text column as plain text, and its lines (for the junk-line
+    allowance). aym/kvkk/yargitay: the HTML; bam/danistay/first_degree: either."""
+    ct = record.get("content_text") or ""
+    html = record.get("html_content") or ""
+    html_text, ct_text = plain_text(html), norm_ws(ct)
+    if len(html_text) >= len(ct_text):
+        return html_text, (html_paragraphs(html) if html.strip() else [])
+    return ct_text, [norm_ws(l) for l in ct.splitlines() if norm_ws(l)]
 
 
 def paragraphs(record):
-    """(paragraphs, coverage, plain_content_text). content_text when it has
-    real lines, else the HTML walk; junk lines dropped; coverage = share of the
-    longer column's text that the paragraphs carry."""
+    """(paragraphs, lost, plain_content_text). content_text when it has real
+    lines, else the HTML walk; junk lines dropped. `lost` is the word-level
+    extraction check: every word of the longer raw column must be in the
+    paragraphs. If the first reading loses words the other one is tried; what is
+    still lost is returned (and flagged), never silently accepted."""
     ct = record.get("content_text") or ""
     html = record.get("html_content") or ""
     lines = [norm_ws(l) for l in ct.splitlines() if norm_ws(l)]
-    if len(lines) >= 5 or not html.strip():
-        paras = lines
-    else:
-        paras = html_paragraphs(html)
-    if len(paras) <= 1 and html.strip():
-        alt = html_paragraphs(html)
-        if len(alt) > len(paras):
-            paras = alt
-    paras = [q for q in paras if not JUNK_LINE_RE.match(q.strip())]
-    full = max(len(plain_text(html)), len(norm_ws(ct)))
-    got = len(norm_ws(" ".join(paras)))
-    return paras, (round(got / full, 3) if full else 0.0), norm_ws(ct)
+    walked = None
+
+    def walk():
+        nonlocal walked
+        if walked is None:
+            walked = html_paragraphs(html) if html.strip() else []
+        return walked
+
+    first = lines if (len(lines) >= 5 or not html.strip()) else walk()
+    if len(first) <= 1 and html.strip() and len(walk()) > len(first):
+        first = walk()
+    raw_text, raw_lines = raw_column(record)
+    junk = [q for q in raw_lines if JUNK_LINE_RE.match(q.strip())]
+
+    def clean(ps):
+        keep = [q for q in ps if not JUNK_LINE_RE.match(q.strip())]
+        return keep, lost_words(raw_text, keep, junk)
+
+    paras, lost = clean(first)
+    if lost:
+        other = walk() if first is lines else lines
+        if other:
+            alt, alt_lost = clean(other)
+            if sum(alt_lost.values()) < sum(lost.values()):
+                paras, lost = alt, alt_lost
+    return paras, lost, norm_ws(ct)
 
 
 
@@ -357,7 +433,7 @@ def aym_variant(record):
 
 
 def kind_of(record, source):
-    """The KIND of document: prompts, outcome list and audit key on this."""
+    """The KIND of document: prompts and the outcome list key on this."""
     if source == "aym":
         return "aym_" + aym_variant(record)
     if source == "yargitay":
@@ -396,7 +472,7 @@ def examined_norms(record):
 
 
 def aym_hint(record, kind):
-    """The court's own verdicts as text for the audit prompt (structured metadata)."""
+    """The court's own verdicts as text for the structure prompt (structured metadata)."""
     data = parse_metadata(record).get("data") or {}
     lines = []
     if kind == "aym_individual_application":
@@ -417,6 +493,7 @@ def aym_hint(record, kind):
 
 
 class CitedLegislation(BaseModel):
+    # No `confidence`: code sets it (article identified -> high), as the docs define it.
     law_no: Optional[str] = None
     law_short: Optional[str] = None
     law_name: Optional[str] = None
@@ -424,75 +501,113 @@ class CitedLegislation(BaseModel):
     paragraph_no: Optional[str] = None
     law_date: Optional[str] = None
     legislation_type: Literal[RESPONSE_LEGISLATION_TYPES]
-    confidence: Literal[CONFIDENCE]
     verbatim_mention: Optional[str] = None
+
+
+class ParagraphLaws(BaseModel):
+    ref: str
+    # Required, no default: an optional list is one the model may leave out, and
+    # it did (a KVKK answer omitted citations on all 36 segments of a decision
+    # that cites 6698 on nearly every page).
+    cited_legislations: List[CitedLegislation]
+
+
+class LawsResponse(BaseModel):
+    """The LAWS call: every paragraph, in order, with the legislation it names."""
+    paragraphs: List[ParagraphLaws]
 
 
 class SegmentBase(BaseModel):
     local_id: str
     paragraph_refs: List[str]
     confidence: Literal[CONFIDENCE]
-    # No maxItems here: Gemini rejects the schema ("too many states") when a
-    # list bound meets the enum fields. Runaway citation loops are handled by
-    # the third generation attempt instead (see process_document.generate).
-    cited_legislations: List[CitedLegislation] = Field(default_factory=list)
 
 
 class CapsuleBase(BaseModel):
     conclusion_sentence: str = Field(min_length=20)
     reasoning_summary: str = Field(min_length=80)
     dissent_authors: List[str] = Field(default_factory=list)
-    supporting_local_ids: List[str] = Field(min_length=1)
+    supporting_paragraph_refs: List[str] = Field(min_length=1)
 
 
 _MODELS = {}
 
 
-def response_model_for(source, kind, candidates=()):
-    """Per-document model: roles of this source, outcomes of this kind, and for
-    AYM individual applications `rights`/`subject_id` limited to the candidate
-    rights the court's metadata names."""
-    key = (source, kind, tuple(candidates))
+def structure_model_for(source, kind, candidates=()):
+    """STRUCTURE answer: segments with the roles of this source; for AYM individual
+    applications `rights` limited to the candidate rights the court's metadata names."""
+    key = ("structure", source, kind, tuple(candidates))
     if key not in _MODELS:
         roles = tuple(prompts.ROLE_VOCAB[source][1])
-        seg_extra, cap_extra = {}, {}
-        if candidates:
-            seg_extra["rights"] = (Optional[List[Literal[tuple(candidates)]]], None)
-            cap_extra["subject_id"] = (Literal[tuple(candidates)], ...)
-        else:
-            cap_extra["subject_id"] = (str, Field(min_length=3))
-        segment = create_model(f"Segment_{kind}", __base__=SegmentBase,
-                               role=(Literal[roles], ...), **seg_extra)
+        extra = {"rights": (Optional[List[Literal[tuple(candidates)]]], None)} if candidates else {}
+        segment = create_model(f"Segment_{kind}", __base__=SegmentBase, role=(Literal[roles], ...), **extra)
+        _MODELS[key] = create_model(f"Structure_{kind}", segments=(List[segment], ...))
+    return _MODELS[key]
+
+
+class RulingItem(BaseModel):
+    text: str
+    kind: Literal["decision", "cost_or_fee", "forwarding_or_service"]
+
+
+def _require_ruling_items(schema, _cls):
+    """`ruling_items` is REQUIRED in the schema sent to Gemini: the model first lists
+    every item of the operative ruling and says which are decisions, then writes
+    capsules for those only (it wrote capsules for fees and for TEVDİİNE when the
+    rule was prose). The pydantic default stays so earlier saved answers still parse."""
+    req = schema.setdefault("required", [])
+    if "ruling_items" not in req:
+        req.insert(0, "ruling_items")
+
+
+def capsules_model_for(source, kind, candidates=()):
+    """CAPSULES answer: the ruling items, then capsules with the outcomes of this
+    kind; for AYM individual applications `subject_id` limited to the candidate rights."""
+    key = ("capsules", source, kind, tuple(candidates))
+    if key not in _MODELS:
+        subject = (Literal[tuple(candidates)], ...) if candidates else (str, Field(min_length=3))
         kinds = OPINION_KINDS if source in ("kvkk", "rekabet") else OPINION_KINDS[:3]
         capsule = create_model(f"Capsule_{kind}", __base__=CapsuleBase,
                                outcome=(Literal[tuple(OUTCOME_BY_KIND[kind])], ...),
-                               opinion_type=(Literal[kinds], ...), **cap_extra)
-        _MODELS[key] = create_model(f"Response_{kind}", segments=(List[segment], ...),
+                               opinion_type=(Literal[kinds], ...), subject_id=subject)
+        _MODELS[key] = create_model(f"Capsules_{kind}",
+                                    __config__=ConfigDict(json_schema_extra=_require_ruling_items),
+                                    ruling_items=(List[RulingItem], Field(default_factory=list)),
                                     capsules=(List[capsule], ...))
     return _MODELS[key]
 
 
-def audit_model_for(source, kind, citations=True):
-    roles = tuple(prompts.ROLE_VOCAB[source][1])
-    outcomes = tuple(OUTCOME_BY_KIND[kind])
-    RoleFix = create_model("RoleFix", local_id=(str, ...), role=(Literal[roles], ...),
-                           reason=(str, Field(min_length=5)))
-    OutcomeFix = create_model("OutcomeFix", capsule_index=(int, ...),
-                              outcome=(Literal[outcomes], ...), reason=(str, Field(min_length=5)))
-    Missing = create_model("MissingCapsule", outcome=(Literal[outcomes], ...), subject=(str, ...),
-                           reason=(str, Field(min_length=5)))
-    MissingCitation = create_model("MissingCitation", __base__=CitedLegislation, local_id=(str, ...))
-    fields = dict(role_fixes=(List[RoleFix], Field(default_factory=list)),
-                  outcome_fixes=(List[OutcomeFix], Field(default_factory=list)),
-                  missing_capsules=(List[Missing], Field(default_factory=list)))
-    if citations:
-        fields["missing_citations"] = (List[MissingCitation], Field(default_factory=list))
-    return create_model(f"Audit_{kind}{'' if citations else '_lite'}", **fields)
+def legacy_capsules(raw_response, source, kind, candidates=()):
+    """Capsules saved by the earlier design (inside the structure answer, pointing at
+    segment local_ids), converted to paragraph refs so saved answers still replay.
+    None when there are none."""
+    caps = (raw_response or {}).get("capsules")
+    if not caps:
+        return None
+    refs = {sg.get("local_id"): sg.get("paragraph_refs") or [] for sg in raw_response.get("segments", [])}
+    converted = []
+    for c in caps:
+        if "supporting_paragraph_refs" not in c:
+            c = dict(c, supporting_paragraph_refs=[r for lid in c.get("supporting_local_ids") or []
+                                                   for r in refs.get(lid, [])])
+        if c["supporting_paragraph_refs"]:
+            converted.append(c)
+    return capsules_model_for(source, kind, candidates).model_validate({"capsules": converted})
 
 
 
 # Gemini
 
+
+
+def http_options(**extra):
+    """Quota and server errors retry the SAME request with backoff inside the SDK
+    (identical parameters, so the chunking does not change). Only when these
+    retries are exhausted does process_document try its perturbed attempt."""
+    from google.genai import types
+    return types.HttpOptions(retry_options=types.HttpRetryOptions(
+        attempts=6, initial_delay=2, max_delay=60, exp_base=2, jitter=1,
+        http_status_codes=[408, 429, 500, 502, 503, 504]), **extra)
 
 
 def build_client():
@@ -503,7 +618,8 @@ def build_client():
     if not Path(os.getenv("GOOGLE_APPLICATION_CREDENTIALS")).is_file():
         raise SystemExit("FAILED: credentials file not found; fix the path in llm_chunk/.env")
     return genai.Client(vertexai=True, project=os.getenv("GOOGLE_CLOUD_PROJECT"),
-                        location=os.getenv("GOOGLE_CLOUD_LOCATION", "global"))
+                        location=os.getenv("GOOGLE_CLOUD_LOCATION", "global"),
+                        http_options=http_options())
 
 
 def call_gemini(client, model, system, content, schema, perturb=False, max_tokens=None):
@@ -520,25 +636,28 @@ def call_gemini(client, model, system, content, schema, perturb=False, max_token
     return client.models.generate_content(model=model, contents=content, config=cfg)
 
 
-def schema_preflight(client, model, pairs):
+def schema_preflight(client, model, pairs, stats=None):
     """Before any document is sent: one ~20-token call per (source, kind) with the
-    real response schema and the real audit schema. A schema the API rejects
+    real structure, capsules and laws schemas. A schema the API rejects
     (400 "too many states", unsupported keyword) fails HERE with the API's own
     message, not on document 1 of 80. Cost: well under a cent."""
     from google.genai import types
     problems = []
     for source, kind in sorted(set(pairs)):
         cands = ("mülkiyet_hakkı",) if kind == "aym_individual_application" else ()
-        for label, schema in (("response", response_model_for(source, kind, cands)),
-                              ("audit", audit_model_for(source, kind))):
+        for label, schema in (("structure", structure_model_for(source, kind, cands)),
+                              ("capsules", capsules_model_for(source, kind, cands)),
+                              ("laws", LawsResponse)):
             try:
-                client.models.generate_content(
+                resp = client.models.generate_content(
                     model=model, contents="ping",
                     config=types.GenerateContentConfig(
                         temperature=0, max_output_tokens=16,
                         thinking_config=types.ThinkingConfig(thinking_budget=0),
                         response_mime_type="application/json", response_schema=schema,
                         system_instruction="Reply with any valid instance."))
+                if stats is not None:
+                    _usage(resp, stats, "preflight")
             except Exception as exc:                            # noqa: BLE001
                 msg = str(exc)
                 if "400" in msg or "INVALID_ARGUMENT" in msg or "schema" in msg.lower():
@@ -547,10 +666,13 @@ def schema_preflight(client, model, pairs):
     return problems
 
 
-def _usage(resp, stats):
+def _usage(resp, stats, name):
     u = getattr(resp, "usage_metadata", None)
-    stats["input_tokens"] += getattr(u, "prompt_token_count", 0) or 0
-    stats["output_tokens"] += getattr(u, "candidates_token_count", 0) or 0
+    tin, tout = getattr(u, "prompt_token_count", 0) or 0, getattr(u, "candidates_token_count", 0) or 0
+    stats["input_tokens"] += tin
+    stats["output_tokens"] += tout
+    stats[f"{name}_input_tokens"] += tin
+    stats[f"{name}_output_tokens"] += tout
 
 
 def _finish(resp):
@@ -566,17 +688,25 @@ def _finish(resp):
 
 
 def _ref_idxs(refs, n):
-    out = []
+    """Valid paragraph numbers of `refs`, deduplicated, in DOCUMENT order."""
+    out = set()
     for r in refs:
         m = re.fullmatch(r"p(\d+)", str(r).strip())
-        if m and 1 <= int(m.group(1)) <= n and int(m.group(1)) not in out:
-            out.append(int(m.group(1)))
-    return out
+        if m and 1 <= int(m.group(1)) <= n:
+            out.add(int(m.group(1)))
+    return sorted(out)
+
+
+def _first_ref(seg, n):
+    return (_ref_idxs(seg.paragraph_refs, n) or [10 ** 9])[0]
 
 
 def normalise_segments(segments, paras):
-    """A paragraph listed twice keeps its FIRST segment; a segment under
-    FRAGMENT_CHARS that is not a heading joins the previous one. Returns
+    """A paragraph listed twice keeps its FIRST segment; segments are put in
+    document order; a segment under FRAGMENT_CHARS that is not a heading joins
+    the previous segment if it has the SAME role, else the next one if that has
+    the same role, else it stays its own chunk (a short ruling line such as
+    "karar verilmiştir." must never become part of the reasoning). Returns
     (segments, alias, log): alias maps a merged/emptied local_id to the
     local_id that now holds its paragraphs, so capsule pointers still resolve."""
     n, owner, out, alias, log = len(paras), {}, [], {}, []
@@ -595,95 +725,86 @@ def normalise_segments(segments, paras):
             log.append(f"segment_emptied:{seg.local_id}")
             continue
         out.append(seg.model_copy(update={"paragraph_refs": keep}))
+    out.sort(key=lambda sg: _first_ref(sg, n))
+
+    def joined(a, b):
+        update = {"paragraph_refs": [f"p{i}" for i in _ref_idxs(list(a.paragraph_refs) + list(b.paragraph_refs), n)]}
+        if "rights" in type(a).model_fields:
+            update["rights"] = list(dict.fromkeys((a.rights or []) + (b.rights or []))) or None
+        return a.model_copy(update=update)
+
     merged = []
-    for seg in out:
+    for k, seg in enumerate(out):
         text = " ".join(paras[i - 1] for i in _ref_idxs(seg.paragraph_refs, n))
-        if merged and len(text) < FRAGMENT_CHARS and not is_heading_line(text):
-            prev = merged[-1]
-            merged[-1] = prev.model_copy(update={
-                "paragraph_refs": list(prev.paragraph_refs) + list(seg.paragraph_refs),
-                "cited_legislations": list(prev.cited_legislations) + list(seg.cited_legislations)})
-            alias[seg.local_id] = prev.local_id
-            log.append(f"fragment_merged:{seg.local_id}->{prev.local_id}:{text[:30]}")
-        else:
-            merged.append(seg)
-    return merged, alias, log
-
-
-
-# 5. AUDIT -- the second read. The model decides; code applies.
-
-
-
-def audit(client, model, paras, segments, capsules, source, kind, record, stats):
-    schema = audit_model_for(source, kind)
-    system = prompts.build_audit_instruction(source, kind, prompts.ROLE_VOCAB[source][1],
-                                             OUTCOME_BY_KIND[kind], OUTCOME_GLOSS)
-    content = prompts.build_audit_content(paras, segments, capsules,
-                                          aym_hint(record, kind) if source == "aym" else None,
-                                          no_ruling=not any(sg.role in RULING_ROLES for sg in segments))
-    for attempt in (1, 2):
-        # A truncated audit is a citation loop on a very long decision; the
-        # retry drops the citation list and keeps the role/outcome review.
-        sch = schema if attempt == 1 else audit_model_for(source, kind, citations=False)
-        sys_ = system if attempt == 1 else system + "\n\nDo not return missing_citations this time."
-        resp = call_gemini(client, model, sys_, content, sch, max_tokens=32768)
-        _usage(resp, stats)
-        if _finish(resp) != "MAX_TOKENS":
-            return sch.model_validate_json(resp.text)
-    raise ValueError("audit response truncated twice")
-
-
-def apply_audit(segments, capsules, verdict, source=None):
-    log, by_id = [], {s.local_id: k for k, s in enumerate(segments)}
-    segments, capsules = list(segments), list(capsules)
-    for fix in verdict.role_fixes:
-        k = by_id.get(fix.local_id)
-        if k is None or segments[k].role == fix.role:
+        if len(text) < FRAGMENT_CHARS and not is_heading_line(text):
+            if merged and merged[-1].role == seg.role:
+                alias[seg.local_id] = merged[-1].local_id
+                log.append(f"fragment_merged:{seg.local_id}->{merged[-1].local_id}:{text[:30]}")
+                merged[-1] = joined(merged[-1], seg)
+                continue
+            if k + 1 < len(out) and out[k + 1].role == seg.role:
+                alias[seg.local_id] = out[k + 1].local_id
+                log.append(f"fragment_merged:{seg.local_id}->{out[k + 1].local_id}:{text[:30]}")
+                out[k + 1] = joined(out[k + 1], seg)
+                continue
+        merged.append(seg)
+    # The operative ruling is ONE chunk: consecutive ruling segments (heading, each
+    # numbered item, costs, the closing line) are joined -- one chunk per line split
+    # a first-instance HÜKÜM into 6 chunks. Structural, no vocabulary.
+    final = []
+    for seg in merged:
+        if final and final[-1].role in RULING_ROLES and seg.role in RULING_ROLES \
+                and _first_ref(seg, n) == _ref_idxs(final[-1].paragraph_refs, n)[-1] + 1:
+            alias[seg.local_id] = final[-1].local_id
+            log.append(f"ruling_segments_joined:{seg.local_id}->{final[-1].local_id}")
+            final[-1] = joined(final[-1], seg)
             continue
-        # The prompt limits role fixes to four clear cases; the model does not
-        # respect that on its own (61 changes on one Danıştay decision), so code
-        # does: into the catch-all role, into a ruling role, into dissent, or a
-        # kvkk stage change. Everything else is the first pass's call.
-        allowed = (fix.role in RULING_ROLES or fix.role in DISSENT_ROLES
-                   or fix.role in CATCHALL_ROLE.values() or fix.role == "other"
-                   or source in ("kvkk", "rekabet"))
-        if not allowed:
-            log.append(f"audit_fix_out_of_scope:{fix.local_id}:{segments[k].role}->{fix.role}")
+        final.append(seg)
+    return final, alias, log
+
+
+
+# 5. LAWS -- the citations of every paragraph, from the second request
+
+
+def laws_windows(paras):
+    """[(first, last), ...]: consecutive paragraph numbers covering every paragraph
+    exactly once, each window at most LAWS_WINDOW_PARAS paragraphs and
+    LAWS_WINDOW_CHARS characters (one longer paragraph is a window of its own)."""
+    out, start, size = [], 1, 0
+    for i, para in enumerate(paras, 1):
+        if i > start and (i - start >= LAWS_WINDOW_PARAS or size + len(para) > LAWS_WINDOW_CHARS):
+            out.append((start, i - 1))
+            start, size = i, 0
+        size += len(para)
+    if paras:
+        out.append((start, len(paras)))
+    return out
+
+
+def citations_by_paragraph(laws, n, log, window=None):
+    """{paragraph number: [CitedLegislation, ...]} from one LAWS answer (None when
+    that call failed). `window` (first, last) is the part that request answered for:
+    refs outside it are dropped; paragraphs it did not list are counted, never guessed."""
+    out = {}
+    if laws is None:
+        return out
+    lo, hi = window or (1, n)
+    answered, invalid = set(), 0
+    for item in laws.paragraphs:
+        idx = _ref_idxs([item.ref], n)
+        if not idx or not lo <= idx[0] <= hi:
+            invalid += 1
             continue
-        # Structural guard, no vocabulary: a decision keeps at least one
-        # ruling-role segment. On Yargıtay the second read moved the paragraph
-        # carrying BOZULMASINA / REDDİNE out of `conclusion`, leaving no ruling.
-        if segments[k].role in RULING_ROLES and fix.role not in RULING_ROLES and \
-                sum(1 for sg in segments if sg.role in RULING_ROLES) == 1:
-            log.append(f"audit_fix_refused:{fix.local_id}:{segments[k].role}->{fix.role}:"
-                       f"would leave no ruling segment")
-            continue
-        log.append(f"audited_role:{fix.local_id}:{segments[k].role}->{fix.role}:{fix.reason[:70]}")
-        segments[k] = segments[k].model_copy(update={"role": fix.role})
-    for fix in verdict.outcome_fixes:
-        if fix.outcome == "other":
-            log.append(f"audit_fix_refused:outcome[{fix.capsule_index}]->other")
-            continue
-        if 0 <= fix.capsule_index < len(capsules) and capsules[fix.capsule_index].outcome != fix.outcome:
-            log.append(f"audited_outcome:[{fix.capsule_index}]:{capsules[fix.capsule_index].outcome}"
-                       f"->{fix.outcome}:{fix.reason[:70]}")
-            capsules[fix.capsule_index] = capsules[fix.capsule_index].model_copy(
-                update={"outcome": fix.outcome})
-    for m in verdict.missing_capsules:
-        log.append(f"audit_missing_capsule:{m.outcome}:{slug(m.subject)}:{m.reason[:70]}")
-    added = 0
-    for mc in getattr(verdict, "missing_citations", []):
-        k = by_id.get(mc.local_id)
-        if k is None:
-            continue
-        cite = CitedLegislation(**{f: getattr(mc, f) for f in CitedLegislation.model_fields})
-        segments[k] = segments[k].model_copy(
-            update={"cited_legislations": list(segments[k].cited_legislations) + [cite]})
-        added += 1
-    if added:
-        log.append(f"audited_citations_added:{added}")
-    return segments, capsules, (log or ["audit_agreed"])
+        answered.add(idx[0])
+        if item.cited_legislations:
+            out.setdefault(idx[0], []).extend(item.cited_legislations)
+    span = f" in p{lo}-p{hi}" if window else ""
+    if invalid:
+        log.append(f"laws_invalid_ref:{invalid}{span}")
+    if len(answered) < hi - lo + 1:
+        log.append(f"laws_paragraphs_not_answered:{hi - lo + 1 - len(answered)} of {hi - lo + 1}{span}")
+    return out
 
 
 
@@ -704,7 +825,7 @@ def normalise_article_key(article_no):
     return re.sub(r"[^a-zçğıöşü0-9/]+", "-", s).strip("-") or "unknown"
 
 
-def make_canonical_id(law_no, article_no, legislation_type, law_name):
+def make_canonical_id(law_no, article_no, legislation_type, law_name, law_short=None):
     art = normalise_article_key(article_no)
     if law_no:
         return f"{re.sub(r'[^0-9]', '', str(law_no)) or law_no}/{art}"
@@ -712,6 +833,8 @@ def make_canonical_id(law_no, article_no, legislation_type, law_name):
         return f"constitution/{art}"
     if law_name:
         return f"{re.sub(r'[^a-zçğıöşü0-9]+', '-', lib.tr_lower(law_name)).strip('-')}/{art}"
+    if law_short:
+        return f"{lib.tr_lower(law_short)}/{art}"
     return None
 
 
@@ -751,23 +874,140 @@ def fill_uncovered(segments, paras, source, log):
             run_.append(i)
     if run_:
         gaps.append(run_)
-    if not gaps:
-        return list(segments)
-    role = CATCHALL_ROLE.get(source, "other")
-    fillers = [SimpleNamespace(local_id=f"fill_{k}", paragraph_refs=[f"p{i}" for i in g],
-                               role=role, confidence="low", cited_legislations=[], rights=None)
-               for k, g in enumerate(gaps, 1)]
-    spans = ",".join(f"p{g[0]}" + (f"-p{g[-1]}" if len(g) > 1 else "") for g in gaps)
-    log.append(f"uncovered_filled:{sum(len(g) for g in gaps)} paragraph(s) in {len(gaps)} "
-               f"catch-all segment(s): {spans}")
-    out = list(segments) + fillers
-    out.sort(key=lambda sg: (_ref_idxs(sg.paragraph_refs, n) or [10 ** 9])[0])
+    out = list(segments)
+    if gaps:
+        role = CATCHALL_ROLE.get(source, "other")
+        out += [SimpleNamespace(local_id=f"fill_{k}", paragraph_refs=[f"p{i}" for i in g],
+                                role=role, confidence="low", rights=None)
+                for k, g in enumerate(gaps, 1)]
+        spans = ",".join(f"p{g[0]}" + (f"-p{g[-1]}" if len(g) > 1 else "") for g in gaps)
+        log.append(f"uncovered_filled:{sum(len(g) for g in gaps)} paragraph(s) in {len(gaps)} "
+                   f"catch-all segment(s): {spans}")
+    out.sort(key=lambda sg: _first_ref(sg, n))          # chunks are stored in document order
+    for sg in out:
+        idxs = _ref_idxs(sg.paragraph_refs, n)
+        if idxs and idxs[-1] - idxs[0] + 1 != len(idxs):
+            log.append(f"noncontiguous_segment:{sg.local_id}:p{idxs[0]}-p{idxs[-1]} holds {len(idxs)}")
     return out
 
 
-def build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date, log):
+def fallback_segments(paras, source):
+    """The model gave no usable answer: consecutive paragraphs grouped up to the
+    size cap, catch-all role, low confidence. The record is stored, flagged
+    `fallback_no_model`, and can be rerun by id."""
+    from types import SimpleNamespace
+    groups, cur, size = [], [], 0
+    for i, p in enumerate(paras, 1):
+        if cur and size + 1 + len(p) > lib.MAX_CHUNK_CHARS:
+            groups.append(cur)
+            cur, size = [], 0
+        cur.append(i)
+        size += len(p) + (1 if size else 0)
+    if cur:
+        groups.append(cur)
+    role = CATCHALL_ROLE.get(source, "other")
+    return [SimpleNamespace(local_id=f"fallback_{k}", paragraph_refs=[f"p{i}" for i in g], role=role,
+                            confidence="low", rights=None)
+            for k, g in enumerate(groups, 1)]
+
+
+_QUOTES = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "`": "'", "´": "'", "′": "'",
+                         "“": '"', "”": '"', "„": '"', "«": '"', "»": '"'})
+
+
+def ground_form(s):
+    """Text as compared for citation grounding: one apostrophe and one quote
+    form, Turkish upper case, single spaces."""
+    return lib.tr_upper(norm_ws(s).translate(_QUOTES))
+
+
+def _number_in(num, text):
+    return bool(num) and re.search(rf"(?<!\d){re.escape(str(num))}(?!\d)", text) is not None
+
+
+def _blank(v):
+    """'' and whitespace are null (null policy: an empty field is null, never '')."""
+    v = norm_ws(v) if isinstance(v, str) else v
+    return v or None
+
+
+def _article_in(article_no, text):
+    """The article is stated in `text`: as written ("353/1-b-1") or its leading number."""
+    if not article_no:
+        return False
+    lead = re.match(r"\d+", article_no)
+    return _number_in(article_no, text) or bool(lead and _number_in(lead.group(0), text))
+
+
+def clean_citation(c, para, doc_up, counts):
+    """One LAWS-answer citation, checked against ITS OWN paragraph -> the stored dict,
+    or None. Every stored field is what the decision states, or null."""
+    if c.legislation_type == "not_legislation":
+        counts["dropped_non_legislation"] += 1
+        return None
+    if c.legislation_type == "treaty":
+        counts["dropped_treaty"] += 1                  # no stored home yet (README)
+        return None
+    law_no, law_short, law_name = _blank(c.law_no), _blank(c.law_short), _blank(c.law_name)
+    article_no, paragraph_no = _blank(c.article_no), _blank(c.paragraph_no)
+    law_date, quote = _blank(c.law_date), _blank(c.verbatim_mention)
+    para_up = ground_form(para)
+    law_digits = re.sub(r"\D", "", law_no or "")
+    quote_exact = bool(quote) and ground_form(quote) in para_up
+    # Grounded in the paragraph the answer put it on: the exact quote, the article
+    # number, or "<law number> sayılı". Otherwise the citation is not stored.
+    if not (quote_exact or _article_in(article_no, para)
+            or (law_digits and re.search(rf"(?<!\d){law_digits}\s*SAYILI", para_up))):
+        counts["citation_not_in_its_paragraph"] += 1
+        return None
+    if quote and not quote_exact:
+        quote = None                                   # never store a quote the text does not contain
+        counts["verbatim_not_exact_cleared"] += 1
+    # Docs 13.1: law_no only as the court states it. The Constitution has none (a
+    # stray number is the article); a number the decision never writes is not stored.
+    if c.legislation_type == "constitution" and law_no:
+        article_no = article_no or law_no
+        law_no = None
+        counts["constitution_law_no_cleared"] += 1
+    # A law number written in the citation's own quote ("3572 sayılı ... Kararname")
+    # is stated, not inferred: filled when the answer left law_no empty.
+    if not law_no and quote_exact and c.legislation_type != "constitution":
+        in_quote = set(re.findall(r"(?<![\d/])(\d{3,5})\s+sayılı", quote, re.IGNORECASE))
+        if len(in_quote) == 1:
+            law_no = law_digits = in_quote.pop()
+            counts["law_no_from_quote"] += 1
+    if law_no and not _number_in(law_digits or law_no, doc_up):
+        law_no = None
+        counts["law_no_not_in_document_cleared"] += 1
+    # law_short: an abbreviation written in capitals in this paragraph (HMK, T.B.K.).
+    # "Kanun" / "KANUN" is a back-reference word, not an abbreviation.
+    if law_short and (LOWER_RE.search(law_short)
+                      or re.sub(r"[.\s]", "", law_short) not in re.sub(r"[.\s]", "", para)):
+        law_short = None
+        counts["law_short_rejected"] += 1
+    law_short = normalise_law_short(law_short)
+    # law_name: a name the decision writes. One word ("Kanun", "Anayasa") is not a
+    # name; an abbreviation the model expanded (T.B.K. -> Türk Borçlar Kanunu) is not stated.
+    if law_name and (len(law_name.split()) < 2 or ground_form(law_name) not in doc_up):
+        law_name = None
+        counts["law_name_cleared"] += 1
+    if c.legislation_type == "constitution" and not article_no:
+        counts["constitution_without_article_dropped"] += 1   # also catches "Anayasa Mahkemesi"
+        return None
+    if not (law_no or law_short or law_name or article_no or c.legislation_type == "constitution"):
+        counts["citation_without_law_or_article_dropped"] += 1  # "Bu Kanun"
+        return None
+    return {"canonical_id": make_canonical_id(law_no, article_no, c.legislation_type, law_name, law_short),
+            "legislation_type": c.legislation_type, "law_no": law_no, "law_short": law_short,
+            "law_name": law_name, "article_no": article_no, "paragraph_no": paragraph_no,
+            "verbatim_mention": quote, "law_date": law_date, "confidence": "high" if article_no else "low"}
+
+
+def build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date, log, cites_by_para=None):
+    """A chunk's citations are the LAWS answer's citations of its own paragraphs."""
     role_field = SOURCES[source]["role_field"]
-    n, doc_up = len(paras), lib.tr_upper(norm_ws(" ".join(paras)))
+    n, doc_up = len(paras), ground_form(" ".join(paras))
+    cites_by_para = cites_by_para or {}
     chunks, id_map, counts = [], {}, Counter()
     for seg in segments:
         idxs = _ref_idxs(seg.paragraph_refs, n)
@@ -775,52 +1015,66 @@ def build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date,
         rng = refs[0] if len(refs) == 1 else f"{refs[0]}_to_{refs[-1]}"
         text = "\n".join(paras[i - 1] for i in idxs)
         content_type, stage = derive(seg.role)
+        # The citations of this segment's paragraphs, each checked against its own paragraph.
         cites, seen = [], set()
-        for c in seg.cited_legislations:
-            key = (c.law_no, c.article_no, c.paragraph_no, norm_ws(c.verbatim_mention))
-            if key in seen:
-                continue
-            seen.add(key)
-            if c.legislation_type == "not_legislation":
-                counts["dropped_non_legislation"] += 1
-                continue
-            if c.legislation_type == "treaty":
-                counts["dropped_treaty"] += 1          # no stored home yet (README)
-                continue
-            if c.verbatim_mention and lib.tr_upper(norm_ws(c.verbatim_mention)) not in doc_up \
-                    and not (c.article_no and re.search(rf"(?<!\d){re.escape(c.article_no)}(?!\d)", text)):
-                counts["citation_not_in_document"] += 1
-                continue
-            short = normalise_law_short(c.law_short)
-            if c.law_short and not short:
-                counts["law_short_rejected"] += 1
-            cites.append({"canonical_id": make_canonical_id(c.law_no, c.article_no, c.legislation_type, c.law_name),
-                          "legislation_type": c.legislation_type, "law_no": c.law_no,
-                          "law_short": short, "law_name": c.law_name, "article_no": c.article_no,
-                          "paragraph_no": c.paragraph_no, "verbatim_mention": c.verbatim_mention,
-                          "law_date": c.law_date, "confidence": c.confidence})
+        for i in idxs:
+            for c in cites_by_para.get(i, []):
+                key = (i, c.law_no, c.law_short, c.article_no, c.paragraph_no, norm_ws(c.verbatim_mention))
+                if key in seen:
+                    continue
+                seen.add(key)
+                cleaned = clean_citation(c, paras[i - 1], doc_up, counts)
+                if cleaned:
+                    cites.append((i, cleaned))
         pieces = lib.split_by_size_cap(text)
+        # Each citation lands in exactly ONE piece: the piece of its own paragraph that
+        # holds its quote, else its article number, else where that paragraph starts.
+        # (Matching the law number first put a quote from piece 2 on piece 1.)
+        gpieces = [ground_form(pc) for pc in pieces]
+        ends, pos = [], 0
+        for g in gpieces:
+            ends.append(pos + len(g))
+            pos += len(g) + 1
+        starts, pos = {}, 0
+        for i in idxs:
+            starts[i] = pos
+            pos += len(ground_form(paras[i - 1])) + 1
 
-        def in_piece(cite, piece):
-            """The piece that carries the citation: its quote, else its law number,
-            else its article number; a citation matching no piece goes to the first."""
-            up = lib.tr_upper(norm_ws(piece))
-            if cite["verbatim_mention"] and lib.tr_upper(norm_ws(cite["verbatim_mention"])) in up:
-                return True
-            if cite["law_no"] and str(cite["law_no"]) in piece:
-                return True
-            return bool(cite["article_no"] and re.search(rf"(?<!\d){re.escape(cite['article_no'])}(?!\d)", piece))
+        def piece_at(offset):
+            return next((k_ for k_, end in enumerate(ends) if offset <= end), len(pieces) - 1)
 
-        # Each citation lands in exactly ONE piece: the first that contains it,
-        # else the last. Attaching a segment's citations to every piece produced
-        # 312 entries for 55 real citations on one document.
+        joined = " ".join(gpieces)
+
+        def piece_of(i, cite):
+            first = piece_at(starts[i])
+            span = range(first, piece_at(starts[i] + len(ground_form(paras[i - 1]))) + 1)
+            quote = ground_form(cite["verbatim_mention"] or "")
+            whole = next((k_ for k_ in span if quote and quote in gpieces[k_]), None)
+            if whole is not None:
+                return whole
+            # The 2,000-character split cut the quote in two (6 of 271 citations on
+            # the 30-document run): the piece where the quote starts.
+            at = joined.find(quote, max(0, starts[i] - 50)) if quote else -1
+            if at >= 0:
+                return piece_at(at)
+            return next((k_ for k_ in span if _article_in(cite["article_no"], pieces[k_])), first)
+
         assign = {}
-        for c in cites:
-            idx = next((k_ for k_, piece in enumerate(pieces) if in_piece(c, piece)), len(pieces) - 1)
-            assign.setdefault(idx, []).append(c)
+        for i, c in cites:
+            assign.setdefault(piece_of(i, c), []).append(c)
         for j, piece in enumerate(pieces, 1):
             piece_rng = rng if len(pieces) == 1 else f"{rng}_p{j}"
-            piece_cites = assign.get(j - 1, [])
+            # One entry per provision per chunk: the same article named in two
+            # paragraphs of one segment comes back twice from the LAWS answer.
+            piece_cites, provisions = [], set()
+            for c in assign.get(j - 1, []):
+                prov = (c["canonical_id"] or c["law_short"] or c["law_name"] or ground_form(c["verbatim_mention"] or ""),
+                        c["article_no"], c["paragraph_no"])
+                if prov in provisions:
+                    counts["same_provision_merged"] += 1
+                    continue
+                provisions.add(prov)
+                piece_cites.append(c)
             chunk_id = make_chunk_id(doc_id, piece_rng)
             id_map.setdefault(seg.local_id, []).append(chunk_id)
             chunk = {
@@ -841,23 +1095,45 @@ def build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date,
             chunk["schema_version"] = CHUNK_SCHEMA_VERSION
             chunk["cited_legislations"] = piece_cites
             chunks.append(chunk)
-    for old, new in alias.items():                     # merged/emptied segments
-        id_map.setdefault(old, []).extend(id_map.get(new, []))
+    for old in alias:                                  # merged/emptied segments
+        new, hops = alias[old], {old}
+        while new in alias and new not in id_map and new not in hops:   # A -> B -> C chains
+            hops.add(new)
+            new = alias[new]
+        id_map.setdefault(old, []).extend(i for i in id_map.get(new, []) if i not in id_map[old])
     log += [f"{k}:{v}" for k, v in counts.items()]
     return chunks, id_map
 
 
-def build_capsules(capsules, id_map, source, case_no, decision_date, subject_type, log,
-                   role_of_chunk=None):
+def build_capsules(capsules, chunks, n, source, case_no, decision_date, subject_type, log):
+    """Capsules point at paragraphs; a capsule rests on every chunk holding one of them."""
     out = []
-    role_of_chunk = role_of_chunk or {}
+    by_para = {}
+    for c in chunks:
+        for i in _ref_idxs(c["source_paragraph_ids"], n):
+            by_para.setdefault(i, []).append(c["chunk_id"])
+    role_of_chunk = {c["chunk_id"]: c["role"] for c in chunks}
+    # The same outcome with the same conclusion sentence is one capsule written twice
+    # (a 561-paragraph norm review repeated two; a joint dissent came back again
+    # under one of its authors): kept once, support and authors merged.
+    merged = {}
     for cap in capsules:
-        support = []
-        for lid in cap.supporting_local_ids:
-            if lid in id_map:
-                support.extend(id_map[lid])
-            else:
-                log.append(f"dangling_support_dropped:{lid}")   # a segment the model never wrote
+        key = (cap.outcome, norm_ws(cap.conclusion_sentence))
+        if key in merged:
+            first = merged[key]
+            merged[key] = first.model_copy(update={
+                "supporting_paragraph_refs": list(dict.fromkeys(list(first.supporting_paragraph_refs)
+                                                                + list(cap.supporting_paragraph_refs))),
+                "dissent_authors": list(dict.fromkeys(list(first.dissent_authors) + list(cap.dissent_authors)))})
+            log.append(f"duplicate_capsule_merged:{cap.outcome}:{norm_ws(cap.conclusion_sentence)[:40]}")
+        else:
+            merged[key] = cap
+    for cap in merged.values():
+        idxs = _ref_idxs(cap.supporting_paragraph_refs, n)
+        bad = [r for r in cap.supporting_paragraph_refs if not _ref_idxs([r], n)]
+        if bad:
+            log.append(f"dangling_support_dropped:{','.join(map(str, bad[:5]))}")   # a paragraph that does not exist
+        support = list(dict.fromkeys(cid for i in idxs for cid in by_para.get(i, [])))
         # Docs 15.4: code cross-checks opinion_type against the roles of the
         # supporting chunks. A majority capsule never rests on dissent chunks; a
         # dissent capsule rests on dissent chunks when it has any. Repaired
@@ -884,8 +1160,8 @@ def build_capsules(capsules, id_map, source, case_no, decision_date, subject_typ
 
 
 
-# 7. CHECK -- mechanics only. Whether a role or outcome is RIGHT was the audit's
-# question; here: is every paragraph stored once, is nothing invented or empty.
+# 7. CHECK -- mechanics only: is every paragraph stored once, is nothing invented
+# or empty, do roles and capsules agree structurally.
 
 
 ARTICLE_NUM_RE = re.compile(r"\b(\d+)\s*(?:\.|['’ʼ]?\s*[IU]NC[IU]|['’ʼ]?\s*NC[IU])?\s*(?:/\s*[A-Z]\s*)?MADDE|\bMADDE\s+(\d+)")
@@ -955,12 +1231,29 @@ def verify_document(chunks, capsules, paras):
     role_of = {c["chunk_id"]: c["role"] for c in chunks}
     text_of = {c["chunk_id"]: c["text"] for c in chunks}
     doc_nums = stated_numbers(" ".join(paras))
+    doc_text = " ".join(paras)
+    doc_lang = language_of(" ".join(paras))
     if chunks and capsules and all(is_separate(c["opinion_type"]) for c in capsules):
         hard.append("no_majority_capsule")
     if chunks and not any(c["role"] in RULING_ROLES for c in chunks):
         # Structural: a decision has an operative ruling somewhere. Reported,
         # never used to drop the document.
         hard.append("no_ruling_chunk")
+    dissent_chunks = sum(1 for c in chunks if c["role"] in DISSENT_ROLES)
+    if dissent_chunks and not any(is_separate(c["opinion_type"]) for c in capsules):
+        # Structural: a dissent segment is a separate opinion, and every separate
+        # opinion gets a capsule. One without the other is a wrong role or a lost capsule.
+        hard.append(f"dissent_chunk_without_opinion_capsule:{dissent_chunks}")
+    if chunks:
+        # A ruling chunk followed by content and then by the real ruling is usually
+        # the case history quoting an earlier decision ("Karar sonucu: Daire ... bozmuş").
+        catchall = CATCHALL_ROLE.get(chunks[0]["source_type"], "other")
+        seq = [(c["role"], c["chunk_label"]) for c in sorted(chunks, key=lambda c: int(c["source_paragraph_ids"][0][1:]))]
+        last = max((k for k, (r, _) in enumerate(seq) if r in RULING_ROLES), default=None)
+        for k, (r, label) in enumerate(seq[:last] if last is not None else []):
+            if r in RULING_ROLES and any(r2 not in RULING_ROLES and r2 not in DISSENT_ROLES and r2 != catchall
+                                         for r2, _ in seq[k + 1:last]):
+                soft.append(f"ruling_chunk_before_content:{label}")
     for c in capsules:
         ids = c["supporting_chunk_ids"]
         roles = {role_of.get(i) for i in ids}
@@ -973,16 +1266,36 @@ def verify_document(chunks, capsules, paras):
         for field in ("reasoning_summary", "conclusion_sentence"):
             if not (c[field] or "").strip():
                 hard.append(f"{field}_empty:{c['opinion_type']}")
-            elif not looks_turkish(c[field]):
-                hard.append(f"{field}_not_turkish:{c['opinion_type']}")
+            elif doc_lang and language_of(c[field]) != doc_lang:
+                hard.append(f"{field}_not_in_decision_language:{language_of(c[field])}!={doc_lang}:"
+                            f"{c['opinion_type']}")
         sup_nums = stated_numbers(" ".join(text_of.get(i, "") for i in ids))
         for tok in sorted(stated_numbers(c["reasoning_summary"] + " " + c["conclusion_sentence"])):
-            if tok not in doc_nums:
+            # Article numbers also count when the decision writes them in a list
+            # ("334 ve devamı maddelerinde"), which the pattern does not read as an article.
+            if tok not in doc_nums and not (tok[0] == "m" and _number_in(tok[1:], doc_text)):
                 (hard if tok[0] in "ke" else soft).append(f"number_not_in_document:{tok}")
             elif tok not in sup_nums:
                 soft.append(f"number_not_in_support:{tok}")
         if c["outcome"] == "other":
             soft.append(f"outcome_other:{c['opinion_type']}")
+        if len(c["conclusion_sentence"] or "") > 400:
+            soft.append(f"conclusion_sentence_long:{len(c['conclusion_sentence'])} chars:{c['opinion_type']}")
+        if c["opinion_type"].startswith("dissent"):
+            # Compared with the majority on the SAME subject: in a multi-provision
+            # decision a dissent may rightly share an outcome with another provision.
+            # A dissent's subject is often the majority's plus a suffix
+            # ("..._m3_1_e" -> "..._m3_1_e_karsi_oy"): the longest shared subject wins.
+            majority = [x for x in capsules if not is_separate(x["opinion_type"])]
+            sid = c["subject_id"]
+            related = [x for x in majority if x["subject_id"] == sid or sid.startswith(x["subject_id"] + "_")
+                       or x["subject_id"].startswith(sid + "_")]
+            longest = max((len(x["subject_id"]) for x in related), default=0)
+            same = {x["outcome"] for x in related if len(x["subject_id"]) == longest}
+            if not related and len({x["outcome"] for x in majority}) == 1:
+                same = {majority[0]["outcome"]}
+            if c["outcome"] in same:
+                soft.append(f"dissent_same_outcome_as_majority:{c['outcome']}:{c['subject_id']}")
         if c["subject_id"] == "unspecified":
             hard.append("subject_id_unspecified")
     return hard, soft
@@ -993,97 +1306,298 @@ def verify_document(chunks, capsules, paras):
 
 
 
-class Failed(Exception):
-    def __init__(self, review):
-        super().__init__(review.get("error"))
-        self.review = review
+def extraction_issues(lost):
+    if not lost:
+        return []
+    top = sorted(lost.items(), key=lambda x: -x[1])[:8]
+    return [f"extraction_word_loss:{sum(lost.values())} word(s): " + ", ".join(f"{w}x{c}" for w, c in top)]
 
 
-def process_document(client, model, record, source, stats):
+def assemble(paras, source, doc_id, case_no, decision_date, subject_type, segments, alias,
+             capsules, cites_by_para, log):
+    """Everything after the model calls, no API: fill uncovered paragraphs, attach
+    citations by paragraph, assemble chunks and capsules, check.
+    assemble_document, test_chunk --stress, --replay and --rebuild all run this."""
+    segments = fill_uncovered(segments, paras, source, log)
+    chunks, _ = build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date, log, cites_by_para)
+    caps = build_capsules(list(capsules), chunks, len(paras), source, case_no, decision_date, subject_type, log)
+    issues, soft = verify_document(chunks, caps, paras)
+    return chunks, caps, issues, soft, log
+
+
+def mechanical_document(paras, source, doc_id, case_no, decision_date, reason, lost, cites_by_para=None):
+    """No structure answer, still every paragraph stored -- with the LAWS answers'
+    citations when those calls succeeded. No capsule."""
+    log = [f"fallback_no_model:{reason}"]
+    segments = fallback_segments(paras, source)
+    chunks, _ = build_chunks(segments, {}, source, doc_id, case_no, paras, decision_date, log, cites_by_para)
+    issues, soft = verify_document(chunks, [], paras)
+    return chunks, [], [f"fallback_no_model:{reason}"] + extraction_issues(lost) + issues, soft, log
+
+
+# The three steps. prepare and assemble_document are pure code; only call_request
+# talks to the API, so batch mode replaces call_request and nothing else.
+
+
+def prepare(record, source):
+    """Record -> job: paragraphs, code-owned fields and the requests (structure,
+    capsules, laws_1..laws_k). A request is plain data (name, system text, content
+    text, response model, limit note, window): sent by call_request now, written
+    into a batch file later. A job without requests is stored mechanically."""
     doc_id = str(record.get("doc_id"))
-    paras, coverage, plain_ct = paragraphs(record)
-    case_no = compute_case_no(record, source)
-    if not paras or coverage < MIN_COVERAGE:
-        return None, None, {"doc_id": doc_id, "case_no": case_no, "reason": "input_incomplete",
-                            "error": f"paragraphs carry {coverage:.0%} of the record's text "
-                                     f"(minimum {MIN_COVERAGE:.0%}); nothing sent"}
+    paras, lost, plain_ct = paragraphs(record)
+    job = {"doc_id": doc_id, "source": source, "case_no": compute_case_no(record, source),
+           "paras": paras, "lost": lost, "requests": {}}
+    if not paras:
+        return job
     kind = kind_of(record, source)
     cands = candidate_rights(record) if kind == "aym_individual_application" else []
-    schema = response_model_for(source, kind, cands)
-    decision_date = compute_decision_date(record, paras)
-    subject_type = resolve_subject_type(record, source, kind)
     vocab = {"outcomes": OUTCOME_BY_KIND[kind], "gloss": OUTCOME_GLOSS,
              "opinion_kinds": OPINION_KINDS if source in ("kvkk", "rekabet") else OPINION_KINDS[:3],
              "legislation_types": RESPONSE_LEGISLATION_TYPES}
-    prompt_args = dict(source=source, kind=kind, case_no=case_no, candidate_rights=cands,
-                       examined=examined_norms(record) if kind == "aym_norm_review" else [],
-                       vocab=vocab)
+    # A worked-example document gets no worked example: it would be shown its own answer.
+    with_example = not prompts.is_example_document(source, job["case_no"], doc_id)
+    chars = sum(len(p) for p in paras)
+    job.update(kind=kind, decision_date=compute_decision_date(record, paras),
+               subject_type=resolve_subject_type(record, source, kind),
+               predicted=int(chars * 0.35),
+               base_review={"doc_id": doc_id, "case_no": job["case_no"], "kind": kind,
+                            "words_lost": sum(lost.values()), "paragraphs": len(paras),
+                            "worked_example": with_example})
+    if chars > MAX_DOCUMENT_CHARS:
+        job["skip_reason"] = "document_too_long"
+        return job
     # Both views (owner's decision): numbered paragraphs always; the plain
     # content_text as a reference copy only when it holds words the paragraphs lack.
-    extra = plain_ct if plain_ct and coverage < 0.999 else None
-    content = prompts.build_user_content(paras, plain_copy=extra)
-    predicted = int(sum(len(p) for p in paras) * 0.35)
-    if predicted > MAX_OUTPUT_TOKENS:
-        return None, None, {"doc_id": doc_id, "case_no": case_no, "reason": "document_too_long",
-                            "error": f"~{predicted:,} output tokens predicted; nothing sent"}
+    plain = plain_ct if plain_ct and lost else None
+    content = prompts.build_user_content(paras, plain_copy=plain)
+    requests = {
+        "structure": {"name": "structure", "content": content, "predicted": job["predicted"],
+                      "system": prompts.build_structure_instruction(source, kind, job["case_no"], cands, vocab,
+                                                                    with_example=with_example),
+                      "schema": structure_model_for(source, kind, cands),
+                      "limit_note": prompts.STRUCTURE_LIMIT_NOTE},
+        "capsules": {"name": "capsules", "content": content, "predicted": job["predicted"],
+                     "system": prompts.build_capsules_instruction(
+                         source, kind, job["case_no"], cands,
+                         examined_norms(record) if kind == "aym_norm_review" else [], vocab,
+                         with_example=with_example,
+                         metadata_hint=aym_hint(record, kind) if source == "aym" else None),
+                     "schema": capsules_model_for(source, kind, cands),
+                     "limit_note": prompts.CAPSULES_LIMIT_NOTE},
+    }
+    laws_system = prompts.build_laws_instruction(source)
+    for k, (lo, hi) in enumerate(laws_windows(paras), 1):
+        requests[f"laws_{k}"] = {"name": "laws", "window": [lo, hi], "system": laws_system,
+                                 "content": prompts.build_laws_content(paras, lo, hi, plain_copy=plain),
+                                 "predicted": int(sum(len(p) for p in paras[lo - 1:hi]) * 0.35),
+                                 "schema": LawsResponse, "limit_note": prompts.LAWS_LIMIT_NOTE}
+    job["requests"] = requests
+    return job
 
-    def generate(system):
-        raw, finish, err = None, None, None
-        for attempt in (1, 2, 3):
-            try:
-                # Attempt 3 exists for one failure mode: a citation loop that
-                # fills the output budget twice (one KVKK answer carried 298
-                # citation objects). The instruction caps citations; the schema
-                # cannot (Gemini rejects maxItems next to enums).
-                sys_ = system if attempt < 3 else system + (
-                    "\n\n## LIMIT\nYour previous answers overflowed. List at most 10 "
-                    "cited_legislations per segment, each provision once, verbatim_mention "
-                    "under 120 characters.")
-                resp = call_gemini(client, model, sys_, content, schema, perturb=attempt == 2,
-                                   max_tokens=min(MAX_OUTPUT_TOKENS, max(8192, predicted * 3)) if attempt >= 2 else None)
-                raw, finish = resp.text, _finish(resp)
-                _usage(resp, stats)
-                if finish == "MAX_TOKENS":
-                    raise ValueError("response truncated at max_output_tokens")
-                return schema.model_validate_json(raw), raw
-            except Exception as e:                       # noqa: BLE001
-                err = f"{type(e).__name__}: {e}"
-                if attempt == 3 or (attempt == 2 and finish != "MAX_TOKENS"):
-                    raise Failed({"doc_id": doc_id, "case_no": case_no,
-                                  "reason": "truncated" if finish == "MAX_TOKENS" else "api_or_parse_failed",
-                                  "error": err, "raw_response": raw})
 
-    def finish(parsed):
-        log = []
-        segments, alias, repair_log = normalise_segments(parsed.segments, paras)
-        log += repair_log
-        capsules = list(parsed.capsules)
+def call_request(client, model, req, predicted, stats):
+    """One request, up to three attempts: as prepared; perturbed (an identical
+    deterministic retry repeats the failure); and, only after a truncated answer,
+    with the request's limit note (a list that looped until the output budget ran
+    out). Quota and server errors are retried inside the SDK first (http_options).
+    Returns (parsed answer or None, raw text, error, notes)."""
+    raw, err, finish, notes = None, None, None, []
+    predicted = req.get("predicted", predicted)
+    for attempt in (1, 2, 3):
+        if attempt == 3 and finish != "MAX_TOKENS":
+            break
+        system = req["system"] + (f"\n\n## LIMIT\n{req['limit_note']}" if attempt == 3 else "")
+        finish = None
         try:
-            verdict = audit(client, model, paras, segments, capsules, source, kind, record, stats)
-            segments, capsules, audit_log = apply_audit(segments, capsules, verdict, source)
-            stats["audits"] += 1
-            stats["audit_fixes"] += sum(1 for f in audit_log if f.startswith("audited_"))
-            log += audit_log
-        except Exception as exc:                          # noqa: BLE001
-            log.append(f"audit_failed:{type(exc).__name__}:{str(exc)[:80]}")
-        segments = fill_uncovered(segments, paras, source, log)
-        chunks, id_map = build_chunks(segments, alias, source, doc_id, case_no, paras, decision_date, log)
-        caps = build_capsules(capsules, id_map, source, case_no, decision_date, subject_type, log,
-                              role_of_chunk={c["chunk_id"]: c["role"] for c in chunks})
-        issues, soft = verify_document(chunks, caps, paras)
-        return chunks, caps, issues, soft, log
+            resp = call_gemini(client, model, system, req["content"], req["schema"], perturb=attempt == 2,
+                               max_tokens=min(MAX_OUTPUT_TOKENS, max(8192, predicted * 3)) if attempt >= 2 else None)
+            raw, finish = resp.text, _finish(resp)
+            _usage(resp, stats, req["name"])
+            if finish == "MAX_TOKENS":
+                raise ValueError("response truncated at max_output_tokens")
+            return req["schema"].model_validate_json(raw), raw, None, notes
+        except Exception as e:                           # noqa: BLE001
+            err = f"{type(e).__name__}: {str(e)[:300]}"
+            label = req["name"] + (f"[p{req['window'][0]}-p{req['window'][1]}]" if req.get("window") else "")
+            notes.append(f"retry:{label}:attempt_{attempt}_failed:{err[:80]}")
+    return None, raw, ("truncated: " if finish == "MAX_TOKENS" else "") + (err or "no answer"), notes
 
-    try:
-        parsed, raw = generate(prompts.build_system_instruction(**prompt_args))
-    except Failed as f:
-        return None, None, f.review
-    # Nothing is rejected: the model decides, code repairs mechanically (gaps
-    # filled, duplicates removed, dangling pointers dropped) and REPORTS the rest.
-    chunks, caps, issues, soft, log = finish(parsed)
-    review = {"doc_id": doc_id, "case_no": case_no, "kind": kind, "coverage": coverage,
-              "paragraphs": len(paras), "issues": issues, "soft": soft, "log": log,
-              "raw_response": json.loads(raw) if raw else None}
+
+def assemble_document(job, answers, raws, errors, notes=()):
+    """Job + answers -> (chunks, capsules, review), no API. `answers` maps request
+    key to the parsed answer, None when that call failed. Nothing is rejected:
+      no structure answer    every paragraph stored in catch-all chunks, flagged fallback
+      no capsules answer     chunks without capsules; issue capsules_call_failed
+      a laws window failed   that window's paragraphs without citations; issue laws_call_failed"""
+    paras, source, doc_id = job["paras"], job["source"], job["doc_id"]
+    if not paras:
+        return None, None, {"doc_id": doc_id, "case_no": job["case_no"], "reason": "no_text",
+                            "error": "the record has no decision text; nothing to chunk"}
+    n, log = len(paras), list(notes)
+    structure, capsules = answers.get("structure"), answers.get("capsules")
+    laws_keys = [k for k in job["requests"] if k.startswith("laws")]
+    cites = {}
+    for k in laws_keys:
+        window = tuple(job["requests"][k]["window"])
+        for i, found in citations_by_paragraph(answers.get(k), n, log, window).items():
+            cites.setdefault(i, []).extend(found)
+
+    def as_json(k):
+        return json.loads(raws[k]) if answers.get(k) is not None and raws.get(k) else None
+    review = dict(job["base_review"], raw_response=as_json("structure"), raw_capsules=as_json("capsules"),
+                  raw_laws=[{"window": job["requests"][k]["window"], "answer": as_json(k)} for k in laws_keys])
+    failed_raw = {k: (raws.get(k) or "")[:4000] for k in job["requests"] if answers.get(k) is None and raws.get(k)}
+    if failed_raw:
+        review["raw_failed"] = failed_raw
+    head = []
+    if structure is None:
+        reason = job.get("skip_reason") or "api_or_parse_failed"
+        segments, alias = fallback_segments(paras, source), {}
+        log.append(f"fallback_no_model:{reason}")
+        head.append(f"fallback_no_model:{reason}")
+        review.update(fallback=reason, error=errors.get("structure"))
+    else:
+        segments, alias, nlog = normalise_segments(structure.segments, paras)
+        log += nlog
+    chunks, caps, issues, soft, log = assemble(paras, source, doc_id, job["case_no"], job["decision_date"],
+                                               job["subject_type"], segments, alias,
+                                               capsules.capsules if capsules is not None else [], cites, log)
+    if job["requests"] and capsules is None:
+        head.append(f"capsules_call_failed:{(errors.get('capsules') or '')[:80]}")
+    for k in laws_keys:
+        if answers.get(k) is None:
+            lo, hi = job["requests"][k]["window"]
+            head.append(f"laws_call_failed:p{lo}-p{hi}:{(errors.get(k) or '')[:60]}")
+    review.update(issues=head + extraction_issues(job["lost"]) + issues, soft=soft, log=log)
     return chunks, caps, review
+
+
+LANGUAGE_NAME = {"tr": "Turkish", "en": "English"}
+RETRY_SOFT = ("dissent_same_outcome_as_majority",)
+
+
+def problem_count(review):
+    """What a corrective retry must reduce: hard issues plus the soft notes it targets."""
+    return len(review.get("issues") or []) + sum(1 for x in review.get("soft") or [] if x.startswith(RETRY_SOFT))
+
+
+def corrections_for(review, chunks):
+    """{request key: correction note} for model slips code can see in an assembled
+    document. Each named request is sent ONCE more with the slip stated (F3); a call
+    that failed outright was already retried by call_request."""
+    if review.get("fallback"):
+        return {}
+    notes = {}
+
+    def add(key, text):
+        notes.setdefault(key, [])
+        if text not in notes[key]:
+            notes[key].append(text)
+    for issue in review.get("issues") or []:
+        if "_not_in_decision_language:" in issue:
+            lang = issue.split("!=")[-1].split(":")[0]
+            add("capsules", "conclusion_sentence and reasoning_summary must be written in the language of the "
+                            f"decision ({LANGUAGE_NAME.get(lang, lang)}); some of yours were not.")
+        elif issue == "no_ruling_chunk":
+            add("structure", "No segment has the conclusion/outcome role, but every decision has an operative "
+                             "ruling. Find it and give that segment the ruling role.")
+        elif issue.startswith("dissent_chunk_without_opinion_capsule"):
+            idxs = sorted({int(r[1:]) for c in chunks if c["role"] in DISSENT_ROLES for r in c["source_paragraph_ids"]})
+            runs, spans = [], []
+            for i in idxs:
+                if runs and i == runs[-1][-1] + 1:
+                    runs[-1].append(i)
+                else:
+                    runs.append([i])
+            spans = ", ".join(f"p{r[0]}" + (f"-p{r[-1]}" if len(r) > 1 else "") for r in runs)
+            add("capsules", f"Paragraphs {spans} are a separate opinion, but no dissent or concurring capsule was "
+                            "written. Write one capsule for each separate opinion, citing only its own paragraphs "
+                            "and naming its authors.")
+        elif issue == "no_majority_capsule":
+            add("capsules", "No majority (or board_decision) capsule was written; every decision has one for its "
+                            "operative ruling.")
+        elif issue.startswith(("capsule_without_support", "separate_opinion_unsupported", "majority_on_dissent")):
+            add("capsules", "Some supporting_paragraph_refs do not fit their capsule: a majority capsule cites the "
+                            "ruling and its reasoning, a separate opinion cites only its own paragraphs.")
+        elif issue == "subject_id_unspecified":
+            add("capsules", "subject_id must name the subject in dispute, never 'unspecified'.")
+    for note in review.get("soft") or []:
+        if note.startswith("dissent_same_outcome_as_majority"):
+            add("capsules", "A dissent capsule has the same outcome as the majority on the same subject. A "
+                            "dissent's outcome is what the DISSENTER would have decided: a dissenter who finds "
+                            "the provision unconstitutional -> annulled, who would keep it -> denied, who would "
+                            "find a violation -> violation. Check every dissent capsule's outcome against its own "
+                            "conclusion_sentence.")
+    return {k: " ".join(v) for k, v in notes.items()}
+
+
+def process_document(client, model, record, source, stats):
+    """(chunks, capsules, review) for one record: prepare, all requests in parallel,
+    assemble; then, for model slips code can see, one corrective retry of the
+    request concerned, kept only when it leaves fewer issues. chunks is None only
+    for a record with no text."""
+    from concurrent.futures import ThreadPoolExecutor
+    job = prepare(record, source)
+    answers, raws, errors, notes, usage = {}, {}, {}, [], {}
+    if job["requests"]:
+        usage = {key: Counter() for key in job["requests"]}
+        with ThreadPoolExecutor(max_workers=min(PARALLEL_REQUESTS, len(job["requests"]))) as pool:
+            futures = {key: pool.submit(call_request, client, model, req, job["predicted"], usage[key])
+                       for key, req in job["requests"].items()}
+        for key, fut in futures.items():
+            answers[key], raws[key], errors[key], n = fut.result()
+            notes += n
+    chunks, caps, review = assemble_document(job, answers, raws, errors, notes)
+    fixes = corrections_for(review, chunks) if chunks is not None else {}
+    if fixes:
+        answers2, raws2, errors2, notes2 = dict(answers), dict(raws), dict(errors), list(notes)
+        for key, note in fixes.items():
+            req = dict(job["requests"][key])
+            req["system"] += ("\n\n## Correction\nYour previous answer for THIS document had this problem: " + note
+                              + " Produce the whole answer again, fixing it and changing nothing else.")
+            usage[f"{key}_correction"] = Counter()
+            parsed, raw, err, n = call_request(client, model, req, job["predicted"], usage[f"{key}_correction"])
+            notes2 += n
+            if parsed is not None:
+                answers2[key], raws2[key], errors2[key] = parsed, raw, None
+        chunks2, caps2, review2 = assemble_document(job, answers2, raws2, errors2, notes2)
+        improved = problem_count(review2) < problem_count(review)
+        if improved:
+            chunks, caps, review = chunks2, caps2, review2
+        review["log"].append(f"corrective_retry:{'+'.join(fixes)}:{'improved' if improved else 'not_improved_first_kept'}")
+    for u in usage.values():
+        stats.update(u)
+    if usage:
+        review["tokens"] = {key: {"in": u["input_tokens"], "out": u["output_tokens"]} for key, u in usage.items()}
+        review["cost_usd"] = round(cost_usd(sum(u["input_tokens"] for u in usage.values()),
+                                            sum(u["output_tokens"] for u in usage.values())), 6)
+    return chunks, caps, review
+
+
+def write_output(out_root, source, chunks, caps, reviews, ran=None):
+    """Write one source's output. `ran` (the doc_ids of a targeted run) merges:
+    documents not in `ran` keep their chunks, capsules and reviews untouched;
+    documents in `ran` are replaced. Without `ran` the file is this run's."""
+    out_path = out_root / f"{source}.json"
+    review_path = out_root / f"{source}_review.json"
+    c, k, rv = chunks, caps, reviews
+    if ran is not None and out_path.is_file():
+        old = json.loads(out_path.read_text(encoding="utf-8"))
+        kept_old = [x for x in old.get("chunks", []) if doc_of(x) not in ran]
+        kept_ids = {x["chunk_id"] for x in kept_old}
+        c = kept_old + chunks
+        # keep only capsules of documents NOT in this run; this run's own
+        # capsules are re-added from `caps` (re-appending them from the file
+        # duplicated them on every write).
+        k = [x for x in old.get("reasoning_capsules", [])
+             if any(i in kept_ids for i in x["supporting_chunk_ids"])] + caps
+    if ran is not None:
+        rv = _merge(review_path, reviews, ran, lambda x: str(x.get("doc_id")))
+    if c or not out_path.is_file():
+        out_path.write_text(json.dumps({"chunks": c, "reasoning_capsules": k},
+                                       ensure_ascii=False, indent=2), encoding="utf-8")
+    review_path.write_text(json.dumps(rv, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def _merge(path, new_items, ran_ids, key):
@@ -1112,13 +1626,16 @@ def run(sources, limit, doc_ids=None, out_dir=None):
                 continue
             if r.get("status") in USABLE_STATUSES:
                 pairs.append((source, kind_of(r, source)))
-    problems = schema_preflight(client, model, pairs)
+    pre = Counter()
+    problems = schema_preflight(client, model, pairs, pre)
     if problems:
         for pr in problems:
             print("  SCHEMA REJECTED BY API: " + pr)
         raise SystemExit("stopped before sending any document: fix the schema above")
-    print(f"schema preflight: {len(set(pairs))} kind(s) accepted by the API\n")
-    total = Counter()
+    print(f"schema preflight: {len(set(pairs))} kind(s) accepted by the API | "
+          f"cost ${cost_usd(pre['input_tokens'], pre['output_tokens']):.4f}\n")
+    total, total_tokens = Counter(), Counter(pre)
+    spent = cost_usd(pre["input_tokens"], pre["output_tokens"])
     for source in sources:
         path = DATA_DIR / f"{source}.json"
         if not path.is_file() or source in TEXT_PENDING_SOURCES:
@@ -1131,7 +1648,8 @@ def run(sources, limit, doc_ids=None, out_dir=None):
             by_id = {str(r.get("doc_id")): r for r in records}
             picked = [by_id[d] for d in doc_ids.get(source, []) if d in by_id]
         else:
-            picked = [r for r in usable if (source, str(r.get("doc_id"))) not in FEWSHOT_DOC_IDS][:limit]
+            # Worked-example documents are chunked like any other, without their example.
+            picked = usable[:limit]
         ran = {str(r.get("doc_id")) for r in picked}
         chunks, caps, reviews = [], [], []
         stats = Counter()
@@ -1139,25 +1657,7 @@ def run(sources, limit, doc_ids=None, out_dir=None):
 
         def flush():
             """Write after EVERY document; a targeted run merges by doc_id."""
-            out_path = out_root / f"{source}.json"
-            c, k, rv = chunks, caps, reviews
-            if doc_ids and out_path.is_file():
-                old = json.loads(out_path.read_text(encoding="utf-8"))
-                kept_old = [x for x in old.get("chunks", []) if doc_of(x) not in ran]
-                kept_ids = {x["chunk_id"] for x in kept_old}
-                c = kept_old + chunks
-                # keep only capsules of documents NOT in this run; this run's own
-                # capsules are re-added from `caps` (re-appending them from the file
-                # duplicated them on every write).
-                k = [x for x in old.get("reasoning_capsules", [])
-                     if any(i in kept_ids for i in x["supporting_chunk_ids"])] + caps
-            if doc_ids:
-                rv = _merge(out_root / f"{source}_review.json", reviews, ran, lambda x: str(x.get("doc_id")))
-            if c or not out_path.is_file():
-                out_path.write_text(json.dumps({"chunks": c, "reasoning_capsules": k},
-                                               ensure_ascii=False, indent=2), encoding="utf-8")
-            (out_root / f"{source}_review.json").write_text(
-                json.dumps(rv, ensure_ascii=False, indent=2), encoding="utf-8")
+            write_output(out_root, source, chunks, caps, reviews, ran if doc_ids else None)
 
         from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -1174,26 +1674,41 @@ def run(sources, limit, doc_ids=None, out_dir=None):
             doc = str(rec.get("doc_id"))
             if ch is None:
                 reviews.append(review)
-                counts["failed"] += 1
-                print(f"  [{source}] {doc}  FAILED: {review['reason']}: {review.get('error', '')[:100]}")
+                counts["no_text"] += 1
+                print(f"  [{source}] {doc}  NO TEXT: {review.get('error', '')[:100]}")
             else:
                 chunks += ch
                 caps += cp
                 reviews.append(review)
                 counts["ok"] += 1
                 counts["with_issues"] += bool(review["issues"])
+                counts["fallback"] += bool(review.get("fallback"))
                 notes = review["issues"] + [x for x in review["log"] if x.startswith(
-                    ("audited_", "audit_missing", "audit_failed", "uncovered_filled", "dangling_support"))] + review["soft"]
-                print(f"  [{source}] {doc}  {len(ch)} chunks, {len(cp)} capsules"
+                    ("retry:", "laws_", "corrective_retry", "uncovered_filled", "dangling_support"))] + review["soft"]
+                spent += review.get("cost_usd", 0.0)
+                print(f"  [{source}] {doc}  {len(ch)} chunks, {len(cp)} capsules | "
+                      f"${review.get('cost_usd', 0.0):.4f} (run so far ${spent:.4f})"
                       + (f"  | {'; '.join(n[:90] for n in notes[:3])}" if notes else ""))
             flush()
         pool.shutdown(wait=True)
         total.update(counts)
+        total_tokens.update(stats)
         print(f"=== {source} === {len(picked)} docs | stored {counts['ok']} (with issues to review "
-              f"{counts['with_issues']}) | failed {counts['failed']} | {len(chunks)} chunks | {len(caps)} capsules")
-        print(f"  audit: {stats['audits']} second reads, {stats['audit_fixes']} fixes | "
-              f"tokens in {stats['input_tokens']:,} out {stats['output_tokens']:,}\n")
-    print(f"TOTAL stored {total['ok']} | with issues {total['with_issues']} | failed {total['failed']}")
+              f"{counts['with_issues']}; stored WITHOUT a model answer {counts['fallback']}) | "
+              f"no text {counts['no_text']} | {len(chunks)} chunks | {len(caps)} capsules")
+        retries = sum(1 for rv in reviews for x in rv.get("log", []) if x.startswith("retry:"))
+        print(f"  output tokens: structure {stats['structure_output_tokens']:,} | capsules "
+              f"{stats['capsules_output_tokens']:,} | laws "
+              f"{stats['laws_output_tokens']:,} | retried attempts {retries} | "
+              f"tokens in {stats['input_tokens']:,} out {stats['output_tokens']:,} | "
+              f"cost ${cost_usd(stats['input_tokens'], stats['output_tokens']):.4f}\n")
+    print(f"TOTAL stored {total['ok']} | with issues {total['with_issues']} | "
+          f"without a model answer (rerun by id) {total['fallback']} | no text {total['no_text']}")
+    grand = cost_usd(total_tokens["input_tokens"], total_tokens["output_tokens"])
+    docs = max(total["ok"], 1)
+    print(f"COST ${grand:.4f} for {total['ok']} document(s), ${grand / docs:.4f} per document "
+          f"(schema check included) | tokens in {total_tokens['input_tokens']:,} out "
+          f"{total_tokens['output_tokens']:,} | the same work as a batch job: ${grand / 2:.4f}")
 
 
 def main():
